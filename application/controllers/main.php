@@ -27,6 +27,7 @@ class Main extends CI_Controller {
 
     public function fgetcsv(){
       echo "halo";
+      echo "ubah fungsi csv";
 
     }
 
