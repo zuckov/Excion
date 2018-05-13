@@ -1,6 +1,6 @@
 <?php echo "ini home"; ?>
 <br>
-<?php //echo base_url; ?>
+<?php echo base_url(); ?>
 <br>
 
 coba <a href="index.php/main/fgetcsv">fgetcsv</a>
