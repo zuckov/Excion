@@ -9,10 +9,12 @@ class Main extends CI_Controller {
 
     public function index()
     {
-      $this->load->view('view');
+      //$this->load->view('view');
+	   $this->load->view('templates/index');
     }
 
-    public function view($page='home') {
+    /*
+	public function view($page='home') {
       if (!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
         # kalo ga nemu
         show_404();
@@ -23,14 +25,15 @@ class Main extends CI_Controller {
       //$this->load->view('templates/header', $data);
       //$this->load->view('pages/'.$page, $data);
       //$this->load->view('templates/footer', $data);
-	  //*/
+	  //
 	  $this->load->view('templates/index', $data);
 	  
     }
-
+	*/
 
     public function fgetcsv(){
-      echo "halo";
+      //$data = echo "halo";
+	  $this->load->view('templates/csv');
 
     }
 
