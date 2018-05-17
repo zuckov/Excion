@@ -27,13 +27,28 @@ class Main extends CI_Controller {
       //$this->load->view('templates/footer', $data);
 	  //
 	  $this->load->view('templates/index', $data);
-	  
+
     }
 	*/
 
     public function fgetcsv(){
       //$data = echo "halo";
-	  $this->load->view('templates/csv');
+      echo "csv";
+      $row = 1;
+      $handle = fopen(base_url('content/WONOGIRI.csv'), "r");
+
+      while (($data = fgetcsv($handle, 10000, ",")) !== FALSE) {
+        $num = count($data);
+        echo "<p> $num fields in line $row: <br /></p>\n";
+
+        $row++;
+        for ($c=0; $c < $num; $c++) {
+          echo $data[$c] . "<br />\n";
+        }
+      }
+
+      fclose($handle);
+	    //$this->load->view('templates/csv');
 
     }
 
