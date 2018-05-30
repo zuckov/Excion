@@ -7,6 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+	<!-- validasi -->
+	<script>
+		var base_urls = "<? echo base_url(); ?>";
+	</script>
+	<script src=<?php base_url(); ?>'content/form_ajax.js'></script>
+
 	<title>Project Excion</title>
 
 	<!-- Google font -->
@@ -81,6 +87,8 @@
 					</li>-->
 					<li><a href="#contact">Contact</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
 				</ul>
 				<!-- /Main navigation -->
 
@@ -88,9 +96,9 @@
 		</nav>
 		<!-- /Nav -->
 
-		<!-- modal login -->
+		<!-- modal login 1-->
 		<div id="modalLogin" class="modal fade" role="dialog">
-  		<div class="modal-dialog modal-sm">
+  		<div class="modal-dialog modal-lg">
 
     	<!-- Modal content-->
     		<div class="modal-content">
@@ -99,9 +107,92 @@
         		<h4 class="modal-title">Login Form</h4>
       		</div>
       		<div class="modal-body">
-						<form action="<?php echo base_url('index.php/login/login'); ?>" method="post">
-							<input type="text" name="username" class="form-control" placeholder="Username"><br>
-							<input type="password" name="password" class="form-control" placeholder="Password">
+						<form action="<?php echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post">
+							<input type="text" name="username" id="username" class="form-control" placeholder="Username" onblur="validate('username', this.value)"><br>
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password" onblur="validate('password', this.value)">
+							<br>
+							<a href="#">Lupa Password || </a>
+							<a href="#">Buat Akun Baru </a>
+      		</div>
+      		<div class="modal-footer">
+						<input type="submit" class="btn btn-primary" value="Login">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+					</form>
+    		</div>
+  		</div>
+		</div>
+		<!-- /modal login -->
+
+		<!-- modal login 2-->
+		<div id="modalLogin2" class="modal fade" role="dialog">
+  		<div class="modal-dialog modal-lg">
+
+    	<!-- Modal content-->
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h4 class="modal-title">Login Form</h4>
+      		</div>
+      		<div class="modal-body">
+						<form action='#' id='frm_vld' method='post' name='frm_vld'>
+							<h3 align='center'>Silahkan mengisi form dibawah ini</h3>
+							<!-- <table align='center' cellpadding='5' cellspacing='5'> -->
+							<table>
+								<tr>
+									<td>Username</td>
+									<td>:</td>
+									<td><input type='text' name='username' id='username1' onblur="validate('username', this.value)"/></td>
+									<td><div id='username'></div></td>
+								</tr>
+								<tr>
+									<td>Password</td>
+									<td>:</td>
+									<td><input type='password' name='password' id='password1' onblur="validate('password', this.value)"/></td>
+									<td><div id='password'></div></td>
+								</tr>
+								<tr>
+									<td>E-mail</td>
+									<td>:</td>
+									<td><input type='text' name='email' id='email1' onblur="validate('email', this.value)"></td>
+									<td><div id='email'></div></td>
+								</tr>
+								<tr>
+									<td>Website</td>
+									<td>:</td>
+									<td><input type='text' name='website' id='website1' onblur="validate('website', this.value)"></td>
+									<td><div id='website'></div></td>
+								</tr>
+								<tr>
+									<td><input onclick= 'checkForm()' type='submit' name='submit' value='Submit'></td>
+									<td></td>
+									<td><input onClick="history.go(0)" type='reset' name='reset' value='Reset'></td>
+								</tr>
+							</table>
+						</form>
+    		</div>
+  		</div>
+		</div>
+		</div>
+		<!-- /modal login -->
+
+		<!-- modal ajax jquery-->
+		<div id="modalajaxjquery" class="modal fade" role="dialog">
+  		<div class="modal-dialog modal-lg">
+
+    	<!-- Modal content-->
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h4 class="modal-title">Login Form</h4>
+      		</div>
+      		<div class="modal-body">
+						<form action="<?php echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post">
+							<input type="text" name="username" id="username" class="form-control" placeholder="Username" onblur="validate('username', this.value)"><br>
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password" onblur="validate('password', this.value)">
+							<br>
+							<a href="#">Lupa Password || </a>
+							<a href="#">Buat Akun Baru </a>
       		</div>
       		<div class="modal-footer">
 						<input type="submit" class="btn btn-primary" value="Login">
@@ -126,6 +217,7 @@
 								Upload file ion dl, lalu mulai excion.
 							</p>
 							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
+							<a href="<?= base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>
 					</div>
@@ -206,6 +298,7 @@
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/main.js"></script>
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/_global.js"></script>
 
 </body>
 
