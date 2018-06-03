@@ -12,6 +12,52 @@ class Main extends CI_Controller {
       //$this->load->view('view');
 	   $this->load->view('templates/index');
     }
+	
+	public function upload()
+	{
+		if($this->input->post('submit')){
+			//mulai upload
+			$ftp_upload['upload_path'] = 'uploads/';
+			$ftp_upload['allowed_types'] = '*';
+			$this->load->library('upload', $ftp_upload);
+			
+			if($this->upload->do_upload('file')){
+				//ambil informasi file yg diupload
+				$upload_data = $this->upload->data();
+				$filename = $upload_data['file_name'];
+				
+				//path file di local server
+				$source = 'uploads/'.$filename;
+				
+				//mulai koneksi ftp
+				$this->load->library('ftp');
+				$config['hostname'] = '127.0.0.1';
+				$config['username'] = 'exus';
+				$config['password'] = '10tacle';
+				$config['port']     = 21;
+				$config['passive']  = FALSE;		
+				$config['debug'] 	= TRUE;
+		
+				$this->ftp->connect($config);
+
+				//file upload path di remote server
+				$destination = '/uploads/'.$filename;
+				
+				//upload file ke remote server
+				$this->ftp->upload($source, ".".$destination);
+				
+				//tutup koneksi ftp
+				$this->ftp->close();
+				
+				//hapus file di local server
+				@unlink($source);
+				
+				//redirect ke home
+				redirect(base_url());
+			}
+		}
+		$this->load->view('templates/upload');
+	}
 
     /*
 	public function view($page='home') {
