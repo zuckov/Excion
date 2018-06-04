@@ -89,7 +89,7 @@
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
-					<li><a href="<?php echo base_url('index.php/main/upload'); ?>">Coba Upload</a></li>
+					<li><a href="<?php echo base_url('index.php/upload'); ?>">Coba Upload</a></li>
 				</ul>
 				<!-- /Main navigation -->
 
@@ -203,8 +203,8 @@
     		</div>
   		</div>
 		</div>
-		<!-- /modal ajax jquery -->	
-		
+		<!-- /modal ajax jquery -->
+
 
 		<!-- home wrapper -->
 		<div class="home-wrapper">

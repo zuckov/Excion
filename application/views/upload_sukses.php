@@ -4,13 +4,16 @@
 </head>
 <body>
 
-	<center><h1>Membuat Upload File Dengan CodeIgniter | MalasNgoding.com</h1></center>
+	<center><h1>Coba Fungsi Upload</h1></center>
 
 	<ul>
 		<?php foreach ($upload_data as $item => $value):?>
 			<li><?php echo $item;?>: <?php echo $value;?></li>
 		<?php endforeach; ?>
 	</ul>
+
+	<br><br><br>
+	<p><? //echo $fileName; ?></p>
 
 </body>
 </html>
