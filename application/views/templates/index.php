@@ -89,7 +89,8 @@
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
-					<li><a href="<?php echo base_url('index.php/upload'); ?>">Coba Upload</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>
+					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>
 				<!-- /Main navigation -->
 
@@ -198,6 +199,32 @@
       		<div class="modal-footer">
 						<input type="submit" class="btn btn-primary" value="Login">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+					</form>
+    		</div>
+  		</div>
+		</div>
+		<!-- /modal ajax jquery -->
+
+		<!-- modal ajax jquery-->
+		<div id="modalupload" class="modal fade" role="dialog">
+  		<div class="modal-dialog modal-md">
+
+    	<!-- Modal content-->
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h4 class="modal-title">Upload File CSV</h4>
+      		</div>
+      		<div class="modal-body">
+						<!-- <form action="<?php //echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post"> -->
+						<?php echo form_open_multipart('upload/aksi_upload');?>
+							<input type="file" name="berkas" class="form-control" placeholder="Pilih file upload" onblur="validate('username', this.value)"><br>
+							<br>
+      		</div>
+      		<div class="modal-footer">
+						<input type="submit" class="btn btn-primary" value="Upload">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
 					</div>
 					</form>
     		</div>

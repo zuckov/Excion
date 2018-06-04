@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>malasngoding.com</title>
+	<title>Coba Upload</title>
 </head>
 <body>
 	<center><h1>Membuat Upload File Dengan CodeIgniter | MalasNgoding.com</h1></center>

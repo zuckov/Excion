@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>malasngoding.com<</title>
+	<title>Coba Upload Sukses</title>
 </head>
 <body>
 
