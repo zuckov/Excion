@@ -206,7 +206,7 @@
 		</div>
 		<!-- /modal ajax jquery -->
 
-		<!-- modal ajax jquery-->
+		<!-- modal ajax upload-->
 		<div id="modalupload" class="modal fade" role="dialog">
   		<div class="modal-dialog modal-md">
 
@@ -218,7 +218,10 @@
       		</div>
       		<div class="modal-body">
 						<!-- <form action="<?php //echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post"> -->
-						<?php echo form_open_multipart('upload/aksi_upload');?>
+						<?php
+							//echo form_open_multipart('upload/aksi_upload');
+							echo form_open_multipart('upload/extract_upload');
+						?>
 							<input type="file" name="berkas" class="form-control" placeholder="Pilih file upload" onblur="validate('username', this.value)"><br>
 							<br>
       		</div>
@@ -230,7 +233,7 @@
     		</div>
   		</div>
 		</div>
-		<!-- /modal ajax jquery -->
+		<!-- /modal ajax upload -->
 
 
 		<!-- home wrapper -->
