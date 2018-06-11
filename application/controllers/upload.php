@@ -15,7 +15,7 @@ class Upload extends CI_Controller
 	public function aksi_upload(){
 		$config['upload_path']          = './upload/';
 		//$config['allowed_types']        = 'gif|jpg|png';
-    $config['allowed_types']        = 'rar|zip';
+    	$config['allowed_types']        = 'rar|zip';
 		$config['max_size']             = 250;
 		//$config['max_width']            = 1024;
 		//$config['max_height']           = 768;
