@@ -78,21 +78,64 @@ class Main extends CI_Controller {
 	*/
 
     public function fgetcsv(){
-      //$data = echo "halo";
-      echo "csv";
+      
       $row = 1;
-  		if (($handle = fopen("C:\EXCION_GACA\ION DL\GARNG 12.csv", "r")) !== FALSE) {
-      	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-          $num = count($data);
-          echo "<p> $num fields in line $row: <br /></p>\n";
-          $row++;
-          for ($c=0; $c < $num; $c++) {
-              echo $data[$c] . "<br />\n";
-          }
-      	}
-      	fclose($handle);
-	    //$this->load->view('templates/csv');
-      }
+	  $path = "/upload/jam 24.00/GRG1=24.00.csv";
+	  $path2 = "C:\EXCION_GACA\ION DL\GARNG 12.csv";
+	  //if(($handle = fopen($path2, "r")) != FALSE){
+	  //coba mau pakai in_array  sama array_search
+	  //array search : buat cari value array, return key arraynya
+	  //in_array : cek apakah nilai tertentu ada di list array
+	  //$data = fgetcsv($handle, 1000, ",");
+	  //$key = array_search("kVARh del int", $data);
+	  //"kolom ke-$key di baris $row :<br /></p>\n";
+	  //echo $key;
+	  
+	  //tampilan 1, tampilin semua data pake tabel 2 dimensi
+	  $handle = fopen($path2, "r");
+	  $data = fgetcsv($handle, 1000, ",");
+	  $key = array_search("kVARh del int", $data);
+	  fclose($handle);
+	  $handle = fopen($path2, "r");
+	  $catch = array();
+	  $a=0;
+	  //$list = fgetcsv($handle, 1000, ",");
+	  //$key = array_search("kVARh del int", $list);
+	  //$catch = 
+	  
+	  echo('<table>');
+	  while (($list= fgetcsv($handle, 1000, ",")) !=FALSE){//sumber masalah : fgetcsv nya harus dalam kondisi loop! harus!		
+		echo("<tr>\r\n");
+		foreach ($list as $index=>$val){
+			echo("\t<td>");
+			//echo htmlentities($val, ENT_QUOTES);
+			echo $val;
+			if($index==$key){
+				$catch[$a]=$val;
+				$a++;
+			}
+			echo("</td>\r\n");
+		}
+		echo("</tr>\r\n");
+	  }	  
+	  echo('</table>');
+	  
+	  //tampilan 2, tampilin semua data pake list
+	  //}
+	  /*while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		$num = count($data);
+		echo "<p> $num fields in line $row: <br /></p>\n";
+		$row++;
+		//for ($c=0; $c < $num; $c++) {
+			echo $data[2] . "<br />\n";
+		//}
+	  }*/
+	  //}
+	  fclose($handle);
+	
+	  //coba print return value array catch
+	  print "<pre>"; print_r($catch); print "</pre>";
+	  print "<pre>"; print_r($key); print "</pre>";
     }
 
     public function multiCsv($bukaFile="C:\EXCION_GACA\ION DL\*.csv"){
