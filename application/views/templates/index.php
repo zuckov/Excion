@@ -250,7 +250,6 @@
 							</p>
 							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
 							<a href="<?= base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
-							<a href="<?= base_url('index.php/main/tablecsv'); ?>" class="main-btn">Table Csv</a>
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>
 					</div>
