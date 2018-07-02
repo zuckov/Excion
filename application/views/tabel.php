@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- --><!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -32,18 +32,18 @@
       <?php
         $num = count($kwh_k);
         for ($i=0; $i < $num; $i++) {
-        $val = $i + 1;
+        //$var = $i + 1;
       ?>
       <tr>
         <td>2</td>
         <td>19854071</td>
-        <td>1/11/2013  10:30:00 AM</td>
-        <td><?php echo $kwh_k[$val]; ?></td>
-        <td><?php echo $kwh_t[$val]; ?></td>
-        <td><?php echo $kavrh_k[$val]; ?></td>
-        <td><?php echo $kavrh_t[$val]; ?></td>
-        <td><?php //echo $sss[$val]; ?></td>
-        <td><?php //echo $sss[$val]; ?></td>
+        <td><?php echo $date[$i]; ?></td>
+        <td><?php echo $kwh_k[$i]; ?></td>
+        <td><?php echo $kwh_t[$i]; ?></td>
+        <td><?php echo $kvarh_k[$i]; ?></td>
+        <td><?php echo $kvarh_t[$i]; ?></td>
+        <td><?php echo $kap_mw[$i]; ?></td>
+        <td><?php echo $kap_mvar[$i]; ?></td>
       </tr>
     <?php } ?>
     </tbody>
@@ -52,3 +52,14 @@
 
 </body>
 </html>
+<!-- -->
+<?php
+/*
+echo $date[0];
+echo $kwh_k[1];
+echo $kwh_t[0];
+echo $kvarh_k[0];
+echo $kvarh_t[0];
+echo $kap_mw[0];
+echo $kap_mvar[0];*/
+?>

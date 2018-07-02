@@ -27,17 +27,23 @@ class Csv extends CI_Controller {
 		//$this->load->view('view');
 	}
 
-	public function fgetcsv(){
+	public function pronia($path = "C:/EXCION_GACA/ION DL/" ){
 
-    $row = 1;
-	  $path = "/upload/jam 24.00/GRG1=24.00.csv";
-	  $path2 = "C:\EXCION_GACA\ION DL\GARNG 12.csv";
-	  $path3 = "C:\EXCION_GACA\ION DL\JELOK 3.csv";
-	  $path4 = "C:\EXCION_GACA\ION DL\JELOK 124.csv";
-	  $path5 = "C:\EXCION_GACA\ION DL\KDOMBO.csv";
-	  $path6 = "C:\EXCION_GACA\ION DL\KTG 1.csv";
-	  $path7 = "C:\EXCION_GACA\ION DL\KTG 2.csv";
-	  $path8 = "C:\EXCION_GACA\ION DL\PBS 1.csv";
+	  $row = 1;	  
+	  $garng12 = $path."GARNG 12.csv";
+	  $jelok3 = $path."JELOK 3.csv";
+	  $jelok124 = $path."JELOK 124.csv";
+	  $kdombo = $path."KDOMBO.csv";
+	  $ktg1 = $path."KTG 1.csv";
+	  $ktg2 = $path."KTG 2.csv";
+	  $pbs1 = $path."PBS 1.csv";
+	  $pbs2 = $path."PBS 2.csv";
+	  $pbs3 = $path."PBS 3.csv";
+	  $wonogri = $path."WONOGRI.csv";
+	  $wadas2 = $path."WADAS 2.csv";
+	  $wadas1 = $path."WADAS 1.csv";
+	  $timo13 = $path."TIMO 13.csv";
+	  $timo2 = $path."TIMO 2.csv";
 
 	  //if(($handle = fopen($path2, "r")) != FALSE){
 	  //coba mau pakai in_array  sama array_search
@@ -47,153 +53,89 @@ class Csv extends CI_Controller {
 	  //"kolom ke-$key di baris $row :<br /></p>\n";
 	  //echo $key;
 
-	  //tampilan 1, tampilin semua data pake tabel 2 dimensi
-	  //file 1
-	  $handle = fopen($path2, "r");
-	  $data = fgetcsv($handle, 1000, ",");
-	  $key = array_search("kVARh del int", $data);
-	  fclose($handle);
-	  $handle = fopen($path2, "r");
-	  $catch = array();
-	  $a=0;
-
-	  //file 2
-	  $handle2 = fopen($path3, "r");
-	  $data = fgetcsv($handle2, 1000, ",");
-	  $key2 = array_search("kWh del int", $data);
-	  fclose($handle2);
-	  $handle2 = fopen($path3, "r");
-	  $catch2 = array();
-	  $b=0;
-
-	  //*
-	  //file 4
-	  $handle4 = fopen($path5, "r");
-	  $data = fgetcsv($handle4, 1000, ",");
-	  $key4 = array_search("kWh del int", $data);
-	  fclose($handle4);
-	  $handle4 = fopen($path5, "r");
-	  $catch4 = array();
-	  $d=0; //*/
-
-	  //file 3
-	  $handle3 = fopen($path4, "r");
-	  $data = fgetcsv($handle3, 1000, ",");
-	  $key3 = array_search("kWh del int", $data);
-	  fclose($handle3);
-	  $handle3 = fopen($path4, "r");
-	  $catch3 = array();
-	  $c=0;
-
-	  ///*
-	  //file 5
-	  $handle5 = fopen($path6, "r");
-	  $data = fgetcsv($handle5, 1000, ",");
-	  $key5 = array_search("kWh del int", $data);
-	  fclose($handle5);
-	  $handle5 = fopen($path6, "r");
-	  $catch5 = array();
-	  $e=0;
-
-	  //file 6
-	  $handle6 = fopen($path7, "r");
-	  $data = fgetcsv($handle6, 1000, ",");
-	  $key6 = array_search("kWh del int", $data);
-	  fclose($handle6);
-	  $handle6 = fopen($path7, "r");
-	  $catch6 = array();
-	  $f=0;
-	  //*/
-
-	  //echo('<table>');
-    echo "<table>";
-	  while (($list= fgetcsv($handle, 1000, ",")) !=FALSE){//sumber masalah : fgetcsv nya harus dalam kondisi loop! harus!
-		//echo("<tr>\r\n");
-    echo "<tr>\r\n";
-		foreach ($list as $index=>$val){
-			//echo("\t<td>");
-      echo("\t<td>");
-			//echo htmlentities($val, ENT_QUOTES);
-      echo htmlentities($val, ENT_QUOTES);
-			//echo $val;
-      echo $val;
-			if($index==$key){
-				$catch[$a]=$val;
-				$a++;
+	  //PBS 1
+	  $filePbs = fopen($pbs1, "r");
+	  $data = fgetcsv($filePbs, 1000, ",");	  
+	  $pbsA/*pbsDate*/ = array_search("Date/Time", $data);
+	  $pbsB/*pbsKwhDel*/ = array_search("kWh del int", $data);
+	  $pbsC/*pbsKwhRec*/ = array_search("kVARh del int", $data);
+	  $pbsD/*pbsKvarhDel*/ = array_search("kWh rec int", $data);
+	  $pbsE/*pbsKvarhInt*/ = array_search("kVARh rec int", $data);
+	  $pbsF/*pbsLpKvA*/ = array_search("LP-KV_A", $data);
+	  $pbsG/*pbsLpKvB*/ = array_search("LP-KV_B", $data);
+	  
+	  //fclose($handle);
+	  //$handle = fopen($pbs1, "r");
+	  $pbsDate = array();
+	  $pbsKwhKir = array();
+	  $pbsKwhTer = array();
+	  $pbsKvarhKir = array();
+	  $pbsKvarhTer = array();
+	  $pbsKapMw = array();
+	  $pbsKapMvar = array();
+	  $a = $b = $c = $d = $e = $f = $g=0;
+	  while (($list= fgetcsv($filePbs, 1000, ",")) !=FALSE){ //setiap baris
+  		foreach ($list as $index=>$val){ //tiap kolom
+			if($index==$pbsA){ //if index sama dengan kVARh del int
+  				$pbsDate[$a]=$val; // buat nangkep nilai satu
+  				$a++;
+			}	
+			else if($index==$pbsB){
+				$pbsKwhKir[$b]=$val;
+  				$b++;
 			}
-			//echo("</td>\r\n");
-      echo "</td>\r\n";
-		}
-		//echo("</tr>\r\n");
-    echo "</tr>\r\n";
-	  }
-    echo "</table>";
-
-	  while (($list= fgetcsv($handle2, 1000, ",")) !=FALSE){
-		foreach ($list as $index=>$val){
-			if($index==$key2){
-				$catch2[$b]=$val;
-				$b++;
+			else if($index==$pbsD){
+				$pbsKwhTer[$c]=$val;
+  				$c++;
+			}
+			else if($index==$pbsC){
+				$pbsKvarhKir[$d]=$val;
+  				$d++;
+			}
+			else if($index==$pbsE){
+				$pbsKvarhTer[$e]=$val;
+  				$e++;
+			}
+			else if($index==$pbsF){
+				$pbsKapMw[$f]=$val;
+  				$f++;
+			}
+			else {
+				$pbsKapMvar[$g]=$val;
+  				$g++;
 			}
 		}
 	  }
+	  
+	 fclose($filePbs);
+	 
+	 //echo $pbsDate[1];
+	 
+	 $data = array(
+		 'date' => $pbsDate,
+         'kwh_k' => $pbsKwhKir,
+         'kwh_t' => $pbsKwhTer,
+         'kvarh_k' => $pbsKvarhKir,
+         'kvarh_t' => $pbsKvarhTer,
+         'kap_mw' => $pbsKapMw,
+		 'kap_mvar' => $pbsKapMvar,		  
+     );
+	 
+	 //$pbsDate = $pbsKwhKir = $pbsKwhTer = $pbsKvarhKir = $pbsKvarhTer = $pbsKapMw = $pbsKapMvar = array();
 
-	while (($list= fgetcsv($handle3, 1000, ",")) !=FALSE){
-		foreach ($list as $index=>$val){
-			if($index==$key3){
-				$catch3[$c]=$val;
-				$c++;
-			}
-		}
-	  }
-	  while (($list= fgetcsv($handle4, 1000, ",")) !=FALSE){
-		foreach ($list as $index=>$val){
-			if($index==$key4){
-				$catch4[$d]=$val;
-				$d++;
-			}
-		}
-	  }
-	  while (($list= fgetcsv($handle5, 1000, ",")) !=FALSE){
-		foreach ($list as $index=>$val){
-			if($index==$key5){
-				$catch5[$e]=$val;
-				$e++;
-			}
-		}
-	  }
-	  while (($list= fgetcsv($handle6, 1000, ",")) !=FALSE){
-		foreach ($list as $index=>$val){
-			if($index==$key6){
-				$catch6[$f]=$val;
-				$f++;
-			}
-		}
-	  }
-	  //echo('</table>');
-
-	  //tampilan 2, tampilin semua data pake list
-	  //}
-	  /*while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-		$num = count($data);
-		echo "<p> $num fields in line $row: <br /></p>\n";
-		$row++;
-		//for ($c=0; $c < $num; $c++) {
-			echo $data[2] . "<br />\n";
-		//}
-	  }*/
-	  //}
-	  fclose($handle);
-
-	  //coba print return value array catch
-	  print "<pre>"; echo "file ke - 1 ".$path2." \n"; print_r($catch); print "</pre>";
-	  print "<pre>"; echo "file ke - 2 ".$path3." \n"; print_r($catch2); print "</pre>";
-	  print "<pre>"; echo "file ke - 3 ".$path4." \n"; print_r($catch3); print "</pre>";
-	  print "<pre>"; echo "file ke - 4 ".$path5." \n"; print_r($catch4); print "</pre>";
-	  print "<pre>"; echo "file ke - 5 ".$path6." \n"; print_r($catch5); print "</pre>";
-	  print "<pre>"; echo "file ke - 6 ".$path7." \n"; print_r($catch6); print "</pre>";
-	  //print "<pre>"; print_r($key); print "</pre>";
-    }
+	 $this->load->view('tabel', $data);
+	 /*
+	 echo "key pbs A = ".$pbsA."<br>";
+	 echo "key pbs B = ".$pbsB."<br>";
+	 echo "key pbs C = ".$pbsC."<br>";
+	 echo "key pbs D = ".$pbsD."<br>";
+	 print "<pre>"; echo "print array date \n"; print_r($pbsDate); print "</pre>";
+	 print "<pre>"; echo "print array kwh Kirim \n"; print_r($pbsKwhKir); print "</pre>";
+	 print "<pre>"; echo "print array kwh Terima \n"; print_r($pbsKwhTer); print "</pre>";
+	 print "<pre>"; echo "print array kvarh Kirim \n"; print_r($pbsKvarhKir); print "</pre>";
+	 print "<pre>"; echo "print array kvarh Terima \n"; print_r($pbsKvarhTer); print "</pre>";
+    //*/
+	}
 
 
     public function multiCsv($bukaFile="C:\EXCION_GACA\ION DL\*.csv"){
@@ -345,8 +287,8 @@ class Csv extends CI_Controller {
         $data = array(
           'kwh_k' => $catch,
           'kwh_t' => $catch2,
-          'kavrh_k' => $catch3,
-          'kavrh_t' => $catch4,
+          'kvarh_k' => $catch3,
+          'kvarh_t' => $catch4,
           'sss' => $catch5,
         );
 
