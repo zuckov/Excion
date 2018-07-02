@@ -46,7 +46,8 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('<?php base_url(); ?>content/creative-agency/img/background1.jpg');">
+		<!-- <div class="bg-img" style="background-image: url('<?php //base_url(); ?>content/creative-agency/img/background1.jpg');"> -->
+		<div class="bg-img" style="background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
