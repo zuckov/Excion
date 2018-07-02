@@ -45,14 +45,6 @@ class Csv extends CI_Controller {
 	  $timo13 = $path."TIMO 13.csv";
 	  $timo2 = $path."TIMO 2.csv";
 
-	  //if(($handle = fopen($path2, "r")) != FALSE){
-	  //coba mau pakai in_array  sama array_search
-	  //array search : buat cari value array, return key arraynya
-	  //in_array : cek apakah nilai tertentu ada di list array
-	  //$data = fgetcsv($handle, 1000, ",");
-	  //"kolom ke-$key di baris $row :<br /></p>\n";
-	  //echo $key;
-
 	  //PBS 1
 	  $filePbs = fopen($pbs1, "r");
 	  $data = fgetcsv($filePbs, 1000, ",");	  
@@ -64,15 +56,7 @@ class Csv extends CI_Controller {
 	  $pbsF/*pbsLpKvA*/ = array_search("LP-KV_A", $data);
 	  $pbsG/*pbsLpKvB*/ = array_search("LP-KV_B", $data);
 	  
-	  //fclose($handle);
-	  //$handle = fopen($pbs1, "r");
-	  $pbsDate = array();
-	  $pbsKwhKir = array();
-	  $pbsKwhTer = array();
-	  $pbsKvarhKir = array();
-	  $pbsKvarhTer = array();
-	  $pbsKapMw = array();
-	  $pbsKapMvar = array();
+	  $pbsDate = $pbsKwhKir = $pbsKwhTer = $pbsKvarhKir = $pbsKvarhTer = $pbsKapMw = $pbsKapMvar = array();
 	  $a = $b = $c = $d = $e = $f = $g=0;
 	  while (($list= fgetcsv($filePbs, 1000, ",")) !=FALSE){ //setiap baris
   		foreach ($list as $index=>$val){ //tiap kolom
@@ -109,8 +93,6 @@ class Csv extends CI_Controller {
 	  
 	 fclose($filePbs);
 	 
-	 //echo $pbsDate[1];
-	 
 	 $data = array(
 		 'date' => $pbsDate,
          'kwh_k' => $pbsKwhKir,
@@ -120,21 +102,8 @@ class Csv extends CI_Controller {
          'kap_mw' => $pbsKapMw,
 		 'kap_mvar' => $pbsKapMvar,		  
      );
-	 
-	 //$pbsDate = $pbsKwhKir = $pbsKwhTer = $pbsKvarhKir = $pbsKvarhTer = $pbsKapMw = $pbsKapMvar = array();
 
-	 $this->load->view('tabel', $data);
-	 /*
-	 echo "key pbs A = ".$pbsA."<br>";
-	 echo "key pbs B = ".$pbsB."<br>";
-	 echo "key pbs C = ".$pbsC."<br>";
-	 echo "key pbs D = ".$pbsD."<br>";
-	 print "<pre>"; echo "print array date \n"; print_r($pbsDate); print "</pre>";
-	 print "<pre>"; echo "print array kwh Kirim \n"; print_r($pbsKwhKir); print "</pre>";
-	 print "<pre>"; echo "print array kwh Terima \n"; print_r($pbsKwhTer); print "</pre>";
-	 print "<pre>"; echo "print array kvarh Kirim \n"; print_r($pbsKvarhKir); print "</pre>";
-	 print "<pre>"; echo "print array kvarh Terima \n"; print_r($pbsKvarhTer); print "</pre>";
-    //*/
+	 $this->load->view('tabel', $data);	 
 	}
 
 
