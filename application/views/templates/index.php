@@ -37,7 +37,11 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">History(template)</a></li>
 					<li><a href="#contact">Contact</a></li>
+					<?php if($this->session->userdata('is_logged_in')){
+						echo "welcome back ".$this->session->userdata('username');
+					}else {?>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
+					<?php } ?>
 					<!--<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>

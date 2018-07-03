@@ -4,6 +4,7 @@ class Login extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
+		$this->load->model('m_login');
 		// Load model/database
 		//$this->load->model('user');
 		// Load form helper library
@@ -34,7 +35,7 @@ class Login extends CI_Controller{
 				);
 			$this->session->set_userdata($data_session);
 
-			redirect(base_url("admin"));
+			redirect(base_url("admin"));//redirect ke hal utama
 
 		}else{
 			echo "Username dan password salah";
