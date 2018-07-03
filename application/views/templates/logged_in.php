@@ -33,22 +33,11 @@
 
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
-					<li><a href="#home">Homes</a></li>
+					<li><a href="#home">Home</a></li>
 					<li><a href="#about">About</a></li>					
 					<li><a href="#contact">Help</a></li>
-					<?php if($this->session->userdata('status') == 'login'){ ?>
-						<li><a href="#contact">History</a></li>
-						<?php //echo "welcome ".$this->session->userdata('name'); ?>
-						<li><a href="<?php base_url('index.php/login/logout'); ?>"Logout</a></li>
-					<?php } ?>
-					<?php else {?>
-						<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
-					<?php } ?>
-					<!--<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>-->
-					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
+					<li><a href="#contact">History</a></li>
+					<li><a href="<?php base_url('index.php/login/logout'); ?>"Logout</a></li>
 				</ul>
 				<!-- /Main navigation -->
 
@@ -155,11 +144,6 @@
 								Upload file ion dl, lalu mulai excion.
 							</p>
 							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="white-btn">Start Excion</a>
-							<!--<a href="<?php //base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
-							<a href="<?php //base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
-							<a href="<?php //base_url('index.php/main/tablecsv'); ?>" class="main-btn">Table Csv</a>
-							<a href="<?php //base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia</a>-->
-							<!--<button class="main-btn">Learn more</button>-->
 						</div>
 					</div>
 					<!-- /home content -->

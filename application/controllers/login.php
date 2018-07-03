@@ -13,7 +13,6 @@ class Login extends CI_Controller{
 		//$this->load->library('form_validation');
 		// Load form helper library
 		//$this->load->library('session');
-
 	}
 
 	function index(){
@@ -35,7 +34,8 @@ class Login extends CI_Controller{
 				);
 			$this->session->set_userdata($data_session);
 
-			redirect(base_url("admin"));//redirect ke hal utama
+			redirect(base_url(), $this->session->set_userdata($data_session););//redirect ke hal utama
+			//redirect(base_url("index.php/admin"));
 
 		}else{
 			echo "Username dan password salah";
@@ -103,4 +103,6 @@ class Login extends CI_Controller{
 	function ok(){
 		echo "ok";
 	}
+	}
 }
+?>

@@ -4,22 +4,22 @@
  *
  */
  defined('BASEPATH') OR exit('No direct script access allowed');
-class Main extends CI_Controller {
+ class Main extends CI_Controller {
 	function __construct(){
-		parent::__construct();
-	
-		if($this->session->userdata('status') != "login"){
-			//redirect(base_url("login"));
-		}
+		parent::__construct();	
+		//if($this->session->userdata('status') = "login"){
+			//echo "login sukses";
+		//}
 	}
 
 
-    public function index()
+    public function index($status=0)
     {
       //$this->load->view('view');
 	  //*
+	  $data = array ('status' => $status);
 	  $this->load->view('templates/agency/header');
-	  $this->load->view('templates/agency/index');
+	  $this->load->view('templates/agency/index', $data);
 	  $this->load->view('templates/agency/footer');
 	  //*/
 	  //$this->load->view('templates/gentellela/gen');
