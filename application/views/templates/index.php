@@ -86,11 +86,13 @@
 							<li><a href="blog-single.html">blog post</a></li>
 						</ul>
 					</li>-->
+					<li><a href="#contact">History(template)</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
+					<!--<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>-->
 					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>
 				<!-- /Main navigation -->
@@ -177,7 +179,7 @@
   		</div>
 		</div>
 		</div>
-		<!-- /modal login -->
+		<!-- /modal login 2 -->
 
 		<!-- modal ajax jquery-->
 		<div id="modalajaxjquery" class="modal fade" role="dialog">
@@ -249,10 +251,11 @@
 							<p class="white-text">
 								Upload file ion dl, lalu mulai excion.
 							</p>
-							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
-							<a href="<?= base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
-							<a href="<?= base_url('index.php/main/tablecsv'); ?>" class="main-btn">Table Csv</a>
-							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia</a>
+							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="white-btn">Start Excion</a>
+							<!--<a href="<?php //base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
+							<a href="<?php //base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
+							<a href="<?php //base_url('index.php/main/tablecsv'); ?>" class="main-btn">Table Csv</a>
+							<a href="<?php //base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia</a>-->
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>
 					</div>
