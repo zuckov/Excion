@@ -34,7 +34,7 @@ class Login extends CI_Controller{
 				);
 			$this->session->set_userdata($data_session);
 
-			redirect(base_url(), $this->session->set_userdata($data_session););//redirect ke hal utama
+			redirect(base_url());//redirect ke hal utama
 			//redirect(base_url("index.php/admin"));
 
 		}else{
@@ -97,7 +97,8 @@ class Login extends CI_Controller{
 
 	function logout(){
 		$this->session->sess_destroy();
-		redirect(base_url('login'));
+		//redirect(base_url('index.php'));
+		redirect("localhost/excion");
 	}
 
 	function ok(){

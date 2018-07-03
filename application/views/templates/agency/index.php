@@ -33,16 +33,15 @@
 
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">History(template)</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
-					<!--<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>-->
-					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
+					<li><a href="#home">Home</a></li>					
+					<?php if($this->session->userdata('status') == 'login'){ ?>
+						<li><a href="#contact">History</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="<?php echo base_url('index.php/login/logout'/*'index.php/login/logout'*/); ?>">Logout</a></li>					
+					<?php }else {?>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
+					<?php } ?>
 				</ul>
 				<!-- /Main navigation -->
 
