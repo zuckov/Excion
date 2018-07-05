@@ -18,15 +18,26 @@ class Login extends CI_Controller{
 	function index(){
 		$this->load->view('v_login');
 	}
-
+	//login utama
 	function login(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		//buat di laptop
+		/*
 		$where = array(
 			'username' => $username,
 			'password' => md5($password)
 			);
-		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
+			*/
+			//buat di pc
+			//*
+			$where = array(
+				'username' => $username,
+				'password' => $password,
+				);
+				//*/
+		//$cek = $this->m_login->cek_login("admin",$where)->num_rows();//buat di laptop
+		$cek = $this->m_login->cek_login("user",$where)->num_rows();//buat di pc
 		if($cek > 0){
 			$data_session = array(
 				'nama' => $username,
@@ -39,8 +50,11 @@ class Login extends CI_Controller{
 
 		}else{
 			echo "Username dan password salah";
+			//redirect(base_url());
 		}
 	}
+	//end of login utama
+
 
 	function validation(){
 		$value = $_GET['query'];
@@ -94,16 +108,17 @@ class Login extends CI_Controller{
 				echo "<span>Valid</span>";
 			}
 	}
+}
 
-	function logout(){
+	public function logout(){
 		$this->session->sess_destroy();
 		//redirect(base_url('index.php'));
-		redirect("localhost/excion");
+		redirect('', refresh);
 	}
 
 	function ok(){
 		echo "ok";
 	}
 	}
-}
+
 ?>
