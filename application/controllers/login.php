@@ -29,13 +29,13 @@ class Login extends CI_Controller{
 			'password' => md5($password)
 			);
 			*/
-			//buat di pc
-			//*
-			$where = array(
-				'username' => $username,
-				'password' => $password,
-				);
-				//*/
+		//buat di pc
+		//*
+		$where = array(
+			'username' => $username,
+			'password' => $password,
+			);
+		//*/
 		//$cek = $this->m_login->cek_login("admin",$where)->num_rows();//buat di laptop
 		$cek = $this->m_login->cek_login("user",$where)->num_rows();//buat di pc
 		if($cek > 0){

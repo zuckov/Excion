@@ -13,13 +13,19 @@
 		<!-- Nav -->
 		<nav id="nav" class="navbar nav-transparent">
 			<div class="container">
-
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a href="index.html">
-							<img class="logo" src="<?php base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
-							<img class="logo-alt" src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
+						<a href="<?php echo base_url() ?>">
+							<!-- Logo asli
+							<img class="logo" src="<?php //base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
+							<img class="logo-alt" src="<?php //base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
+							-->
+
+							<!--  Logo coba excion -->
+							<img class="logo" src="<?php base_url(); ?>content/excionlogo1.png" alt="logo">
+							<img class="logo-alt" src="<?php base_url(); ?>content/logoexcion2putih.png" alt="logo">
+							<!-- -->
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -40,8 +46,8 @@
 						<li><a href="#contact">History</a></li>
 						<?php //echo "welcome ".$this->session->userdata('name'); ?>
 						<li><a href="<?php echo base_url('index.php/login/logout'); ?>"Logout</a></li>
-					<?php } ?>
-					<?php else {?>
+
+					<?php }else {?>
 						<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
 					<?php } ?>
 					<!--<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>

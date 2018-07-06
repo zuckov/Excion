@@ -6,7 +6,7 @@
  defined('BASEPATH') OR exit('No direct script access allowed');
  class Main extends CI_Controller {
 	function __construct(){
-		parent::__construct();	
+		parent::__construct();
 		//if($this->session->userdata('status') = "login"){
 			//echo "login sukses";
 		//}
@@ -20,19 +20,24 @@
 	  $data = array ('status' => $status);
 	  $this->load->view('templates/agency/header');
 	  $this->load->view('templates/agency/index', $data);
+    //$this->load->view('templates/index', $data);
 	  $this->load->view('templates/agency/footer');
 	  //*/
 	  //$this->load->view('templates/gentellela/gen');
 	  //$this->load->view('templates/supablog/supa');
     }
-	
+
 	public function coba_gentellela(){
 		$this->load->view('templates/gentellela/gen');
 	}
-	
+
 	public function coba_supablog(){
 		$this->load->view('templates/supablog/supa');
 	}
+
+  public function about(){
+    $this->load->view('templates/supablog/aboutsupa');
+  }
 
 	public function upload()
 	{
@@ -96,7 +101,7 @@
 	  $this->load->view('templates/index', $data);
 
     }
-	*/ 
+	*/
 
 
     public function multiCsv($bukaFile="C:\EXCION_GACA\ION DL\*.csv"){
@@ -135,7 +140,7 @@
   	  $path7 = "C:\EXCION_GACA\ION DL\KTG 2.csv";
   	  $path8 = "C:\EXCION_GACA\ION DL\PBS 1.csv";
 	  $path9 = "C:\EXCION_GACA\ION DL\PBS 2.csv";
-	  
+
 	  /*
 	  Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KTG 2.csv" 1
     Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KTG 1.csv" 2

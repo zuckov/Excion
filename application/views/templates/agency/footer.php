@@ -11,7 +11,7 @@
 
 					<!-- footer logo -->
 					<div class="footer-logo">
-						<a href="index.html"><img src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo"></a>
+						<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>content/logoexcion2putih.png" alt="logo"></a>
 					</div>
 					<!-- /footer logo -->
 
@@ -29,7 +29,7 @@
 					<!-- footer copyright -->
 					<div class="footer-copyright">
 						<p>Developed by K.Armyansyah, Unsoed, © 2018. Template designed by <a href="https://colorlib.com" target="_blank">Colorlib </a> © 2017. All Rights Reserved. </p>
-					</div>
+					</div>echo base_url(); ?>
 					<!-- /footer copyright -->
 
 				</div>
@@ -59,11 +59,11 @@
 	<!-- /Preloader -->
 
 	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/main.js"></script>
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/_global.js"></script>
 
 </body>

@@ -44,6 +44,6 @@ function validate(field, query){
 		}
 	}
 	//xmlhttp.open("GET","..index.php/login/validation/?field=" + field + "&query=" + query, false);
-	xmlhttp.open("GET","index.php/login/ok";
+	xmlhttp.open("GET","index.php/login/ok");
 	xmlhttp.send();
 }
