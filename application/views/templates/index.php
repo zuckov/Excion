@@ -249,10 +249,10 @@
 							<p class="white-text">
 								Upload file ion dl, lalu mulai excion.
 							</p>
-							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
-							<a href="<?= base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
-							<a href="<?= base_url('index.php/main/tablecsv'); ?>" class="main-btn">Table Csv</a>
-							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia</a>
+							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
+							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
+							<a href="<?= base_url('index.php/main/tablecsv'); ?>" class="main-btn">Berita Acara</a>
+
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>
 					</div>

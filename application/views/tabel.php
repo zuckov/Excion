@@ -38,8 +38,8 @@
         <td>2</td>
         <td>19854071</td>
         <td><?php echo $date[$i]; ?></td>
-        <td><?php echo $kwh_k[$i]; ?></td>
-        <td><?php echo $kwh_t[$i]; ?></td>
+        <td><?php echo round($kwh_k[$i], 2); ?></td>
+        <td><?php echo round($kwh_t[$i], 2); ?></td>
         <td><?php echo $kvarh_k[$i]; ?></td>
         <td><?php echo $kvarh_t[$i]; ?></td>
         <td><?php echo $kap_mw[$i]; ?></td>
