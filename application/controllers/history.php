@@ -11,10 +11,10 @@ class History extends CI_Controller{
 	}
 
 	function index(){
-    $this->load->view('templates/agency/header');
+    //$this->load->view('templates/agency/header');
 	  $this->load->view('templates/agency/v_history');
     //$this->load->view('templates/index', $data);
-	  $this->load->view('templates/agency/footer');
+	  //$this->load->view('templates/agency/footer');
 	}
 }
 

@@ -29,7 +29,7 @@
 					<!-- footer copyright -->
 					<div class="footer-copyright">
 						<p>Developed by K.Armyansyah, Unsoed, © 2018. Template designed by <a href="https://colorlib.com" target="_blank">Colorlib </a> © 2017. All Rights Reserved. </p>
-					</div>echo base_url(); ?>
+					</div>
 					<!-- /footer copyright -->
 
 				</div>
