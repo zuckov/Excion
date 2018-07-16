@@ -28,7 +28,9 @@
     }
 
 	public function coba_gentellela(){
+    $this->load->view('templates/gentellela/header');
 		$this->load->view('templates/gentellela/gen');
+    $this->load->view('templates/gentellela/footer');
 	}
 
 	public function coba_supablog(){

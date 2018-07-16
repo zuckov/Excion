@@ -58,6 +58,7 @@
 	</div>
 	<!-- /Preloader -->
 
+	<!-- agency -->
 	<!-- jQuery Plugins -->
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/bootstrap.min.js"></script>
@@ -65,6 +66,24 @@
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/main.js"></script>
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/_global.js"></script>
+	<!-- agency -->
+
+	<!-- gentelella -->
+	<!-- jQuery -->
+	<!-- <script src="<?php echo base_url() ?>content/gentellela/vendors/jquery/dist/jquery.min.js"></script> -->
+	<!-- Bootstrap -->
+	<!--<script src="<?php echo base_url() ?>content/gentellela/vendors/bootstrap/dist/js/bootstrap.min.js"></script>-->
+	<!-- FastClick -->
+	<!--
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/fastclick/lib/fastclick.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/nprogress/nprogress.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/iCheck/icheck.min.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/pnotify/dist/pnotify.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/pnotify/dist/pnotify.buttons.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+	<script src="<?php echo base_url() ?>content/gentellela/production/js/custom.js"></script>
+	<!-- gentelella -->
 
 </body>
 
