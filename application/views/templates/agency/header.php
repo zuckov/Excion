@@ -16,13 +16,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 	<!-- fonts -->
 	<!-- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CLibre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'> -->
-	<!-- Bootstrap -->
+	<!-- Bootstrap --><!--
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/bootstrap.min.css" />
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/owl.carousel.css" />
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/owl.theme.default.css" />
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/magnific-popup.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/style.css" />
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/owl.theme.default.css" />
+	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/magnific-popup.css" />
+	<link rel="stylesheet" href="../excion/content/creative-agency/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/style.css" />
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>

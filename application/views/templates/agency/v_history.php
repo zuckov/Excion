@@ -56,7 +56,7 @@
 		<!-- header wrapper -->
 		<div class="header-wrapper sm-padding bg-grey">
 			<div class="container">
-				<h2>Blog Page</h2>
+				<h2>Results</h2>
 				<ul class="breadcrumb">
 					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
 					<li class="breadcrumb-item"><a href="index.html#blog">Blog</a></li>
@@ -68,17 +68,49 @@
 
 	</header>
 	<!-- /Header -->
+	<!-- coba konten disini -->
+
+<div class="container">
+  <h2>Dynamic Tabs</h2>
+  <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
+
+  <!-- <ul class="nav nav-tabs"> -->
+	<ul class="nav nav-pills nav-justified">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Pronia</a></li>
+    <li><a data-toggle="tab" href="#menu2">Neraca Energi</a></li>
+    <li><a data-toggle="tab" href="#menu3">Berita Acara</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+</div>
+	<!-- konten -->
 
 	<!-- Blog -->
 	<div id="blog" class="section md-padding">
-
 		<!-- Container -->
 		<div class="container">
-
 			<!-- Row -->
 			<div class="row">
 
-				<!-- Main -->
+				<!-- Main --><!--
 				<main id="main" class="col-md-9">
 					<div class="blog">
 						<div class="blog-img">
@@ -95,6 +127,7 @@
 						</div>
 
 						<!-- blog tags -->
+						<!--
 						<div class="blog-tags">
 							<h5>Tags :</h5>
 							<a href="#"><i class="fa fa-tag"></i>Web</a>
@@ -107,6 +140,7 @@
 						<!-- blog tags -->
 
 						<!-- blog author -->
+						<!--
 						<div class="blog-author">
 							<div class="media">
 								<div class="media-left">
@@ -129,10 +163,12 @@
 						<!-- /blog author -->
 
 						<!-- blog comments -->
+						<!--
 						<div class="blog-comments">
 							<h3 class="title">(13) Comments</h3>
 
 							<!-- comment -->
+							<!--
 							<div class="media">
 								<div class="media-left">
 									<img class="media-object" src="<?php echo base_url(); ?>content/creative-agency/img/perso2.jpg" alt="">
@@ -145,6 +181,7 @@
 							<!-- /comment -->
 
 							<!-- comment -->
+							<!--
 							<div class="media">
 								<div class="media-left">
 									<img class="media-object" src="<?php echo base_url(); ?>content/creative-agency/img/perso1.jpg" alt="">
@@ -155,6 +192,7 @@
 								</div>
 
 								<!-- author reply comment -->
+								<!--
 								<div class="media author">
 									<div class="media-left">
 										<img class="media-object" src="<?php echo base_url(); ?>content/creative-agency/img/perso2.jpg" alt="">
@@ -167,6 +205,7 @@
 								<!-- /comment -->
 
 								<!-- reply comment -->
+								<!--
 								<div class="media">
 									<div class="media-left">
 										<img class="media-object" src="<?php echo base_url(); ?>content/creative-agency/img/perso2.jpg" alt="">
@@ -183,6 +222,7 @@
 
 
 							<!-- comment -->
+							<!--
 							<div class="media">
 								<div class="media-left">
 									<img class="media-object" src="<?php echo base_url(); ?>content/creative-agency/img/perso.jpg" alt="">
@@ -198,6 +238,7 @@
 						<!-- /blog comments -->
 
 						<!-- reply form -->
+						<!--
 						<div class="reply-form">
 							<h3 class="title">Leave a reply</h3>
 							<form>
@@ -214,9 +255,11 @@
 
 
 				<!-- Aside -->
+				<!--
 				<aside id="aside" class="col-md-3">
 
 					<!-- Search -->
+					<!--
 					<div class="widget">
 						<div class="widget-search">
 							<input class="search-input" type="text" placeholder="search">
@@ -226,6 +269,7 @@
 					<!-- /Search -->
 
 					<!-- Category -->
+					<!--
 					<div class="widget">
 						<h3 class="title">Category</h3>
 						<div class="widget-category">
@@ -239,10 +283,12 @@
 					<!-- /Category -->
 
 					<!-- Posts sidebar -->
+					<!--
 					<div class="widget">
 						<h3 class="title">Populare Posts</h3>
 
 						<!-- single post -->
+						<!--
 						<div class="widget-post">
 							<a href="#">
 								<img src="<?php echo base_url(); ?>content/creative-agency/img/post1.jpg" alt=""> Blog title goes here
@@ -254,6 +300,7 @@
 						<!-- /single post -->
 
 						<!-- single post -->
+						<!--
 						<div class="widget-post">
 							<a href="#">
 								<img src="<?php echo base_url(); ?>content/creative-agency/img/post2.jpg" alt=""> Blog title goes here
@@ -266,6 +313,7 @@
 
 
 						<!-- single post -->
+						<!--
 						<div class="widget-post">
 							<a href="#">
 								<img src="<?php echo base_url(); ?>content/creative-agency/img/post3.jpg" alt=""> Blog title goes here
@@ -280,6 +328,7 @@
 					<!-- /Posts sidebar -->
 
 					<!-- Tags -->
+					<!--
 					<div class="widget">
 						<h3 class="title">Tags</h3>
 						<div class="widget-tags">

@@ -23,8 +23,9 @@
 							<img class="logo-alt" src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
 							-->
 							<!--  Logo coba excion -->
-						<img class="logo" src="<?php echo base_url(); ?>content/excionlogo1.png" alt="logo">
-						<img class="logo-alt" src="<?php echo base_url(); ?>content/logoexcion2putih.png" alt="logo">
+						<!-- <img class="logo" src="<?php echo base_url(); ?>content/excionlogo1.png" alt="logo"> -->
+						<img class="logo" src="../excion/content/excionlogo1.png" alt="logo">
+						<img class="logo-alt" src="../excion/content/logoexcion2putih.png" alt="logo">
 					</a>
 				 </div>
 					<!-- /Logo -->
