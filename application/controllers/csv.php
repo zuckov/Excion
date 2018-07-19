@@ -398,6 +398,10 @@ class Csv extends CI_Controller {
         $this->load->view('tabel', $data);
       }
 
+			public function parseXML(){
+				
+			}
 
-}
+}//tutup class controller
+
 ?>
