@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<!-- container -->
 <div class="container">
   <h1>BERITA ACARA</h1>
   <p>Pengiriman Energi Listrik</p>
@@ -822,6 +822,7 @@
   <!-- tabel Kedungombo end -->
 
 </div>
+<!-- end container -->
 
 
 </body>

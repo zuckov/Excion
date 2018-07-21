@@ -7,10 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<!-- validasi -->
-	<script>
-		var base_urls = "<? echo base_url(); ?>";
-	</script>
+
 	<script src=<?php base_url(); ?>'content/form_ajax.js'></script>
 
 	<title>Project Excion</title>
@@ -249,9 +246,10 @@
 							<p class="white-text">
 								Upload file ion dl, lalu mulai excion.
 							</p>
+							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a>
 							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
 							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
-							<a href="<?= base_url('index.php/main/tablecsv'); ?>" class="main-btn">Berita Acara</a>
+							<a href="<?= base_url('index.php/csv/baregion'); ?>" class="main-btn">Berita Acara</a>
 
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>
@@ -334,6 +332,20 @@
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/main.js"></script>
 	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/_global.js"></script>
+
+	<!-- coba_ajax_jquery -->
+	<script>
+		//var base_urls = "<? //echo base_url(); ?>";
+		function loadWeb(){
+			var load = new XMLHttpRequest();
+			load.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					document.getElementById("ganti").innerHTML =
+
+				}
+			}
+		}
+	</script>
 
 </body>
 

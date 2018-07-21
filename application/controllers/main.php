@@ -6,11 +6,24 @@
  defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
+    public function __construct(){
+      parent::__construct();
+      $this->load->model('meter_utama');
+      $this->load->helper('url_helper');
+    }
+    public function index(){
+        //$this->load->view('view');
+	     $this->load->view('templates/index');
+    }
 
-    public function index()
-    {
-      //$this->load->view('view');
-	   $this->load->view('templates/index');
+    public function start(){
+      //array buat capture hasil hitung dari model
+      $pbs1 = $pbs2 = $pbs3 = $jelok1 = $jelok2 = $jelok3 = $jelok4 = $timo1 =
+      $timo2 = $timo3 = $wadas1 = $wadas2 = $garung = $keteng1 =
+      $keteng2 = $kedung = $wono = array();
+
+      $pbs1 = $this->meter_utama->pronia();
+      $this->load->view('hasil.php');
     }
 
 	public function upload()
@@ -282,7 +295,7 @@ class Main extends CI_Controller {
   	  $path7 = "C:\EXCION_GACA\ION DL\KTG 2.csv";
   	  $path8 = "C:\EXCION_GACA\ION DL\PBS 1.csv";
 	  $path9 = "C:\EXCION_GACA\ION DL\PBS 2.csv";
-	  
+
 	  /*
 	  Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KTG 2.csv" 1
     Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KTG 1.csv" 2
@@ -410,56 +423,7 @@ class Main extends CI_Controller {
   			}
   		}
       }
-      /*
-      echo "<table>";
-        echo "<thead>";
-          echo "<tr>";
-            echo "<th>Kode</th>";
-            echo "<th>Meter ID</th>";
-            echo "<th>Tanggal dan Jam</th>";
-            echo "<th>kWh Kirim</th>";
-            echo "<th>kWh Terima</th>";
-            echo "<th>kVArh Kirim</th>";
-            echo "<th>kVArh Terima</th>";
-            echo "<th>Kapasitas MW</th>";
-            echo "<th>Kapasitas MVAR</th>";
-          echo "</tr>";
-        echo "</thead>";
-        echo "<tbody>";
-        $num = count($catch);
-        for ($i=0; $i < $num; $i++) {
-          $val = $i + 1;
-          echo "<tr>";
-          echo "<td>";
-            echo "2";
-          echo "</td>";
-          echo "<td>";
-            echo "19854071";
-          echo "</td>";
-          echo "<td>";
-            echo "1/11/2013  10:30:00 AM";
-          echo "</td>";
-            echo "<td>";
-              echo $catch[$val];
-            echo "</td>";
-            echo "<td>";
-              echo $catch2[$val];
-            echo "</td>";
-            echo "<td>";
-              echo $catch3[$val];
-            echo "</td>";
-            echo "<td>";
-              echo $catch4[$val];
-            echo "</td>";
-            echo "<td>";
-              echo $catch5[$val];
-            echo "</td>";
-          echo "</tr>";
-        }
-        echo "</tbody>";
-        echo "</table>";
-        }
-        */
+
         $data = array(
           'kwh_k' => $catch,
           'kwh_t' => $catch2,
