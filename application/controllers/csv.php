@@ -159,7 +159,8 @@ class Csv extends CI_Controller {
           'sumPbs3kvarht' => $sumPbs3kvarht,
       );
 		//$this->load->view('tabelBaKvarh');
-		$this->load->view('tabelBaPBS', $data);
+		//$this->load->view('tabelBaPBS', $data);
+		$this->load->view('tabelBaAjax', $data);
 	}
 
 	public function pronia($path = "C:/EXCION_GACA/ION DL/" ){ //ambil neraca energi dari sini
@@ -399,7 +400,7 @@ class Csv extends CI_Controller {
       }
 
 			public function parseXML(){
-				
+
 			}
 
 }//tutup class controller

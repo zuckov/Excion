@@ -86,7 +86,7 @@
 					<li><a href="#contact">Contact</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalajaxjquery">Coba jq_ajax</a></li>
+					<!-- <li><a id="send">Coba jq_ajax</a></li> -->
 					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>
 					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>
@@ -233,9 +233,31 @@
 		</div>
 		<!-- /modal ajax upload -->
 
+		<!-- modal ajax -->
+		<div id="modalajax" class="modal fade" role="dialog">
+  		<div class="modal-dialog modal-md">
+
+    	<!-- Modal content-->
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h4 class="modal-title">Modal ajax coba</h4>
+      		</div>
+      		<div class="modal-body" id="ganti2">
+
+      		</div>
+      		<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+					</div>
+					</form>
+    		</div>
+  		</div>
+		</div>
+		<!-- /modal ajax upload -->
+
 
 		<!-- home wrapper -->
-		<div class="home-wrapper">
+		<div class="home-wrapper" id="ganti">
 			<div class="container">
 				<div class="row">
 
@@ -247,6 +269,7 @@
 								Upload file ion dl, lalu mulai excion.
 							</p>
 							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a>
+							<a href="#" id="send" class="white-btn" data-toggle="modal" data-target="#modalajax">coba jquery ajax</a>
 							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
 							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
 							<a href="<?= base_url('index.php/csv/baregion'); ?>" class="main-btn">Berita Acara</a>
@@ -274,7 +297,7 @@
 			<!-- Row -->
 			<div class="row">
 
-				<div class="col-md-12">
+				<div class="col-lg-12">
 
 					<!-- footer logo -->
 					<div class="footer-logo">
@@ -298,15 +321,11 @@
 						<p>Developed by K.Armyansyah, Unsoed, © 2018. Template designed by <a href="https://colorlib.com" target="_blank">Colorlib </a> © 2017. All Rights Reserved. </p>
 					</div>
 					<!-- /footer copyright -->
-
 				</div>
-
 			</div>
 			<!-- /Row -->
-
 		</div>
 		<!-- /Container -->
-
 	</footer>
 	<!-- /Footer -->
 
@@ -335,7 +354,18 @@
 
 	<!-- coba_ajax_jquery -->
 	<script>
+	$(document).ready(function(){
+		//var base_url = <?php //echo base_url(); ?>;
+  	$("#send").click(function(){
+			$.ajax({
+ 			 url: "index.php/csv/baregion",
+ 			 success: function(result){
+ 				 $("#ganti2").html(result);
+ 		 }});
+ 	});
+ 	});
 		//var base_urls = "<? //echo base_url(); ?>";
+		/*
 		function loadWeb(){
 			var load = new XMLHttpRequest();
 			load.onreadystatechange = function(){
@@ -345,6 +375,21 @@
 				}
 			}
 		}
+
+		*/
+		//$(document).ready(function(){
+
+			/*
+			var base_url = "<?php //echo base_url() ?>";
+			$("#jqajax").click(function(){
+				$.post(base_url + "index.php/csv/baregion",
+				{
+
+				});
+				//$("#ganti").load("halaman ganti");
+			});
+		});*/
+		//});
 	</script>
 
 </body>
