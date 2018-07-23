@@ -44,6 +44,8 @@
 						<ul class="dropdown">
 							<li><a href="#">Real Time</a></li>
 							<li><a href="#">Upload</a></li>
+							<li><a href="<?php echo base_url(); ?>index.php/main/coba_gentellela">Coba Gen</a></li>
+							<li><a href="<?php echo base_url(); ?>index.php/main/coba_supablog">Coba Agency</a></li>
 						</ul>
 					</li>
 					<?php if($this->session->userdata('status') == 'login'){ ?>
