@@ -234,8 +234,8 @@
 		<!-- /modal ajax upload -->
 
 		<!-- modal ajax -->
-		<div id="modalajax" class="modal fade" role="dialog">
-  		<div class="modal-dialog modal-md">
+		<div id="modalajax" class="modal fade" role="dialog" id="lebarModal">
+  		<div class="modal-dialog modal-lg" id="lebarModal2"> <!-- solusi sementara : tambah ini "- style="width:1200px;" -"-->
 
     	<!-- Modal content-->
     		<div class="modal-content">
@@ -269,7 +269,7 @@
 								Upload file ion dl, lalu mulai excion.
 							</p>
 							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a>
-							<a href="#" id="send" class="white-btn" data-toggle="modal" data-target="#modalajax">coba jquery ajax</a>
+							<a href="#" id="send" class="white-btn" >coba jquery ajax</a>
 							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
 							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
 							<a href="<?= base_url('index.php/csv/baregion'); ?>" class="main-btn">Berita Acara</a>
@@ -284,9 +284,9 @@
 		</div>
 		<!-- /home wrapper -->
 
+
 	</header>
 	<!-- /Header -->
-
 
 	<!-- Footer -->
 	<footer id="footer" class="sm-padding bg-dark">
@@ -354,16 +354,31 @@
 
 	<!-- coba_ajax_jquery -->
 	<script>
+	//coba ajax jquery
 	$(document).ready(function(){
 		//var base_url = <?php //echo base_url(); ?>;
+
   	$("#send").click(function(){
 			$.ajax({
  			 url: "index.php/csv/baregion",
  			 success: function(result){
- 				 $("#ganti2").html(result);
+ 				 $("#ganti").html(result);
+				 $("#home").css({
+					 "height" : $("#patokanLebar").height(),
+				 });
+				 $("#ganti").css({
+					 "padding-top" : "152px"/*$("#nav").height()*/,
+					 "padding-bottom" : "52px",
+				 });
  		 }});
+
+		 /*
+		 $("#ganti").css({
+			 width: $("#patokanLebar").width()
+		 });//*/
  	});
  	});
+	//coba ajax
 		//var base_urls = "<? //echo base_url(); ?>";
 		/*
 		function loadWeb(){
