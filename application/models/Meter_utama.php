@@ -4,7 +4,7 @@ class Meter_utama extends CI_Model {
 
        public function __construct()
        {
-          $this->load->database();
+          $this->load->database();		  
        }
 
        //public function pronia($path = "C:/EXCION_GACA/ION DL/" ){
@@ -57,12 +57,12 @@ class Meter_utama extends CI_Model {
      	 fclose($filePbs);
      	 $data = array(
      	   'date' => $pbsDate,
-         'kwh_k' => $pbsKwhKir,
-         'kwh_t' => $pbsKwhTer,
-         'kvarh_k' => $pbsKvarhKir,
-         'kvarh_t' => $pbsKvarhTer,
-         'kap_mw' => $pbsKapMw,
-     		 'kap_mvar' => $pbsKapMvar,
+           'kwh_k' => $pbsKwhKir,
+           'kwh_t' => $pbsKwhTer,
+           'kvarh_k' => $pbsKvarhKir,
+           'kvarh_t' => $pbsKvarhTer,
+           'kap_mw' => $pbsKapMw,
+     	   'kap_mvar' => $pbsKapMvar,
       );
       return $data;
      }
@@ -202,6 +202,8 @@ class Meter_utama extends CI_Model {
        }
 
        public function get_pbs1(){
+		$pbsArray = array();
+		//$pbsArray = $this->model->
 
        }
        public function get_pbs2(){

@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Csv extends CI_Controller {
+	public function __construct()
+       {
+          parent::__construct();
+          $this->load->model('meter_utama');
+		  
+       }
 
 	public function index()
 	{
@@ -399,9 +405,17 @@ class Csv extends CI_Controller {
         $this->load->view('tabel', $data);
       }
 
-			public function parseXML(){
-
-			}
+	public function get_pronia($path = "C:/EXCION_GACA/ION DL/PBS 1.csv"){
+		$pbsArray = array();
+		$pbsArray = $this->meter_utama->pronia($path);		
+		$this->load->view('tabel', $pbsArray);
+	}
+	
+	public function get_angka($path = 2){
+		
+		$pbsArray = echo $path;		
+		$this->load->view('tabel', $pbsArray);
+	}
 
 }//tutup class controller
 

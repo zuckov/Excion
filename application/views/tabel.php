@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="patokanLebar" style="color:white">
   <h2>Bordered Table</h2>
   <p>The .table-bordered class adds borders to a table:</p>
   <table class="table table-bordered">

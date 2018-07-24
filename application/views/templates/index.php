@@ -268,7 +268,8 @@
 							<p class="white-text">
 								Upload file ion dl, lalu mulai excion.
 							</p>
-							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a>
+							<!-- <a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a> -->
+							<a href="<?= base_url('index.php/csv/get_pronia'); ?>" class="white-btn">Start Excion</a>
 							<a href="#" id="send" class="white-btn" >coba jquery ajax</a>
 							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
 							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
@@ -356,11 +357,15 @@
 	<script>
 	//coba ajax jquery
 	$(document).ready(function(){
-		//var base_url = <?php //echo base_url(); ?>;
+		var target = "<?php echo "C:/EXCION_GACA/ION DL/PBS 2.csv"; ?>";
 
   	$("#send").click(function(){
 			$.ajax({
- 			 url: "index.php/csv/baregion",
+ 			 //url: "index.php/csv/baregion",
+			 //url: "index.php/csv/get_pronia",
+			 url: "index.php/csv/get_angka",
+			 //data: 3,
+			 data: "path="+ target,
  			 success: function(result){
  				 $("#ganti").html(result);
 				 $("#home").css({
