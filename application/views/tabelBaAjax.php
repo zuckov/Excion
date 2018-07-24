@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
--->
+
 <!-- container -->
 <div class="container" id="patokanLebar" style="color:white">
   <h1>BERITA ACARA</h1>
@@ -195,7 +195,6 @@
 
 </div>
 <!-- end container -->
-
 <!--
 </body>
 </html>

@@ -1,18 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/*
+daftar isi/index :
+
+- ba() -> tabel tampilan ba region
+- baRegion() -> tabel tampilan ba pbs
+- ????????() -> tabel tampilan ba kvarh
+
+
+*/
+
 class Csv extends CI_Controller {
 	public function __construct()
        {
           parent::__construct();
           $this->load->model('meter_utama');
-		  
+
        }
 
-	public function index()
+	public function start()
 	{
 		//$this->load->view('welcome_message');
-		//$this->load->view('view');
+		$path = "C:/EXCION_GACA/ION DL/PBS 1.csv";
+		$bareg = $bakv = $bapbs = array();
+		$bareg = $this->meter_utama->ba($path);
+		$this->load->view('hasil', $bareg);
 	}
 
 	public function cetak()
@@ -33,11 +46,11 @@ class Csv extends CI_Controller {
 		//$this->load->view('view');
 	}
 
-	public function ba(){
+	public function ba(){ //tabel tampilan ba region
 		$this->load->view('tabelBa');
 	}
 
-	public function baRegion($path = "C:/EXCION_GACA/ION DL/"){
+	public function baRegion($path = "C:/EXCION_GACA/ION DL/"){ //tampilan ba pbs
 		//coba fungsi simulasi BApbs
 		//not based on neraca energi, semua itungan asalanya dari file mentah PBS.
 		//array_sum
@@ -165,8 +178,8 @@ class Csv extends CI_Controller {
           'sumPbs3kvarht' => $sumPbs3kvarht,
       );
 		//$this->load->view('tabelBaKvarh');
-		//$this->load->view('tabelBaPBS', $data);
-		$this->load->view('tabelBaAjax', $data);
+		$this->load->view('tabelBaPBS', $data);
+		//$this->load->view('tabelBaAjax', $data);
 	}
 
 	public function pronia($path = "C:/EXCION_GACA/ION DL/" ){ //ambil neraca energi dari sini
@@ -247,8 +260,21 @@ class Csv extends CI_Controller {
 	 $this->load->view('tabel', $data);
 	}
 
+	public function get_pronia($path = "C:/EXCION_GACA/ION DL/PBS 1.csv"){
+		$pbsArray = array();
+		$pbsArray = $this->meter_utama->pronia($path);
+		$this->load->view('tabel', $pbsArray);
+	}
 
-    public function multiCsv($bukaFile="C:\EXCION_GACA\ION DL\*.csv"){
+	public function get_angka($path = 2){
+
+		//$pbsArray = echo $path;
+		$this->load->view('tabel', $pbsArray);
+	}
+
+
+
+    /*public function multiCsv($bukaFile="C:\EXCION_GACA\ION DL\*.csv"){
       /*
       foreach (glob("myfiles/*.html") as $file) {
         $file_handle = fopen($file, "r");
@@ -258,6 +284,7 @@ class Csv extends CI_Controller {
         }
         fclose($file_handle);
       }*/
+			/*
       $ke=1;
       foreach (glob($bukaFile) as $file) { //glob() = mengembalikan array nama file atau direktori yang cocok dengan pola yang telah ditentukan.
         $fileHandle = fopen($file, "r"); // fopen = buka file.
@@ -271,8 +298,8 @@ class Csv extends CI_Controller {
         //}
         fclose($fileHandle);
       }
-    }
-
+    }*/
+		/*
     public function tablecsv(){
       $row = 1;
   	  $path = "/upload/jam 24.00/GRG1=24.00.csv";
@@ -329,7 +356,7 @@ class Csv extends CI_Controller {
   	  $handle4 = fopen($path5, "r");
   	  $catch4 = array();
   	  $d=0; //*/
-
+			/*
       while (($list= fgetcsv($handle4, 1000, ",")) !=FALSE){
   		foreach ($list as $index=>$val){
   			if($index==$key4){
@@ -385,7 +412,7 @@ class Csv extends CI_Controller {
   	  $catch6 = array();
   	  $f=0;
   	  //*/
-
+			/*
       while (($list= fgetcsv($handle6, 1000, ",")) !=FALSE){
   		foreach ($list as $index=>$val){
   			if($index==$key6){
@@ -403,19 +430,8 @@ class Csv extends CI_Controller {
         );
 
         $this->load->view('tabel', $data);
-      }
+      }*/
 
-	public function get_pronia($path = "C:/EXCION_GACA/ION DL/PBS 1.csv"){
-		$pbsArray = array();
-		$pbsArray = $this->meter_utama->pronia($path);		
-		$this->load->view('tabel', $pbsArray);
-	}
-	
-	public function get_angka($path = 2){
-		
-		$pbsArray = echo $path;		
-		$this->load->view('tabel', $pbsArray);
-	}
 
 }//tutup class controller
 

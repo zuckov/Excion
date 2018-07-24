@@ -4,7 +4,7 @@ class Meter_utama extends CI_Model {
 
        public function __construct()
        {
-          $this->load->database();		  
+          $this->load->database();
        }
 
        //public function pronia($path = "C:/EXCION_GACA/ION DL/" ){
@@ -71,7 +71,7 @@ class Meter_utama extends CI_Model {
          //
        }
 
-       public function ba(){
+       public function ba($path = "C:/EXCION_GACA/ION DL/"){
          //coba fungsi simulasi BApbs
      		//not based on neraca energi, semua itungan asalanya dari file mentah PBS.
      		//array_sum
@@ -199,6 +199,10 @@ class Meter_utama extends CI_Model {
                'sumPbs3kvarht' => $sumPbs3kvarht,
            );
      		return $data;
+       }
+
+       public function ba2(){
+         
        }
 
        public function get_pbs1(){

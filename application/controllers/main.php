@@ -11,6 +11,7 @@ class Main extends CI_Controller {
       $this->load->model('meter_utama');
       $this->load->helper('url_helper');
     }
+
     public function index(){
         //$this->load->view('view');
 	     $this->load->view('templates/index');
@@ -22,8 +23,8 @@ class Main extends CI_Controller {
       $timo2 = $timo3 = $wadas1 = $wadas2 = $garung = $keteng1 =
       $keteng2 = $kedung = $wono = array();
 
-      $pbs1 = $this->meter_utama->pronia();
-      $this->load->view('hasil.php');
+      //$pbs1 = $this->meter_utama->pronia();
+      $this->load->view('hasil');
     }
 
 	public function upload()
