@@ -20,13 +20,26 @@
   <div class="tabbable">
       <ul class="nav nav-tabs" id="myTabs">
           <li><a href="#home"  class="active" data-toggle="tab">Home</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Berita Acara <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" id=myTabs2>
+              <li><a data-toggle="tab" data-target="#bapbs" href="#">BA PBS</a></li>
+              <li><a data-toggle="tab" data-target="#bareg" href="#">BA REG</a></li>
+              <li><a data-toggle="tab" data-target="#bakv" href="#">BA kVArh</a></li>
+            </ul>
+          </li>
           <li><a href="#foo" data-toggle="tab">Foo</a></li>
-          <li><a href="#bar" data-toggle="tab">Bar</li>
+          <li><a href="#bar" data-toggle="tab">Bar</a></li>
       </ul>
       <div class="tab-content">
           <div class="tab-pane active" id="home"></div>
-          <div class="tab-pane" id="foo"></div>
-          <div class="tab-pane" id="bar"></div>
+          <div class="tab-pane" id="foo">foo</div>
+          <div class="tab-pane" id="bar">bar</div>
+          <div class="tab-pane" id="bapbs">bapbs</div>
+          <div class="tab-pane" id="bareg">bareg</div>
+          <div class="tab-pane" id="bakv">bakv</div>
       </div>
   </div>
 </div>
@@ -183,11 +196,11 @@ $(function() {
 $(function() {
   var baseURL = 'http://localhost/excion/';
   //load ajax buat bar
-  $('#bar').load(baseURL+'index.php/csv/baregion', function() {
+  $('#bapbs').load(baseURL+'index.php/csv/baregion', function() {
       $('#myTab').tab(); //initialize tabs
   });
 
-  $('#foo').load(baseURL+'index.php/csv/ba', function() {
+  $('#bareg').load(baseURL+'index.php/csv/ba', function() {
       $('#myTab').tab(); //initialize tabs
   });
 
