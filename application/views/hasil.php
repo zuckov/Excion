@@ -23,15 +23,14 @@
           <li><a href="#foo" data-toggle="tab">Foo</a></li>
           <li><a href="#bar" data-toggle="tab">Bar</li>
       </ul>
-      <div>
+      <div class="tab-content">
           <div class="tab-pane active" id="home"></div>
           <div class="tab-pane" id="foo"></div>
           <div class="tab-pane" id="bar"></div>
       </div>
   </div>
 </div>
-</body>
-</html>
+
   <!-- end coba tab ajas -->
 
 
