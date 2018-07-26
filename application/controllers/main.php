@@ -25,6 +25,7 @@ class Main extends CI_Controller {
 
       //$pbs1 = $this->meter_utama->pronia();
       $this->load->view('hasil');
+      //$this->load->view('hasil2');
     }
 
 	public function upload()

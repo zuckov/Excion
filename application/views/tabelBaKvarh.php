@@ -1,4 +1,4 @@
-<!-- --><!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+-->
 <div class="container">
   <h1>BERITA ACARA</h1>
   <p>PENGIRIMAN ENERGI REAKTIF JAM (kVarh)</p>
@@ -278,17 +278,7 @@
     </tbody>
   </table>
 </div>
-
+<!--
 </body>
 </html>
-<!-- -->
-<?php
-/*
-echo $date[0];
-echo $kwh_k[1];
-echo $kwh_t[0];
-echo $kvarh_k[0];
-echo $kvarh_t[0];
-echo $kap_mw[0];
-echo $kap_mvar[0];*/
-?>
+ -->

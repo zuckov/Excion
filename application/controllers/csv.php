@@ -2,6 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
+notes :
+ajax jquery punya limit di css load
+
 daftar isi/index :
 
 - ba() -> tabel tampilan ba region
@@ -45,6 +48,8 @@ class Csv extends CI_Controller {
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
 	}
+
+
 
 	public function ba(){ //tabel tampilan ba region
 		$this->load->view('tabelBa');
@@ -248,13 +253,13 @@ class Csv extends CI_Controller {
 	 fclose($filePbs);
 
 	 $data = array(
-		 'date' => $pbsDate,
+		 		 'date' => $pbsDate,
          'kwh_k' => $pbsKwhKir,
          'kwh_t' => $pbsKwhTer,
          'kvarh_k' => $pbsKvarhKir,
          'kvarh_t' => $pbsKvarhTer,
          'kap_mw' => $pbsKapMw,
-		 'kap_mvar' => $pbsKapMvar,
+		 	 	 'kap_mvar' => $pbsKapMvar,
      );
 
 	 $this->load->view('tabel', $data);
@@ -266,10 +271,24 @@ class Csv extends CI_Controller {
 		$this->load->view('tabel', $pbsArray);
 	}
 
-	public function get_angka($path = 2){
+	public function get_bakv(){
+		/*
+		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
+		$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
+		$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
+		$hasilPbs1 = $hasilPbs2 = $hasilPbs3 = array();
 
-		//$pbsArray = echo $path;
-		$this->load->view('tabel', $pbsArray);
+		$hasilPbs1 = $this->meter_utama->get_pronia($pbs1);
+		$hasilPbs2 = $this->meter_utama->get_pronia($pbs2);
+		$hasilPbs3 = $this->meter_utama->get_pronia($pbs3);
+
+		$data = array
+		(
+			'hasilpbs1' => $hasilPbs1,
+		);
+
+		*/
+		$this->load->view('tabelBaKvarh');
 	}
 
 

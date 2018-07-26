@@ -19,7 +19,10 @@
   <!-- coba tab ajas -->
   <div class="tabbable">
       <ul class="nav nav-tabs" id="myTabs">
-          <li><a href="#home"  class="active" data-toggle="tab">Home</a></li>
+          <li><a href="#home"  class="active" data-toggle="tab">Hasil</a></li>
+          <!-- <li><a href="#foo" data-toggle="tab">Pronia</a></li> -->
+          <li><a href="#pbs1" data-toggle="tab">pronia</a></li>
+          <li><a href="#bar" data-toggle="tab">Neraca Energi</a></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               Berita Acara <span class="caret"></span>
@@ -30,13 +33,14 @@
               <li><a data-toggle="tab" data-target="#bakv" href="#">BA kVArh</a></li>
             </ul>
           </li>
-          <li><a href="#foo" data-toggle="tab">Foo</a></li>
-          <li><a href="#bar" data-toggle="tab">Bar</a></li>
+
       </ul>
       <div class="tab-content">
           <div class="tab-pane active" id="home"></div>
-          <div class="tab-pane" id="foo">foo</div>
-          <div class="tab-pane" id="bar">bar</div>
+          <div class="tab-pane" id="pbs1">SOD 1</div>
+          <div class="tab-pane" id="pbs2">SOD 2</div>
+          <div class="tab-pane" id="pbs3">SOD 3</div>
+          <div class="tab-pane" id="bar">Neraca Energi</div>
           <div class="tab-pane" id="bapbs">bapbs</div>
           <div class="tab-pane" id="bareg">bareg</div>
           <div class="tab-pane" id="bakv">bakv</div>
@@ -193,17 +197,25 @@ $(function() {
   });
 });
 */
-$(function() {
+$(function(){
   var baseURL = 'http://localhost/excion/';
   //load ajax buat bar
+  //*
+
+  //*/
   $('#bapbs').load(baseURL+'index.php/csv/baregion', function() {
-      $('#myTab').tab(); //initialize tabs
+      $('#myTab').tab(); //ganti konten tab nya
   });
-
+//*
   $('#bareg').load(baseURL+'index.php/csv/ba', function() {
-      $('#myTab').tab(); //initialize tabs
+      $('#myTab').tab(); //ganti konten tab nya
+  });//*/
+  //*
+  $('#bakv').load(baseURL+'index.php/csv/get_bakv', function() {
+      $('#myTab').tab(); //ganti konten tab nya
   });
-
+  //*/
+  /*
   $('#myTab').bind('show', function(e) {
      var pattern=/#.+/gi //use regex to get anchor(==selector)
      var contentID = e.target.toString().match(pattern)[0]; //get anchor
@@ -211,7 +223,7 @@ $(function() {
      $(contentID).load(baseURL+contentID.replace('#',''), function(){
           $('#myTab').tab(); //reinitialize tabs
      });
-  });
+  });*/
 });
 
 </script>

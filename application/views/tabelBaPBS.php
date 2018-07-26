@@ -1,4 +1,4 @@
-<!-- --><!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+-->
 <div class="container">
   <h1>BERITA ACARA PBS</h1>
   <p>Pengiriman Energi Listrik</p>
@@ -194,6 +194,7 @@
 
 </div>
 
-
+<!--
 </body>
 </html>
+-->
