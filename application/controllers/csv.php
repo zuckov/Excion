@@ -272,23 +272,80 @@ class Csv extends CI_Controller {
 	}
 
 	public function get_bakv(){
-		/*
+		//*
 		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
 		$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
 		$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
 		$hasilPbs1 = $hasilPbs2 = $hasilPbs3 = array();
+		$kwh_k = $kwh_t = $kvar_k = $kvar_t = array();
 
-		$hasilPbs1 = $this->meter_utama->get_pronia($pbs1);
-		$hasilPbs2 = $this->meter_utama->get_pronia($pbs2);
-		$hasilPbs3 = $this->meter_utama->get_pronia($pbs3);
+		//Hasil kvarh
+		//hasil PBS 1 kvark dan kvart
+		$hasilPbs1 = $this->meter_utama->pronia($pbs1);
+		foreach ($hasilPbs1['kvarh_k'] as $key => $value) {
+			$kvar_k[$key] = round($value, 3)/1000;
+		}
+		foreach ($hasilPbs1['kvarh_t'] as $key => $value) {
+			$kvar_t[$key] = round($value, 3)/1000;
+		}
+		$sumKvarKPbs1 = (array_sum($kvar_k))*1000;
+		$sumKvarTPbs1 = round((array_sum($kvar_t))*1000, 2);
+
+		//hasil hitung KHW
+		//hasil KHW pbs1
+		foreach ($hasilPbs1['kwh_k'] as $key => $value) {
+			// code...
+		}
+
+		//hasil PBS 2 kvark dan kvart
+		$hasilPbs2 = $this->meter_utama->pronia($pbs2);
+		foreach ($hasilPbs2['kvarh_k'] as $key => $value) {
+			$kvar_k[$key] = (round($value, 3))/1000;
+		}
+		foreach ($hasilPbs2['kvarh_t'] as $key => $value) {
+			$kvar_t[$key] = (round($value, 3))/1000;
+		}
+		$sumKvarKPbs2 = (array_sum($kvar_k))*1000;
+		$sumKvarTPbs2 = (array_sum($kvar_t))*1000;
+
+		//hasil PBS 3 kvark dan kvart
+		$hasilPbs3 = $this->meter_utama->pronia($pbs3);
+		foreach ($hasilPbs3['kvarh_k'] as $key => $value) {
+			$kvar_k[$key] = $value/1000;
+		}
+		foreach ($hasilPbs2['kvarh_t'] as $key => $value) {
+			$kvar_t[$key] = $value/1000;
+		}
+		$sumKvarKPbs3 = round((array_sum($kvar_k))*1000, 2);
+		$sumKvarTPbs3 = round((array_sum($kvar_t))*1000, 2);
+
+		//$sum = array_sum($hasilPbs1['kwh_k']);
+		//$hasilPbs2 = $this->meter_utama->get_pronia($pbs2);
+		//$hasilPbs3 = $this->meter_utama->get_pronia($pbs3);
 
 		$data = array
 		(
-			'hasilpbs1' => $hasilPbs1,
+			//'hasilpbs1' => $hasilPbs1,
+			'hasilkvarkpbs1' => $sumKvarKPbs1,
+			'hasilkvartpbs1' => $sumKvarTPbs1,
+			'hasilkvarkpbs2' => $sumKvarKPbs2,
+			'hasilkvartpbs2' => $sumKvarTPbs2,
+			'hasilkvarkpbs3' => $sumKvarKPbs3,
+			'hasilkvartpbs3' => $sumKvarTPbs3,
+			//sumKwhKPbs1
+			//sumKwhKPbs2
+			//sumKwhKPbs3
+			//'leadingKvarPBS1' => $kvar_k,
+			//'leadingKvarPBS2' => $hasilPbs2,
+			//'leadingKvarPBS3' => $hasilPbs3,
+			//'laggingKvarPBS1' => $kvar_k,
+			//'laggingKvarPBS2' => $hasilPbs2,
+			//'laggingKvarPBS3' => $hasilPbs3,
 		);
 
-		*/
-		$this->load->view('tabelBaKvarh');
+		//*/
+		$this->load->view('tabelBaKvarh', $data);
+		//$this->load->view('cobaBaKvarh', $data);
 	}
 
 

@@ -289,6 +289,9 @@
 	</header>
 	<!-- /Header -->
 
+	<!-- hasil ajax -->
+	<div class="container" id="gantiAjax"></div>
+
 	<!-- Footer -->
 	<footer id="footer" class="sm-padding bg-dark">
 
@@ -367,11 +370,14 @@
 			 //data: 3,
 			 data: "path="+ target,
  			 success: function(result){
- 				 $("#ganti").html(result);
-				 $("#home").css({
+ 				 //$("#ganti").html(result);
+				 $("#gantiAjax").html(result);
+				 $("#ganti").hide();
+				 //*
+				 $("#gantiAjax").css({
 					 "height" : $("#patokanLebar").height(),
-				 });
-				 $("#ganti").css({
+				 });//*/
+				 $("#gantiAjax").css({
 					 "padding-top" : "152px"/*$("#nav").height()*/,
 					 "padding-bottom" : "52px",
 				 });

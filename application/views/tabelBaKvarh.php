@@ -45,47 +45,49 @@
       ?>
       <tr>
         <td rowspan="4">01</td>
-        <td>KVarh dari Pembangkit (kVar out) - (Lagging)</td>
-        <td colspan="8"></td>
+        <td colspan="9">KVarh dari Pembangkit (kVar out) - (Lagging)</td>
+        <!-- <td colspan="8"></td> -->
       </tr>
       <tr>
         <td>PB SOEDIRMAN 1</td>
         <td>0707A639-01</td>
-        <td>=+'pb. sudirman 1'!D4</td>
+        <!--<td>=+'pb. sudirman 1'!D4</td> -->
+        <td><?php echo number_format($hasilkvarkpbs1); ?></td>
         <td>071008506</td>
         <td>"0/-"</td>
         <td>=(D15-F15)/D15*100</td>
         <td>0707A639-01</td>
-        <td>=D15</td>
+        <td><?php echo number_format($hasilkvarkpbs1); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 2</td>
         <td>0707A641-01</td>
-        <td>=+'pb. sudirman 2'!D4</td>
+        <td><?php echo number_format($hasilkvarkpbs2); ?></td>
         <td>071008501</td>
         <td>"0/-"</td>
         <td>=(D16-F16)/D16*100</td>
         <td>0707A641-01</td>
-        <td>=D16</td>
+        <td><?php echo number_format($hasilkvarkpbs2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 3</td>
         <td>0707A642-01</td>
-        <td>=+'pb. sudirman 3'!D4</td>
+        <td><?php echo number_format($hasilkvarkpbs3); ?></td>
         <td>071008505</td>
         <td>"0/-"</td>
         <td>=(D17-F17)/D17*100</td>
         <td>0707A642-01</td>
-        <td>=D17</td>
+        <td><?php echo number_format($hasilkvarkpbs3); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td></td>
         <td>Sub Total (1)</td>
         <td></td>
-        <td>=SUM(D15:D17)</td>
+        <!-- <td>=SUM(D15:D17)</td> -->
+        <td><?php echo number_format($hasilkvarkpbs1 + $hasilkvarkpbs2 + $hasilkvarkpbs3); ?></td>
         <td></td>
         <td></td>
         <td></td>
@@ -95,47 +97,46 @@
       </tr>
       <tr>
         <td rowspan="4">02</td>
-        <td>KVarh ke Pembangkit (kVar in) - (Leading)</td>
-        <td colspan="8"></td>
+          <td colspan="9">KVarh ke Pembangkit (kVar in) - (Leading)</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 1</td>
         <td>0707A639-01</td>
-        <td>=+'pb. sudirman 1'!E4</td>
+        <td><?php echo number_format($hasilkvartpbs1); ?></td>
         <td>071008506</td>
         <td>"0/-"</td>
         <td>=(D20-F20)/D20*100</td>
         <td>0707A639-01</td>
-        <td>=D20</td>
+        <td><?php echo number_format($hasilkvartpbs1); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 2</td>
         <td>0707A641-01</td>
-        <td>=+'pb. sudirman 2'!E4</td>
+        <td><?php echo number_format($hasilkvartpbs2); ?></td>
         <td>071008501</td>
         <td>"0/-"</td>
         <td>=(D21-F21)/D21*100</td>
         <td>0707A641-01</td>
-        <td>=D21</td>
+        <td><?php echo number_format($hasilkvartpbs2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 3</td>
         <td>0707A642-01</td>
-        <td>=+'pb. sudirman 3'!E4</td>
+        <td><?php echo number_format($hasilkvartpbs3); ?></td>
         <td>071008505</td>
         <td>"0/-"</td>
         <td>=(D22-F22)/D22*100</td>
         <td>0707A642-01</td>
-        <td>=D22</td>
+        <td><?php echo number_format($hasilkvartpbs3); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td></td>
         <td>Sub Total (2)</td>
         <td></td>
-        <td>=SUM(D15:D17)</td>
+        <td><?php echo number_format($hasilkvartpbs1 + $hasilkvartpbs2 + $hasilkvartpbs3); ?></td>
         <td></td>
         <td></td>
         <td></td>
@@ -176,8 +177,7 @@
       ?>
       <tr>
         <td rowspan="4">01</td>
-        <td>KVarh dari Pembangkit (kVar out) - (Lagging)</td>
-        <td colspan="8"></td>
+        <td colspan="9">KVarh dari Pembangkit (kVar out) - (Lagging)</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 1</td>
@@ -226,8 +226,7 @@
       </tr>
       <tr>
         <td rowspan="4">02</td>
-        <td>KVarh ke Pembangkit (kVar in) - (Leading)</td>
-        <td colspan="8"></td>
+        <td colspan="9">KVarh ke Pembangkit (kVar in) - (Leading)</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 1</td>
