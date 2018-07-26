@@ -271,6 +271,10 @@ class Csv extends CI_Controller {
 		$this->load->view('tabel', $pbsArray);
 	}
 
+	public function get_hakv(){
+		$this->load->view('tabelHasilKvarh');
+	}
+
 	public function get_bakv(){
 		//*
 		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";

@@ -30,6 +30,7 @@
             <ul class="dropdown-menu" id=myTabs2>
               <li><a data-toggle="tab" data-target="#bapbs" href="#">BA PBS</a></li>
               <li><a data-toggle="tab" data-target="#bareg" href="#">BA REG</a></li>
+              <li><a data-toggle="tab" data-target="#hakv" href="#">Hasil Hitung kVArh</a></li>
               <li><a data-toggle="tab" data-target="#bakv" href="#">BA kVArh</a></li>
             </ul>
           </li>
@@ -44,6 +45,7 @@
           <div class="tab-pane" id="bapbs">bapbs</div>
           <div class="tab-pane" id="bareg">bareg</div>
           <div class="tab-pane" id="bakv">bakv</div>
+          <div class="tab-pane" id="hakv">hakv</div>
       </div>
   </div>
 </div>
@@ -212,6 +214,10 @@ $(function(){
   });//*/
   //*
   $('#bakv').load(baseURL+'index.php/csv/get_bakv', function() {
+      $('#myTab').tab(); //ganti konten tab nya
+  });
+
+  $('#hakv').load(baseURL+'index.php/csv/get_hakv', function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
   //*/
