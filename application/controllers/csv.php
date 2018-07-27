@@ -281,7 +281,12 @@ class Csv extends CI_Controller {
 		$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
 		$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
 		$hasilPbs1 = $hasilPbs2 = $hasilPbs3 = array();
-		$kwh_k = $kwh_t = $kvar_k = $kvar_t = array();
+		$kwh_k = $kwh_t = $kvar_k = $kvar_t =
+		$mw = $mvarIn = $mvarOut = $cosphiLead = $cosphiLag =
+		$consLead = $consLag =
+		$mvarLead = $mvarLag =
+		$pbs1Lead = $pbs2Lead = $pbs3Lead =
+		$pbs1Lag = $pbs2Lag = $pbs3Lag = array();
 
 		//Hasil kvarh
 		//hasil PBS 1 kvark dan kvart
@@ -298,9 +303,56 @@ class Csv extends CI_Controller {
 		//hasil hitung KHW
 		//hasil KHW pbs1
 		foreach ($hasilPbs1['kwh_k'] as $key => $value) {
-			// code...
+			//assign nilai MW
+			$mw[$key] = $value/0.5;
+			//assign nilai MVar out/in sama Cosphi lag/lead
+			if ($value>0) { // artinya nilai mw gamungkin 0 kan?
+				$mvarOut[$key] = $kvar_k[$key]/0.5;
+				$mvarIn[$key] = $kvar_t[$key]/0.5;
+				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 0.5);
+				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 0.5);
+				$consLead[$key] = ($mw[$key]/0.85)*(pow(1-(0.85*0.85), 0.5);
+				$consLag[$key] =($mw[$key]/0.95)*(pow(1-(0.95*0.95), 0.5);
+				if ($mvarout[$key] > $consLead[$key]) {
+					$mvarLead = $mvarout[$key] - $consLead[$key];
+				}
+				else {
+					$mvarLead = 0;
+				}
+				if ($mvarIn[$key] > $consLag[$key]) {
+					$mvarLag = $mvarin[$key] - $consLag[$key];
+				}
+				else {
+					$mvarLag = 0;
+				}
+
+			}
+
+			else { //artinya nilai mw = 0
+				$mvarOut[$key] = 0;
+				$mvarIn[$key] = 0;
+				$cosphiLead[$key] = 0;
+				$cosphiLag[$key] = 0;
+				$consLead = 0;
+				$consLag = 0;
+			}
 		}
 
+		//hasil hitung cos phi
+		//hasil hitung cos phi pbs1
+		//foreach ($mw as $key => $value) {
+		/*
+		foreach ($mw as $key => $value) {
+			if ($value = 0) {
+				$cosphiLead[$key] = 0;
+				$cosphiLag[$key] = 0;
+			}
+			else {
+				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 2);
+				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 2);
+			}
+		}
+		*/
 		//hasil PBS 2 kvark dan kvart
 		$hasilPbs2 = $this->meter_utama->pronia($pbs2);
 		foreach ($hasilPbs2['kvarh_k'] as $key => $value) {
