@@ -1,4 +1,4 @@
-<!-- --><!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -9,8 +9,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="container" id="patokanLebar" style="color:white">
+-->
+<!-- ini buat ajax langsung panggil di halaman depan -->
+<!-- <div class="container" id="patokanLebar" style="color:white"> -->
+<!-- ini buat ajax di halaman hasil -->
+<div class="container" id="patokanLebar">
   <h2>Bordered Table</h2>
   <p>The .table-bordered class adds borders to a table:</p>
   <table class="table table-bordered">
@@ -49,6 +52,7 @@
     </tbody>
   </table>
 </div>
-
+<!--
 </body>
 </html>
+-->

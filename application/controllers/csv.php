@@ -281,14 +281,12 @@ class Csv extends CI_Controller {
 		$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
 		$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
 		$hasilPbs1 = $hasilPbs2 = $hasilPbs3 = array();
-		$kwh_k = $kwh_t = $kvar_k = $kvar_t =
-		$mw = $mvarIn = $mvarOut = $cosphiLead = $cosphiLag =
-		$consLead = $consLag =
-		$mvarLead = $mvarLag =
-		$pbs1Lead = $pbs2Lead = $pbs3Lead =
-		$pbs1Lag = $pbs2Lag = $pbs3Lag = array();
+		$kwh_k = $kwh_t = $kvar_k = $kvar_t =	$mw = $mvarIn = $mvarOut = $cosphiLead = $cosphiLag = array();
+		$consLead = $consLag = $mvarLead = $mvarLag = array();
+		$pbs1Lead = $pbs2Lead = $pbs3Lead = array();
+		//$pbs1Lag = $pbs2Lag = $pbs3Lag = array();
 
-		//Hasil kvarh
+//hasil PBS1
 		//hasil PBS 1 kvark dan kvart
 		$hasilPbs1 = $this->meter_utama->pronia($pbs1);
 		foreach ($hasilPbs1['kvarh_k'] as $key => $value) {
@@ -297,63 +295,87 @@ class Csv extends CI_Controller {
 		foreach ($hasilPbs1['kvarh_t'] as $key => $value) {
 			$kvar_t[$key] = round($value, 3)/1000;
 		}
-		$sumKvarKPbs1 = (array_sum($kvar_k))*1000;
-		$sumKvarTPbs1 = round((array_sum($kvar_t))*1000, 2);
+		$sumKvarKPbs1 = array_sum($kvar_k)*1000;
+		$sumKvarTPbs1 = array_sum($kvar_t)*1000;
 
 		//hasil hitung KHW
 		//hasil KHW pbs1
 		foreach ($hasilPbs1['kwh_k'] as $key => $value) {
 			//assign nilai MW
-			$mw[$key] = $value/0.5;
+			$mw[$key] = $value/1000/0.5;//sumber masalah! nilai mw engga dibagi 1000
 			//assign nilai MVar out/in sama Cosphi lag/lead
 			if ($value>0) { // artinya nilai mw gamungkin 0 kan?
 				$mvarOut[$key] = $kvar_k[$key]/0.5;
 				$mvarIn[$key] = $kvar_t[$key]/0.5;
 				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 0.5);
 				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 0.5);
-				$consLead[$key] = ($mw[$key]/0.85)*(pow(1-(0.85*0.85), 0.5);
-				$consLag[$key] =($mw[$key]/0.95)*(pow(1-(0.95*0.95), 0.5);
-				if ($mvarout[$key] > $consLead[$key]) {
-					$mvarLead = $mvarout[$key] - $consLead[$key];
+				$consLead[$key] = $mw[$key]/0.95*pow((1-(0.95*0.95)), 0.5);
+				$consLag[$key] = $mw[$key]/0.85*(pow(1-(0.85*0.85), 0.5));
+				if ($mvarOut[$key] > $consLag[$key]) {
+					$mvarLag[$key] = $mvarOut[$key] - $consLag[$key];
 				}
 				else {
-					$mvarLead = 0;
+					$mvarLag[$key] = 0;
 				}
-				if ($mvarIn[$key] > $consLag[$key]) {
-					$mvarLag = $mvarin[$key] - $consLag[$key];
+				if ($mvarIn[$key] > $consLead[$key]) { //perlu di debug
+					$mvarLead[$key] = $mvarIn[$key] - $consLead[$key];
 				}
 				else {
-					$mvarLag = 0;
+					$mvarLead[$key] = 0;
 				}
-
 			}
-
 			else { //artinya nilai mw = 0
 				$mvarOut[$key] = 0;
 				$mvarIn[$key] = 0;
 				$cosphiLead[$key] = 0;
 				$cosphiLag[$key] = 0;
-				$consLead = 0;
-				$consLag = 0;
+				$consLead[$key] = 0;//sumber masalah
+				$consLag[$key] = 0;
+				$mvarLag[$key] = 0;
+				$mvarLead[$key] = 0;
 			}
 		}
 
+		//hasil hitung MVAR
+		/*
+		foreach ($mvarOut as $key => $value) {
+			if ($value > $consLag[$key]) {
+				$mvarLag[$key] = $value - $consLag[$key];
+			}
+			else {
+				$mvarLag[$key] = 0;
+			}
+		}
+		foreach ($mvarIn as $key => $value) {
+			if ($value > $consLead[$key]) {
+				$mvarLead[$key] = $value - $consLead[$key];
+			}
+			else {
+				$mvarLead[$key] = 0;
+			}
+		}
+		*/
+		//hasil PBS 1
+		$pbs1Lead = array_sum($mvarLead);
+		$pbs1Lag = array_sum($mvarLag);
+		//*
 		//hasil hitung cos phi
 		//hasil hitung cos phi pbs1
 		//foreach ($mw as $key => $value) {
 		/*
 		foreach ($mw as $key => $value) {
-			if ($value = 0) {
+			if ($value == 0) {
 				$cosphiLead[$key] = 0;
 				$cosphiLag[$key] = 0;
 			}
 			else {
-				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 2);
-				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 2);
+				$cosphiLead[$key] = $value/pow(pow($value, 2) + pow($mvarOut[$key], 2), 2);
+				$cosphiLag[$key] = $value/pow(pow($value, 2) + pow($mvarIn[$key], 2), 2);
 			}
 		}
 		*/
-		//hasil PBS 2 kvark dan kvart
+
+//hasil PBS 2 kvark dan kvart
 		$hasilPbs2 = $this->meter_utama->pronia($pbs2);
 		foreach ($hasilPbs2['kvarh_k'] as $key => $value) {
 			$kvar_k[$key] = (round($value, 3))/1000;
@@ -361,10 +383,73 @@ class Csv extends CI_Controller {
 		foreach ($hasilPbs2['kvarh_t'] as $key => $value) {
 			$kvar_t[$key] = (round($value, 3))/1000;
 		}
-		$sumKvarKPbs2 = (array_sum($kvar_k))*1000;
-		$sumKvarTPbs2 = (array_sum($kvar_t))*1000;
+		$sumKvarKPbs2 = array_sum($kvar_k)*1000;
+		$sumKvarTPbs2 = array_sum($kvar_t)*1000;
 
-		//hasil PBS 3 kvark dan kvart
+		//hasil hitung KHW
+		//hasil KHW pbs2
+		foreach ($hasilPbs2['kwh_k'] as $key => $value) {
+			//assign nilai MW
+			$mw[$key] = $value/1000/0.5;
+			//assign nilai MVar out/in sama Cosphi lag/lead
+			if ($value>0) { // artinya nilai mw gamungkin 0 kan?
+				$mvarOut[$key] = $kvar_k[$key]/0.5;
+				$mvarIn[$key] = $kvar_t[$key]/0.5;
+				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 0.5);
+				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 0.5);
+				$consLead[$key] = ($mw[$key]/0.95)*(pow(1-(0.95*0.95), 0.5));
+				$consLag[$key] =($mw[$key]/0.85)*(pow(1-(0.85*0.85), 0.5));
+				if ($mvarOut[$key] > $consLag[$key]) {
+					$mvarLag[$key] = $mvarOut[$key] - $consLag[$key];
+				}
+				else {
+					$mvarLag[$key] = 0;
+				}
+				if ($mvarIn[$key] > $consLead[$key]) {
+					$mvarLead[$key] = $mvarIn[$key] - $consLead[$key];
+				}
+				else {
+					$mvarLead[$key] = 0;
+				}
+			}
+			else { //artinya nilai mw = 0
+				$mvarOut[$key] = 0;
+				$mvarIn[$key] = 0;
+				$cosphiLead[$key] = 0;
+				$cosphiLag[$key] = 0;
+				$consLead[$key] = 0;
+				$consLag[$key] = 0;
+				$mvarLag[$key] = 0;
+				$mvarLead[$key] = 0;
+			}
+		}
+
+		//hasil hitung MVAR
+		/*
+				foreach ($mvarOut as $key => $value) {
+					if ($value > $consLag[$key]) {
+						$mvarLag[$key] = $value - $consLag[$key];
+					}
+					else {
+						$mvarLag[$key] = 0;
+					}
+				}
+				foreach ($mvarIn as $key => $value) {
+					if ($value > $consLead[$key]) {
+						$mvarLead[$key] = $value - $consLead[$key];
+					}
+					else {
+						$mvarLead[$key] = 0;
+					}
+				}
+				*/
+		//hasil PBS 2
+		//*
+				$pbs2Lead = array_sum($mvarLead);
+				$pbs2Lag = array_sum($mvarLag);
+
+
+//hasil PBS 3 kvark dan kvart
 		$hasilPbs3 = $this->meter_utama->pronia($pbs3);
 		foreach ($hasilPbs3['kvarh_k'] as $key => $value) {
 			$kvar_k[$key] = $value/1000;
@@ -372,25 +457,112 @@ class Csv extends CI_Controller {
 		foreach ($hasilPbs2['kvarh_t'] as $key => $value) {
 			$kvar_t[$key] = $value/1000;
 		}
-		$sumKvarKPbs3 = round((array_sum($kvar_k))*1000, 2);
-		$sumKvarTPbs3 = round((array_sum($kvar_t))*1000, 2);
+		$sumKvarKPbs3 = array_sum($kvar_k)*1000;
+		$sumKvarTPbs3 = array_sum($kvar_t)*1000;
 
+		//hasil hitung KHW
+		//hasil KHW pbs3
+		foreach ($hasilPbs3['kwh_k'] as $key => $value) {
+			//assign nilai MW
+			$mw[$key] = $value/1000/0.5;
+			//assign nilai MVar out/in sama Cosphi lag/lead
+			if ($value>0) { // artinya nilai mw gamungkin 0 kan?
+				$mvarOut[$key] = $kvar_k[$key]/0.5;
+				$mvarIn[$key] = $kvar_t[$key]/0.5;
+				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 0.5);
+				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 0.5);
+				$consLead[$key] = ($mw[$key]/0.95)*(pow(1-(0.95*0.95), 0.5));
+				$consLag[$key] =($mw[$key]/0.85)*(pow(1-(0.85*0.85), 0.5));
+				if ($mvarOut[$key] > $consLag[$key]) {
+					$mvarLag[$key] = $mvarOut[$key] - $consLag[$key];
+				}
+				else {
+					$mvarLag[$key] = 0;
+				}
+				if ($mvarIn[$key] > $consLead[$key]) {
+					$mvarLead[$key] = $mvarIn[$key] - $consLead[$key];
+				}
+				else {
+					$mvarLead[$key] = 0;
+				}
+			}
+			else { //artinya nilai mw = 0
+				$mvarOut[$key] = 0;
+				$mvarIn[$key] = 0;
+				$cosphiLead[$key] = 0;
+				$cosphiLag[$key] = 0;
+				$consLead[$key] = 0;
+				$consLag[$key] = 0;
+				$mvarLag[$key] = 0;
+				$mvarLead[$key] = 0;
+			}
+		}
+
+		//hasil hitung MVAR
+		/*
+				foreach ($mvarOut as $key => $value) {
+					if ($value > $consLag[$key]) {
+						$mvarLag[$key] = $value - $consLag[$key];
+					}
+					else {
+						$mvarLag[$key] = 0;
+					}
+				}
+				foreach ($mvarIn as $key => $value) {
+					if ($value > $consLead[$key]) {
+						$mvarLead[$key] = $value - $consLead[$key];
+					}
+					else {
+						$mvarLead[$key] = 0;
+					}
+				}
+				*/
+		//hasil PBS 3
+		//*
+				$pbs3Lead = array_sum($mvarLead);
+				$pbs3Lag = array_sum($mvarLag);
+//*/
 		//$sum = array_sum($hasilPbs1['kwh_k']);
 		//$hasilPbs2 = $this->meter_utama->get_pronia($pbs2);
 		//$hasilPbs3 = $this->meter_utama->get_pronia($pbs3);
 
 		$data = array
 		(
-			//'hasilpbs1' => $hasilPbs1,
+			//pbs1
+			//hasilpbs1 -> jangan lupa apus lol
+			//'hasilpbs' => $hasilPbs1,
 			'hasilkvarkpbs1' => $sumKvarKPbs1,
 			'hasilkvartpbs1' => $sumKvarTPbs1,
+			'hasilleadpbs1' => $pbs1Lead,
+			'hasillagpbs1' => $pbs1Lag,
+			//$mvarIn[$key] > $consLead[$key]
+			//'mvarLead' => $mvarLead, // our endgame!
+			//$mvarOut[$key] > $consLag[$key]
+			//'mvarLag' => $mvarLag, // our endgame!
+			/*
+			'mw' => $mw,
+			'mvarOut' => $mvarOut, //-> butuh buat mvarLag
+			'mvarIn' => $mvarIn, // -> butuh buat mvarLead
+			'cosphiLead' => $cosphiLead,
+			'cosphiLag' => $cosphiLag,//*/
+			//'consLead' => $consLead, //-> butuh buat mvarLead
+			//'consLag' => $consLag, //-> butuh buat mvarLag
+
+			//*
+			//pbs2
 			'hasilkvarkpbs2' => $sumKvarKPbs2,
 			'hasilkvartpbs2' => $sumKvarTPbs2,
+			'hasilleadpbs2' => $pbs2Lead,
+			'hasillagpbs2' => $pbs2Lag,
+			//pbs3
 			'hasilkvarkpbs3' => $sumKvarKPbs3,
 			'hasilkvartpbs3' => $sumKvarTPbs3,
+			'hasilleadpbs3' => $pbs3Lead,
+			'hasillagpbs3' => $pbs3Lag,
 			//sumKwhKPbs1
 			//sumKwhKPbs2
 			//sumKwhKPbs3
+			//*/
 			//'leadingKvarPBS1' => $kvar_k,
 			//'leadingKvarPBS2' => $hasilPbs2,
 			//'leadingKvarPBS3' => $hasilPbs3,
@@ -402,6 +574,134 @@ class Csv extends CI_Controller {
 		//*/
 		$this->load->view('tabelBaKvarh', $data);
 		//$this->load->view('cobaBaKvarh', $data);
+	}
+
+	public function coba_bakv(){
+		//*
+		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
+		//$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
+		//$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
+		$hasilPbs1 = array();
+		$kwh_k = $kwh_t = $kvar_k = $kvar_t =	$mw = $mvarIn = $mvarOut = $cosphiLead = $cosphiLag = array();
+		$consLead = $consLag = $mvarLead = $mvarLag = array();
+		$pbs1Lead = $pbs2Lead = $pbs3Lead = array();
+		//$pbs1Lag = $pbs2Lag = $pbs3Lag = array();
+
+//hasil PBS1
+		//hasil PBS 1 kvark dan kvart
+		$hasilPbs1 = $this->meter_utama->pronia($pbs1);
+		foreach ($hasilPbs1['kvarh_k'] as $key => $value) {
+			$kvar_k[$key] = round($value, 3)/1000;
+		}
+		foreach ($hasilPbs1['kvarh_t'] as $key => $value) {
+			$kvar_t[$key] = round($value, 3)/1000;
+		}
+		$sumKvarKPbs1 = array_sum($kvar_k)*1000;
+		$sumKvarTPbs1 = array_sum($kvar_t)*1000;
+
+		//hasil hitung KHW
+		//hasil KHW pbs1
+		foreach ($hasilPbs1['kwh_k'] as $key => $value) {
+			//assign nilai MW
+			$mw[$key] = $value/1000/0.5;//sumber masalah! nilai mw engga dibagi 1000
+			//assign nilai MVar out/in sama Cosphi lag/lead
+			if ($value>0) { // artinya nilai mw gamungkin 0 kan?
+				$mvarOut[$key] = $kvar_k[$key]/0.5;
+				$mvarIn[$key] = $kvar_t[$key]/0.5;
+				$cosphiLead[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarOut[$key], 2), 0.5);
+				$cosphiLag[$key] = $mw[$key]/pow(pow($mw[$key], 2) + pow($mvarIn[$key], 2), 0.5);
+				$consLead[$key] = $mw[$key]/0.95*pow((1-(0.95*0.95)), 0.5);
+				$consLag[$key] = $mw[$key]/0.85*(pow(1-(0.85*0.85), 0.5));
+				if ($mvarOut[$key] > $consLag[$key]) {
+					$mvarLag[$key] = $mvarOut[$key] - $consLag[$key];
+				}
+				else {
+					$mvarLag[$key] = 0;
+				}
+				if ($mvarIn[$key] > $consLead[$key]) { //perlu di debug
+					$mvarLead[$key] = $mvarIn[$key] - $consLead[$key];
+				}
+				else {
+					$mvarLead[$key] = 0;
+				}
+			}
+			else { //artinya nilai mw = 0
+				$mvarOut[$key] = 0;
+				$mvarIn[$key] = 0;
+				$cosphiLead[$key] = 0;
+				$cosphiLag[$key] = 0;
+				$consLead[$key] = 0;//sumber masalah
+				$consLag[$key] = 0;
+				$mvarLag[$key] = 0;
+				$mvarLead[$key] = 0;
+			}
+		}
+
+		//hasil hitung MVAR
+		/*
+		foreach ($mvarOut as $key => $value) {
+			if ($value > $consLag[$key]) {
+				$mvarLag[$key] = $value - $consLag[$key];
+			}
+			else {
+				$mvarLag[$key] = 0;
+			}
+		}
+		foreach ($mvarIn as $key => $value) {
+			if ($value > $consLead[$key]) {
+				$mvarLead[$key] = $value - $consLead[$key];
+			}
+			else {
+				$mvarLead[$key] = 0;
+			}
+		}
+		*/
+		//hasil PBS 1
+		$pbs1Lead = array_sum($mvarLead);
+		$pbs1Lag = array_sum($mvarLag);
+		//*
+		//hasil hitung cos phi
+		//hasil hitung cos phi pbs1
+		//foreach ($mw as $key => $value) {
+		/*
+		foreach ($mw as $key => $value) {
+			if ($value == 0) {
+				$cosphiLead[$key] = 0;
+				$cosphiLag[$key] = 0;
+			}
+			else {
+				$cosphiLead[$key] = $value/pow(pow($value, 2) + pow($mvarOut[$key], 2), 2);
+				$cosphiLag[$key] = $value/pow(pow($value, 2) + pow($mvarIn[$key], 2), 2);
+			}
+		}
+		*/
+//
+		$data = array
+		(
+			//pbs1
+			//hasilpbs1 -> jangan lupa apus lol
+			'hasilpbs' => $hasilPbs1,
+			'hasilkvarkpbs1' => $sumKvarKPbs1,
+			'hasilkvartpbs1' => $sumKvarTPbs1,
+			'hasilleadpbs1' => $pbs1Lead,
+			'hasillagpbs1' => $pbs1Lag,
+			//$mvarIn[$key] > $consLead[$key]
+			'mvarLead' => $mvarLead, // our endgame!
+			//$mvarOut[$key] > $consLag[$key]
+			'mvarLag' => $mvarLag, // our endgame!
+			//*
+			'mw' => $mw,
+			'mvarOut' => $mvarOut, //-> butuh buat mvarLag
+			'mvarIn' => $mvarIn, // -> butuh buat mvarLead
+			'cosphiLead' => $cosphiLead,
+			'cosphiLag' => $cosphiLag,//*/
+			'consLead' => $consLead, //-> butuh buat mvarLead
+			'consLag' => $consLag, //-> butuh buat mvarLag
+		);
+
+		//*/
+		//$this->load->view('tabelBaKvarh', $data);
+		$this->load->view('cobaBaKvarh', $data);
 	}
 
 

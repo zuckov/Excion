@@ -203,7 +203,9 @@ $(function(){
   var baseURL = 'http://localhost/excion/';
   //load ajax buat bar
   //*
-
+  $('#pbs1').load(baseURL+'index.php/csv/pronia', function() {
+      $('#myTab').tab(); //ganti konten tab nya
+  });
   //*/
   $('#bapbs').load(baseURL+'index.php/csv/baregion', function() {
       $('#myTab').tab(); //ganti konten tab nya

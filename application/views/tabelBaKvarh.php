@@ -182,41 +182,42 @@
       <tr>
         <td>PB SOEDIRMAN 1</td>
         <td>0707A639-01</td>
-        <td>=+hasil!F6</td>
+        <!-- <td>=+hasil!F6</td> -->
+        <td><?php echo number_format($lagpbs1 = $hasillagpbs1 * 1000 * 0.5, 2); ?></td>
         <td>071008506</td>
         <td>"0/-"</td>
         <td>=(D32-F32)/D32*100</td>
         <td>0707A639-01</td>
-        <td>=D32</td>
+        <td><?php echo number_format($lagpbs1, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 2</td>
         <td>0707A641-01</td>
-        <td>=+hasil!F7</td>
+        <td><?php echo number_format($lagpbs2 = $hasillagpbs2*1000*0.5, 2); ?></td>
         <td>071008501</td>
         <td>"0/-"</td>
         <td>=(D33-F33)/D33*100</td>
         <td>0707A641-01</td>
-        <td>=D33</td>
+        <td><?php echo number_format($lagpbs2, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 3</td>
         <td>0707A642-01</td>
-        <td>=+hasil!F8</td>
+        <td><?php echo number_format($lagpbs3 = $hasillagpbs3*1000*0.5, 2); ?></td>
         <td>071008505</td>
         <td>"0/-"</td>
         <td>=(D34-F34)/D34*100</td>
         <td>0707A642-01</td>
-        <td>=D34</td>
+        <td><?php echo number_format($lagpbs3, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td></td>
         <td>Sub Total (1)</td>
         <td></td>
-        <td>=SUM(D33:D35)</td>
+        <td><?php echo number_format($lagpbs1 + $lagpbs2 + $lagpbs3, 2); ?></td>
         <td></td>
         <td></td>
         <td></td>
@@ -231,41 +232,41 @@
       <tr>
         <td>PB SOEDIRMAN 1</td>
         <td>0707A639-01</td>
-        <td>=+hasil!E6</td>
+        <td><?php echo number_format($leadpbs1 = $hasilleadpbs1 * 1000 * 0.5, 2); ?></td>
         <td>071008506</td>
         <td>"0/-"</td>
         <td>=(D38-F38)/D38*100</td>
         <td>0707A639-01</td>
-        <td>=D38</td>
+        <td><?php echo number_format($leadpbs1, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 2</td>
         <td>0707A641-01</td>
-        <td>=+hasil!E7</td>
+        <td><?php echo number_format($leadpbs2 = $hasilleadpbs2 * 1000 * 0.5, 2); ?></td>
         <td>071008501</td>
         <td>"0/-"</td>
         <td>=(D39-F39)/D39*100</td>
         <td>0707A641-01</td>
-        <td>=D39</td>
+        <td><?php echo number_format($leadpbs2, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td>PB SOEDIRMAN 3</td>
         <td>0707A642-01</td>
-        <td>=+hasil!E8</td>
+        <td><?php echo number_format($leadpbs3 = $hasilleadpbs3 * 1000 * 0.5, 2); ?></td>
         <td>071008505</td>
         <td>"0/-"</td>
         <td>=(D40-F40)/D40*100</td>
         <td>0707A642-01</td>
-        <td>=D40</td>
+        <td><?php echo number_format($leadpbs3, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
       </tr>
       <tr>
         <td></td>
         <td>Sub Total (2)</td>
         <td></td>
-        <td>=SUM(D38:D40)</td>
+        <td><?php echo number_format($leadpbs1 + $leadpbs2 + $leadpbs3, 2); ?></td>
         <td></td>
         <td></td>
         <td></td>
