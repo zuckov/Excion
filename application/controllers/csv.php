@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+ini_set('memory_limit','256M');
 
 /*
 notes :
@@ -29,6 +30,10 @@ class Csv extends CI_Controller {
 		$bareg = $bakv = $bapbs = array();
 		$bareg = $this->meter_utama->ba($path);
 		$this->load->view('hasil', $bareg);
+	}
+
+	public function coba_array(){
+		$this->load->view('cobaArray');
 	}
 
 	public function cetak()
@@ -265,6 +270,7 @@ class Csv extends CI_Controller {
 	 $this->load->view('tabel', $data);
 	}
 
+//get_pronia
 	public function get_pronia($path = "C:/EXCION_GACA/ION DL/PBS 1.csv"){
 		$pbsArray = array();
 		$pbsArray = $this->meter_utama->pronia($path);
@@ -275,6 +281,7 @@ class Csv extends CI_Controller {
 		$this->load->view('tabelHasilKvarh');
 	}
 
+//get_bakv
 	public function get_bakv(){
 		//*
 		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
@@ -378,10 +385,10 @@ class Csv extends CI_Controller {
 //hasil PBS 2 kvark dan kvart
 		$hasilPbs2 = $this->meter_utama->pronia($pbs2);
 		foreach ($hasilPbs2['kvarh_k'] as $key => $value) {
-			$kvar_k[$key] = (round($value, 3))/1000;
+			$kvar_k[$key] = $value/1000;
 		}
 		foreach ($hasilPbs2['kvarh_t'] as $key => $value) {
-			$kvar_t[$key] = (round($value, 3))/1000;
+			$kvar_t[$key] = $value/1000;
 		}
 		$sumKvarKPbs2 = array_sum($kvar_k)*1000;
 		$sumKvarTPbs2 = array_sum($kvar_t)*1000;
@@ -454,7 +461,7 @@ class Csv extends CI_Controller {
 		foreach ($hasilPbs3['kvarh_k'] as $key => $value) {
 			$kvar_k[$key] = $value/1000;
 		}
-		foreach ($hasilPbs2['kvarh_t'] as $key => $value) {
+		foreach ($hasilPbs3['kvarh_t'] as $key => $value) {
 			$kvar_t[$key] = $value/1000;
 		}
 		$sumKvarKPbs3 = array_sum($kvar_k)*1000;
@@ -576,11 +583,9 @@ class Csv extends CI_Controller {
 		//$this->load->view('cobaBaKvarh', $data);
 	}
 
+//coba_bakv
 	public function coba_bakv(){
-		//*
-		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
-		//$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
-		//$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
+
 		$hasilPbs1 = array();
 		$kwh_k = $kwh_t = $kvar_k = $kvar_t =	$mw = $mvarIn = $mvarOut = $cosphiLead = $cosphiLag = array();
 		$consLead = $consLag = $mvarLead = $mvarLag = array();
@@ -588,8 +593,19 @@ class Csv extends CI_Controller {
 		//$pbs1Lag = $pbs2Lag = $pbs3Lag = array();
 
 //hasil PBS1
-		//hasil PBS 1 kvark dan kvart
+		//ganti path file disini!
+		///*
+		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
 		$hasilPbs1 = $this->meter_utama->pronia($pbs1);
+		//*/
+		/*
+		$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
+		$hasilPbs1 = $this->meter_utama->pronia($pbs2);
+		*/
+		/*
+		$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
+		$hasilPbs1 = $this->meter_utama->pronia($pbs3);
+		*/
 		foreach ($hasilPbs1['kvarh_k'] as $key => $value) {
 			$kvar_k[$key] = round($value, 3)/1000;
 		}
@@ -636,45 +652,9 @@ class Csv extends CI_Controller {
 				$mvarLead[$key] = 0;
 			}
 		}
-
-		//hasil hitung MVAR
-		/*
-		foreach ($mvarOut as $key => $value) {
-			if ($value > $consLag[$key]) {
-				$mvarLag[$key] = $value - $consLag[$key];
-			}
-			else {
-				$mvarLag[$key] = 0;
-			}
-		}
-		foreach ($mvarIn as $key => $value) {
-			if ($value > $consLead[$key]) {
-				$mvarLead[$key] = $value - $consLead[$key];
-			}
-			else {
-				$mvarLead[$key] = 0;
-			}
-		}
-		*/
 		//hasil PBS 1
 		$pbs1Lead = array_sum($mvarLead);
 		$pbs1Lag = array_sum($mvarLag);
-		//*
-		//hasil hitung cos phi
-		//hasil hitung cos phi pbs1
-		//foreach ($mw as $key => $value) {
-		/*
-		foreach ($mw as $key => $value) {
-			if ($value == 0) {
-				$cosphiLead[$key] = 0;
-				$cosphiLag[$key] = 0;
-			}
-			else {
-				$cosphiLead[$key] = $value/pow(pow($value, 2) + pow($mvarOut[$key], 2), 2);
-				$cosphiLag[$key] = $value/pow(pow($value, 2) + pow($mvarIn[$key], 2), 2);
-			}
-		}
-		*/
 //
 		$data = array
 		(
@@ -685,10 +665,6 @@ class Csv extends CI_Controller {
 			'hasilkvartpbs1' => $sumKvarTPbs1,
 			'hasilleadpbs1' => $pbs1Lead,
 			'hasillagpbs1' => $pbs1Lag,
-			//$mvarIn[$key] > $consLead[$key]
-			'mvarLead' => $mvarLead, // our endgame!
-			//$mvarOut[$key] > $consLag[$key]
-			'mvarLag' => $mvarLag, // our endgame!
 			//*
 			'mw' => $mw,
 			'mvarOut' => $mvarOut, //-> butuh buat mvarLag
@@ -697,6 +673,11 @@ class Csv extends CI_Controller {
 			'cosphiLag' => $cosphiLag,//*/
 			'consLead' => $consLead, //-> butuh buat mvarLead
 			'consLag' => $consLag, //-> butuh buat mvarLag
+
+			//$mvarIn[$key] > $consLead[$key]
+			'mvarLead' => $mvarLead, // our endgame!
+			//$mvarOut[$key] > $consLag[$key]
+			'mvarLag' => $mvarLag, // our endgame!
 		);
 
 		//*/

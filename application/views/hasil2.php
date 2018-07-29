@@ -22,6 +22,7 @@
     <a href="<?= base_url('index.php/csv/baregion'); ?>" class="white-btn">BASOD</a>
     <a href="<?= base_url('index.php/csv/ba'); ?>" class="main-btn">BAReg</a>
     <a href="<?= base_url('index.php/csv/get_bakv'); ?>" class="main-btn">BAKV</a>
+    <a href="<?= base_url('index.php/csv/coba_bakv'); ?>" class="main-btn">Coba BAKV</a>
 
   </div>
 </div>

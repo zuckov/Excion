@@ -218,11 +218,16 @@ $(function(){
   $('#bakv').load(baseURL+'index.php/csv/get_bakv', function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
-
+  //*/
+  //*
+  $('#hakv').load(baseURL+'index.php/csv/coba_bakv', function() {
+      $('#myTab').tab(); //ganti konten tab nya
+  });
+/*
   $('#hakv').load(baseURL+'index.php/csv/get_hakv', function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
-  //*/
+  */
   /*
   $('#myTab').bind('show', function(e) {
      var pattern=/#.+/gi //use regex to get anchor(==selector)
