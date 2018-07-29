@@ -54,7 +54,7 @@
         <!--<td>=+'pb. sudirman 1'!D4</td> -->
         <td><?php echo number_format($hasilkvarkpbs1); ?></td>
         <td>071008506</td>
-        <td>"0/-"</td>
+        <td><?php echo $a = 0; ?></td>
         <td>=(D15-F15)/D15*100</td>
         <td>0707A639-01</td>
         <td><?php echo number_format($hasilkvarkpbs1); ?></td>
@@ -65,7 +65,7 @@
         <td>0707A641-01</td>
         <td><?php echo number_format($hasilkvarkpbs2); ?></td>
         <td>071008501</td>
-        <td>"0/-"</td>
+        <td><?php echo $a; ?></td>
         <td>=(D16-F16)/D16*100</td>
         <td>0707A641-01</td>
         <td><?php echo number_format($hasilkvarkpbs2); ?></td>
@@ -76,7 +76,7 @@
         <td>0707A642-01</td>
         <td><?php echo number_format($hasilkvarkpbs3); ?></td>
         <td>071008505</td>
-        <td>"0/-"</td>
+        <td><?php echo $a; ?></td>
         <td>=(D17-F17)/D17*100</td>
         <td>0707A642-01</td>
         <td><?php echo number_format($hasilkvarkpbs3); ?></td>
@@ -104,7 +104,7 @@
         <td>0707A639-01</td>
         <td><?php echo number_format($hasilkvartpbs1); ?></td>
         <td>071008506</td>
-        <td>"0/-"</td>
+        <td><?php echo $a; ?></td>
         <td>=(D20-F20)/D20*100</td>
         <td>0707A639-01</td>
         <td><?php echo number_format($hasilkvartpbs1); ?></td>
@@ -115,7 +115,7 @@
         <td>0707A641-01</td>
         <td><?php echo number_format($hasilkvartpbs2); ?></td>
         <td>071008501</td>
-        <td>"0/-"</td>
+        <td><?php echo $a; ?></td>
         <td>=(D21-F21)/D21*100</td>
         <td>0707A641-01</td>
         <td><?php echo number_format($hasilkvartpbs2); ?></td>
@@ -126,7 +126,7 @@
         <td>0707A642-01</td>
         <td><?php echo number_format($hasilkvartpbs3); ?></td>
         <td>071008505</td>
-        <td>"0/-"</td>
+        <td><?php echo $a; ?></td>
         <td>=(D22-F22)/D22*100</td>
         <td>0707A642-01</td>
         <td><?php echo number_format($hasilkvartpbs3); ?></td>
@@ -185,8 +185,15 @@
         <!-- <td>=+hasil!F6</td> -->
         <td><?php echo number_format($lagpbs1 = $hasillagpbs1 * 1000 * 0.5, 2); ?></td>
         <td>071008506</td>
-        <td>"0/-"</td>
-        <td>=(D32-F32)/D32*100</td>
+        <td><?php echo $a; ?></td>
+        <td><?php
+        if ($lagpbs1==0) {
+          echo $dev2lagpbs1 = 100;
+        }
+        else {
+          echo $dev2lagpbs1 = ($lagpbs1-$a)/$lagpbs1*100;
+        }
+        ?></td>
         <td>0707A639-01</td>
         <td><?php echo number_format($lagpbs1, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
@@ -196,8 +203,15 @@
         <td>0707A641-01</td>
         <td><?php echo number_format($lagpbs2 = $hasillagpbs2*1000*0.5, 2); ?></td>
         <td>071008501</td>
-        <td>"0/-"</td>
-        <td>=(D33-F33)/D33*100</td>
+        <td><?php echo $a; ?></td>
+        <td><?php
+        if ($lagpbs2==0) {
+          echo $dev2lagpbs2 = 100;
+        }
+        else {
+          echo $dev2agpbs2 = ($lagpbs2-$a)/$lagpbs2*100;
+        }
+        ?></td>
         <td>0707A641-01</td>
         <td><?php echo number_format($lagpbs2, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
@@ -207,8 +221,15 @@
         <td>0707A642-01</td>
         <td><?php echo number_format($lagpbs3 = $hasillagpbs3*1000*0.5, 2); ?></td>
         <td>071008505</td>
-        <td>"0/-"</td>
-        <td>=(D34-F34)/D34*100</td>
+        <td><?php echo $a; ?></td>
+        <td><?php
+        if ($lagpbs3==0) {
+          echo $dev2lagpbs3 = 100;
+        }
+        else {
+          echo $dev2lagpbs3 = ($lagpbs3-$a)/$lagpbs3*100;
+        }
+        ?></td>
         <td>0707A642-01</td>
         <td><?php echo number_format($lagpbs3, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
@@ -234,8 +255,15 @@
         <td>0707A639-01</td>
         <td><?php echo number_format($leadpbs1 = $hasilleadpbs1 * 1000 * 0.5, 2); ?></td>
         <td>071008506</td>
-        <td>"0/-"</td>
-        <td>=(D38-F38)/D38*100</td>
+        <td><?php echo $a; ?></td>
+        <td><?php
+        if ($leadpbs1==0) {
+          echo $dev2leadpbs1 = 100;
+        }
+        else {
+          echo $dev2leadpbs1 = ($leadpbs1-$a)/$leadpbs1*100;
+        }
+        ?></td>
         <td>0707A639-01</td>
         <td><?php echo number_format($leadpbs1, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
@@ -245,8 +273,8 @@
         <td>0707A641-01</td>
         <td><?php echo number_format($leadpbs2 = $hasilleadpbs2 * 1000 * 0.5, 2); ?></td>
         <td>071008501</td>
-        <td>"0/-"</td>
-        <td>=(D39-F39)/D39*100</td>
+        <td><?php echo $a; ?></td>
+        <td><?php echo $dev2leadpbs2 = ($leadpbs2-$a)/$leadpbs2*100; ?></td>
         <td>0707A641-01</td>
         <td><?php echo number_format($leadpbs2, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
@@ -256,8 +284,8 @@
         <td>0707A642-01</td>
         <td><?php echo number_format($leadpbs3 = $hasilleadpbs3 * 1000 * 0.5, 2); ?></td>
         <td>071008505</td>
-        <td>"0/-"</td>
-        <td>=(D40-F40)/D40*100</td>
+        <td><?php echo $a; ?></td>
+        <td><?php echo $dev2leadpbs3 = ($leadpbs3-$a)/$leadpbs3*100; ?></td>
         <td>0707A642-01</td>
         <td><?php echo number_format($leadpbs3, 2); ?></td>
         <td> METER UTAMA ( MU )</td>
