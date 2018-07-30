@@ -29,7 +29,9 @@ class Csv extends CI_Controller {
 		$path = "C:/EXCION_GACA/ION DL/PBS 1.csv";
 		$bareg = $bakv = $bapbs = array();
 		$bareg = $this->meter_utama->ba($path);
-		$this->load->view('hasil', $bareg);
+		//$this->load->view('hasil', $bareg);
+		$this->load->view('templates/agency/blogview', $bareg);
+
 	}
 
 	public function coba_array(){

@@ -14,7 +14,9 @@ class Main extends CI_Controller {
 
     public function index(){
         //$this->load->view('view');
+       //$this->load->view('templates/header');
 	     $this->load->view('templates/index');
+       //$this->load->view('templates/footer');
     }
 
     public function start(){
@@ -26,6 +28,10 @@ class Main extends CI_Controller {
       //$pbs1 = $this->meter_utama->pronia();
       $this->load->view('hasil');
       //$this->load->view('hasil2');
+      //$this->load->view('templates/header');
+      //$this->load->view('templates/agency/blogview');
+      //$this->load->view('templates/footer');
+
     }
 
 	public function upload()

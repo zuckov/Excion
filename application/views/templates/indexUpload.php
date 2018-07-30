@@ -8,7 +8,7 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 
-	<script src=<?php echo base_url(); ?>'content/form_ajax.js'></script>
+	<script src=<?php base_url(); ?>'content/form_ajax.js'></script>
 
 	<title>Project Excion</title>
 
@@ -16,20 +16,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/bootstrap.min.css" />
 
 	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/owl.carousel.css" />
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/owl.theme.default.css" />
+	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/owl.theme.default.css" />
 
 	<!-- Magnific Popup -->
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/magnific-popup.css" />
+	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/magnific-popup.css" />
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/font-awesome.min.css">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/style.css" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +43,7 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<!-- <div class="bg-img" style="background-image: url('<?php //echo base_url(); ?>content/creative-agency/img/background1.jpg');"> -->
+		<!-- <div class="bg-img" style="background-image: url('<?php //base_url(); ?>content/creative-agency/img/background1.jpg');"> -->
 		<div class="bg-img" style="background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);">
 			<div class="overlay"></div>
 		</div>
@@ -57,8 +57,8 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="index.html">
-							<img class="logo" src="<?php echo base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
-							<img class="logo-alt" src="<?php echo base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
+							<img class="logo" src="<?php base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
+							<img class="logo-alt" src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -254,3 +254,166 @@
   		</div>
 		</div>
 		<!-- /modal ajax upload -->
+
+
+		<!-- home wrapper -->
+		<div class="home-wrapper" id="ganti">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
+						<div class="home-content">
+							<h1 class="white-text">This is Project Excion</h1>
+							<p class="white-text">
+								Upload file ion dl, lalu mulai excion.
+							</p>
+							<!-- <a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a> -->
+							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Upload File Excion</a>
+
+							<!--<button class="main-btn">Learn more</button>-->
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+
+	</header>
+	<!-- /Header -->
+
+	<!-- hasil ajax -->
+	<div class="container" id="gantiAjax"></div>
+
+	<!-- Footer -->
+	<footer id="footer" class="sm-padding bg-dark">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-lg-12">
+
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a href="index.html"><img src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo"></a>
+					</div>
+					<!-- /footer logo -->
+
+					<!-- footer follow -->
+					<ul class="footer-follow">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+					<!-- /footer follow -->
+
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<p>Developed by K.Armyansyah, Unsoed, © 2018. Template designed by <a href="https://colorlib.com" target="_blank">Colorlib </a> © 2017. All Rights Reserved. </p>
+					</div>
+					<!-- /footer copyright -->
+				</div>
+			</div>
+			<!-- /Row -->
+		</div>
+		<!-- /Container -->
+	</footer>
+	<!-- /Footer -->
+
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/main.js"></script>
+	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/_global.js"></script>
+
+	<!-- coba_ajax_jquery -->
+	<script>
+	//coba ajax jquery
+	$(document).ready(function(){
+		var target = "<?php echo "C:/EXCION_GACA/ION DL/PBS 2.csv"; ?>";
+
+  	$("#send").click(function(){
+			$.ajax({
+ 			 //url: "index.php/csv/baregion",
+			 url: "index.php/csv/get_pronia",
+			 //url: "index.php/csv/get_angka",
+			 //data: 3,
+			 data: "path="+ target,
+ 			 success: function(result){
+ 				 //$("#ganti").html(result);
+				 $("#gantiAjax").html(result);
+				 $("#ganti").hide();
+				 //*
+				 $("#gantiAjax").css({
+					 "height" : $("#patokanLebar").height(),
+				 });//*/
+				 $("#gantiAjax").css({
+					 "padding-top" : "152px"/*$("#nav").height()*/,
+					 "padding-bottom" : "52px",
+				 });
+ 		 }});
+
+		 /*
+		 $("#ganti").css({
+			 width: $("#patokanLebar").width()
+		 });//*/
+ 	});
+ 	});
+	//coba ajax
+		//var base_urls = "<? //echo base_url(); ?>";
+		/*
+		function loadWeb(){
+			var load = new XMLHttpRequest();
+			load.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					document.getElementById("ganti").innerHTML =
+
+				}
+			}
+		}
+
+		*/
+		//$(document).ready(function(){
+
+			/*
+			var base_url = "<?php //echo base_url() ?>";
+			$("#jqajax").click(function(){
+				$.post(base_url + "index.php/csv/baregion",
+				{
+
+				});
+				//$("#ganti").load("halaman ganti");
+			});
+		});*/
+		//});
+	</script>
+
+</body>
+
+</html>
