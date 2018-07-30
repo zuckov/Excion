@@ -60,7 +60,8 @@
 
 	<!-- agency -->
 	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="../excion/content/creative-agency/js/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="../excion/content/creative-agency/js/jquery.min.js"></script> -->
+	<script type="text/javascript" src="../excion/content/creative-agency/js/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="../excion/content/creative-agency/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../excion/content/creative-agency/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="../excion/content/creative-agency/js/jquery.magnific-popup.js"></script>
@@ -84,7 +85,39 @@
 	<script src="<?php echo base_url() ?>content/gentellela/vendors/pnotify/dist/pnotify.nonblock.js"></script>
 	<script src="<?php echo base_url() ?>content/gentellela/production/js/custom.js"></script>
 	<!-- gentelella -->
-
+	<script>
+	/*
+	$(function() {
+	  var baseURL = 'http://yourdomain.com/ajax/';
+	  //load content for first tab and initialize
+	  $('#home').load(baseURL+'home', function() {
+	      $('#myTab').tab(); //initialize tabs
+	  });
+	  $('#myTab').bind('show', function(e) {
+	     var pattern=/#.+/gi //use regex to get anchor(==selector)
+	     var contentID = e.target.toString().match(pattern)[0]; //get anchor
+	     //load content for selected tab
+	     $(contentID).load(baseURL+contentID.replace('#',''), function(){
+	          $('#myTab').tab(); //reinitialize tabs
+	     });
+	  });
+	});
+	*/
+	$(function() {
+	  var baseURL = 'http://localhost/excion/';
+	  //load content for first tab and initialize
+		///*
+	  $('#ajaxUpload').click(function() {
+	      //$('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
+				$.ajax({
+					url: baseUrl+'index.php/main/uploadView',
+					success: function(result){
+					 $("#gantiAjax").html(result);
+					}
+				});
+	  });
+	});
+	</script>
 </body>
 
 </html>

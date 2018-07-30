@@ -42,8 +42,8 @@
 					<!--<li><a href="<?php //echo base_url() ?>">Home</a></li> -->
 					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
 						<ul class="dropdown">
-							<li><a id="ajaxReal" href="#">Real Time</a></li>
-							<li><a id="navUpload" href="#">Upload</a></li>
+							<li><a href="#" id="ajaxReal">Real Time</a></li>
+							<li><a href="#" id="navUpload">Upload</a></li>
 							<li><a href="<?php echo base_url(); ?>index.php/main/coba_gentellela">Coba Gen</a></li>
 							<li><a href="<?php echo base_url(); ?>index.php/main/coba_supablog">Coba Agency</a></li>
 						</ul>
@@ -120,71 +120,7 @@
 			</div>
 		</div>
 		<!-- /home wrapper -->
-
 	</header>
 	<!-- /Header -->
 <!-- Content stop here -->
 	<!--  -->
-<script>
-/*
-$(function() {
-  var baseURL = 'http://yourdomain.com/ajax/';
-  //load content for first tab and initialize
-  $('#home').load(baseURL+'home', function() {
-      $('#myTab').tab(); //initialize tabs
-  });
-  $('#myTab').bind('show', function(e) {
-     var pattern=/#.+/gi //use regex to get anchor(==selector)
-     var contentID = e.target.toString().match(pattern)[0]; //get anchor
-     //load content for selected tab
-     $(contentID).load(baseURL+contentID.replace('#',''), function(){
-          $('#myTab').tab(); //reinitialize tabs
-     });
-  });
-});
-*/
-$(function() {
-  var baseURL = 'http://localhost/excion/';
-  //load content for first tab and initialize
-	///*
-  $('#ajaxUpload').click(function() {
-      $('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
-  });
-	//*/
-	/*
-	$("#ajaxUpload").click(function(){
-			$.ajax({
- 			 //url: "index.php/csv/baregion",
-			 url: baseURL+"index.php/main/uploadView",
-			 //url: "index.php/csv/get_angka",
-			 //data: 3,
- 			 success: function(result){
- 				 //$("#ganti").html(result);
-				 $("#gantiAjax").html(result);
-				 //$("#ganti").hide();
-				 /*
-				 $("#gantiAjax").css({
-					 "height" : $("#patokanLebar").height(),
-				 });*/
-				 /*
-				 $("#gantiAjax").css({
-					 "padding-top" : "152px"/*$("#nav").height(),
-					 "padding-bottom" : "52px",
-				 });*/
- 		// }});
-		 /*
-		 $("#ganti").css({
-			 width: $("#patokanLebar").width()
-		 });//*/
-});
-	/*
-  $('#myTab').bind('show', function(e) {
-     var pattern=/#.+/gi //use regex to get anchor(==selector)
-     var contentID = e.target.toString().match(pattern)[0]; //get anchor
-     //load content for selected tab
-     $(contentID).load(baseURL+contentID.replace('#',''), function(){
-          $('#myTab').tab(); //reinitialize tabs
-     });
-  });
-	*/
-</script>
