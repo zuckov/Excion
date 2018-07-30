@@ -1,5 +1,5 @@
 <!-- Content start here -->
-<body id="gantiAjax">
+<body>
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
@@ -42,8 +42,8 @@
 					<!--<li><a href="<?php //echo base_url() ?>">Home</a></li> -->
 					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
 						<ul class="dropdown">
-							<li><a id="ajaxReal" href="#">Real Time</a></li>
-							<li><a id="navUpload" href="#">Upload</a></li>
+							<li><a href="#">Real Time</a></li>
+							<li><a href="#">Upload</a></li>
 							<li><a href="<?php echo base_url(); ?>index.php/main/coba_gentellela">Coba Gen</a></li>
 							<li><a href="<?php echo base_url(); ?>index.php/main/coba_supablog">Coba Agency</a></li>
 						</ul>
@@ -106,7 +106,7 @@
 							<p class="white-text">
 								Upload file ion dl, lalu mulai excion.
 							</p>
-							<a href="<?= base_url('index.php/history/index'); ?>" class="white-btn">Start Excion</a>
+							<a href="<?= base_url('index.php/history/index'); ?>" class="white-btn">Upload File</a>
 							<!--<a href="<?php //base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Start Excion</a>
 							<a href="<?php //base_url('index.php/main/multiCsv'); ?>" class="main-btn">Multi Csv</a>
 							<a href="<?php //base_url('index.php/main/tablecsv'); ?>" class="main-btn">Table Csv</a>
@@ -124,7 +124,6 @@
 	</header>
 	<!-- /Header -->
 <!-- Content stop here -->
-	<!--  -->
 <script>
 /*
 $(function() {
@@ -146,38 +145,9 @@ $(function() {
 $(function() {
   var baseURL = 'http://localhost/excion/';
   //load content for first tab and initialize
-	///*
-  $('#ajaxUpload').click(function() {
-      $('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
+  $('#bar').load(baseURL+'index.php/csv/baregion', function() {
+      $('#myTab').tab(); //initialize tabs
   });
-	//*/
-	/*
-	$("#ajaxUpload").click(function(){
-			$.ajax({
- 			 //url: "index.php/csv/baregion",
-			 url: baseURL+"index.php/main/uploadView",
-			 //url: "index.php/csv/get_angka",
-			 //data: 3,
- 			 success: function(result){
- 				 //$("#ganti").html(result);
-				 $("#gantiAjax").html(result);
-				 //$("#ganti").hide();
-				 /*
-				 $("#gantiAjax").css({
-					 "height" : $("#patokanLebar").height(),
-				 });*/
-				 /*
-				 $("#gantiAjax").css({
-					 "padding-top" : "152px"/*$("#nav").height(),
-					 "padding-bottom" : "52px",
-				 });*/
- 		// }});
-		 /*
-		 $("#ganti").css({
-			 width: $("#patokanLebar").width()
-		 });//*/
-});
-	/*
   $('#myTab').bind('show', function(e) {
      var pattern=/#.+/gi //use regex to get anchor(==selector)
      var contentID = e.target.toString().match(pattern)[0]; //get anchor
@@ -186,5 +156,6 @@ $(function() {
           $('#myTab').tab(); //reinitialize tabs
      });
   });
-	*/
+});
+
 </script>

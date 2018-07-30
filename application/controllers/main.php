@@ -27,6 +27,10 @@
 	  //$this->load->view('templates/supablog/supa');
     }
 
+    public function uploadView(){
+      $this->load->view('templates/agency/indexUpload');
+    }
+
 	public function coba_gentellela(){
     $this->load->view('templates/gentellela/header');
 		$this->load->view('templates/gentellela/gen');
