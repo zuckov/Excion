@@ -67,6 +67,7 @@
 	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/_global.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/multiUpload/dropzone.js"></script>
 	<!-- agency -->
 
 	<!-- gentelella -->

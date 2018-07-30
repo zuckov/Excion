@@ -43,7 +43,8 @@
 					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
 						<ul class="dropdown">
 							<li><a href="#" id="ajaxReal">Real Time</a></li>
-							<li><a href="<?php echo base_url(); ?>main/uploadView" id="ajaxUpload">Upload</a></li>
+							<li><a href="#upload" data-toggle="modal" data-target="#modalupload">Upload</a>
+							<!-- <li><a href="<?php //echo base_url(); ?>main/uploadView" id="ajaxUpload">Upload</a></li> -->
 							<li><a href="<?php echo base_url(); ?>main/coba_gentellela">Coba Gen</a></li>
 							<li><a href="<?php echo base_url(); ?>main/coba_supablog">Coba Agency</a></li>
 						</ul>
@@ -91,7 +92,27 @@
 		</div>
 		<!-- /modal login -->
 
+		<!-- modal upload-->
+		<div id="modalupload" class="modal fade" role="dialog">
+  		<div class="modal-dialog modal-md">
 
+    	<!-- Modal content-->
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h4 class="modal-title">Upload File</h4>
+      		</div>
+      		<div class="modal-body">
+						<form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+      		</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+    		</div>
+  		</div>
+		</div>
+		<!-- /modal login -->
 
 
 		<!-- home wrapper -->
