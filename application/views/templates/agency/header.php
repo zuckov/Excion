@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<script src='../excion/content/form_ajax.js'></script>
+	<script src='<?php echo base_url() ?>content/form_ajax.js'></script>
 
 	<title>Project Excion</title>
 
@@ -25,12 +25,12 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/style.css" />
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/owl.carousel.css" />
-	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/owl.theme.default.css" />
-	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/magnific-popup.css" />
-	<link rel="stylesheet" href="../excion/content/creative-agency/css/font-awesome.min.css">
-	<link type="text/css" rel="stylesheet" href="../excion/content/creative-agency/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/owl.theme.default.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>excion/content/creative-agency/css/magnific-popup.css" />
+	<link rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/style.css" />
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>

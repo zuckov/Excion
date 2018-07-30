@@ -3,7 +3,7 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('<?php base_url(); ?>content/creative-agency/img/background2.jpg');">
+		<div class="bg-img" style="background-image: url('../content/creative-agency/img/background2.jpg');">
 		<!-- <div class="bg-img" style="background-image: url('<?php //base_url(); ?>content/creative-agency/img/background1.jpg');"> -->
 		<!-- <div class="bg-img" style="background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);"> -->
 			<div class="overlay"></div>
@@ -24,8 +24,8 @@
 							-->
 							<!--  Logo coba excion -->
 						<!-- <img class="logo" src="<?php echo base_url(); ?>content/excionlogo1.png" alt="logo"> -->
-						<img class="logo" src="../excion/content/excionlogo1.png" alt="logo">
-						<img class="logo-alt" src="../excion/content/logoexcion2putih.png" alt="logo">
+						<img class="logo" src="../content/excionlogo1.png" alt="logo">
+						<img class="logo-alt" src="../content/logoexcion2putih.png" alt="logo">
 					</a>
 				 </div>
 					<!-- /Logo -->

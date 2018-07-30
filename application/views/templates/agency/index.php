@@ -1,5 +1,5 @@
 <!-- Content start here -->
-<body id="gantiAjax">
+<body >
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
@@ -24,8 +24,8 @@
 							-->
 							<!--  Logo coba excion -->
 						<!-- <img class="logo" src="<?php echo base_url(); ?>content/excionlogo1.png" alt="logo"> -->
-						<img class="logo" src="../excion/content/excionlogo1.png" alt="logo">
-						<img class="logo-alt" src="../excion/content/logoexcion2putih.png" alt="logo">
+						<img class="logo" src="../content/excionlogo1.png" alt="logo">
+						<img class="logo-alt" src="../content/logoexcion2putih.png" alt="logo">
 					</a>
 				 </div>
 					<!-- /Logo -->
@@ -43,17 +43,17 @@
 					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
 						<ul class="dropdown">
 							<li><a href="#" id="ajaxReal">Real Time</a></li>
-							<li><a href="#" id="navUpload">Upload</a></li>
-							<li><a href="<?php echo base_url(); ?>index.php/main/coba_gentellela">Coba Gen</a></li>
-							<li><a href="<?php echo base_url(); ?>index.php/main/coba_supablog">Coba Agency</a></li>
+							<li><a href="<?php echo base_url(); ?>main/uploadView" id="ajaxUpload">Upload</a></li>
+							<li><a href="<?php echo base_url(); ?>main/coba_gentellela">Coba Gen</a></li>
+							<li><a href="<?php echo base_url(); ?>main/coba_supablog">Coba Agency</a></li>
 						</ul>
 					</li>
 					<?php if($this->session->userdata('status') == 'login'){ ?>
-						<li><a href="<?php echo base_url('index.php/history/index'); ?>">History</a></li>
+						<li><a href="<?php echo base_url('history/index'); ?>">History</a></li>
 						<li><a href="#about">About</a></li>
-						<li><a href="<?php echo base_url('index.php/login/logout'/*'index.php/login/logout'*/); ?>">Logout</a></li>
+						<li><a href="<?php echo base_url('login/logout'/*'index.php/login/logout'*/); ?>">Logout</a></li>
 					<?php }else {?>
-						<li><a href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
+						<li><a href="<?php echo base_url('main/about'); ?>">About</a></li>
 						<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
 					<?php } ?>
 				</ul>
@@ -95,7 +95,7 @@
 
 
 		<!-- home wrapper -->
-		<div class="home-wrapper">
+		<div class="home-wrapper" id="gantiAjax">
 			<div class="container">
 				<div class="row">
 

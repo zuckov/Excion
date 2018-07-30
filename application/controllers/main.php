@@ -28,7 +28,9 @@
     }
 
     public function uploadView(){
+      $this->load->view('templates/agency/header');
       $this->load->view('templates/agency/indexUpload');
+      $this->load->view('templates/agency/footer');
     }
 
 	public function coba_gentellela(){

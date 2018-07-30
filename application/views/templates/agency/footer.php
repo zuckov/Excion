@@ -11,7 +11,7 @@
 
 					<!-- footer logo -->
 					<div class="footer-logo">
-						<a href="<?php echo base_url(); ?>"><img src="../excion/content/logoexcion2putih.png" alt="logo"></a>
+						<a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url() ?>content/logoexcion2putih.png" alt="logo"></a>
 					</div>
 					<!-- /footer logo -->
 
@@ -61,12 +61,12 @@
 	<!-- agency -->
 	<!-- jQuery Plugins -->
 	<!-- <script type="text/javascript" src="../excion/content/creative-agency/js/jquery.min.js"></script> -->
-	<script type="text/javascript" src="../excion/content/creative-agency/js/jquery-3.1.1.js"></script>
-	<script type="text/javascript" src="../excion/content/creative-agency/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../excion/content/creative-agency/js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="../excion/content/creative-agency/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="../excion/content/creative-agency/js/main.js"></script>
-	<script type="text/javascript" src="../excion/content/creative-agency/js/_global.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/_global.js"></script>
 	<!-- agency -->
 
 	<!-- gentelella -->
@@ -103,19 +103,22 @@
 	  });
 	});
 	*/
-	$(function() {
+	$(document).ready(function(){
 	  var baseURL = 'http://localhost/excion/';
 	  //load content for first tab and initialize
-		///*
-	  $('#ajaxUpload').click(function() {
-	      //$('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
-				$.ajax({
-					url: baseUrl+'index.php/main/uploadView',
-					success: function(result){
-					 $("#gantiAjax").html(result);
-					}
-				});
-	  });
+		//*
+	  $('#ajaxUpload').click(function(){
+	      $('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
+		/*
+		$.ajax({
+			url: 'index.php/main/uploadView',
+			success: function(result){
+		 		$("#gantiAjax").html(result);
+			}
+		});
+		//*/
+		});
+		//*/
 	});
 	</script>
 </body>
