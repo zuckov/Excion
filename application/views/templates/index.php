@@ -18,6 +18,20 @@
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/bootstrap.min.css" />
 
+	<style>
+  .modal-header, h4, .close {
+      /*background-color: #5cb85c;*/
+			/*background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);*/
+			background-color: #6666ff;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
+
 	<!-- Owl Carousel -->
 	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/owl.carousel.css" />
 	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/owl.theme.default.css" />
@@ -57,8 +71,8 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="index.html">
-							<img class="logo" src="<?php base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
-							<img class="logo-alt" src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
+							<img class="logo-alt" src="<?php base_url(); ?>content/logoexcion2putih.png" alt="logo">
+							<img class="logo" src="<?php base_url(); ?>content/excionlogo1.png" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -85,9 +99,6 @@
 					</li>-->
 					<li><a href="#contact">Contact</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
-					<!-- <li><a id="send">Coba jq_ajax</a></li> -->
-					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>
 					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>
 				<!-- /Main navigation -->
@@ -97,10 +108,12 @@
 		<!-- /Nav -->
 
 		<!-- modal login 1-->
+		<!--
 		<div id="modalLogin" class="modal fade" role="dialog">
   		<div class="modal-dialog modal-lg">
 
     	<!-- Modal content-->
+			<!--
     		<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -124,85 +137,42 @@
 		</div>
 		<!-- /modal login -->
 
-		<!-- modal login 2-->
-		<div id="modalLogin2" class="modal fade" role="dialog">
-  		<div class="modal-dialog modal-lg">
+		<!-- modal login 1-->
+			<div class="modal fade" id="modalLogin" role="dialog">
+		    <div class="modal-dialog">
 
-    	<!-- Modal content-->
-    		<div class="modal-content">
-      		<div class="modal-header">
-        		<button type="button" class="close" data-dismiss="modal">&times;</button>
-        		<h4 class="modal-title">Login Form</h4>
-      		</div>
-      		<div class="modal-body">
-						<form action='#' id='frm_vld' method='post' name='frm_vld'>
-							<h3 align='center'>Silahkan mengisi form dibawah ini</h3>
-							<!-- <table align='center' cellpadding='5' cellspacing='5'> -->
-							<table>
-								<tr>
-									<td>Username</td>
-									<td>:</td>
-									<td><input type='text' name='username' id='username1' onblur="validate('username', this.value)"/></td>
-									<td><div id='username'></div></td>
-								</tr>
-								<tr>
-									<td>Password</td>
-									<td>:</td>
-									<td><input type='password' name='password' id='password1' onblur="validate('password', this.value)"/></td>
-									<td><div id='password'></div></td>
-								</tr>
-								<tr>
-									<td>E-mail</td>
-									<td>:</td>
-									<td><input type='text' name='email' id='email1' onblur="validate('email', this.value)"></td>
-									<td><div id='email'></div></td>
-								</tr>
-								<tr>
-									<td>Website</td>
-									<td>:</td>
-									<td><input type='text' name='website' id='website1' onblur="validate('website', this.value)"></td>
-									<td><div id='website'></div></td>
-								</tr>
-								<tr>
-									<td><input onclick= 'checkForm()' type='submit' name='submit' value='Submit'></td>
-									<td></td>
-									<td><input onClick="history.go(0)" type='reset' name='reset' value='Reset'></td>
-								</tr>
-							</table>
-						</form>
-    		</div>
-  		</div>
-		</div>
-		</div>
-		<!-- /modal login -->
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header" style="padding:35px 50px;">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+		        </div>
+		        <div class="modal-body" style="padding:40px 50px;">
+		          <form role="form">
+		            <div class="form-group">
+		              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+		              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+		            </div>
+		            <div class="form-group">
+		              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+		              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+		            </div>
+		            <div class="checkbox">
+		              <label><input type="checkbox" value="" checked>Remember me</label>
+		            </div>
+		              <button type="submit" class="btn btn-default btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+		          </form>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+		          <p>Not a member? <a href="#">Sign Up</a></p>
+		          <p>Forgot <a href="#">Password?</a></p>
+		        </div>
+		      </div>
 
-		<!-- modal ajax jquery-->
-		<div id="modalajaxjquery" class="modal fade" role="dialog">
-  		<div class="modal-dialog modal-lg">
-
-    	<!-- Modal content-->
-    		<div class="modal-content">
-      		<div class="modal-header">
-        		<button type="button" class="close" data-dismiss="modal">&times;</button>
-        		<h4 class="modal-title">Login Form</h4>
-      		</div>
-      		<div class="modal-body">
-						<form action="<?php echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post">
-							<input type="text" name="username" id="username" class="form-control" placeholder="Username" onblur="validate('username', this.value)"><br>
-							<input type="password" name="password" id="password" class="form-control" placeholder="Password" onblur="validate('password', this.value)">
-							<br>
-							<a href="#">Lupa Password || </a>
-							<a href="#">Buat Akun Baru </a>
-      		</div>
-      		<div class="modal-footer">
-						<input type="submit" class="btn btn-primary" value="Login">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-					</div>
-					</form>
-    		</div>
-  		</div>
-		</div>
-		<!-- /modal ajax jquery -->
+		    </div>
+		  </div>
+				<!-- /modal login -->
 
 		<!-- modal ajax upload-->
 		<div id="modalupload" class="modal fade" role="dialog">
@@ -305,7 +275,7 @@
 
 					<!-- footer logo -->
 					<div class="footer-logo">
-						<a href="index.html"><img src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo"></a>
+						<a href="index.html"><img src="<?php base_url(); ?>content/logoexcion2putih.png" alt="logo"></a>
 					</div>
 					<!-- /footer logo -->
 
