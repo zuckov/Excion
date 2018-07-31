@@ -31,7 +31,15 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>excion/content/creative-agency/css/magnific-popup.css" />
 	<link rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/creative-agency/css/style.css" />
-	
+
+	<!-- Dropzone CSS -->
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/multiUpload/dropzone.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/multiUpload/basic.css" />
+	<!-- Dropzone JS -->
+	<script type="text/javascript" src="<?php echo base_url() ?>content/multiUpload/dropzone.js"></script>
+
+
+
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>

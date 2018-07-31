@@ -24,8 +24,8 @@
 							-->
 							<!--  Logo coba excion -->
 						<!-- <img class="logo" src="<?php echo base_url(); ?>content/excionlogo1.png" alt="logo"> -->
-						<img class="logo" src="../content/excionlogo1.png" alt="logo">
-						<img class="logo-alt" src="../content/logoexcion2putih.png" alt="logo">
+						<img class="logo" src="<?php echo base_url() ?>content/excionlogo1.png" alt="logo">
+						<img class="logo-alt" src="<?php echo base_url() ?>content/logoexcion2putih.png" alt="logo">
 					</a>
 				 </div>
 					<!-- /Logo -->
@@ -42,11 +42,14 @@
 					<!--<li><a href="<?php //echo base_url() ?>">Home</a></li> -->
 					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
 						<ul class="dropdown">
-							<li><a href="#" id="ajaxReal">Real Time</a></li>
-							<li><a href="#upload" data-toggle="modal" data-target="#modalupload">Upload</a>
+							<li><a href="#" id="ajaxReal">Excion - Real Time</a></li>
+							<li><a href="#upload" data-toggle="modal" data-target="#modalupload">Excion - Upload</a></li>
+								<li><a href="#" id="ajaxReal">Excion - Default</a></li>
 							<!-- <li><a href="<?php //echo base_url(); ?>main/uploadView" id="ajaxUpload">Upload</a></li> -->
-							<li><a href="<?php echo base_url(); ?>main/coba_gentellela">Coba Gen</a></li>
-							<li><a href="<?php echo base_url(); ?>main/coba_supablog">Coba Agency</a></li>
+							<!--
+							<li><a href="<?php //echo base_url(); ?>main/coba_gentellela">Coba Gen</a></li>
+							<li><a href="<?php// echo base_url(); ?>main/coba_supablog">Coba Agency</a></li>
+							-->
 						</ul>
 					</li>
 					<?php if($this->session->userdata('status') == 'login'){ ?>
@@ -96,17 +99,22 @@
 		<div id="modalupload" class="modal fade" role="dialog">
   		<div class="modal-dialog modal-md">
 
-    	<!-- Modal content-->
+    	<!-- Modal upload content-->
     		<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
         		<h4 class="modal-title">Upload File</h4>
       		</div>
       		<div class="modal-body">
-						<form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+						<form action="/file-upload"  class="dropzone" id="uploadDropzone" style="border:2px dashed; min-height: 80px;">
+							<div class="dz-message">
+								<h3 style="padding:50px;">Click or Drop the files here.</h3>
+							</div>
+						</form>
       		</div>
 
 					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="submitUpload" onclick="uploadDropzone()">Upload</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
     		</div>
@@ -145,3 +153,124 @@
 	<!-- /Header -->
 <!-- Content stop here -->
 	<!--  -->
+	<script>
+	/*
+	$(function() {
+	  var baseURL = 'http://yourdomain.com/ajax/';
+	  //load content for first tab and initialize
+	  $('#home').load(baseURL+'home', function() {
+	      $('#myTab').tab(); //initialize tabs
+	  });
+	  $('#myTab').bind('show', function(e) {
+	     var pattern=/#.+/gi //use regex to get anchor(==selector)
+	     var contentID = e.target.toString().match(pattern)[0]; //get anchor
+	     //load content for selected tab
+	     $(contentID).load(baseURL+contentID.replace('#',''), function(){
+	          $('#myTab').tab(); //reinitialize tabs
+	     });
+	  });
+	});
+	*/
+	$(document).ready(function(){
+	  var baseURL = 'http://localhost/excion/';
+	  //load content for first tab and initialize
+		//*
+	  $('#ajaxUpload').click(function(){
+	      $('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
+		/*
+		$.ajax({
+			url: 'index.php/main/uploadView',
+			success: function(result){
+		 		$("#gantiAjax").html(result);
+			}
+		});
+		//*/
+		});
+		//*/
+	});
+	</script>
+
+	<script>
+	//DROPZONE JS
+	// Disabling autoDiscover, otherwise Dropzone will try to attach twice.
+	Dropzone.autoDiscover = false;
+	///*
+		//$('#modalupload').on('show.bs.modal', function(e){
+	var fileUpload = new Dropzone(".dropzone", {
+		url: "<?php echo base_url("index.php/upload/aksi_multi_upload"); ?>",
+		maxFiles: 18,
+		acceptedFiles: ".csv",
+		method: "post",
+		paramName: "file",
+		dictInvalidFileType:"Tipe file tidak dizinkan",
+		addRemoveLinks : true,
+		dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
+		dictUploadCanceled : "File berhasil di hapus.",
+		autoProcessQueue : false,
+		uploadMultiple : true,
+		//parallelUploads : 18, //gimana caranya mempertahankan tetep 2 upload at a time?
+		//init :
+	})
+		//})
+
+	function uploadDropzone(){
+		fileUpload.processQueue();
+
+	}
+
+	fileUpload.on("sending", function(a, b, c){
+		a.token=Math.random();
+		c.append("token_file", a.token); //nyiapin token/key buat tiap file yg diupload
+	});
+
+	// CALLBACK ON COMPLETE UPLOADING EACH FILE
+	fileUpload.on("complete", function(file){
+		if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+			console.log("END ", this.getQueuedFiles().length);
+		}
+		else {
+			// START QUEUE PROCESSING AGAIN
+			fileUpload.processQueue();
+		}
+	});
+
+	// ON QUEUE COMPLETE
+  fileUpload.on("queuecomplete", function (progress) {
+      $('.meter').delay(999).slideUp(999);
+      // REMOVE ALL FILES FROM FORM
+      this.removeAllFiles();
+  });
+
+	//*/
+	/*
+	$(function(){
+		// Now that the DOM is fully loaded, create the dropzone, and setup the
+		// event listeners
+		$('#modalupload').on('shown.bs.modal', function(e){
+			var fileUpload = new Dropzone(".dropzone", {
+				url: "<?php //echo base_url("index.php/upload/aksi_multi_upload"); ?>",
+				maxFiles: 18,
+				acceptedFiles: ".csv",
+				method: "post",
+				paramName: "file",
+				dictInvalidFileType:"Tipe file tidak dizinkan",
+				addRemoveLinks : true,
+				dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
+				dictUploadCanceled : "File berhasil di hapus.",
+				autoProcessQueue : false,
+			})
+		})
+
+		$('#submitUpload').click(function(){
+			fileUpload.processQueue();
+		});
+
+		fileUpload.on("sending", function(a, b, c){
+			a.token=Math.random();
+			c.append("token_file", a.token); //nyiapin token/key buat tiap file yg diupload
+		});
+
+	});
+	//*/
+
+	</script>

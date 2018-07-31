@@ -67,8 +67,7 @@
 	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/main.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>content/creative-agency/js/_global.js"></script>
-	<script type="text/javascript" src="<?php echo base_url() ?>content/multiUpload/dropzone.js"></script>
-	<!-- agency -->
+		<!-- agency -->
 
 	<!-- gentelella -->
 	<!-- jQuery -->
@@ -86,42 +85,7 @@
 	<script src="<?php echo base_url() ?>content/gentellela/vendors/pnotify/dist/pnotify.nonblock.js"></script>
 	<script src="<?php echo base_url() ?>content/gentellela/production/js/custom.js"></script>
 	<!-- gentelella -->
-	<script>
-	/*
-	$(function() {
-	  var baseURL = 'http://yourdomain.com/ajax/';
-	  //load content for first tab and initialize
-	  $('#home').load(baseURL+'home', function() {
-	      $('#myTab').tab(); //initialize tabs
-	  });
-	  $('#myTab').bind('show', function(e) {
-	     var pattern=/#.+/gi //use regex to get anchor(==selector)
-	     var contentID = e.target.toString().match(pattern)[0]; //get anchor
-	     //load content for selected tab
-	     $(contentID).load(baseURL+contentID.replace('#',''), function(){
-	          $('#myTab').tab(); //reinitialize tabs
-	     });
-	  });
-	});
-	*/
-	$(document).ready(function(){
-	  var baseURL = 'http://localhost/excion/';
-	  //load content for first tab and initialize
-		//*
-	  $('#ajaxUpload').click(function(){
-	      $('#gantiAjax').load(baseURL+'index.php/main/uploadView'); //initialize tabs
-		/*
-		$.ajax({
-			url: 'index.php/main/uploadView',
-			success: function(result){
-		 		$("#gantiAjax").html(result);
-			}
-		});
-		//*/
-		});
-		//*/
-	});
-	</script>
+	
 </body>
 
 </html>
