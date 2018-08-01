@@ -86,7 +86,14 @@
 
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
-					<li><a href="#home">Home</a></li>
+					<!-- <li><a href="#home">Home</a></li> -->
+					<li class="has-dropdown"><a href="#blog">Home</a>
+						<ul class="dropdown">
+							<li><a href="<?php echo base_url(); ?>">Excion</a></li>
+							<li><a href="<?php echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li>
+							<li><a href="#comingSoon">Excion Real-time</a></li>
+						</ul>
+					</li>
 					<li><a href="#about">About</a></li>
 					<!--<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#service">Services</a></li>

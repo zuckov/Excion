@@ -16,20 +16,27 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/bootstrap.min.css" />
 
 	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/owl.carousel.css" />
-	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/owl.theme.default.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/owl.theme.default.css" />
 
 	<!-- Magnific Popup -->
-	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/magnific-popup.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/magnific-popup.css" />
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/font-awesome.min.css">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>content/creative-agency/css/style.css" />
+
+	<!-- Dropzone CSS -->
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/dropzone.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/basic.css" />
+	<!-- Dropzone JS -->
+	<script type="text/javascript" src="<?php echo base_url() ?>content/dz/dropzone.js"></script>
+
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +44,15 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+
+	<style>
+	#divUpload {
+		border:2px dashed;
+		border-color: white;
+		min-height: 80px;
+		opacity: 0.5;
+	}
+	</style>
 </head>
 
 <body>
@@ -57,8 +73,8 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="index.html">
-							<img class="logo" src="<?php base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
-							<img class="logo-alt" src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
+							<img class="logo" src="<?php echo base_url(); ?>content/creative-agency/img/logo.png" alt="logo">
+							<img class="logo-alt" src="<?php echo base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -72,7 +88,30 @@
 
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
-					<li><a href="#home">Home</a></li>
+					<li class="has-dropdown"><a href="#blog">Home</a>
+						<ul class="dropdown">
+							<li><a href="<?php echo base_url(); ?>">Excion</a></li>
+							<li><a href="<?php echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li>
+							<li><a href="#comingSoon">Excion Real-time</a></li>
+						</ul>
+					</li>
+					<li><a href="#about">About</a></li>
+					<!--<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#service">Services</a></li>
+					<li><a href="#pricing">Prices</a></li>
+					<li><a href="#team">Team</a></li>
+					<li class="has-dropdown"><a href="#blog">Blog</a>
+						<ul class="dropdown">
+							<li><a href="blog-single.html">blog post</a></li>
+						</ul>
+					</li>-->
+					<!--
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
+					<li><a id="send">Coba jq_ajax</a></li>
+					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>-->
+					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 					<li><a href="#about">About</a></li>
 					<!--<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#service">Services</a></li>
@@ -85,9 +124,6 @@
 					</li>-->
 					<li><a href="#contact">Contact</a></li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin2">Coba login</a></li>
-					<!-- <li><a id="send">Coba jq_ajax</a></li> -->
-					<li><a href="#contact" data-toggle="modal" data-target="#modalupload">Coba Upload</a></li>
 					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>
 				<!-- /Main navigation -->
@@ -269,7 +305,17 @@
 								Upload file ion dl, lalu mulai excion.
 							</p>
 							<!-- <a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a> -->
-							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Upload File Excion</a>
+							<!-- <a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Upload File Excion</a> -->
+							<div class="container" id="divUpload">
+								<form method="post" action="<?php echo base_url(); ?>index.php/upload/uploads" enctype="multipart/form-data" class="dropzone" id="myAwesomeDropzone" >
+								<div class="dz-message">
+									<h3 style="padding:50px;">Click or Drop the files here.</h3>
+								</div>
+								<!-- <input type="text" id="uploaded_files"> -->
+								</form>
+								<button type="button" id="submit_dropzone_form">UPLOAD</button>
+							</div>
+
 
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>
@@ -301,7 +347,7 @@
 
 					<!-- footer logo -->
 					<div class="footer-logo">
-						<a href="index.html"><img src="<?php base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo"></a>
+						<a href="index.html"><img src="<?php echo base_url(); ?>content/creative-agency/img/logo-alt.png" alt="logo"></a>
 					</div>
 					<!-- /footer logo -->
 
@@ -345,12 +391,12 @@
 	<!-- /Preloader -->
 
 	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/main.js"></script>
-	<script type="text/javascript" src="<?php base_url(); ?>content/creative-agency/js/_global.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>content/creative-agency/js/_global.js"></script>
 
 	<!-- coba_ajax_jquery -->
 	<script>
@@ -412,6 +458,34 @@
 			});
 		});*/
 		//});
+	</script>
+	<script>
+	//DROPZONE JS
+	// Disabling autoDiscover, otherwise Dropzone will try to attach twice.
+	//Dropzone.autoDiscover = false;
+	/*
+	Dropzone.options.myAwesomeDropzone = {
+		//url:"<?php //echo base_url('index.php/welcome/uploads'); ?>",
+		autoProcessQueue: false,
+	  	uploadMultiple: true,
+	  	parallelUploads:18,
+			acceptedFiles: ".csv",
+			dictInvalidFileType:"Tipe file tidak dizinkan",
+			addRemoveLinks : true,
+			//dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
+			dictUploadCanceled : "File berhasil di hapus.",
+		successmultiple:function(data,response){
+			$("#uploaded_files").val(response);
+		},
+		init: function() {
+			//Submitting the form on button click
+			var submitButton = document.querySelector("#submit_dropzone_form");
+				myDropzone = this; // closure
+				submitButton.addEventListener("click", function() {
+				myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+			});
+		}
+	};*/
 	</script>
 
 </body>
