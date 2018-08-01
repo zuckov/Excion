@@ -40,11 +40,11 @@
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<!--<li><a href="<?php //echo base_url() ?>">Home</a></li> -->
-					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
+					<li class="has-dropdown"><a href="">Home</a>
 						<ul class="dropdown">
 							<li><a href="#" id="ajaxReal">Excion - Real Time</a></li>
 							<li><a href="#upload" data-toggle="modal" data-target="#modalupload">Excion - Upload</a></li>
-								<li><a href="#" id="ajaxReal">Excion - Default</a></li>
+							<li><a href="#" id="ajaxReal">Excion - Default</a></li>
 							<!-- <li><a href="<?php //echo base_url(); ?>main/uploadView" id="ajaxUpload">Upload</a></li> -->
 							<!--
 							<li><a href="<?php //echo base_url(); ?>main/coba_gentellela">Coba Gen</a></li>
@@ -107,7 +107,6 @@
 		<!--
 		<div id="modalLogin" class="modal fade" role="dialog">
   		<div class="modal-dialog modal-md">
-
     	<!-- Modal content-->
 			<!--
     		<div class="modal-content">
@@ -140,29 +139,31 @@
     	<!-- Modal upload content-->
     		<div class="modal-content">
       		<div class="modal-header">
-
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
         		<h4 class="modal-title">Upload File</h4>
       		</div>
       		<div class="modal-body">
-							<div class="alert alert-danger" id="alertValid" role="alert" style="visibility: hidden;">File tidak diperbolehkan untuk di upload.</div>
-						<form action="/file-upload"  class="dropzone" id="uploadDropzone" style="border:2px dashed; min-height: 80px;">
+						<!-- -->
+						<div class="alert alert-danger" id="alertValid" role="alert" style="visibility: hidden;">File tidak diperbolehkan untuk di upload.</div>
+						<form method="post" action="<?php echo base_url(); ?>index.php/upload/uploads" enctype="multipart/form-data" class="dropzone" id="myAwesomeDropzone" style="border:2px dashed; min-height: 80px;">
 							<div class="dz-message">
 								<h3 style="padding:50px;">Click or Drop the files here.</h3>
 							</div>
-<<<<<<< HEAD
 							<!-- <input type="text" id="uploaded_files"> -->
-<<<<<<< HEAD
 							<input type="text" id="uploaded_files">
-=======
->>>>>>> parent of 3fcb4bf... upload sukses, bugs.
-=======
->>>>>>> parent of 96f31e4... utik dikit dropzone.
 						</form>
+					<!--
+					<form method="post" action="<?php echo base_url(); ?>index.php/upload/uploads" enctype="multipart/form-data" class="dropzone" id="myAwesomeDropzone">
+					</form>
+					<button type="button" id="submit_dropzone_form">UPLOAD</button>
+					<div class="final-info">
+						<label for="uploaded_files">Response recieved will be displayed here</label>
+						<input type="text" id="uploaded_files">
+					</div>-->
       		</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" id="submitUpload" onclick="uploadDropzone()">Upload</button>
+						<button type="button" class="btn btn-primary" id="submit_dropzone_form" onclick="uploadDropzone()">Upload</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
     		</div>
@@ -234,7 +235,6 @@
 		});
 		//*/
 		});
-
 		$('#modalupload').on('shown.bs.modal', function (e) {
     	alert("I want this to appear after the modal has opened!");
 		});
@@ -245,7 +245,6 @@
 	<script>
 	//DROPZONE JS
 	// Disabling autoDiscover, otherwise Dropzone will try to attach twice.
-<<<<<<< HEAD
 	//Dropzone.autoDiscover = false;
 	//*
 	Dropzone.options.myAwesomeDropzone = {
@@ -259,7 +258,9 @@
 			//dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
 			dictUploadCanceled : "File berhasil di hapus.",
 		successmultiple:function(data,response){
-			$("#uploaded_files").val(response);
+			//$("#uploaded_files").val(response);
+			alert(response);
+			//send response here
 		},
 		init: function() {
 			//Submitting the form on button click
@@ -268,16 +269,33 @@
 				submitButton.addEventListener("click", function() {
 				myDropzone.processQueue(); // Tell Dropzone to process all queued files.
 			});
+			this.on("addedfile", function(file){
+				if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv") {
+					//alert('ok!');
+				}
+				else {
+					alert('file ini tidak bisa untuk di upload.');
+					this.removeFile(file);
+				}
+			});
+			// ON QUEUE COMPLETE
+			//*
+		  this.on("queuecomplete", function (progress, response) {
+		      $('.meter').delay(999).slideUp(999);
+					//alert(response);
+		      // REMOVE ALL FILES FROM FORM
+		      this.removeAllFiles();
+		  });
+			//*/
 		}
 	};
 	//*/
-=======
-	Dropzone.autoDiscover = false;
->>>>>>> parent of 3fcb4bf... upload sukses, bugs.
 	///*
 		//$('#modalupload').on('show.bs.modal', function(e){
+		/*
 	var fileUpload = new Dropzone(".dropzone", {
-		url: "<?php echo base_url("index.php/upload/aksi_multi_upload"); ?>",
+	//Dropzone.options.uploadDropzone = {
+		//url: "<?php //echo base_url("index.php/upload/multi_upload"); ?>",
 		maxFiles: 18,
 		acceptedFiles: ".csv",
 		method: "post",
@@ -287,23 +305,30 @@
 		dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
 		dictUploadCanceled : "File berhasil di hapus.",
 		autoProcessQueue : false,
-		//uploadMultiple : true,
-		//parallelUploads : 18, //gimana caranya mempertahankan tetep 2 upload at a time?
-		//init :
+		uploadMultiple : true,
+		parallelUploads : 18, //gimana caranya mempertahankan tetep 2 upload at a time?
+		//*
+		successmultiple:function(data,response){
+			$("#uploaded_files").val(response);
+		},
+		init : function(){
+			var submit = document.querySelector("#submit_dropzone_form");
+			submit.addEventListener("click", function(){
+				fileUpload.processQueue();
+			});
+		}
 		/*accept: function(file, done) {//mari coba alternatif
     	if (file.name == "PBS 1.csv") { //it works!
       	alert("ok");
     	}
     	else { alert("Naha, you don't."); }
-  	}*/
-
-	})
+  	}
+	})*/
 		//})
-
+	/*
 	function uploadDropzone(){
 		fileUpload.processQueue();
 	}
-
 	fileUpload.on("addedfile", function(file){
 		//validasi per item : kalo bukan file yg diizinkan, hapus,
 		if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv") {
@@ -316,7 +341,7 @@
 		/*if (file.name == "PBS 1.csv") { //it works!
 			alert("ok");
 		}
-		else { alert("Naha, you don't."); }*/
+		else { alert("Naha, you don't."); }
 		//var count = fileUpload.files.length;
 		//for (var i = 0; i < count; i++) {
 		//	if (file[i].name == "PBS 1.csv" || file[i].name == "PBS 2.csv" || file[i].name == "PBS 3.csv") {
@@ -326,14 +351,14 @@
 		//}
 		//alert(fileUpload.files.length);
 	});
-
-	fileUpload.on("sending", function(a, b, c){
+	//fileUpload.on("sending", function(a, b, c){
+	fileUpload.on("sendingmultiple", function(a, b, c){
 		a.token=Math.random();
 		c.append("token_file", a.token); //nyiapin token/key buat tiap file yg diupload
 	});
-
 	// CALLBACK ON COMPLETE UPLOADING EACH FILE
-	fileUpload.on("complete", function(file){
+	fileUpload.on("completemultiple", function(file){
+	//fileUpload.on("complete", function(file){
 		if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
 			console.log("END ", this.getQueuedFiles().length);
 		}
@@ -342,15 +367,13 @@
 			fileUpload.processQueue();
 		}
 	});
-
 	// ON QUEUE COMPLETE
   fileUpload.on("queuecomplete", function (progress) {
-      $('.meter').delay(999).slideUp(999);
+      //$('.meter').delay(999).slideUp(999);
 			alert("file sukses di upload!");
       // REMOVE ALL FILES FROM FORM
       this.removeAllFiles();
   });
-
 	//*/
 	/*
 	$(function(){
@@ -370,17 +393,13 @@
 				autoProcessQueue : false,
 			})
 		})
-
 		$('#submitUpload').click(function(){
 			fileUpload.processQueue();
 		});
-
 		fileUpload.on("sending", function(a, b, c){
 			a.token=Math.random();
 			c.append("token_file", a.token); //nyiapin token/key buat tiap file yg diupload
 		});
-
 	});
 	//*/
-
 	</script>

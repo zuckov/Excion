@@ -2,18 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Upload extends CI_Controller
 {
-
   function __construct(){
   		parent::__construct();
   		  //$this->load->helper(array('form', 'url'));
   	}
-
   public function index(){
 		$this->load->view('upload_view', array('error' => ' ' ));
 	}
-
-<<<<<<< HEAD
-
   public function multi_upload(){
     $data = array();
     date_default_timezone_set('Asia/Jakarta');
@@ -48,7 +43,6 @@ class Upload extends CI_Controller
       }
     }
   }
-
   public function uploads(){
 	      $data = array();
 				date_default_timezone_set('Asia/Jakarta');
@@ -77,10 +71,11 @@ class Upload extends CI_Controller
 	                  $fileData = $this->upload->data();
 	                  $uploadData[$i]['file_name'] = $fileData['file_name'];
 										//echo "sukses";
-
 	              }
 	          }
+            echo $folder.'/';
             /*
+            //validasi semua file disini!
 	          if (!empty($uploadData)) {
 	              $list=array();
 	              foreach ($uploadData as $value) {
@@ -89,15 +84,13 @@ class Upload extends CI_Controller
 	        echo json_encode($list);//Returns the JSON representation of a value
 					//echo "sukses";
         }*/
-        redirect('/csv/pronia'.$folder, 'refresh');
+        //redirect('/csv/pronia'.$folder, 'refresh');
       }
       //validasi kalo file nya kosong disini....
       //else {
         // code...
       //}
 	}
-=======
->>>>>>> parent of 3fcb4bf... upload sukses, bugs.
 /*
   public function buat_tombol(){
     date_default_timezone_set('Asia/Jakarta');
@@ -116,18 +109,14 @@ class Upload extends CI_Controller
 */
   public function aksi_multi_upload(){
     date_default_timezone_set('Asia/Jakarta');
-    $currentDate = date('d-m-Y_h.i.s');
+    $currentDate = date('dmY_his');
     $folder = 'upload/csv/'.$currentDate;
     mkdir($folder);
     $config['upload_path']          = $folder . '/';//'./upload/csv/';//$folder;//'./upload/'.$currentDate;
     $config['allowed_types']        = 'csv';
     $this->load->library('upload', $config);
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
     //$this->upload->do_upload('file[]');
     //*
     if ( ! $this->upload->do_upload('file')){ //uploadnya disini
@@ -149,7 +138,6 @@ class Upload extends CI_Controller
       /*
       //cari path di local servers
       $path = './upload/'.$nama;
-
       //mulai koneksi ftp
       $this->load->library('ftp');
       $config['hostname'] = '127.0.0.1';
@@ -158,35 +146,25 @@ class Upload extends CI_Controller
       $config['port']     = 21;
       $config['passive']  = FALSE;
       $config['debug'] 	= TRUE;
-
       $this->ftp->connect($config);
-
       //file upload path di remote server
       $destination = './upload/'.$nama;
-
       //upload file ke remote server
       $this->ftp->upload($path, ".".$destination);
-
       //tutup koneksi ftp
       $this->ftp->close();
-
       //hapus file di local server
       //@unlink($source);
-
       //coba upload ke ftp
       $data = array('upload_data' => $upload_file);
       */
-
       $this->load->view('upload_sukses', $data);
     }
-
   }
-
   public function aksi_hapus_upload(){
     //$token = $this->input->post('token');
     //$file = $this->db->get_where('foto',array('token'=>$token));
   }
-
   public function aksi_upload(){
 		$config['upload_path']          = './upload/';
 		//$config['allowed_types']        = 'gif|jpg|png';
@@ -194,9 +172,7 @@ class Upload extends CI_Controller
 		$config['max_size']             = 250;
 		//$config['max_width']            = 1024;
 		//$config['max_height']           = 768;
-
 		$this->load->library('upload', $config);
-
 		if ( ! $this->upload->do_upload('berkas')){
 			$error = array('error' => $this->upload->display_errors());
 			$this->load->view('upload_view', $error);
@@ -205,13 +181,10 @@ class Upload extends CI_Controller
       //ambil file name
       $upload_file = $this->upload->data();
       $file_name = $upload_file['file_name'];
-
       //masukin validasi disini
-
       //cari path di local servers
       $path = './upload/'.$file_name;
       //$path = $upload_file['full_path'];
-
       //mulai koneksi ftp
       $this->load->library('ftp');
       $config['hostname'] = '127.0.0.1';
@@ -220,32 +193,23 @@ class Upload extends CI_Controller
       $config['port']     = 21;
       $config['passive']  = FALSE;
       $config['debug'] 	= TRUE;
-
       $this->ftp->connect($config);
-
       //file upload path di remote server
       $destination = './upload/'.$file_name;
-
       //upload file ke remote server
       $this->ftp->upload($path, ".".$destination);
-
       //tutup koneksi ftp
       $this->ftp->close();
-
       //hapus file di local server
       //@unlink($source);
-
       //coba upload ke ftp
       $data = array('upload_data' => $upload_file);
-
 			$this->load->view('upload_sukses', $data);
 		}
 	}
-
   public function uploadDz(){
     $this->load->view('cobaDropzone');
   }
-
   public function extract_upload(){
         $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'zip|rar';
@@ -280,11 +244,8 @@ class Upload extends CI_Controller
                     echo "<script type='text/javascript'>alert('gagal');</script>";
             }
             */
-
             $this->load->view('upload_success_view', $data);
         }
   }
-
-
 }
 ?>
