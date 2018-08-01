@@ -20,8 +20,9 @@ class Login extends CI_Controller{
 	}
 	//login utama
 	function login(){
+		$pass = $this->input->post('password');
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$password = md5($pass);
 		//buat di laptop
 		/*
 		$where = array(

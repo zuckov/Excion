@@ -78,14 +78,16 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form action="<?php echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <!-- <input type="text" class="form-control" id="usrname" placeholder="Enter email"> -->
+							<input type="text" name="username" id="username" class="form-control" placeholder="Username" onblur="validate('username', this.value)"><br>
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <!-- <input type="text" class="form-control" id="psw" placeholder="Enter password"> -->
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password" onblur="validate('password', this.value)">
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
@@ -138,10 +140,12 @@
     	<!-- Modal upload content-->
     		<div class="modal-content">
       		<div class="modal-header">
+
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
         		<h4 class="modal-title">Upload File</h4>
       		</div>
       		<div class="modal-body">
+							<div class="alert alert-danger" id="alertValid" role="alert" style="visibility: hidden;">File tidak diperbolehkan untuk di upload.</div>
 						<form action="/file-upload"  class="dropzone" id="uploadDropzone" style="border:2px dashed; min-height: 80px;">
 							<div class="dz-message">
 								<h3 style="padding:50px;">Click or Drop the files here.</h3>
@@ -222,6 +226,10 @@
 		});
 		//*/
 		});
+
+		$('#modalupload').on('shown.bs.modal', function (e) {
+    	alert("I want this to appear after the modal has opened!");
+		});
 		//*/
 	});
 	</script>
@@ -243,16 +251,45 @@
 		dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
 		dictUploadCanceled : "File berhasil di hapus.",
 		autoProcessQueue : false,
-		uploadMultiple : true,
+		//uploadMultiple : true,
 		//parallelUploads : 18, //gimana caranya mempertahankan tetep 2 upload at a time?
 		//init :
+		/*accept: function(file, done) {//mari coba alternatif
+    	if (file.name == "PBS 1.csv") { //it works!
+      	alert("ok");
+    	}
+    	else { alert("Naha, you don't."); }
+  	}*/
+
 	})
 		//})
 
 	function uploadDropzone(){
 		fileUpload.processQueue();
-
 	}
+
+	fileUpload.on("addedfile", function(file){
+		//validasi per item : kalo bukan file yg diizinkan, hapus,
+		if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv") {
+			//alert('ok!');
+		}
+		else {
+			alert('file ini tidak diperbolehkan untuk di upload.');
+			this.removeFile(file);
+		}
+		/*if (file.name == "PBS 1.csv") { //it works!
+			alert("ok");
+		}
+		else { alert("Naha, you don't."); }*/
+		//var count = fileUpload.files.length;
+		//for (var i = 0; i < count; i++) {
+		//	if (file[i].name == "PBS 1.csv" || file[i].name == "PBS 2.csv" || file[i].name == "PBS 3.csv") {
+		//		alert('ok!');	}
+		//	else {
+		//		alert('nope!');	}
+		//}
+		//alert(fileUpload.files.length);
+	});
 
 	fileUpload.on("sending", function(a, b, c){
 		a.token=Math.random();
@@ -273,6 +310,7 @@
 	// ON QUEUE COMPLETE
   fileUpload.on("queuecomplete", function (progress) {
       $('.meter').delay(999).slideUp(999);
+			alert("file sukses di upload!");
       // REMOVE ALL FILES FROM FORM
       this.removeAllFiles();
   });

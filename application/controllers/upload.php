@@ -156,6 +156,10 @@ class Upload extends CI_Controller
 		}
 	}
 
+  public function uploadDz(){
+    $this->load->view('cobaDropzone');
+  }
+
   public function extract_upload(){
         $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'zip|rar';
