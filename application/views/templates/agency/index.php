@@ -261,6 +261,8 @@
 			//$("#uploaded_files").val(response);
 			alert(response);
 			//send response here
+			var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
+			window.location = url+response;
 		},
 		init: function() {
 			//Submitting the form on button click

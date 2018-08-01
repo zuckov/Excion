@@ -27,6 +27,10 @@
 	  //$this->load->view('templates/supablog/supa');
     }
 
+    public function getPathUpload($path){
+      echo $path;
+    }
+
     public function uploadView(){
       //$this->load->view('templates/agency/header');
       //$this->load->view('templates/agency/indexUpload');
