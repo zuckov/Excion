@@ -79,7 +79,9 @@ class Upload extends CI_Controller
 
 	              }
 	          }
+            echo $folder.'/';
             /*
+            //validasi semua file disini!
 	          if (!empty($uploadData)) {
 	              $list=array();
 	              foreach ($uploadData as $value) {
@@ -88,7 +90,7 @@ class Upload extends CI_Controller
 	        echo json_encode($list);//Returns the JSON representation of a value
 					//echo "sukses";
         }*/
-        redirect('/csv/pronia'.$folder, 'refresh');
+        //redirect('/csv/pronia'.$folder, 'refresh');
       }
       //validasi kalo file nya kosong disini....
       //else {

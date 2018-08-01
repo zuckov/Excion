@@ -40,11 +40,11 @@
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<!--<li><a href="<?php //echo base_url() ?>">Home</a></li> -->
-					<li class="has-dropdown"><a href="<?php echo base_url() ?>">Home</a>
+					<li class="has-dropdown"><a href="">Home</a>
 						<ul class="dropdown">
 							<li><a href="#" id="ajaxReal">Excion - Real Time</a></li>
 							<li><a href="#upload" data-toggle="modal" data-target="#modalupload">Excion - Upload</a></li>
-								<li><a href="#" id="ajaxReal">Excion - Default</a></li>
+							<li><a href="#" id="ajaxReal">Excion - Default</a></li>
 							<!-- <li><a href="<?php //echo base_url(); ?>main/uploadView" id="ajaxUpload">Upload</a></li> -->
 							<!--
 							<li><a href="<?php //echo base_url(); ?>main/coba_gentellela">Coba Gen</a></li>
@@ -151,6 +151,7 @@
 								<h3 style="padding:50px;">Click or Drop the files here.</h3>
 							</div>
 							<!-- <input type="text" id="uploaded_files"> -->
+							<input type="text" id="uploaded_files">
 						</form>
 					<!--
 					<form method="post" action="<?php echo base_url(); ?>index.php/upload/uploads" enctype="multipart/form-data" class="dropzone" id="myAwesomeDropzone">
@@ -259,8 +260,11 @@
 			//dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
 			dictUploadCanceled : "File berhasil di hapus.",
 		successmultiple:function(data,response){
-			$("#uploaded_files").val(response);
+			//$("#uploaded_files").val(response);
+			alert(response);
+			//send response here
 		},
+
 		init: function() {
 			//Submitting the form on button click
 			var submitButton = document.querySelector("#submit_dropzone_form");
@@ -268,7 +272,27 @@
 				submitButton.addEventListener("click", function() {
 				myDropzone.processQueue(); // Tell Dropzone to process all queued files.
 			});
+			this.on("addedfile", function(file){
+				if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv") {
+					//alert('ok!');
+				}
+				else {
+					alert('file ini tidak bisa untuk di upload.');
+					this.removeFile(file);
+				}
+			});
+			// ON QUEUE COMPLETE
+			//*
+		  this.on("queuecomplete", function (progress, response) {
+		      $('.meter').delay(999).slideUp(999);
+					//alert(response);
+		      // REMOVE ALL FILES FROM FORM
+		      this.removeAllFiles();
+
+		  });
+			//*/
 		}
+
 	};
 	//*/
 	///*
