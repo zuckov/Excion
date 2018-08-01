@@ -12,6 +12,89 @@ class Upload extends CI_Controller
 		$this->load->view('upload_view', array('error' => ' ' ));
 	}
 
+
+  public function multi_upload(){
+    $data = array();
+    date_default_timezone_set('Asia/Jakarta');
+    $currentDate = date('dmY_his');
+    //Directory where files will be uploaded
+    $folder = 'upload/'.$currentDate;
+    //validasi buat folder disini
+    //......
+    //validasi end.
+    mkdir($folder);
+    if (!empty($_FILES['file']['name'])) {
+      $count = count($_FILES['file']['name']);
+      for ($i=0; $i < $count; $i++) {
+        $_FILES['uploadFile']['name'] = str_replace(",","_",$_FILES['file']['name'][$i]);
+        //$_FILES['uploadFile']['name'] = $_FILES['file']['name'][$i];
+        $_FILES['uploadFile']['type'] = $_FILES['file']['type'][$i];
+        $_FILES['uploadFile']['tmp_name'] = $_FILES['file']['tmp_name'][$i];
+        $_FILES['uploadFile']['error'] = $_FILES['file']['error'][$i];
+        $_FILES['uploadFile']['size'] = $_FILES['file']['size'][$i];
+        //Directory where files will be uploaded
+        $config['upload_path'] = $folder.'/';
+        // Specifying the file formats that are supported.
+        $config['allowed_types'] = 'csv';
+        $this->load->library('upload', $config);
+        //$this->upload->initialize($config);
+        if ($this->upload->do_upload('uploadfile')) {
+          // /should i use this?
+          $fileData = $this->upload->data();
+          $uploadData[$i]['file_name'] = $fileData['file_name'];
+          echo "sukses";
+        }
+      }
+    }
+  }
+
+  public function uploads(){
+	      $data = array();
+				date_default_timezone_set('Asia/Jakarta');
+		    $currentDate = date('dmY_his');
+				//Directory where files will be uploaded
+				$folder = 'upload/'.$currentDate;
+        //validasi buat folder disini
+        //......
+				mkdir($folder);
+	      if (!empty($_FILES['file']['name'])) {
+	          $filesCount = count($_FILES['file']['name']);
+	          for ($i = 0; $i < $filesCount; $i++) {
+	              $_FILES['uploadFile']['name'] = str_replace(",","_",$_FILES['file']['name'][$i]);
+								//$_FILES['uploadFile']['name'] = $_FILES['file']['name'][$i];
+	              $_FILES['uploadFile']['type'] = $_FILES['file']['type'][$i];
+	              $_FILES['uploadFile']['tmp_name'] = $_FILES['file']['tmp_name'][$i];
+	              $_FILES['uploadFile']['error'] = $_FILES['file']['error'][$i];
+	              $_FILES['uploadFile']['size'] = $_FILES['file']['size'][$i];
+								//Directory where files will be uploaded
+	              $config['upload_path'] = $folder.'/';
+	              // Specifying the file formats that are supported.
+	              $config['allowed_types'] = 'csv';
+	              $this->load->library('upload', $config);
+	              //$this->upload->initialize($config);
+	              if ($this->upload->do_upload('uploadFile')) {
+	                  $fileData = $this->upload->data();
+	                  $uploadData[$i]['file_name'] = $fileData['file_name'];
+										//echo "sukses";
+
+	              }
+	          }
+            /*
+	          if (!empty($uploadData)) {
+	              $list=array();
+	              foreach ($uploadData as $value) {
+	                  array_push($list, $value['file_name']);
+	              }
+	        echo json_encode($list);//Returns the JSON representation of a value
+					//echo "sukses";
+        }*/
+        redirect('/csv/pronia'.$folder, 'refresh');
+      }
+      //validasi kalo file nya kosong disini....
+      //else {
+        // code...
+      //}
+	}
 /*
   public function buat_tombol(){
     date_default_timezone_set('Asia/Jakarta');
@@ -30,7 +113,7 @@ class Upload extends CI_Controller
 */
   public function aksi_multi_upload(){
     date_default_timezone_set('Asia/Jakarta');
-    $currentDate = date('d-m-Y_h.i.s');
+    $currentDate = date('dmY_his');
     $folder = 'upload/csv/'.$currentDate;
     mkdir($folder);
     $config['upload_path']          = $folder . '/';//'./upload/csv/';//$folder;//'./upload/'.$currentDate;
