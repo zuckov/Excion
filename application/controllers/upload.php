@@ -12,6 +12,7 @@ class Upload extends CI_Controller
 		$this->load->view('upload_view', array('error' => ' ' ));
 	}
 
+<<<<<<< HEAD
 
   public function multi_upload(){
     $data = array();
@@ -97,6 +98,8 @@ class Upload extends CI_Controller
         // code...
       //}
 	}
+=======
+>>>>>>> parent of 3fcb4bf... upload sukses, bugs.
 /*
   public function buat_tombol(){
     date_default_timezone_set('Asia/Jakarta');
@@ -115,7 +118,7 @@ class Upload extends CI_Controller
 */
   public function aksi_multi_upload(){
     date_default_timezone_set('Asia/Jakarta');
-    $currentDate = date('dmY_his');
+    $currentDate = date('d-m-Y_h.i.s');
     $folder = 'upload/csv/'.$currentDate;
     mkdir($folder);
     $config['upload_path']          = $folder . '/';//'./upload/csv/';//$folder;//'./upload/'.$currentDate;
