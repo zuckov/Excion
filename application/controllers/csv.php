@@ -194,8 +194,11 @@ class Csv extends CI_Controller {
 		//$this->load->view('tabelBaAjax', $data);
 	}
 
-	public function pronia($path = "C:/EXCION_GACA/ION DL/" ){ //ambil neraca energi dari sini
+public function pronia($path /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
 	  $row = 1;
+		$getPath = str_replace("-", "/", $path);
+		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		/*
 	  $garng12 = $path."GARNG 12.csv";
 	  $jelok3 = $path."JELOK 3.csv";
 	  $jelok124 = $path."JELOK 124.csv";
@@ -210,10 +213,10 @@ class Csv extends CI_Controller {
 	  $wadas1 = $path."WADAS 1.csv";
 	  $timo13 = $path."TIMO 13.csv";
 	  $timo2 = $path."TIMO 2.csv";
-
+		*/
 	  //PBS 1
-	  $filePbs = fopen($pbs1, "r");
-	  $data = fgetcsv($filePbs, 1000, ",");
+	  $file = fopen($realPath, "r");
+	  $data = fgetcsv($file, 1000, ",");
 	  $pbsA/*pbsDate*/ = array_search("Date/Time", $data);
 	  $pbsB/*pbsKwhDel*/ = array_search("kWh del int", $data);
 	  $pbsC/*pbsKwhRec*/ = array_search("kVARh del int", $data);
@@ -224,7 +227,7 @@ class Csv extends CI_Controller {
 
 	  $pbsDate = $pbsKwhKir = $pbsKwhTer = $pbsKvarhKir = $pbsKvarhTer = $pbsKapMw = $pbsKapMvar = array();
 	  $a = $b = $c = $d = $e = $f = $g=0;
-	  while (($list= fgetcsv($filePbs, 1000, ",")) !=FALSE){ //setiap baris
+	  while (($list= fgetcsv($file, 1000, ",")) !=FALSE){ //setiap baris
   		foreach ($list as $index=>$val){ //tiap kolom
 			if($index==$pbsA){ //if index sama dengan kVARh del int
   				$pbsDate[$a]=$val; // buat nangkep nilai satu
@@ -257,7 +260,7 @@ class Csv extends CI_Controller {
 		}
 	  }
 
-	 fclose($filePbs);
+	 fclose($file);
 
 	 $data = array(
 		 		 'date' => $pbsDate,

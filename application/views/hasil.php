@@ -14,6 +14,7 @@
   <h2>Sketch tampilan hasil hitung</h2>
   <p>sketch #1</p>
   <p>path folder yg di sent = <?php echo $path; ?></p>
+  <a href="<?php echo base_url(); ?>">Kembali</a>
   <div class="container" style="height:300px; width:700px; border-style:solid; margin-top:30px; margin-bottom:30px;">
     <p> Graph here </p>
   </div>
@@ -22,7 +23,17 @@
       <ul class="nav nav-tabs" id="myTabs">
           <li><a href="#home"  class="active" data-toggle="tab">Hasil</a></li>
           <!-- <li><a href="#foo" data-toggle="tab">Pronia</a></li> -->
-          <li><a href="#pbs1" data-toggle="tab">pronia</a></li>
+          <!-- <li><a href="#pbs1" data-toggle="tab">pronia</a></li> -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Pronia <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" id=myTabs2>
+              <li><a data-toggle="tab" data-target="#pbs1" href="#">PBS 1</a></li>
+              <li><a data-toggle="tab" data-target="#pbs2" href="#">PBS 2</a></li>
+            </ul>
+          </li>
+
           <li><a href="#bar" data-toggle="tab">Neraca Energi</a></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -202,9 +213,14 @@ $(function() {
 */
 $(function(){
   var baseURL = 'http://localhost/excion/';
+  var path = "<?php echo $path; ?>";
   //load ajax buat bar
   //*
-  $('#pbs1').load(baseURL+'index.php/csv/pronia', function() {
+  $('#pbs1').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_1.csv', function() {
+      $('#myTab').tab(); //ganti konten tab nya
+  });
+  //
+  $('#pbs2').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_2.csv', function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
   //*/

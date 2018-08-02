@@ -20,8 +20,7 @@ class Main extends CI_Controller {
     }
 
     public function start($path){
-      $getPath = str_replace("_", "/", $path);
-		  $realPath = base_url().$getPath;
+      
       //array buat capture hasil hitung dari model
       $pbs1 = $pbs2 = $pbs3 = $jelok1 = $jelok2 = $jelok3 = $jelok4 = $timo1 =
       $timo2 = $timo3 = $wadas1 = $wadas2 = $garung = $keteng1 =
