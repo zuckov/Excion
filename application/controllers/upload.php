@@ -108,7 +108,7 @@ class Upload extends CI_Controller
   public function uploads(){
 	      $data = array();
 				date_default_timezone_set('Asia/Jakarta');
-		    $currentDate = date('dmY_his');
+		    $currentDate = date('dmY-his');
 				//Directory where files will be uploaded
 				$folder = 'upload/'.$currentDate;
         //validasi buat folder disini
@@ -144,7 +144,8 @@ class Upload extends CI_Controller
 	        echo json_encode($list);//Returns the JSON representation of a value
 					//echo "sukses";
         }*/
-        redirect('/csv/pronia'.$folder, 'refresh');
+        $path = 'upload_'.$currentDate;
+        echo $path;
       }
       //validasi kalo file nya kosong disini....
       //else {

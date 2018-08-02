@@ -13,6 +13,7 @@
 <div class="container">
   <h2>Sketch tampilan hasil hitung</h2>
   <p>sketch #1</p>
+  <p>path folder yg di sent = <?php echo $path; ?></p>
   <div class="container" style="height:300px; width:700px; border-style:solid; margin-top:30px; margin-bottom:30px;">
     <p> Graph here </p>
   </div>

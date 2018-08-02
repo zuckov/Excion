@@ -45,12 +45,27 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="<?php base_url(); ?>content/creative-agency/css/style.css" />
 
+	<!-- Dropzone CSS -->
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/dropzone.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/basic.css" />
+	<!-- Dropzone JS -->
+	<script type="text/javascript" src="<?php echo base_url() ?>content/dz/dropzone.js"></script>
+
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<style>
+	#divUpload {
+		border:2px dashed;
+		border-color: white;
+		min-height: 80px;
+		opacity: 0.5;
+	}
+	</style>
+
 </head>
 
 <body>
@@ -90,7 +105,8 @@
 					<li class="has-dropdown"><a href="#blog">Home</a>
 						<ul class="dropdown">
 							<li><a href="<?php echo base_url(); ?>">Excion</a></li>
-							<li><a href="<?php echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li>
+							<!-- <li><a href="<?php //echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li> -->
+							<li><a href="#upload" data-toggle="modal" data-target="#modalupload">Excion Upload</a></li>
 							<li><a href="#comingSoon">Excion Real-time</a></li>
 						</ul>
 					</li>
@@ -181,39 +197,40 @@
 		  </div>
 				<!-- /modal login -->
 
-		<!-- modal ajax upload-->
+				<!-- modal upload-->
 		<div id="modalupload" class="modal fade" role="dialog">
   		<div class="modal-dialog modal-md">
-
-    	<!-- Modal content-->
+    	<!-- Modal upload content-->
     		<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
-        		<h4 class="modal-title">Upload File CSV</h4>
+        		<h4 class="modal-title">Upload File</h4>
       		</div>
       		<div class="modal-body">
-						<!-- <form action="<?php //echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post"> -->
-						<?php
-							//echo form_open_multipart('upload/aksi_upload');
-							echo form_open_multipart('upload/extract_upload');
-						?>
-							<input type="file" name="berkas" class="form-control" placeholder="Pilih file upload" onblur="validate('username', this.value)"><br>
-							<br>
+						<!-- -->
+						<div class="alert alert-danger" id="alertValid" role="alert" style="visibility: hidden;">File tidak diperbolehkan untuk di upload.</div>
+						<form method="post" action="<?php echo base_url(); ?>index.php/upload/uploads" enctype="multipart/form-data" class="dropzone" id="myAwesomeDropzone" style="border:2px dashed; min-height: 80px;">
+							<div class="dz-message">
+								<h3 style="padding:50px;">Click or Drop the files here.</h3>
+							</div>
+							<!-- <input type="text" id="uploaded_files"> -->
+							<input type="text" id="uploaded_files">
+						</form>
       		</div>
-      		<div class="modal-footer">
-						<input type="submit" class="btn btn-primary" value="Upload">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+					<!-- -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="submit_dropzone_form" onclick="uploadDropzone()">Upload</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
-					</form>
     		</div>
   		</div>
 		</div>
-		<!-- /modal ajax upload -->
+		<!-- /modal login -->
+
 
 		<!-- modal ajax -->
 		<div id="modalajax" class="modal fade" role="dialog" id="lebarModal">
   		<div class="modal-dialog modal-lg" id="lebarModal2"> <!-- solusi sementara : tambah ini "- style="width:1200px;" -"-->
-
     	<!-- Modal content-->
     		<div class="modal-content">
       		<div class="modal-header">
@@ -221,7 +238,6 @@
         		<h4 class="modal-title">Modal ajax coba</h4>
       		</div>
       		<div class="modal-body" id="ganti2">
-
       		</div>
       		<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
@@ -394,6 +410,59 @@
 		});*/
 		//});
 	</script>
+
+	<script>
+//DROPZONE JS
+// Disabling autoDiscover, otherwise Dropzone will try to attach twice.
+//Dropzone.autoDiscover = false;
+//*
+Dropzone.options.myAwesomeDropzone = {
+	//url:"<?php //echo base_url('index.php/welcome/uploads'); ?>",
+	autoProcessQueue: false,
+	uploadMultiple: true,
+	parallelUploads:18,
+	acceptedFiles: ".csv",
+	dictInvalidFileType:"Tipe file tidak dizinkan",
+	addRemoveLinks : true,
+	//dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
+	dictUploadCanceled : "File berhasil di hapus.",
+	successmultiple:function(data,response){
+		//$("#uploaded_files").val(response);
+		alert(response);
+		//send response here
+		//var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
+		var url="<?php echo base_url() ?>index.php/main/start/";
+		window.location = url+response;
+	},
+	init: function() {
+		//Submitting the form on button click
+		var submitButton = document.querySelector("#submit_dropzone_form");
+			myDropzone = this; // closure
+			submitButton.addEventListener("click", function() {
+			myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+		});
+		this.on("addedfile", function(file){
+			if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv"
+				|| file.name == "GARNG 12.csv" ) {
+				//alert('ok!');
+			}
+			else {
+				alert('file ini tidak bisa untuk di upload.');
+				this.removeFile(file);
+			}
+		});
+		// ON QUEUE COMPLETE
+		//*
+		this.on("queuecomplete", function (progress, response) {
+				$('.meter').delay(999).slideUp(999);
+				//alert(response);
+				// REMOVE ALL FILES FROM FORM
+				this.removeAllFiles();
+		});
+		//*/
+	}
+};
+</script>
 
 </body>
 

@@ -19,14 +19,21 @@ class Main extends CI_Controller {
        //$this->load->view('templates/footer');
     }
 
-    public function start(){
+    public function start($path){
+      $getPath = str_replace("_", "/", $path);
+		  $realPath = base_url().$getPath;
       //array buat capture hasil hitung dari model
       $pbs1 = $pbs2 = $pbs3 = $jelok1 = $jelok2 = $jelok3 = $jelok4 = $timo1 =
       $timo2 = $timo3 = $wadas1 = $wadas2 = $garung = $keteng1 =
       $keteng2 = $kedung = $wono = array();
 
+      $data = array(
+        //'path' => $realPath,
+        'path' => $path,
+      );
+
       //$pbs1 = $this->meter_utama->pronia();
-      $this->load->view('hasil');
+      $this->load->view('hasil', $data);
       //$this->load->view('hasil2');
       //$this->load->view('templates/header');
       //$this->load->view('templates/agency/blogview');
