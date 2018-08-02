@@ -4,9 +4,17 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 3 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap 4 -->
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
 </head>
 <body>
 
@@ -31,6 +39,7 @@
             <ul class="dropdown-menu" id=myTabs2>
               <li><a data-toggle="tab" data-target="#pbs1" href="#">PBS 1</a></li>
               <li><a data-toggle="tab" data-target="#pbs2" href="#">PBS 2</a></li>
+              <li><a data-toggle="tab" data-target="#pbs3" href="#">PBS 3</a></li>
             </ul>
           </li>
 
@@ -223,8 +232,12 @@ $(function(){
   $('#pbs2').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_2.csv', function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
+  //
+  $('#pbs3').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_3.csv', function() {
+      $('#myTab').tab(); //ganti konten tab nya
+  });
   //*/
-  $('#bapbs').load(baseURL+'index.php/csv/baregion', function() {
+  $('#bapbs').load(baseURL+'index.php/csv/baregion/'+path, function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
 //*
@@ -232,7 +245,7 @@ $(function(){
       $('#myTab').tab(); //ganti konten tab nya
   });//*/
   //*
-  $('#bakv').load(baseURL+'index.php/csv/get_bakv', function() {
+  $('#bakv').load(baseURL+'index.php/csv/get_bakv/'+path, function() {
       $('#myTab').tab(); //ganti konten tab nya
   });
   //*/

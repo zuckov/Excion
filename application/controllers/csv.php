@@ -65,10 +65,15 @@ class Csv extends CI_Controller {
 	public function baRegion($path = "C:/EXCION_GACA/ION DL/"){ //tampilan ba pbs
 		//coba fungsi simulasi BApbs
 		//not based on neraca energi, semua itungan asalanya dari file mentah PBS.
-		//array_sum
-		$pbs1 = $path."PBS 1.csv";
-	  $pbs2 = $path."PBS 2.csv";
-	  $pbs3 = $path."PBS 3.csv";
+		//get string path dari ajax. tambah validasi disini! pakai kapan :
+			//1. harus pake C:/EXCION_GACA/ION DL/
+			//2. harus pake get string path dari ajax
+		$getPath = str_replace("-", "/", $path);
+		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		//
+		$pbs1 = $realPath."/PBS_1.csv";
+	  $pbs2 = $realPath."/PBS_2.csv";
+	  $pbs3 = $realPath."/PBS_3.csv";
 		//pbs1
 		$filePbs = fopen($pbs1, "r");
 	  $data = fgetcsv($filePbs, 1000, ",");
@@ -196,8 +201,12 @@ class Csv extends CI_Controller {
 
 public function pronia($path /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
 	  $row = 1;
+		//get string path dari ajax. tambah validasi disini! pakai kapan :
+			//1. harus pake C:/EXCION_GACA/ION DL/
+			//2. harus pake get string path dari ajax
 		$getPath = str_replace("-", "/", $path);
 		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		//
 		/*
 	  $garng12 = $path."GARNG 12.csv";
 	  $jelok3 = $path."JELOK 3.csv";
@@ -287,11 +296,17 @@ public function pronia($path /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 	}
 
 //get_bakv
-	public function get_bakv(){
+	public function get_bakv($path = "C:/EXCION_GACA/ION DL"){
+		//get string path dari ajax. tambah validasi disini! pakai kapan :
+			//1. harus pake C:/EXCION_GACA/ION DL/
+			//2. harus pake get string path dari ajax
+		$getPath = str_replace("-", "/", $path);
+		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		//
 		//*
-		$pbs1 = "C:/EXCION_GACA/ION DL/PBS 1.csv";
-		$pbs2 = "C:/EXCION_GACA/ION DL/PBS 2.csv";
-		$pbs3 = "C:/EXCION_GACA/ION DL/PBS 3.csv";
+		$pbs1 = $realPath."/PBS_1.csv";
+	  $pbs2 = $realPath."/PBS_2.csv";
+	  $pbs3 = $realPath."/PBS_3.csv";
 		$hasilPbs1 = $hasilPbs2 = $hasilPbs3 = array();
 		$kwh_k = $kwh_t = $kvar_k = $kvar_t =	$mw = $mvarIn = $mvarOut = $cosphiLead = $cosphiLag = array();
 		$consLead = $consLag = $mvarLead = $mvarLag = array();
