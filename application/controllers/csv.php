@@ -28,9 +28,11 @@ class Csv extends CI_Controller {
 	}
 
 	public function pronia($path = "C:/EXCION_GACA/ION DL/" ){
-
-	  $row = 1;	  
-	  $garng12 = $path."GARNG 12.csv";
+		//tambah fungsi dari file upload! str replace!
+		$getPath = str_replace("_", "/", $path);
+		$realPath = base_url().$getPath;
+	  $row = 1;
+	  $garng12 = $realPath."/GARNG_12.csv";
 	  $jelok3 = $path."JELOK 3.csv";
 	  $jelok124 = $path."JELOK 124.csv";
 	  $kdombo = $path."KDOMBO.csv";
@@ -46,8 +48,11 @@ class Csv extends CI_Controller {
 	  $timo2 = $path."TIMO 2.csv";
 
 	  //PBS 1
-	  $filePbs = fopen($pbs1, "r");
-	  $data = fgetcsv($filePbs, 1000, ",");	  
+
+	  //$filePbs = fopen($pbs1, "r");
+		//file garng
+		$filePbs = fopen($garng12, "r");
+	  $data = fgetcsv($filePbs, 1000, ",");
 	  $pbsA/*pbsDate*/ = array_search("Date/Time", $data);
 	  $pbsB/*pbsKwhDel*/ = array_search("kWh del int", $data);
 	  $pbsC/*pbsKwhRec*/ = array_search("kVARh del int", $data);
@@ -55,7 +60,7 @@ class Csv extends CI_Controller {
 	  $pbsE/*pbsKvarhInt*/ = array_search("kVARh rec int", $data);
 	  $pbsF/*pbsLpKvA*/ = array_search("LP-KV_A", $data);
 	  $pbsG/*pbsLpKvB*/ = array_search("LP-KV_B", $data);
-	  
+
 	  $pbsDate = $pbsKwhKir = $pbsKwhTer = $pbsKvarhKir = $pbsKvarhTer = $pbsKapMw = $pbsKapMvar = array();
 	  $a = $b = $c = $d = $e = $f = $g=0;
 	  while (($list= fgetcsv($filePbs, 1000, ",")) !=FALSE){ //setiap baris
@@ -63,7 +68,7 @@ class Csv extends CI_Controller {
 			if($index==$pbsA){ //if index sama dengan kVARh del int
   				$pbsDate[$a]=$val; // buat nangkep nilai satu
   				$a++;
-			}	
+			}
 			else if($index==$pbsB){
 				$pbsKwhKir[$b]=$val;
   				$b++;
@@ -90,9 +95,9 @@ class Csv extends CI_Controller {
 			}
 		}
 	  }
-	  
+
 	 fclose($filePbs);
-	 
+
 	 $data = array(
 		 'date' => $pbsDate,
          'kwh_k' => $pbsKwhKir,
@@ -100,10 +105,10 @@ class Csv extends CI_Controller {
          'kvarh_k' => $pbsKvarhKir,
          'kvarh_t' => $pbsKvarhTer,
          'kap_mw' => $pbsKapMw,
-		 'kap_mvar' => $pbsKapMvar,		  
+		 'kap_mvar' => $pbsKapMvar,
      );
 
-	 $this->load->view('tabel', $data);	 
+	 $this->load->view('tabel', $data);
 	}
 
 

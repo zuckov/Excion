@@ -46,7 +46,7 @@ class Upload extends CI_Controller
   public function uploads(){
 	      $data = array();
 				date_default_timezone_set('Asia/Jakarta');
-		    $currentDate = date('dmY_his');
+		    $currentDate = date('dmY-his');
 				//Directory where files will be uploaded
 				$folder = 'upload/'.$currentDate;
         //validasi buat folder disini
@@ -73,7 +73,8 @@ class Upload extends CI_Controller
 										//echo "sukses";
 	              }
 	          }
-            echo $folder.'/';
+            $path = 'upload_'.$currentDate;
+            echo $path;//$folder.'/';
             /*
             //validasi semua file disini!
 	          if (!empty($uploadData)) {

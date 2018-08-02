@@ -261,7 +261,8 @@
 			//$("#uploaded_files").val(response);
 			alert(response);
 			//send response here
-			var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
+			//var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
+			var url="<?php echo base_url() ?>index.php/csv/pronia/";
 			window.location = url+response;
 		},
 		init: function() {
@@ -272,7 +273,8 @@
 				myDropzone.processQueue(); // Tell Dropzone to process all queued files.
 			});
 			this.on("addedfile", function(file){
-				if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv") {
+				if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv"
+					|| file.name == "GARNG 12.csv" ) {
 					//alert('ok!');
 				}
 				else {
