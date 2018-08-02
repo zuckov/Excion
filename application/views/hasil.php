@@ -241,7 +241,7 @@ $(function(){
       $('#myTab').tab(); //ganti konten tab nya
   });
 //*
-  $('#bareg').load(baseURL+'index.php/csv/ba', function() {
+  $('#bareg').load(baseURL+'index.php/csv/ba', function() { //baregion
       $('#myTab').tab(); //ganti konten tab nya
   });//*/
   //*

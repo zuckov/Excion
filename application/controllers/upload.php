@@ -136,16 +136,25 @@ class Upload extends CI_Controller
 	              }
 	          }
             /*
+            //validasi file disini.
+            $status? -> 0 - 5
 	          if (!empty($uploadData)) {
-	              $list=array();
-	              foreach ($uploadData as $value) {
-	                  array_push($list, $value['file_name']);
-	              }
-	        echo json_encode($list);//Returns the JSON representation of a value
-					//echo "sukses";
-        }*/
-        $path = 'upload-'.$currentDate;
-        echo $path;
+	             $list=array();
+	             foreach ($uploadData as $value) {
+	                array_push($list, $value['file_name']);
+	             }
+               //check list array
+	             echo json_encode($list);//Returns the JSON representation of a value
+					     //echo "sukses";
+            }*/
+          /*
+          $path = 'upload-'.$currentDate;
+          $response = array(
+            'path' => $path,
+            'status' => $status,
+          );
+          */
+          echo $path;
       }
       //validasi kalo file nya kosong disini....
       //else {

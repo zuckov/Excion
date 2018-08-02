@@ -420,7 +420,7 @@ Dropzone.options.myAwesomeDropzone = {
 	//url:"<?php //echo base_url('index.php/welcome/uploads'); ?>",
 	autoProcessQueue: false,
 	uploadMultiple: true,
-	parallelUploads:18,
+	parallelUploads:15,
 	acceptedFiles: ".csv",
 	dictInvalidFileType:"Tipe file tidak dizinkan",
 	addRemoveLinks : true,
