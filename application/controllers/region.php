@@ -20,7 +20,7 @@ class Region extends CI_Controller {
 	 */
 	function __construct(){
  		parent::__construct();
- 		$this->load->model('region');
+ 		$this->load->model('m_region');
  		$this->load->helper('url');
 
  	}
@@ -28,13 +28,13 @@ class Region extends CI_Controller {
 	{
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
-		$data['region'] = $this->region->tampil_data()->result();
-		$this->load->view('region/v_region',$data);
+		$data['region'] = $this->m_region->tampil_data()->result();
+		$this->load->view('region/v_tampil',$data);
 	}
 
 
 	function tambah(){
-		$this->load->view('region/i_region');
+		$this->load->view('region/v_input');
 	}
 
 	function tambah_aksi(){
@@ -55,7 +55,7 @@ class Region extends CI_Controller {
 
   function edit($id){ //ini sukses
 		$where = array('id' => $id);
-		$data['region'] = $this->region->edit_data($where,'region')->result();
+		$data['region'] = $this->m_region->edit_data($where,'region')->result();
 		$this->load->view('region/v_edit',$data);
 	}
 
@@ -71,7 +71,7 @@ class Region extends CI_Controller {
 			'id' => $id
 		);
 
-		$this->region->update_data($where,$data,'region');
+		$this->m_region->update_data($where,$data,'region');
 		redirect('region/index');
 	}
 }

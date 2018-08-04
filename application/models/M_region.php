@@ -1,6 +1,6 @@
 <?php
 
-class Region extends CI_Model{
+class M_region extends CI_Model{
   function __construct() {
     parent::__construct();
   }
