@@ -120,7 +120,14 @@
 							<li><a href="blog-single.html">blog post</a></li>
 						</ul>
 					</li>-->
-					<li><a href="#contact">Contact</a></li>
+					<li class="has-dropdown"><a href="#soon">CRUD(hapus)</a>
+						<ul class="dropdown">
+							<li><a href="<?php echo base_url(); ?>">Excion</a></li>
+							<!-- <li><a href="<?php //echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li> -->
+							<li><a href="<?php echo base_url('index.php/history/index'); ?>">history(hapus)</a></li>
+						<li><a href="<?php echo base_url('index.php/region/index'); ?>">region(hapus)</a></li>
+						</ul>
+					</li>
 					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>

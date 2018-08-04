@@ -21,7 +21,7 @@ class Main extends CI_Controller {
     }
 
     public function save_folder($path){
-      //
+    //
     }
 
     public function start($path){
@@ -32,7 +32,7 @@ class Main extends CI_Controller {
         'folder' => $path,
         'date' => $date,
       );
-      $this->h_operator->input_data($data);
+      //$this->h_operator->input_data($data);
 
 
       //$pbs1 = $this->meter_utama->pronia();

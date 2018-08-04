@@ -4,7 +4,10 @@ class Upload extends CI_Controller
 {
 
   function __construct(){
-  		parent::__construct();
+    parent::__construct();
+    //$this->load->model('meter_utama');
+    $this->load->model('h_operator');
+    $this->load->helper('url_helper');
   		  //$this->load->helper(array('form', 'url'));
   	}
 
@@ -110,6 +113,8 @@ class Upload extends CI_Controller
 				date_default_timezone_set('Asia/Jakarta');
 		    $currentDate = date('dmY_his');
         $show_date = DateTime::createFromFormat('dmY_his', $currentDate)->format('d/m/Y_h:i:s');
+        //simpan di db history
+
 				//Directory where files will be uploaded
 				$folder = 'upload/'.$currentDate;
         //validasi buat folder disini
@@ -169,7 +174,8 @@ class Upload extends CI_Controller
 					     //echo "sukses";
             }*/
 
-          $path = 'upload-'.$currentDate;
+          //$path = 'upload-'.$currentDate;
+
           //$dateReplace = date_format($currentDate, "d-m-Y_h:i:s");
           /*
           $response = array(
@@ -178,6 +184,12 @@ class Upload extends CI_Controller
           );
           echo $response;
           */
+          $data = array(
+            //'path' => $path,
+            'folder' => $currentDate,
+            'date' => $show_date,
+          );
+          $this->h_operator->input_data($data);
           echo $currentDate;
           //echo $dateReplace;
       }
