@@ -102,7 +102,7 @@
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<!-- <li><a href="#home">Home</a></li> -->
-					<li class="has-dropdown"><a href="#blog">Home</a>
+					<li class="has-dropdown"><a href="#soon">Home</a>
 						<ul class="dropdown">
 							<li><a href="<?php echo base_url(); ?>">Excion</a></li>
 							<!-- <li><a href="<?php //echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li> -->
