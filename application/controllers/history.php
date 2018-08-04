@@ -24,7 +24,7 @@ class History extends CI_Controller {
 		//$this->load->view('view');
 	}
 
-  public function save_folder($path){
+  public function history(){
     
   }
 }

@@ -5,7 +5,7 @@ class H_operator extends CI_Model{
     parent::__construct();
   }
 	function tampil_data(){
-		return $this->db->get('history_operator');
+		//return $this->db->get('history_operator');
 	}
 
 	function input_data($data){

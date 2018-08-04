@@ -25,12 +25,14 @@ class Main extends CI_Controller {
     }
 
     public function start($path){
+      //insert ke database h_operator
       $date = DateTime::createFromFormat('dmY_his', $path)->format('d/m/Y_h:i:s');
       $data = array(
         //'path' => $path,
         'folder' => $path,
         'date' => $date,
       );
+      $this->h_operator->input_data($data);
 
 
       //$pbs1 = $this->meter_utama->pronia();
