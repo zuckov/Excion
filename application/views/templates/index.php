@@ -219,7 +219,7 @@
       		</div>
 					<!-- -->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" id="submit_dropzone_form" onclick="uploadDropzone()">Upload</button>
+						<button type="button" class="btn btn-primary" id="submit_dropzone_form" >Upload</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
     		</div>
@@ -466,6 +466,7 @@ Dropzone.options.myAwesomeDropzone = {
 	}
 };
 </script>
+
 
 </body>
 

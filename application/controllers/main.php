@@ -8,7 +8,8 @@ class Main extends CI_Controller {
 
     public function __construct(){
       parent::__construct();
-      $this->load->model('meter_utama');
+      //$this->load->model('meter_utama');
+      $this->load->model('h_operator');
       $this->load->helper('url_helper');
     }
 
@@ -19,17 +20,18 @@ class Main extends CI_Controller {
        //$this->load->view('templates/footer');
     }
 
-    public function start($path){
-      
-      //array buat capture hasil hitung dari model
-      $pbs1 = $pbs2 = $pbs3 = $jelok1 = $jelok2 = $jelok3 = $jelok4 = $timo1 =
-      $timo2 = $timo3 = $wadas1 = $wadas2 = $garung = $keteng1 =
-      $keteng2 = $kedung = $wono = array();
+    public function save_folder($path){
+      //
+    }
 
+    public function start($path){
+      $date = DateTime::createFromFormat('dmY_his', $path)->format('d/m/Y_h:i:s');
       $data = array(
-        //'path' => $realPath,
-        'path' => $path,
+        //'path' => $path,
+        'folder' => $path,
+        'date' => $date,
       );
+
 
       //$pbs1 = $this->meter_utama->pronia();
       $this->load->view('hasil', $data);

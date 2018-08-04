@@ -16,7 +16,7 @@
 <div class="container" id="patokanLebar">
   <h2>Bordered Table</h2>
   <p>The .table-bordered class adds borders to a table:</p>
-  <table class="table table-bordered">
+  <table class="table table-bordered" id="tabelJquery">
     <thead>
       <tr>
         <th>Kode</th>
@@ -56,3 +56,13 @@
 </body>
 </html>
 -->
+<script>
+///*
+$(document).ready( function () {
+    $('#tabelJquery').DataTable({
+      "destroy" : true,
+    });
+
+} );
+//*/
+</script>

@@ -109,6 +109,7 @@ class Upload extends CI_Controller
 	      $data = array();
 				date_default_timezone_set('Asia/Jakarta');
 		    $currentDate = date('dmY_his');
+        $show_date = DateTime::createFromFormat('dmY_his', $currentDate)->format('d/m/Y_h:i:s');
 				//Directory where files will be uploaded
 				$folder = 'upload/'.$currentDate;
         //validasi buat folder disini
@@ -167,15 +168,18 @@ class Upload extends CI_Controller
 	             //echo json_encode($list);//Returns the JSON representation of a value
 					     //echo "sukses";
             }*/
-          /*
+
           $path = 'upload-'.$currentDate;
+          //$dateReplace = date_format($currentDate, "d-m-Y_h:i:s");
+          /*
           $response = array(
             'path' => $path,
             'status' => $status,
           );
           echo $response;
           */
-          echo $path;
+          echo $currentDate;
+          //echo $dateReplace;
       }
       //validasi kalo file nya kosong disini....
       //else {

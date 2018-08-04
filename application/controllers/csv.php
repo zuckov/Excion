@@ -56,8 +56,6 @@ class Csv extends CI_Controller {
 		//$this->load->view('view');
 	}
 
-
-
 	public function ba(){ //tabel tampilan ba region
 		$this->load->view('tabelBa');
 	}
@@ -68,8 +66,10 @@ class Csv extends CI_Controller {
 		//get string path dari ajax. tambah validasi disini! pakai kapan :
 			//1. harus pake C:/EXCION_GACA/ION DL/
 			//2. harus pake get string path dari ajax
+		//$getPath = str_replace("-", "/", $path);
+		//$realPath = base_url().$getPath; //bisa ga tanpa base_url?
 		$getPath = str_replace("-", "/", $path);
-		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		$realPath = base_url().'upload/'.$getPath;
 		//
 		$pbs1 = $realPath."/PBS_1.csv";
 	  $pbs2 = $realPath."/PBS_2.csv";
@@ -199,13 +199,13 @@ class Csv extends CI_Controller {
 		//$this->load->view('tabelBaAjax', $data);
 	}
 
-public function pronia($path /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
+public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
 	  $row = 1;
 		//get string path dari ajax. tambah validasi disini! pakai kapan :
 			//1. harus pake C:/EXCION_GACA/ION DL/
 			//2. harus pake get string path dari ajax
-		$getPath = str_replace("-", "/", $path);
-		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		$getPath = str_replace("-", "/", $date);
+		$realPath = base_url().'upload/'.$getPath; //bisa ga tanpa base_url?
 		//
 		/*
 	  $garng12 = $path."GARNG 12.csv";
@@ -300,8 +300,11 @@ public function pronia($path /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		//get string path dari ajax. tambah validasi disini! pakai kapan :
 			//1. harus pake C:/EXCION_GACA/ION DL/
 			//2. harus pake get string path dari ajax
+		//$getPath = str_replace("-", "/", $path);
+		//$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+
 		$getPath = str_replace("-", "/", $path);
-		$realPath = base_url().$getPath; //bisa ga tanpa base_url?
+		$realPath = base_url().'upload/'.$getPath;
 		//
 		//*
 		$pbs1 = $realPath."/PBS_1.csv";

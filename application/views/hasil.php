@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 3 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
   <!-- Bootstrap 4 -->
   <!--
@@ -21,7 +23,7 @@
 <div class="container">
   <h2>Sketch tampilan hasil hitung</h2>
   <p>sketch #1</p>
-  <p>path folder yg di sent = <?php echo $path; ?></p>
+  <p>path folder yg di sent = <?php echo $folder; ?></p>
   <a href="<?php echo base_url(); ?>">Kembali</a>
   <div class="container" style="height:300px; width:700px; border-style:solid; margin-top:30px; margin-bottom:30px;">
     <p> Graph here </p>
@@ -222,19 +224,19 @@ $(function() {
 */
 $(function(){
   var baseURL = 'http://localhost/excion/';
-  var path = "<?php echo $path; ?>";
+  var path = "<?php echo $folder; ?>";
   //load ajax buat bar
   //*
   $('#pbs1').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_1.csv', function() {
-      $('#myTab').tab(); //ganti konten tab nya
+      //$('#myTab').tab(); //ganti konten tab nya
   });
   //
   $('#pbs2').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_2.csv', function() {
-      $('#myTab').tab(); //ganti konten tab nya
+      //$('#myTab').tab(); //ganti konten tab nya
   });
   //
   $('#pbs3').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_3.csv', function() {
-      $('#myTab').tab(); //ganti konten tab nya
+      //$('#myTab').tab(); //ganti konten tab nya
   });
   //*/
   $('#bapbs').load(baseURL+'index.php/csv/baregion/'+path, function() {
@@ -269,6 +271,26 @@ $(function(){
   });*/
 });
 
+</script>
+<script>
+/*
+    $(function() {
+        $("#myTab").bind("change", function() {
+            $.ajax({
+                type: "GET",
+                url: "tabel.php",
+                "dataSrc": "tableData",
+                success: function(html) {
+                    $("#tableContainer").html(html);
+                    $('#mytable').DataTable({
+                      "destroy": true, //use for reinitialize datatable
+                   });
+                }
+            });
+        });
+
+    });
+    */
 </script>
 </body>
 </html>
