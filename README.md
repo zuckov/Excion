@@ -8,18 +8,34 @@ Todo-list :
   - ada duplikat file?
   - nama file sudah sesuai dengan ketentuan?
 
-2. Tambah mekanisme upload meter banding, dengan validasi yg sama!
+2. Dimana naro insert db?
+  - pas manggil data di tampilan hasil?
+  -  habis dari tampilan hasil baru di save pake prompt alert?
+    - kalo begini, pembeda nya apa? kasih kolom khusus di tabel?
 
-3. Tambah validasi real_path(path folder upload) :
+4. Tambah mekanisme upload meter banding, dengan validasi yg sama!
+
+5. Tambah validasi real_path(path folder upload) :
   - pake if, kondisinya :
     - kalau path = C:excion_gaca... =  gausah pake str_replace + base_url,
   - else, pake str_replace + base_url.
 
-4. Benerin Tampilan hasil.
+6. Benerin Tampilan hasil.
 
-5. Coba graph/chart!
+7. Coba graph/chart!
 
-6. Level user/login!
+8. Level user/login!
 
 ---------------------------------------------------------------------------------
-7. Realtime upload?
+9. Realtime upload?
+---------------------------------------------------------------------------------
+
+introducing : the files!
+1. PBS (3)
+2. Jelok (2)
+3. Timo (2)
+4. KTG (2)
+5. GARNG (1)
+6. WADAS (2)
+7. KDOMBO (1)
+8. WONOGRI (1)

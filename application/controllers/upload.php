@@ -132,6 +132,7 @@ class Upload extends CI_Controller
 	              if ($this->upload->do_upload('uploadFile')) {
 	                  $fileData = $this->upload->data();
 	                  $uploadData[$i]['file_name'] = $fileData['file_name'];
+                    //insert file di database?
 										//echo "sukses";
 	              }
 	          }
@@ -143,8 +144,27 @@ class Upload extends CI_Controller
 	             foreach ($uploadData as $value) {
 	                array_push($list, $value['file_name']);
 	             }
+               if (count($list) < 14) { //jumlah file kurang
+                 echo "Jumlah file yang diupload kurang.";
+               }
+               else if (count($list) > 14) {
+                 echo "Jumlah file yang diupload terlalu banyak.";
+               }
+               else {
+                 // code...
+               }
+               {
+                  $unik = array_unique($list);
+                  if (count) {
+                    // code...
+                  }
+               }
+
+               if (condition) { //disini file validasi file.
+                 // code...
+               }
                //check list array
-	             echo json_encode($list);//Returns the JSON representation of a value
+	             //echo json_encode($list);//Returns the JSON representation of a value
 					     //echo "sukses";
             }*/
           /*
@@ -153,6 +173,7 @@ class Upload extends CI_Controller
             'path' => $path,
             'status' => $status,
           );
+          echo $response;
           */
           echo $path;
       }

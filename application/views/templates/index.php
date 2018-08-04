@@ -442,12 +442,15 @@ Dropzone.options.myAwesomeDropzone = {
 			myDropzone.processQueue(); // Tell Dropzone to process all queued files.
 		});
 		this.on("addedfile", function(file){
+			//cek value tiap data yg dipush.
+			//var fileQueues = [];
+			/**/
 			if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv"
 				|| file.name == "GARNG 12.csv" ) {
 				//alert('ok!');
 			}
 			else {
-				alert('file ini tidak bisa untuk di upload.');
+				alert('file '+file.name+' tidak bisa untuk di upload.');
 				this.removeFile(file);
 			}
 		});
