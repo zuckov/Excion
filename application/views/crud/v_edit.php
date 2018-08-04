@@ -13,6 +13,7 @@
 		<table style="margin:20px auto;">
 			<tr>
 				<td>Nama</td>
+				<input type="hidden" name="id" value="<?php echo $u->id ?>">
 				<td><input type="text" name="nama" value="<?php echo $u->nama ?>"></td>
 			</tr>
       <tr>
