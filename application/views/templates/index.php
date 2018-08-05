@@ -128,7 +128,19 @@
 						<li><a href="<?php echo base_url('index.php/region/index'); ?>">region(hapus)</a></li>
 						</ul>
 					</li>
-					<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+					<?php if($this->session->userdata('status') == 'login'){ ?>
+						<li><a href="<?php echo base_url('index.php/history/index'); ?>">History</a></li>
+						<li><a href="#about">About</a></li>
+						<li class="has-dropdown"><a href=""><?php echo $this->session->userdata('nama'); ?></a>
+							<ul class="dropdown">
+								<li><a href="#">Profile</a></li>
+								<li><a href="<?php echo base_url('index.php/login/logout'/*'index.php/login/logout'*/); ?>">Logout</a></li>
+							</ul>
+					<?php }else {?>
+						<li><a href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
+						<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
+					<?php } ?>
+					<!-- <li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a></li> -->
 					<!--<li><a href="<?php //echo base_url('index.php/upload'); ?>">Coba Upload</a></li> -->
 				</ul>
 				<!-- /Main navigation -->
@@ -172,33 +184,39 @@
 		    <div class="modal-dialog">
 
 		      <!-- Modal content-->
+
+						<!-- <form role="form"> -->
+						<!---->
 		      <div class="modal-content">
 		        <div class="modal-header" style="padding:35px 50px;">
 		          <button type="button" class="close" data-dismiss="modal">&times;</button>
 		          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
 		        </div>
 		        <div class="modal-body" style="padding:40px 50px;">
-		          <form role="form">
+							<form action="<?php echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post">
+
 		            <div class="form-group">
 		              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-		              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+									<input type="text" name="username" id="username" class="form-control" placeholder="Username" ><br>
 		            </div>
 		            <div class="form-group">
 		              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-		              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+									<input type="password" name="password" id="password" class="form-control" placeholder="Password" >
 		            </div>
 		            <div class="checkbox">
 		              <label><input type="checkbox" value="" checked>Remember me</label>
 		            </div>
 		              <button type="submit" class="btn btn-default btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-		          </form>
+
 		        </div>
 		        <div class="modal-footer">
 		          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-		          <p>Not a member? <a href="#">Sign Up</a></p>
+							</form>
+							<p>Not a member? <a href="#">Sign Up</a></p>
 		          <p>Forgot <a href="#">Password?</a></p>
 		        </div>
 		      </div>
+
 
 		    </div>
 		  </div>

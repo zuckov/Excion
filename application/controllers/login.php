@@ -1,41 +1,27 @@
-user<?php
+<?php
 class Login extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('user');
-		// Load model/database
-		//$this->load->model('user');
-		// Load form helper library
-		//$this->load->helper('form');
-		// Load session library
-		//$this->load->library('form_validation');
-		// Load form helper library
-		//$this->load->library('session');
+		//$this->load->model('m_login');
 	}
 	function index(){
-		$this->load->view('v_login');
+		//$this->load->view('v_login');
 	}
+
 	//login utama
 	function login(){
 		$pass = $this->input->post('password');
 		$username = $this->input->post('username');
 		$password = md5($pass);
 		//buat di laptop
-		/*
-		$where = array(
-			'username' => $username,
-			'password' => md5($password)
-			);
-			*/
-		//buat di pc
-		//*
 		$where = array(
 			'username' => $username,
 			'password' => $password,
-			);
+		);
 		//*/
-		//$cek = $this->m_login->cek_login("admin",$where)->num_rows();//buat di laptop
-		$cek = $this->user->cek_login("user",$where)->num_rows();//buat di pc
+		$cek = $this->user->cek_login("user",$where)->num_rows();//buat di laptop
+		//$cek = $this->m_login->cek_login("User",$where)->num_rows();//buat di pc
 		if($cek > 0){
 			$data_session = array(
 				'nama' => $username,
@@ -45,11 +31,23 @@ class Login extends CI_Controller{
 			redirect(base_url());//redirect ke hal utama
 			//redirect(base_url("index.php/admin"));
 		}else{
-			echo "Username dan password salah";
-			//redirect(base_url());
+			$message = "Username dan password salah";
+			redirect(base_url());
+			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		//redirect(base_url('index.php'));
+		redirect('', refresh);
+	}
+	function ok(){
+		echo "ok";
+	}
+	}
 	//end of login utama
+	/*
 	function validation(){
 		$value = $_GET['query'];
 		$field = $_GET['field'];
@@ -98,14 +96,6 @@ class Login extends CI_Controller{
 				echo "<span>Valid</span>";
 			}
 	}
-}
-	public function logout(){
-		$this->session->sess_destroy();
-		//redirect(base_url('index.php'));
-		redirect('', refresh);
-	}
-	function ok(){
-		echo "ok";
-	}
-	}
+}*/
+
 ?>
