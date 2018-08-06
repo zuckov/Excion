@@ -6,6 +6,9 @@ class Upload extends CI_Controller
   function __construct(){
     parent::__construct();
     //$this->load->model('meter_utama');
+    if($this->session->userdata('status') != "login"){
+			redirect(base_url());
+		}
     $this->load->model('h_operator');
     $this->load->helper('url_helper');
   		  //$this->load->helper(array('form', 'url'));
@@ -188,6 +191,7 @@ class Upload extends CI_Controller
             //'path' => $path,
             'folder' => $currentDate,
             'date' => $show_date,
+            //'dari' => $this->session->userdata('user_id'),
           );
           $this->h_operator->input_data($data);
           echo $currentDate;

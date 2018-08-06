@@ -20,6 +20,9 @@ class History extends CI_Controller {
 	 */
 	function __construct(){
  		parent::__construct();
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url());
+		}
  		$this->load->model('h_operator');
  		$this->load->helper('url');
 
@@ -28,7 +31,10 @@ class History extends CI_Controller {
 	{
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
+		$id=$this->session->userdata('id');
 		$data['history'] = $this->h_operator->tampil_data()->result();
+		$data['region'] = $this->h_operator->get_nama($id);
+
 		$this->load->view('history/tabel_history',$data);
 	}
 

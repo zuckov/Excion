@@ -72,8 +72,10 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<!-- <div class="bg-img" style="background-image: url('<?php //base_url(); ?>content/creative-agency/img/background1.jpg');"> -->
-		<div class="bg-img" style="background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);">
+		<!-- -->
+		<div class="bg-img" style="background-image: url('<?php base_url(); ?>content/creative-agency/img/background2.jpg');">
+		<!-- <div class="bg-img" style="background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);"> -->
+			<!-- <div class="bg-img" style="background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);">#9193a8 -->
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -110,7 +112,7 @@
 							<li><a href="#comingSoon">Excion Real-time</a></li>
 						</ul>
 					</li>
-					<li><a href="#about">About</a></li>
+					<!--<li><a href="#about">About</a></li>-->
 					<!--<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#service">Services</a></li>
 					<li><a href="#pricing">Prices</a></li>
@@ -120,14 +122,15 @@
 							<li><a href="blog-single.html">blog post</a></li>
 						</ul>
 					</li>-->
+					<!--
 					<li class="has-dropdown"><a href="#soon">CRUD(hapus)</a>
 						<ul class="dropdown">
 							<li><a href="<?php echo base_url(); ?>">Excion</a></li>
-							<!-- <li><a href="<?php //echo base_url('index.php/upload/index'); ?>">Excion Upload</a></li> -->
 							<li><a href="<?php echo base_url('index.php/history/index'); ?>">history(hapus)</a></li>
-						<li><a href="<?php echo base_url('index.php/region/index'); ?>">region(hapus)</a></li>
+							<li><a href="<?php echo base_url('index.php/region/index'); ?>">region(hapus)</a></li>
 						</ul>
 					</li>
+				-->
 					<?php if($this->session->userdata('status') == 'login'){ ?>
 						<li><a href="<?php echo base_url('index.php/history/index'); ?>">History</a></li>
 						<li><a href="#about">About</a></li>
@@ -136,6 +139,7 @@
 								<li><a href="#">Profile</a></li>
 								<li><a href="<?php echo base_url('index.php/login/logout'/*'index.php/login/logout'*/); ?>">Logout</a></li>
 							</ul>
+						</li>
 					<?php }else {?>
 						<li><a href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
 						<li><a href="#contact" data-toggle="modal" data-target="#modalLogin">Login</a>
@@ -203,9 +207,11 @@
 		              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
 									<input type="password" name="password" id="password" class="form-control" placeholder="Password" >
 		            </div>
-		            <div class="checkbox">
+								<!--
+								<div class="checkbox">
 		              <label><input type="checkbox" value="" checked>Remember me</label>
 		            </div>
+								-->
 		              <button type="submit" class="btn btn-default btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
 
 		        </div>
@@ -239,7 +245,7 @@
 								<h3 style="padding:50px;">Click or Drop the files here.</h3>
 							</div>
 							<!-- <input type="text" id="uploaded_files"> -->
-							<input type="text" id="uploaded_files">
+							<!-- <input type="text" id="uploaded_files"> -->
 						</form>
       		</div>
 					<!-- -->
@@ -288,10 +294,12 @@
 							</p>
 							<!-- <a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a> -->
 							<a href="<?= base_url('index.php/main/start'); ?>" class="white-btn">Start Excion</a>
+							<!--
 							<a href="#" id="send" class="white-btn" >coba jquery ajax</a>
-							<a href="<?= base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
-							<a href="<?= base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
-							<a href="<?= base_url('index.php/csv/baregion'); ?>" class="main-btn">Berita Acara</a>
+							<a href="<? //base_url('index.php/main/fgetcsv'); ?>" class="white-btn">Realtime Excion</a>
+							<a href="<? //base_url('index.php/csv/pronia'); ?>" class="main-btn">Pronia x NE</a>
+							<a href="<? //base_url('index.php/csv/baregion'); ?>" class="main-btn">Berita Acara</a>
+							-->
 
 							<!--<button class="main-btn">Learn more</button>-->
 						</div>

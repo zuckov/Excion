@@ -1,7 +1,21 @@
 <?php
 class User extends CI_Model{
 	function cek_login($table,$where){
-		return $this->db->get_where($table,$where);
+	//function cek_login($user,$pass){
+		/*
+		$this->db->where('username', $user);
+		$this->db->where('password', $pass);
+		$query = $this->db->get('user');
+		*/
+		$query = $this->db->get_where($table,$where);
+		if ($query->num_rows() > 0) {
+		//	return $query->result_array();
+		//}
+		//*/
+		//$array = $this->db->get_where($table,$where);
+			return $query->result_array();
+		}
+		//return $this->db->get_where($table,$where);
 	}
 
 	function tampil_data(){
