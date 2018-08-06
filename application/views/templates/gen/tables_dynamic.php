@@ -28,19 +28,22 @@
     <link href="<?php echo base_url(); ?>content/gen/build/css/custom.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" style="font-family: "metropolis-regular", sans-serif;">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+
+            <div class="navbar nav_title" style="border: 0; height:90px" >
+              <a href="index.html" class="site_title" style="border: 0; height:90px"><img class="center" src="<?php echo base_url(); ?>content/logoexcion2putih.png" style="width: auto; height:90px; margin: 30px; text-align: center; "><!-- <i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a> --></a>
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
+              <!-- <img src="<?php echo base_url(); ?>content/logoexcion2putih.png" style="width: 30%; height:auto"> -->
+              <!--
               <div class="profile_pic">
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
@@ -48,9 +51,12 @@
                 <span>Welcome,</span>
                 <h2>John Doe</h2>
               </div>
+              -->
             </div>
             <!-- /menu profile quick info -->
 
+            <br />
+            <br />
             <br />
 
             <!-- sidebar menu -->
@@ -181,7 +187,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="images/img.jpg" alt=""><i class="fa fa-user"></i> John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
