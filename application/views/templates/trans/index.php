@@ -119,19 +119,22 @@
                 Project Excion <br>
                 </h1>
 
-                <p>
+
                 <!-- We create stunning digital experiences <br>
                 that will help your business stand out. -->
                 <?php if($this->session->userdata('status') == 'login'){ ?>
+                <p>Selamat datang, <?php echo $this->session->userdata('nama'); ?>.</p><br>
+                <p style="position:absolute">
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
-
-                <?php }else {?>
-                  <input name="subscribe" data-toggle="modal" data-target="#modalLogin" value="Login" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
-
-                <?php } ?>
                 </p>
+                <?php }else {?>
+                <p>
+                  <input name="subscribe" data-toggle="modal" data-target="#modalLogin" value="Login" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
+                </p>
+                <?php } ?>
+
             </div> <!-- end home-content__main -->
 
         </div> <!-- end home-content -->

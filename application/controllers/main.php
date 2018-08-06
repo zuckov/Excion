@@ -37,7 +37,9 @@
       $this->load->view('templates/gen/tables.php');
     }
     public function cek_tabelgen2(){
-      $this->load->view('templates/gen/tables_dynamic.php');
+      $this->load->view('templates/gen/header');
+      $this->load->view('templates/gen/index_gen.php');
+      $this->load->view('templates/gen/footer');
     }
     public function cek_logingen(){
       $this->load->view('templates/gen/login.php');

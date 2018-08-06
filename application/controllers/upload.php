@@ -16,7 +16,10 @@ class Upload extends CI_Controller
 
   public function index(){
 		//$this->load->view('upload_view', array('error' => ' ' ));
+
+    $this->load->view('templates/gen/header');
     $this->load->view('templates/indexUpload');
+    $this->load->view('templates/gen/footer');
 	}
 
 	public function aksi_upload(){
