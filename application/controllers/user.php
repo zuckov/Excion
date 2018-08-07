@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Region extends CI_Controller {
+class User extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,7 +23,7 @@ class Region extends CI_Controller {
 		if($this->session->userdata('lvl') != 1){
 			redirect(base_url());
 		}
- 		$this->load->model('m_region');
+ 		$this->load->model('m_user');
  		$this->load->helper('url');
 
  	}
@@ -31,50 +31,54 @@ class Region extends CI_Controller {
 	{
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
-		//$data['region'] = $this->m_region->tampil_data()->result();
-		$cek=$this->m_region->tampil_data()->num_rows();
+    //$data['region'] = $this->m_user->tampil_data()->result();
+    //$cek =$this->m_user->tampil_data()->num_rows();
+    //$data['user'] = $this->m_user->tampil_data();
+		//$data['region'] = $this->m_user->tampil_data()->result();
 		//$data
+    $result =$this->m_user->tampil_data_join()->num_rows();
 		//*
-		if ($cek > 0) {
-		//if ($data == 0) {
-			$data['region'] = $this->m_region->tampil_data()->result();
-			$this->load->view('templates/gen/header');
-			$this->load->view('region/index_reg',$data);
+		if ($result > 0) {
+    //if ($data == 0) {
+      //$data['user'] = $this->m_user->tampil_data()->result();
+      $data['user'] = $this->m_user->tampil_data_join()->result();
+      $this->load->view('templates/gen/header');
+			$this->load->view('user/index_user',$data);
 			$this->load->view('templates/gen/footer');
 		}
 		else {
-			$this->load->view('templates/gen/header');
-			$this->load->view('region/404_reg');
+      $this->load->view('templates/gen/header');
+			$this->load->view('user/404_user');
 			$this->load->view('templates/gen/footer');
 		}//*/
-		//$this->load->view('region/v_tampil',$data);
+		//$this->load->view('user/v_tampil',$data);
 	}
 
 
 	function tambah(){
-		$this->load->view('region/v_input');
+		$this->load->view('user/v_input');
 	}
 
 	function tambah_aksi(){
-    $region = $this->input->post('region');
+    $region = $this->input->post('user');
 
 		$data = array(
-			'region' => $region,
+			'user' => $region,
 		);
-		$this->m_region->input_data($data);
-		redirect('region/index');
+		$this->m_user->input_data($data);
+		redirect('user/index');
 	}
 
   function hapus($id){
 		$where = array('id' => $id);
-		$this->m_region->delete_data($where,'region');
-		redirect('region/index');
+		$this->m_user->delete_data($where,'user');
+		redirect('user/index');
 	}
 
   function edit($id){ //ini sukses
 		$where = array('id' => $id);
-		$data['region'] = $this->m_region->edit_data($where,'region')->result();
-		$this->load->view('region/v_edit',$data);
+		$data['user'] = $this->m_user->edit_data($where,'user')->result();
+		$this->load->view('user/v_edit',$data);
 	}
 
   function update($id){ //ini kenapa?
@@ -89,7 +93,7 @@ class Region extends CI_Controller {
 			'id' => $id
 		);
 
-		$this->m_region->update_data($where,$data,'region');
-		redirect('region/index');
+		$this->m_user->update_data($where,$data,'user');
+		redirect('user/index_user');
 	}
 }

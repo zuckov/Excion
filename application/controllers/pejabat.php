@@ -27,26 +27,69 @@ class Pejabat extends CI_Controller {
  		$this->load->helper('url');
 
  	}
-	public function index()
-	{
-		//$this->load->view('welcome_message');
-		//$this->load->view('view');
-		//$data['region'] = $this->m_region->tampil_data()->result();
-		//$this->load->view('region/v_tampil',$data);
-		//$data['pejabat'] = $this->pejabat->tampil_data()->result();
-		$data['pejabat'] = $this->m_pejabat->tampil_data()->result();
-		$cek = count($data);
+	public function index(){
+		$cek =$this->m_pejabat->tampil_data()->num_rows();
+		//$cek = count($data);
 		if ($cek > 0) {
+			$data['pejabat'] = $this->m_pejabat->tampil_data()->result();
 			$this->load->view('templates/gen/header');
-			$this->load->view('pejabat/index_pej',$data);
+			$this->load->view('pejabat/index_peja',$data);
 			$this->load->view('templates/gen/footer');
 			}
 		else {
 			$this->load->view('templates/gen/header');
-			$this->load->view('pejabat/404_pej');
+			$this->load->view('pejabat/404_peja');
 			$this->load->view('templates/gen/footer');
 		}
 
+		function tambah(){
+			$this->load->view('pejabat/v_input');
+		}
+
+		function tambah_aksi(){
+	    $nama = $this->input->post('nama');
+			$jabatan = $this->input->post('jabatan');
+			$nopeg = $this->input->post('nopeg');
+
+			$data = array(
+				'nama' => $region,
+				'jabatan' => $region,
+				'no_pegawai' => $nopeg,
+			);
+			$this->m_pejabat->input_data($data);
+			redirect('pejabat/index_peja');
+		}
+
+	  function hapus($id){
+			$where = array('id' => $id);
+			$this->m_pejabat->delete_data($where,'pejabat');
+			redirect('pejabat/index_peja');
+		}
+
+	  function edit($id){ //ini sukses
+			$where = array('id' => $id);
+			$data['pejabat'] = $this->m_pejabat->edit_data($where,'pejabat')->result();
+			$this->load->view('pejabat/v_edit',$data);
+		}
+
+	  function update($id){ //ini kenapa?
+			//$id = $this->input->post('id');
+			$nama = $this->input->post('nama');
+			$jabatan = $this->input->post('jabatan');
+			$nopeg = $this->input->post('nopeg');
+
+			$data = array(
+				'id' => $id,
+				'nama' => $region,
+				'jabatan' => $region,
+				'no_pegawai' => $nopeg,
+			);
+			$where = array(
+				'id' => $id
+			);
+			$this->m_pejabat->update_data($where,$data,'region');
+			redirect('pejabat/index_peja');
+		}
 	}
 
 }

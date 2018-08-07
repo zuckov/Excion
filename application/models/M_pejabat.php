@@ -6,20 +6,11 @@ class M_pejabat extends CI_Model{
   }
 
   function tampil_data(){
-    /*
-    $query = $this->db->get('region');
-    if ($query->num_rows() > 0) {
-      return $query;
-    }
-    else {
-      return 0;
-    }
-    */
     return $this->db->get('pejabat');
 	}
 
 	function input_data($data){
-		$this->db->insert('region', $data);
+		$this->db->insert('pejabat', $data);
 	}
 
 	function create_data($data,$table){

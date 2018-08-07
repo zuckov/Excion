@@ -1,12 +1,17 @@
 <?php
 
 class M_region extends CI_Model{
+  var $table = 'region';
   function __construct() {
     parent::__construct();
   }
 
   function tampil_data(){
-    
+    /*
+    $query = $this->db->get($this->table);
+    if ($query->num_rows()>0) {
+      return $query->result_array();
+    }*/
     return $this->db->get('region');
 	}
 

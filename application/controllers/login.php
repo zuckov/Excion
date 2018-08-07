@@ -2,7 +2,7 @@
 class Login extends CI_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('user');
+		$this->load->model('m_user');
 		$this->load->library('form_validation');
 		//$this->load->model('m_login');
 	}
@@ -110,7 +110,7 @@ class Login extends CI_Controller{
 		//redirect(base_url('index.php'));
 		redirect('', refresh);
 	}
-	
+
 	function ok(){
 		echo "ok";
 	}

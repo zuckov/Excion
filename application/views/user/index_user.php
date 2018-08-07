@@ -12,7 +12,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
-      <h2>Tabel Data Region <!-- <small>Users</small> --></h2>
+      <h2>Tabel Data User <!-- <small>Users</small> --></h2>
 
       <ul class="nav navbar-right panel_toolbox" style="margin-left : 30px">
         <?php echo anchor(/*'region/update/'.$value->id*/'#','Tambah Data', array('class'=>'btn btn-success', 'data-toggle'=>'modal', 'data-target'=>'#modaltambah')); ?><br>
@@ -26,19 +26,26 @@
         <thead>
           <tr>
             <th>No</th>
+            <th>Username</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Level user</th>
             <th>Region</th>
             <th>Opsi</th>
           </tr>
         </thead>
 
-
         <tbody>
-          <?php foreach ($region as $key => $value) { ?>
+          <?php foreach ($user as $key => $value) { ?>
           <tr>
             <td><?php echo $z=$key+1 ?></td>
-            <td><?php echo $reg = $value->region ?></td>
+            <td><?php echo $user = $value->username ?></td>
+            <td><?php echo $nama = $value->nama ?></td>
+            <td><?php echo $email = $value->email ?></td>
+            <td><?php echo $lvl = $value->level_user ?></td>
+            <td><?php echo $region = $value->region ?></td>
             <td>
-              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">ubah</button>
+              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Ubah</button>
               <button type="button" id="<?php echo $id ?>" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
             </td>
           </tr>

@@ -1,25 +1,51 @@
 <?php
-class User extends CI_Model{
+class M_user extends CI_Model{
 	function cek_login($table,$where){
 	//function cek_login($user,$pass){
 		/*
 		$this->db->where('username', $user);
 		$this->db->where('password', $pass);
 		$query = $this->db->get('user');
+
+		join:
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->join('region', 'region.id = user.region');
+		$query = $this->db->get();
 		*/
-		$query = $this->db->get_where($table,$where);
-		if ($query->num_rows() > 0) {
+		//$query = $this->db->get_where($table,$where);
+		//if ($query->num_rows() > 0) {
 		//	return $query->result_array();
 		//}
 		//*/
 		//$array = $this->db->get_where($table,$where);
-			return $query->result_array();
-		}
-		//return $this->db->get_where($table,$where);
+		//	return $query->result_array();
+		//}
+		return $this->db->get_where($table,$where);
 	}
 
 	function tampil_data(){
+		/*
+		join:
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->join('region', 'region.id = user.region');
+		$query = $this->db->get();
+		*/
 		return $this->db->get('user');
+	}
+
+	function tampil_data_join(){
+
+		//$this->db->select('user.id_region, region.region');
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->join('region', 'user.id_region = region.id');
+		//$result = $this->db->get();
+		//if ($query->num_rows() > 0) {
+		//	return $query->result_array();
+		//}
+		return $this->db->get();
 	}
 
 	function input_data($data,$table){
