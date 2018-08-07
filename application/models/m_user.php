@@ -40,7 +40,7 @@ class M_user extends CI_Model{
 		//$this->db->select('user.id_region, region.region');
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->join('region', 'user.id_region = region.id');
+		$this->db->join('region', 'user.id_region = region.id', 'left');
 		//$result = $this->db->get();
 		//if ($query->num_rows() > 0) {
 		//	return $query->result_array();

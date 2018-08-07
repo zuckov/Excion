@@ -24,6 +24,8 @@ class User extends CI_Controller {
 			redirect(base_url());
 		}
  		$this->load->model('m_user');
+		$this->load->model('m_region');
+
  		$this->load->helper('url');
 
  	}
@@ -42,6 +44,7 @@ class User extends CI_Controller {
     //if ($data == 0) {
       //$data['user'] = $this->m_user->tampil_data()->result();
       $data['user'] = $this->m_user->tampil_data_join()->result();
+			$data['region'] = $this->m_region->tampil_data()->result();
       $this->load->view('templates/gen/header');
 			$this->load->view('user/index_user',$data);
 			$this->load->view('templates/gen/footer');

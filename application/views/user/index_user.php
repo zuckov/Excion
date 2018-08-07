@@ -36,7 +36,7 @@
         </thead>
 
         <tbody>
-          <?php foreach ($user as $key => $value) { ?>
+          <?php foreach ($user as $key => $value):  ?>
           <tr>
             <td><?php echo $z=$key+1 ?></td>
             <td><?php echo $user = $value->username ?></td>
@@ -99,7 +99,7 @@
           </div>
             <!-- /modal login -->
 
-          <?php } ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
@@ -128,12 +128,25 @@
             <input type="text" name="email" id="username" class="form-control" placeholder="Masukan email" ><br>
             <label for="username" class=""><span class="fa fa-archive"></span> Username</label>
             <input type="text" name="username" id="username" class="form-control" placeholder="Masukan username" ><br>
-            <label for="username" class=""><span class="fa fa-lock"></span> Password</label>
+            <label for="pass" class=""><span class="fa fa-lock"></span> Password</label>
             <input type="password" name="password" id="username" class="form-control" placeholder="Masukan password" ><br>
-            <label for="username" class=""><span class="fa fa-users"></span> Level User</label>
-            <input type="text" name="lvl" id="username" class="form-control" placeholder="Level User" ><br>
+
+            <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
+            <select class="form-control">
+              <option>-- Pilih Level User --</option>
+              <option value="1">Supervisor</option>
+              <option value="2">Operator</option>
+            </select>
+            <br>
+
             <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
-            <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br>
+            <select class="form-control">
+              <option>-- Pilih Region --</option>
+              <?php foreach ($region as $reg): ?>
+                <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
+              <?php endforeach; ?>
+            </select>
+            <!-- <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br> -->
           </div>
           <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-save  "></span> Tambah Data</button>
       </div>
