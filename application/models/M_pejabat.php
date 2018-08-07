@@ -1,6 +1,6 @@
 <?php
 
-class M_region extends CI_Model{
+class M_pejabat extends CI_Model{
   function __construct() {
     parent::__construct();
   }
@@ -15,7 +15,7 @@ class M_region extends CI_Model{
       return 0;
     }
     */
-    return $this->db->get('region');
+    return $this->db->get('pejabat');
 	}
 
 	function input_data($data){

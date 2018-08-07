@@ -2,6 +2,7 @@
 html , body{
   /*
   List of changes :
+  -semua yg nilai defaultnya : #1ABB9C diganti : #cc147f
   - semua li_active diganti jadi warna #cc147f,
   - font family
   */
@@ -97,7 +98,7 @@ html , body{
     background: #213345
 }
 .daterangepicker.picker_1 .calendar-table thead tr:first-child {
-    background: #1ABB9C
+    background: #cc147f
 }
 .daterangepicker.picker_1 .calendar-table td.off {
     background: #34495E;
@@ -107,14 +108,14 @@ html , body{
     color: #34495E
 }
 .daterangepicker.picker_2 .calendar-table thead tr {
-    color: #1ABB9C
+    color: #cc147f
 }
 .daterangepicker.picker_2 .calendar-table thead tr:first-child {
     color: #73879C
 }
 .daterangepicker.picker_3 .calendar-table thead tr:first-child {
     color: #fff;
-    background: #1ABB9C
+    background: #cc147f
 }
 .daterangepicker.picker_4 .calendar-table thead tr:first-child {
     color: #fff;
@@ -1385,7 +1386,7 @@ table.jambo_table tbody tr.selected td {
 }
 table.dataTable th.focus,
 table.dataTable td.focus {
-    outline: 2px solid #1ABB9C !important;
+    outline: 2px solid #cc147f !important;
     outline-offset: -1px
 }
 table.display {
@@ -2495,7 +2496,7 @@ textarea:focus {
 }
 .bs-glyphicons li:hover {
     color: #fff;
-    background-color: #1ABB9C
+    background-color: #cc147f
 }
 @media (min-width: 768px) {
     .bs-glyphicons {
@@ -2521,7 +2522,7 @@ span.tag {
     float: left;
     padding: 5px 9px;
     text-decoration: none;
-    background: #1ABB9C;
+    background: #cc147f;
     color: #F1F6F7;
     margin-right: 5px;
     font-weight: 500;
@@ -2647,7 +2648,7 @@ ul.timeline li {
 }
 .tag {
     line-height: 1;
-    background: #1ABB9C;
+    background: #cc147f;
     color: #fff !important
 }
 .tag:after {
@@ -2661,7 +2662,7 @@ ul.timeline li {
     pointer-events: none;
     border-top: 14px solid transparent;
     border-bottom: 14px solid transparent;
-    border-left: 11px solid #1ABB9C
+    border-left: 11px solid #cc147f
 }
 .timeline h2.title {
     position: relative;
@@ -2728,7 +2729,7 @@ ul.social li {
     border-radius: 50%
 }
 .chat .status.online {
-    background: #1ABB9C
+    background: #cc147f
 }
 .chat .status.away {
     background: #F39C12
@@ -2854,7 +2855,7 @@ ul.widget_profile_box li a {
     padding: 0px
 }
 ul.widget_profile_box li a:hover {
-    color: #1ABB9C !important;
+    color: #cc147f !important;
     border: 1px solid #26b99a
 }
 ul.widget_profile_box li .profile_img {
@@ -3044,7 +3045,7 @@ ul.project_files li a i {
     background: #fff
 }
 .pricing .title {
-    background: #1ABB9C;
+    background: #cc147f;
     height: 110px;
     color: #fff;
     padding: 15px 0 0;
@@ -3640,14 +3641,14 @@ header {
     width: 100%
 }
 #nprogress .bar {
-    background: #1ABB9C
+    background: #cc147f
 }
 #nprogress .peg {
-    box-shadow: 0 0 10px #1ABB9C, 0 0 5px #1ABB9C
+    box-shadow: 0 0 10px #cc147f, 0 0 5px #cc147f
 }
 #nprogress .spinner-icon {
-    border-top-color: #1ABB9C;
-    border-left-color: #1ABB9C
+    border-top-color: #cc147f;
+    border-left-color: #cc147f
 }
 .editor-wrapper {
     min-height: 250px;
@@ -3916,7 +3917,7 @@ fieldset {
 }
 .wizard_horizontal ul.wizard_steps li a.done:before,
 .wizard_horizontal ul.wizard_steps li a.done .step_no {
-    background: #1ABB9C;
+    background: #cc147f;
     color: #fff
 }
 .wizard_horizontal ul.wizard_steps li:first-child a:before {
@@ -4013,7 +4014,7 @@ fieldset {
 }
 .wizard_verticle ul.wizard_steps li a.done:before,
 .wizard_verticle ul.wizard_steps li a.done .step_no {
-    background: #1ABB9C;
+    background: #cc147f;
     color: #fff
 }
 .wizard_verticle ul.wizard_steps li:first-child a:before {

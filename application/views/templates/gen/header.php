@@ -70,6 +70,7 @@
 
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home </a></li>
+                  <li><a href="<?php echo base_url('index.php/main/cek_tabelgen2'); ?>"><i class="fa fa-home"></i> Admin </a></li>
                   <li><a><i class="fa fa-edit"></i> Excion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Excion - default</a></li>
@@ -79,38 +80,27 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> History <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
+                      <li><a href="<?php echo base_url('index.php/history/index'); ?>">Lihat Hisory Hitung</a></li>
                     </ul>
                   </li>
+                  <?php if($this->session->userdata('lvl') == '1'){ ?>
                   <li><a><i class="fa fa-table"></i> Region <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                      <li><a href="<?php echo base_url('index.php/region/index'); ?>">Lihat Data Region</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> User <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
+                      <li><a href="<?php echo base_url('index.php/user/create'); ?>">Buat Data User</a></li>
+                      <li><a href="<?php echo base_url('index.php/user/index'); ?>">Lihat Data User</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i>Pejabat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                      <li><a href="<?php echo base_url('index.php/pejabat/index'); ?>">Lihat Data Pejabat</a></li>
                     </ul>
                   </li>
+                <?php } ?>
                 </ul>
               </div>
 
@@ -129,7 +119,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url('index.php/login/logout') ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -154,7 +144,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('index.php/login/logout') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

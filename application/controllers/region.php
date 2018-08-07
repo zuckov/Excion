@@ -20,6 +20,9 @@ class Region extends CI_Controller {
 	 */
 	function __construct(){
  		parent::__construct();
+		if($this->session->userdata('lvl') != 1){
+			redirect(base_url());
+		}
  		$this->load->model('m_region');
  		$this->load->helper('url');
 
@@ -29,7 +32,18 @@ class Region extends CI_Controller {
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
 		$data['region'] = $this->m_region->tampil_data()->result();
-		$this->load->view('region/v_tampil',$data);
+		//$data
+		if ($data == 0) {
+			$this->load->view('templates/gen/header');
+			$this->load->view('region/404_reg');
+			$this->load->view('templates/gen/footer');
+		}
+		else {
+			$this->load->view('templates/gen/header');
+			$this->load->view('region/index_reg',$data);
+			$this->load->view('templates/gen/footer');
+		}
+		//$this->load->view('region/v_tampil',$data);
 	}
 
 

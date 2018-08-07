@@ -38,7 +38,8 @@
     }
     public function cek_tabelgen2(){
       $this->load->view('templates/gen/header');
-      $this->load->view('templates/gen/index_gen.php');
+      $this->load->view('templates/gen/index_gen');
+      //$this->load->view('templates/gen/tables_dynamic_big_backup');
       $this->load->view('templates/gen/footer');
     }
     public function cek_logingen(){

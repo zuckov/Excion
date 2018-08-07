@@ -48,7 +48,7 @@
     <tbody>
       <?php
         foreach ($region as $value2) {
-        foreach ($history as $value) {
+        //foreach ($history as $value) {
 
 
         //$num = count($kwh_k);
@@ -58,14 +58,14 @@
       <tr>
         <td><?php echo $z=$key+1; ?></td>
         <td><?php echo $value->date ?></td>
-        <td><?php echo $value2->nama ?></td>
-        <td><?php echo $value2->region; ?></td>
+        <td>Nama User</td>
+        <td>Region</td>
         <td>
   			      <?php echo anchor('main/start/'.$value->folder,'Lihat hasil'); ?>
               <?php //echo anchor('crud/hapus/'.$value->id,'Hapus'); ?>
   			</td>
       </tr>
-      <?php } ?>
+      <?php //} ?>
     <?php } ?>
     </tbody>
   </table>
