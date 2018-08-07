@@ -33,6 +33,7 @@ class Region extends CI_Controller {
 		//$this->load->view('view');
 		$data['region'] = $this->m_region->tampil_data()->result();
 		//$data
+		//*
 		if ($data == 0) {
 			$this->load->view('templates/gen/header');
 			$this->load->view('region/404_reg');
@@ -42,8 +43,8 @@ class Region extends CI_Controller {
 			$this->load->view('templates/gen/header');
 			$this->load->view('region/index_reg',$data);
 			$this->load->view('templates/gen/footer');
-		}
-		//$this->load->view('region/v_tampil',$data);
+		}//*/
+		$this->load->view('region/v_tampil',$data);
 	}
 
 
@@ -57,13 +58,13 @@ class Region extends CI_Controller {
 		$data = array(
 			'region' => $region,
 		);
-		$this->region->input_data($data,'region');
+		$this->m_region->input_data($data);
 		redirect('region/index');
 	}
 
   function hapus($id){
 		$where = array('id' => $id);
-		$this->region->delete_data($where,'region');
+		$this->m_region->delete_data($where,'region');
 		redirect('region/index');
 	}
 
@@ -73,12 +74,12 @@ class Region extends CI_Controller {
 		$this->load->view('region/v_edit',$data);
 	}
 
-  function update(){ //ini kenapa?
-		$id = $this->input->post('id');
+  function update($id){ //ini kenapa?
+		//$id = $this->input->post('id');
     $region = $this->input->post('region');
 
 		$data = array(
-			//'id' => $id,
+			'id' => $id,
 			'region' => $region,
 		);
 		$where = array(

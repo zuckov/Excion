@@ -6,15 +6,7 @@ class M_region extends CI_Model{
   }
 
   function tampil_data(){
-    /*
-    $query = $this->db->get('region');
-    if ($query->num_rows() > 0) {
-      return $query;
-    }
-    else {
-      return 0;
-    }
-    */
+    
     return $this->db->get('region');
 	}
 
