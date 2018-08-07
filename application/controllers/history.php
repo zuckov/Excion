@@ -31,11 +31,22 @@ class History extends CI_Controller {
 	{
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
-		$id=$this->session->userdata('id');
-		$data['history'] = $this->h_operator->tampil_data()->result();
-		$data['region'] = $this->h_operator->get_nama($id);
+		//$id=$this->session->userdata('id');
+		$result =$this->h_operator->tampil_data()->num_rows();
+		if ($result > 0) {
+      $data['history'] = $this->h_operator->tampil_data()->result();
+      $this->load->view('templates/gen/header');
+			$this->load->view('history/index_his',$data);
+			$this->load->view('templates/gen/footer');
+		}
+		else {
+      $this->load->view('templates/gen/header');
+			$this->load->view('history/404_his');
+			$this->load->view('templates/gen/footer');
+		}
+		//$data['region'] = $this->h_operator->get_nama($id);
 
-		$this->load->view('history/tabel_history',$data);
+		//$this->load->view('history/tabel_history',$data);
 	}
 
   public function history(){

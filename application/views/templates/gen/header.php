@@ -45,7 +45,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <!-- <img src="<?php echo base_url(); ?>content/logoexcion2putih.png" style="width: 30%; height:auto"> -->
+              <!-- <img src="<?php //echo base_url(); ?>content/logoexcion2putih.png" style="width: 30%; height:auto"> -->
               <!--
               <div class="profile_pic">
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img">
@@ -70,7 +70,7 @@
 
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Home </a></li>
-                  <li><a href="<?php echo base_url('index.php/main/cek_tabelgen2'); ?>"><i class="fa fa-home"></i> Admin </a></li>
+                  <li><a href="<?php echo base_url('index.php/main/cek_tabelgen2'); ?>"><i class="fa fa-cogs"></i> Admin </a></li>
                   <li><a><i class="fa fa-edit"></i> Excion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Excion - default</a></li>
@@ -78,26 +78,29 @@
                       <li><a href="#">Excion - RT</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> History <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-line-chart"></i> History <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('index.php/history/index'); ?>">Lihat Hisory Hitung</a></li>
+                      <li><a href="<?php echo base_url('index.php/history/index'); ?>">Kelola History Hitung</a></li>
+                      <li><a href="<?php //echo base_url('index.php/region/index'); ?>#">Lihat BA kWh</a></li>
+                      <li><a href="<?php //echo base_url('index.php/region/index'); ?>#">Lihat BA kVarh</a></li>
                     </ul>
                   </li>
                   <?php if($this->session->userdata('lvl') == '1'){ ?>
-                  <li><a><i class="fa fa-table"></i> Region <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-map-marker"></i> Region <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('index.php/region/index'); ?>">Lihat Data Region</a></li>
+                      <li><a href="<?php echo base_url('index.php/region/index'); ?>">Kelola Data Region</a></li>
+
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> User <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <!-- <li><a href="<?php //echo base_url('index.php/user/create'); ?>">Buat Data User</a></li> -->
-                      <li><a href="<?php echo base_url('index.php/user/index'); ?>">Lihat Data User</a></li>
+                      <li><a href="<?php echo base_url('index.php/user/index'); ?>">Kelola Data User</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i>Pejabat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('index.php/pejabat/index'); ?>">Lihat Data Pejabat</a></li>
+                      <li><a href="<?php echo base_url('index.php/pejabat/index'); ?>">Kelola Data Pejabat</a></li>
                     </ul>
                   </li>
                 <?php } ?>

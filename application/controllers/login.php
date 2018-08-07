@@ -70,7 +70,7 @@ class Login extends CI_Controller{
 		);
 
 		//$cek = $this->user->cek_login("user",$where)->num_rows();//buat di laptop
-		$query = $this->user->cek_login("User",$where);
+		$query = $this->m_user->cek_login("User",$where);
 		$cek = count($query);//buat di pc
 		if($cek > 0){
 			foreach ($query as $value) {

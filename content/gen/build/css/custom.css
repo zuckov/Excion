@@ -2370,8 +2370,12 @@ a.btn-danger {
     color: #fff
 }
 .btn-success {
-    background: #26B99A;
-    border: 1px solid #169F85
+  /*diganti
+  background: #26B99A;
+  border: 1px solid #169F85
+   */
+    background: #cc147f;
+    border: 1px solid #cc147f
 }
 .btn-success:hover,
 .btn-success:focus,

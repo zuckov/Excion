@@ -6,19 +6,31 @@ class H_operator extends CI_Model{
   }
 
   function tampil_data(){
-		return $this->db->get('history_operator');
+    $this->db->select('*');
+		$this->db->from('history_operator');
+		$this->db->join('user', 'history_operator.dari = user.id');
+    $this->db->join('region', 'user.id_region = region.id');
+    return $this->db->get();
+		//return $this->db->get('history_operator');
 	}
 
   function get_nama($id){
-    $this->db->select('nama', 'region');
-    $this->db->from('user');
-    $this->db->join('history_operator', 'history_operator.dari = user.id');
+    /*
+    $this->db->select('*');
+    $this->db->from('history_operator');
+    $this->db->join('user', 'history_operator.dari = user.id');
     $this->db->where('user.id',$id);
     //$this->db->where("(user_id = '$userid' AND sender_id = '$senderid')
     //           OR (sender_id='$userid' AND user_id = '$senderid')");
     $query = $this->db->get();
     return $query->result_array();
     //return $this->db->get();
+    */
+    $this->db->select('*');
+		$this->db->from('history_operator');
+		$this->db->join('user', 'history_operator.dari = user.id');
+    $this->db->join('region', 'user.id_region = region.id');
+    return $this->db->get();
   }
 
 	function input_data($data){

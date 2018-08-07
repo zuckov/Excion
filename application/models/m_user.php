@@ -18,10 +18,10 @@ class M_user extends CI_Model{
 		//	return $query->result_array();
 		//}
 		//*/
-		//$array = $this->db->get_where($table,$where);
-		//	return $query->result_array();
+		$array = $this->db->get_where($table,$where);
+			return $array->result_array();
 		//}
-		return $this->db->get_where($table,$where);
+	//	return $this->db->get_where($table,$where);
 	}
 
 	function tampil_data(){

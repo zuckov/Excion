@@ -69,7 +69,7 @@
                       <br>
                       <li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
           					<?php }else {?>
-          						<li><a class="smoothscroll" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+          						<li><a class="smoothscroll" href="#" data-toggle="modal" data-target="#modalLogin" value="Login">Login</a></li>
           						<li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
           					<?php } ?>
                 </ul>
@@ -206,8 +206,6 @@
 		        <div class="modal-footer">
 		          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 							</form>
-							<p>Not a member? <a href="#">Sign Up</a></p>
-		          <p>Forgot <a href="#">Password?</a></p>
 		        </div>
 		      </div>
 
