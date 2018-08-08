@@ -7,10 +7,6 @@ class Meter_utama extends CI_Model {
           $this->load->database();
        }
 
-       public function get_cek($where, $table){
-         return $this->db->get_where($table,$where);
-       }
-
        //public function pronia($path = "C:/EXCION_GACA/ION DL/" ){
        public function pronia($path){
 
@@ -204,6 +200,35 @@ class Meter_utama extends CI_Model {
            );
      		return $data;
        }
+
+       public function ba2(){
+
+       }
+
+       public function get_pbs1(){
+		$pbsArray = array();
+		//$pbsArray = $this->model->
+
+       }
+       public function get_pbs2(){
+
+       }
+       public function get_pbs3(){
+
+       }
+       public function get_jelok1(){
+
+       }
+       public function get_jelok2(){
+
+       }
+       public function get_jelok3(){
+
+       }
+       public function get_jelok4(){
+
+       }
+
 }
 
 ?>
