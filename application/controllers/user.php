@@ -31,9 +31,7 @@ class User extends CI_Controller {
  	}
 	public function index()
 	{
-		//$this->load->view('welcome_message');
-		//$this->load->view('view');
-    //$data['region'] = $this->m_user->tampil_data()->result();
+		//$data['region'] = $this->m_user->tampil_data()->result();
     //$cek =$this->m_user->tampil_data()->num_rows();
     //$data['user'] = $this->m_user->tampil_data();
 		//$data['region'] = $this->m_user->tampil_data()->result();
@@ -63,12 +61,24 @@ class User extends CI_Controller {
 	}
 
 	function tambah_aksi(){
-    $region = $this->input->post('user');
+		$pass = $this->input->post('password');
+		$username = $this->input->post('username');
+		$password = md5($pass);
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$lvl = $this->input->post('lvl');
+		$reg = $this->input->post('region');
 
 		$data = array(
-			'user' => $region,
+			'username' => $username,
+			'password' => $password,
+			'nama' => $nama,
+			'email' => $email,
+			'level_user' => $lvl,
+			'id_region' => $reg,
+
 		);
-		$this->m_user->input_data($data);
+		$this->m_user->input_data($data, "user");
 		redirect('user/index');
 	}
 

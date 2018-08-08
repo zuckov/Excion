@@ -43,7 +43,7 @@
             <td><?php echo $nama = $value->nama ?></td>
             <td><?php echo $email = $value->email ?></td>
             <td><?php echo $lvl = $value->level_user ?></td>
-            <td><?php echo $region = $value->region ?></td>
+            <td><?php echo $regions = $value->region ?></td>
             <td>
               <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Ubah</button>
               <button type="button" id="<?php echo $id ?>" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
@@ -85,8 +85,30 @@
                 <div class="modal-body" style="padding:40px 50px;">
                   <form action="<?php echo base_url().'index.php/region/update/'.$id; ?>" method="post">
                     <div class="form-group">
-                      <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Nama Region</label>
-                      <input type="text" name="region" value="<?php echo $reg ?>" class="form-control" placeholder="Nama Region" ><br>
+                      <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
+                      <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" placeholder="Masukan nama" ><br>
+                      <label for="username" class=""><span class="fa fa-envelope"></span> Email</label>
+                      <input type="text" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Masukan email" ><br>
+                      <label for="username" class=""><span class="fa fa-archive"></span> Username</label>
+                      <input type="text" name="username" value="<?php echo $user ?>" class="form-control" placeholder="Masukan username" ><br>
+                      <label for="pass" class=""><span class="fa fa-lock"></span> Password</label>
+                      <input type="password" name="password" value="<?php echo $value->password ?>" class="form-control" placeholder="Masukan password" ><br>
+
+                      <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
+                      <select class="form-control" name="lvl" value="<?php echo $lvl ?>">
+                        <option>-- Pilih Level User --</option>
+                        <option value="1">Supervisor</option>
+                        <option value="2">Operator</option>
+                      </select>
+                      <br>
+
+                      <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
+                      <select class="form-control" name="region" value="<?php echo $regions ?>">
+                        <option>-- Pilih Region --</option>
+                        <?php foreach ($region as $reg) { ?>
+                          <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
+                        <?php } ?>
+                      </select><br>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-save  "></span> Tambah Data</button>
                 </div>
@@ -120,19 +142,19 @@
         <h4><span class="glyphicon glyphicon-pencil"></span> Tambah Data</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <form action="<?php echo base_url('index.php/region/tambah_aksi'); ?>" id='frm_vld' name='frm_vld' method="post">
+        <form action="<?php echo base_url('index.php/user/tambah_aksi'); ?>" method="post">
           <div class="form-group">
             <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
-            <input type="text" name="nama" id="username" class="form-control" placeholder="Masukan nama" ><br>
+            <input type="text" name="nama" class="form-control" placeholder="Masukan nama" ><br>
             <label for="username" class=""><span class="fa fa-envelope"></span> Email</label>
-            <input type="text" name="email" id="username" class="form-control" placeholder="Masukan email" ><br>
+            <input type="text" name="email" class="form-control" placeholder="Masukan email" ><br>
             <label for="username" class=""><span class="fa fa-archive"></span> Username</label>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Masukan username" ><br>
+            <input type="text" name="username"class="form-control" placeholder="Masukan username" ><br>
             <label for="pass" class=""><span class="fa fa-lock"></span> Password</label>
-            <input type="password" name="password" id="username" class="form-control" placeholder="Masukan password" ><br>
+            <input type="password" name="password" class="form-control" placeholder="Masukan password" ><br>
 
             <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
-            <select class="form-control">
+            <select class="form-control" name="lvl">
               <option>-- Pilih Level User --</option>
               <option value="1">Supervisor</option>
               <option value="2">Operator</option>
@@ -140,12 +162,12 @@
             <br>
 
             <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
-            <select class="form-control">
+            <select class="form-control" name="region">
               <option>-- Pilih Region --</option>
-              <?php foreach ($region as $reg): ?>
+              <?php foreach ($region as $reg) { ?>
                 <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
-              <?php endforeach; ?>
-            </select>
+              <?php } ?>
+            </select><br>
             <!-- <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br> -->
           </div>
           <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-save  "></span> Tambah Data</button>

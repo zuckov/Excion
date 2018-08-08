@@ -25,26 +25,13 @@ class M_user extends CI_Model{
 	}
 
 	function tampil_data(){
-		/*
-		join:
-		$this->db->select('*');
-		$this->db->from('user');
-		$this->db->join('region', 'region.id = user.region');
-		$query = $this->db->get();
-		*/
 		return $this->db->get('user');
 	}
 
 	function tampil_data_join(){
-
-		//$this->db->select('user.id_region, region.region');
 		$this->db->select('*');
 		$this->db->from('user');
 		$this->db->join('region', 'user.id_region = region.id', 'left');
-		//$result = $this->db->get();
-		//if ($query->num_rows() > 0) {
-		//	return $query->result_array();
-		//}
 		return $this->db->get();
 	}
 
