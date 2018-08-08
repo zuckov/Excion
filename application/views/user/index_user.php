@@ -42,11 +42,21 @@
             <td><?php echo $user = $value->username ?></td>
             <td><?php echo $nama = $value->nama ?></td>
             <td><?php echo $email = $value->email ?></td>
-            <td><?php echo $lvl = $value->level_user ?></td>
+            <td>
+              <?php
+                 $lvl = $value->level_user;
+                 if ($lvl == 1) {
+                   echo "Supervisor";
+                 }
+                 else if ($lvl == 2) {
+                   echo "Operator";
+                 }
+               ?>
+            </td>
             <td><?php echo $regions = $value->region ?></td>
             <td>
               <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Ubah</button>
-              <button type="button" id="<?php echo $id ?>" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
+              <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
             </td>
           </tr>
           <!-- modal
@@ -67,7 +77,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
                   <?php //echo anchor('region/hapus/'.$id/*'#'*/,'Hapus Data', array('id'=> $id, "class"=>"btn btn-danger", 'data-toggle'=>'modal', 'data-target'=>'#'.$id)); ?>
-                  <?php echo anchor('region/hapus/'.$value->id,'Hapus Data', array("class"=>"btn btn-danger")); ?>
+                  <?php echo anchor('user/hapus/'.$value->id,'Hapus Data', array("class"=>"btn btn-danger")); ?>
                 </div>
               </div>
             </div>
@@ -83,7 +93,7 @@
                   <h4><span class="glyphicon glyphicon-pencil"></span> Ubah Data</h4>
                 </div>
                 <div class="modal-body" style="padding:40px 50px;">
-                  <form action="<?php echo base_url().'index.php/region/update/'.$id; ?>" method="post">
+                  <form action="<?php echo base_url().'index.php/user/update/'.$id; ?>" method="post">
                     <div class="form-group">
                       <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
                       <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" placeholder="Masukan nama" ><br>

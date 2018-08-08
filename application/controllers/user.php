@@ -96,11 +96,21 @@ class User extends CI_Controller {
 
   function update($id){ //ini kenapa?
 		//$id = $this->input->post('id');
-    $region = $this->input->post('region');
+		$pass = $this->input->post('password');
+		$username = $this->input->post('username');
+		$password = md5($pass);
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$lvl = $this->input->post('lvl');
+		$reg = $this->input->post('region');
 
 		$data = array(
-			'id' => $id,
-			'region' => $region,
+			'username' => $username,
+			'password' => $password,
+			'nama' => $nama,
+			'email' => $email,
+			'level_user' => $lvl,
+			'id_region' => $reg,
 		);
 		$where = array(
 			'id' => $id

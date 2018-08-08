@@ -27,8 +27,7 @@ class History extends CI_Controller {
  		$this->load->helper('url');
 
  	}
-	public function index()
-	{
+	public function index(){
 		//$this->load->view('welcome_message');
 		//$this->load->view('view');
 		//$id=$this->session->userdata('id');
