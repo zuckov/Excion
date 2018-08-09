@@ -48,6 +48,14 @@ class Pejabat extends CI_Controller {
 			}
 
 		public function tambah_aksi(){
+			$this->form_validation->set_rules('nama','nama','required|trim');
+			$this->form_validation->set_rules('jabatan','jabatan','required|trim');
+			$this->form_validation->set_rules('nopeg','nomor pegawai','required|trim');
+
+			if($this->form_validation->run()==FALSE){
+					$this->session->set_flashdata('pesan1','Data input masih ada yang kosong');
+					redirect('user');
+			}else{
 	    $nama = $this->input->post('nama');
 			$jabatan = $this->input->post('jabatan');
 			$nopeg = $this->input->post('nopeg');
@@ -58,7 +66,8 @@ class Pejabat extends CI_Controller {
 				'no_pegawai' => $nopeg,
 			);
 			$this->m_pejabat->input_data($data);
-			redirect('pejabat/index');
+			$this->session->set_flashdata('pesan2','Data input berhasil');
+		redirect('pejabat/index');
 		}
 
 	  public function hapus($id){

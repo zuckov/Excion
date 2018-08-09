@@ -13,7 +13,14 @@
     <div class="alert alert-danger alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
       </button>
-      <strong>Perhatian ! </strong><?php echo $this->session->flashdata('pesan1'); ?>
+      <strong>Perhatian, </strong><?php echo $this->session->flashdata('pesan1'); ?>
+    </div>
+  <?php endif; ?>
+  <?php if ($this->session->flashdata('pesan2')) : ?>
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+      </button>
+      <strong>Sukses </strong><?php echo $this->session->flashdata('pesan2'); ?>
     </div>
   <?php endif; ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -65,7 +72,7 @@
                  }
                ?>
             </td>
-            <td><?php echo $regions = $value->region ?></td>
+            <td><?php echo $regions = $value->region; ?></td>
             <td>
               <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id ?>">Ubah</button>
               <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
@@ -117,18 +124,21 @@
                       <input type="password" name="password" value="<?php echo $value->password ?>" class="form-control" placeholder="Masukan password" ><br>
 
                       <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
+                      <!-- validasi disini! -->
                       <select class="form-control" name="lvl" value="<?php echo $lvl ?>" required>
                         <option value="none" selected = "selected">-- Pilih Level User --</option>
-                        <option value="1">Supervisor</option>
-                        <option value="2">Operator</option>
+                        <option value="1" <?php if($lvl == 1){echo "selected = 'selected'";}  ?>>Supervisor</option>
+                        <option value="2" <?php if($lvl == 2){echo "selected = 'selected'";}  ?>>Operator</option>
                       </select>
                       <br>
 
                       <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
                       <select class="form-control" name="region" value="<?php echo $regions ?>" required>
-                        <option value="none" selected = "selected">-- Pilih Region --</option>
+                        <option value="none">-- Pilih Region --</option>
                         <?php foreach ($region as $reg) { ?>
-                          <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
+                          <option value="<?php echo $reg->id ?>" <?php if ($reg->id == $value->id_region){echo " selected = 'selected'";} ?>>
+                            <?php echo $reg->region ?>
+                          </option>
                         <?php } ?>
                       </select><br>
                     </div>

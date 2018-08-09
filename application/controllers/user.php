@@ -88,10 +88,10 @@ class User extends CI_Controller {
 			'email' => $email,
 			'level_user' => $lvl,
 			'id_region' => $reg,
-
 		);
 		$this->m_user->input_data($data, "user");
-		redirect('user/index');
+		$this->session->set_flashdata('pesan2','Data input berhasil');
+		redirect('user');
 		}
 	}
 
@@ -130,6 +130,7 @@ class User extends CI_Controller {
 		);
 
 		$this->m_user->update_data($where,$data,'user');
-		redirect('user/index_user');
+		$this->session->set_flashdata('pesan2','Data input berhasil');
+		redirect('user');
 	}
 }
