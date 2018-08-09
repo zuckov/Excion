@@ -61,6 +61,17 @@ class User extends CI_Controller {
 	}
 
 	function tambah_aksi(){
+		$this->form_validation->set_rules('username','username','required|trim');
+		$this->form_validation->set_rules('password','password','required|trim');
+		$this->form_validation->set_rules('nama','nama','required|trim');
+		$this->form_validation->set_rules('email','email','required|trim');
+		$this->form_validation->set_rules('lvl','level_user','required|trim');
+		$this->form_validation->set_rules('region','id_region','required|trim');
+
+		if($this->form_validation->run()==FALSE){
+				$this->session->set_flashdata('pesan1','Data input masih ada yang kosong');
+				redirect('user');
+		}else{
 		$pass = $this->input->post('password');
 		$username = $this->input->post('username');
 		$password = md5($pass);
@@ -80,6 +91,7 @@ class User extends CI_Controller {
 		);
 		$this->m_user->input_data($data, "user");
 		redirect('user/index');
+		}
 	}
 
   function hapus($id){

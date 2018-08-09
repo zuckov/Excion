@@ -9,6 +9,11 @@
 
 <div class="clearfix"></div>
 <div class="row">
+  <?php if ($this->session->flashdata('pesan1')) : ?>
+    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+      <?php echo $this->session->flashdata('pesan1'); ?>
+    </div>
+  <?php endif; ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
@@ -105,7 +110,7 @@
                       <input type="password" name="password" value="<?php echo $value->password ?>" class="form-control" placeholder="Masukan password" ><br>
 
                       <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
-                      <select class="form-control" name="lvl" value="<?php echo $lvl ?>">
+                      <select class="form-control" name="lvl" value="<?php echo $lvl ?>" required>
                         <option>-- Pilih Level User --</option>
                         <option value="1">Supervisor</option>
                         <option value="2">Operator</option>
@@ -113,7 +118,7 @@
                       <br>
 
                       <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
-                      <select class="form-control" name="region" value="<?php echo $regions ?>">
+                      <select class="form-control" name="region" value="<?php echo $regions ?>" required>
                         <option>-- Pilih Region --</option>
                         <?php foreach ($region as $reg) { ?>
                           <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
