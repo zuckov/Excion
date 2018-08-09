@@ -31,8 +31,6 @@ class Message extends CI_Controller {
 			$arr['success'] = false;
 		}
 
-
-
 		echo json_encode($arr);
 
 	}

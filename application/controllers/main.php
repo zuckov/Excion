@@ -27,7 +27,8 @@
     //tes template
     //=======================================================
     public function cek_trans(){
-      $this->load->view('templates/trans/hasil');
+      //$this->load->view('templates/trans/hasil');
+      $this->load->view('templates/hasil');
     }
 
     public function cek_gen(){
@@ -68,6 +69,12 @@
       //$this->load->view('templates/footer');
 
     }
+
+    public function start_default(){
+      redirect('csv/pronia_default');
+      //$this->load->view('hasil_default');
+    }
+
 
     /*
 	public function view($page='home') {

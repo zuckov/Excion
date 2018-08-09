@@ -89,7 +89,7 @@
                       <br>
                       <li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
           					<?php }else {?>
-          						<li><a class="smoothscroll" href="#" data-toggle="modal" data-target="#modalLogin" value="Login">Login</a></li>
+          						<li><a href="#" data-toggle="modal" data-target="#modalLogin" value="Login">Login</a></li>
           						<li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
           					<?php } ?>
                 </ul>
@@ -147,10 +147,11 @@
                 <p style="position:absolute">
                   <input name="subscribe" id="excion_default" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#modalupload" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
-                  <input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
+                  <a href="<?php echo base_url('index.php/send/') ?>"><input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
                 </p>
                 <?php }else {?>
                 <p>
+                  <input name="subscribe" id="excion_default" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#modalLogin" value="Login" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                 </p>
                 <?php } ?>
@@ -350,7 +351,7 @@
 
     <script>
     $(document).ready(function(){
-      var url="<?php echo base_url() ?>index.php/csv/pronia_default/";
+      var url="<?php echo base_url() ?>index.php/main/start_default/";
       $("#excion_default").click(function(){
         window.location = url;
        /*
@@ -421,8 +422,6 @@
     };
     </script>
 
-
->>>>>>> 3addddfdcfbe40c7b8fcefa82566ddfac81eb621
 </body>
 
 </html>

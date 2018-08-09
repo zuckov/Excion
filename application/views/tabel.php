@@ -14,25 +14,9 @@
 <!-- <div class="container" id="patokanLebar" style="color:white"> -->
 <!-- ini buat ajax di halaman hasil -->
 <div class="container" id="patokanLebar">
-  <h2>Bordered Table</h2>
+  <h2>Tabel Data Pronia</h2>
   <p>The .table-bordered class adds borders to a table:</p>
-  <table class="table table-bordered" id="table"
-       data-toolbar="#toolbar"
-       data-search="true"
-       data-show-refresh="true"
-       data-show-toggle="true"
-       data-show-columns="true"
-       data-show-export="true"
-       data-detail-view="true"
-       data-detail-formatter="detailFormatter"
-       data-minimum-count-columns="2"
-       data-show-pagination-switch="true"
-       data-pagination="true"
-       data-id-field="id"
-       data-page-list="[10, 25, 50, 100, ALL]"
-       data-side-pagination="server"
-       data-url="http://issues.wenzhixin.net.cn/examples/bootstrap_table/data"
-       data-response-handler="responseHandler">>
+  <table class="table table-bordered" id="table">
     <thead>
       <tr>
         <th>Kode</th>

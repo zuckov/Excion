@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Project Excion</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 3 -->
@@ -95,11 +95,11 @@
 $(function(){
   var baseURL = 'http://localhost/excion/';
   var path = "<?php echo $folder; ?>";
-  var date = new Array();
-  var kwhk = new Array();
-  var kwht = new Array();
-  var kvk = new Array();
-  var kvt = new Array();
+  var file1 = 'PBS_1.csv';
+  var file2 = 'PBS_2.csv';
+  var file3 = 'PBS_3.csv';
+  var data = [];
+
   //load ajax buat bar
   //*
   $('#pbs1').load(baseURL+'index.php/csv/pronia/'+path+'-PBS_1.csv', function() {
