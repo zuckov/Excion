@@ -74,7 +74,9 @@ class Csv extends CI_Controller {
 		$pbs1 = $realPath."/PBS_1.csv";
 	  $pbs2 = $realPath."/PBS_2.csv";
 	  $pbs3 = $realPath."/PBS_3.csv";
-		//pbs1
+		//================================================================
+		// PBS 1
+		//================================================================
 		$filePbs = fopen($pbs1, "r");
 	  $data = fgetcsv($filePbs, 1000, ",");
 		$kwhk = array_search("kWh del int", $data);
@@ -108,7 +110,10 @@ class Csv extends CI_Controller {
 		$sumPbs1kwht = array_sum($kwh_t);
 		$sumPbs1kvarhk = array_sum($kvarh_k);
 		$sumPbs1kvarht = array_sum($kvarh_t);
-		//pbs2
+		fclose($filePbs);
+		//================================================================
+		// PBS 2
+		//================================================================
 		$filePbs = fopen($pbs2, "r");
 	  $data = fgetcsv($filePbs, 1000, ",");
 		$kwhk = array_search("kWh del int", $data);
@@ -142,7 +147,10 @@ class Csv extends CI_Controller {
 		$sumPbs2kwht = array_sum($kwh_t);
 		$sumPbs2kvarhk = array_sum($kvarh_k);
 		$sumPbs2kvarht = array_sum($kvarh_t);
-		//pbs3
+		fclose($filePbs);
+		//================================================================
+		// PBS 3
+		//================================================================
 		$filePbs = fopen($pbs3, "r");
 	  $data = fgetcsv($filePbs, 1000, ",");
 		$kwhk = array_search("kWh del int", $data);
@@ -199,8 +207,46 @@ class Csv extends CI_Controller {
 		//$this->load->view('tabelBaAjax', $data);
 	}
 
+	public function pronia_default($path = "C:/EXCION_GACA/ION DL/"){
+		//$file = array("PBS 1.csv", "PBS 2.csv", "PBS 3.csv", );
+		//*
+		$garng12 = $path."GARNG 12.csv";
+	  $jelok3 = $path."JELOK 3.csv";
+	  $jelok124 = $path."JELOK 124.csv";
+	  $kdombo = $path."KDOMBO.csv";
+	  $ktg1 = $path."KTG 1.csv";
+	  $ktg2 = $path."KTG 2.csv";
+	  $pbs1 = $path."PBS 1.csv";
+	  $pbs2 = $path."PBS 2.csv";
+	  $pbs3 = $path."PBS 3.csv";
+	  $wonogri = $path."WONOGRI.csv";
+	  $wadas2 = $path."WADAS 2.csv";
+	  $wadas1 = $path."WADAS 1.csv";
+	  $timo13 = $path."TIMO 1.csv";
+	  $timo2 = $path."TIMO 2.csv";
+
+		//$data['pbs1'] = $this->meter_utama->pronia($pbs1)->result();
+		$data['pbs1'] = $this->meter_utama->pronia($pbs1);
+		$data['pbs2'] = $this->meter_utama->pronia($pbs2);
+		$data['pbs3'] = $this->meter_utama->pronia($pbs3);
+		$data['wonogiri'] = $this->meter_utama->pronia($wonogri);
+		$data['wadas2'] = $this->meter_utama->pronia($wadas2);
+		$data['wadas1'] = $this->meter_utama->pronia($wadas1);
+		$data['timo13'] = $this->meter_utama->pronia($timo13);
+		$data['timo2'] = $this->meter_utama->pronia($timo2);
+		$data['garng12'] = $this->meter_utama->pronia($garng12);
+		$data['jelok3'] = $this->meter_utama->pronia($jelok3);
+		$data['jelok124'] = $this->meter_utama->pronia($jelok124);
+		$data['kdombo'] = $this->meter_utama->pronia($kdombo);
+		$data['ktg1'] = $this->meter_utama->pronia($ktg1);
+		$data['ktg2'] = $this->meter_utama->pronia($ktg2);
+
+		$this->load->view('hasil_default', $data);
+	}
+
 public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
-	  $row = 1;
+
+		$row = 1;
 		//get string path dari ajax. tambah validasi disini! pakai kapan :
 			//1. harus pake C:/EXCION_GACA/ION DL/
 			//2. harus pake get string path dari ajax

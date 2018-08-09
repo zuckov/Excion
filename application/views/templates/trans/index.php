@@ -125,7 +125,7 @@
                 <?php if($this->session->userdata('status') == 'login'){ ?>
                 <p>Selamat datang, <?php echo $this->session->userdata('nama'); ?>.</p><br>
                 <p style="position:absolute">
-                  <input name="subscribe" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
+                  <input name="subscribe" id="excion_default" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                 </p>
@@ -299,6 +299,19 @@
     <script src="<?php echo base_url(); ?>/content/trans/js/jquery-3.2.1.min.js"></script>
     <script src="<?php echo base_url(); ?>/content/trans/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>/content/trans/js/main.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      var url="<?php echo base_url() ?>index.php/csv/pronia_default/";
+      $("#excion_default").click(function(){
+        window.location = url;
+       /*
+       $("#ganti").css({
+         width: $("#patokanLebar").width()
+       });//*/
+    });
+    });
+    </script>
 
 </body>
 
