@@ -111,7 +111,7 @@
 
                       <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
                       <select class="form-control" name="lvl" value="<?php echo $lvl ?>" required>
-                        <option>-- Pilih Level User --</option>
+                        <option value="none" selected = "selected">-- Pilih Level User --</option>
                         <option value="1">Supervisor</option>
                         <option value="2">Operator</option>
                       </select>
@@ -119,7 +119,7 @@
 
                       <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
                       <select class="form-control" name="region" value="<?php echo $regions ?>" required>
-                        <option>-- Pilih Region --</option>
+                        <option value="none" selected = "selected">-- Pilih Region --</option>
                         <?php foreach ($region as $reg) { ?>
                           <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
                         <?php } ?>
@@ -170,7 +170,7 @@
 
             <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
             <select class="form-control" name="lvl">
-              <option>-- Pilih Level User --</option>
+              <option value="none" selected = "selected">-- Pilih Level User --</option>
               <option value="1">Supervisor</option>
               <option value="2">Operator</option>
             </select>
@@ -178,7 +178,7 @@
 
             <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
             <select class="form-control" name="region">
-              <option>-- Pilih Region --</option>
+              <option value="none" selected = "selected">-- Pilih Region --</option>
               <?php foreach ($region as $reg) { ?>
                 <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
               <?php } ?>

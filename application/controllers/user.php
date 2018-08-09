@@ -65,8 +65,9 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('password','password','required|trim');
 		$this->form_validation->set_rules('nama','nama','required|trim');
 		$this->form_validation->set_rules('email','email','required|trim');
-		$this->form_validation->set_rules('lvl','level_user','required|trim');
-		$this->form_validation->set_rules('region','id_region','required|trim');
+		$this->form_validation->set_rules('lvl','level_user','required|callback_select_validate');
+		$this->form_validation->set_rules('region','id_region','required|callback_select_validate');
+		//$this->form_validation->set_rules('city', 'city', 'required|callback_select_validate'); // Validating select option field.
 
 		if($this->form_validation->run()==FALSE){
 				$this->session->set_flashdata('pesan1','Data input masih ada yang kosong');
