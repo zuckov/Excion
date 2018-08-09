@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Message extends CI_Controller {
 
 	public function index(){
-
+	
 		$data['message'] = $this->db->select('*')->from('message')->order_by('id','desc')->get();
-		$this->load->view('rt/message',$data);
-
+		$this->load->view('message',$data);
+	
 	}
 
 	public function detail(){
@@ -31,6 +31,8 @@ class Message extends CI_Controller {
 			$arr['success'] = false;
 		}
 
+		
+		
 		echo json_encode($arr);
 
 	}

@@ -1,41 +1,21 @@
-# excion
+# Simple-realtime-message-SocketIO-NodeJS-CI
+Simple realtime push message using [Socket.IO](http://socket.io/) ([Node.JS](https://nodejs.org/en/)) integrated with PHP ([Codeigniter](http://codeigniter.com/)) and database MySQL
 
-Project pribadi bernama excion
+# Demo
+[Visit Here](https://www.youtube.com/watch?v=54yhqN3ITEQ)
 
-Todo-list :
-1. Tambah validasi upload :
-  - berapa jumlah file yg di upload?
-  - ada duplikat file?
-  - nama file sudah sesuai dengan ketentuan?
+# Setup
+Download or clone [Master File](https://github.com/moemoe89/Simple-realtime-message-SocketIO-NodeJS-CI)
+and then config & import MySQL database 
 
-2. Dimana naro insert db?
-  - pas manggil data di tampilan hasil?
-  -  habis dari tampilan hasil baru di save pake prompt alert?
-    - kalo begini, pembeda nya apa? kasih kolom khusus di tabel?
+Make sure that you have already installed  ([Node.JS](https://nodejs.org/en/)).
 
-4. Tambah mekanisme upload meter banding, dengan validasi yg sama!
-
-5. Tambah validasi real_path(path folder upload) :
-  - pake if, kondisinya :
-    - kalau path = C:excion_gaca... =  gausah pake str_replace + base_url,
-  - else, pake str_replace + base_url.
-
-6. Benerin Tampilan hasil.
-
-7. Coba graph/chart!
-
-8. Level user/login!
-
----------------------------------------------------------------------------------
-9. Realtime upload?
----------------------------------------------------------------------------------
-
-introducing : the files!
-1. PBS (3)
-2. Jelok (2)
-3. Timo (2)
-4. KTG (2)
-5. GARNG (1)
-6. WADAS (2)
-7. KDOMBO (1)
-8. WONOGRI (1)
+After that go to your root directory and run the server using terminal / command prompt with this syntax :
+```
+node server.js
+```
+if no error you will get this log :
+```
+Server listening at port 3000
+```
+Finally you can try send message

@@ -4,11 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Send extends CI_Controller {
 
 	public function index(){
-
-		$this->load->view('rt/send');
-
+	
+		$this->load->view('send');
+	
 	}
-
+	
 	public function submit(){
 
 		$this->form_validation->set_rules('name', '<b>Name</b>', 'trim|required|max_length[100]');
@@ -40,7 +40,7 @@ class Send extends CI_Controller {
 			$arr['notif'] = '<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 alert alert-success" role="alert"> <i class="fa fa-check"></i><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Message sent ...</div>';
 
 		}
-
+		
 		echo json_encode($arr);
 	}
 }
