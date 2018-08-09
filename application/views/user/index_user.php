@@ -11,7 +11,9 @@
 <div class="row">
   <?php if ($this->session->flashdata('pesan1')) : ?>
     <div class="alert alert-danger alert-dismissible fade in" role="alert">
-      <?php echo $this->session->flashdata('pesan1'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+      </button>
+      <strong>Perhatian ! </strong><?php echo $this->session->flashdata('pesan1'); ?>
     </div>
   <?php endif; ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -41,7 +43,9 @@
         </thead>
 
         <tbody>
-          <?php foreach ($user as $key => $value):  ?>
+          <?php foreach ($user as $key => $value):
+            $id=$value->id;
+          ?>
           <tr>
             <td><?php echo $z=$key+1 ?></td>
             <td><?php echo $user = $value->username ?></td>
@@ -56,11 +60,14 @@
                  else if ($lvl == 2) {
                    echo "Operator";
                  }
+                 else {
+                   echo "---kosong---";
+                 }
                ?>
             </td>
             <td><?php echo $regions = $value->region ?></td>
             <td>
-              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Ubah</button>
+              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id ?>">Ubah</button>
               <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
             </td>
           </tr>
