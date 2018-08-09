@@ -194,7 +194,7 @@ class Upload extends CI_Controller
             //'path' => $path,
             'folder' => $currentDate,
             'date' => $show_date,
-            //'dari' => $this->session->userdata('user_id'),
+            'dari' => $this->session->userdata('user_id'),
           );
           $this->h_operator->input_data($data);
           echo $currentDate;

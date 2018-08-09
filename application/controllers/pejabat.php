@@ -41,38 +41,39 @@ class Pejabat extends CI_Controller {
 			$this->load->view('pejabat/404_peja');
 			$this->load->view('templates/gen/footer');
 		}
+	}
 
-		function tambah(){
+		public function tambah(){
 			$this->load->view('pejabat/v_input');
-		}
+			}
 
-		function tambah_aksi(){
+		public function tambah_aksi(){
 	    $nama = $this->input->post('nama');
 			$jabatan = $this->input->post('jabatan');
 			$nopeg = $this->input->post('nopeg');
 
 			$data = array(
-				'nama' => $region,
-				'jabatan' => $region,
+				'nama' => $nama,
+				'jabatan' => $jabatan,
 				'no_pegawai' => $nopeg,
 			);
 			$this->m_pejabat->input_data($data);
-			redirect('pejabat/index_peja');
+			redirect('pejabat/index');
 		}
 
-	  function hapus($id){
+	  public function hapus($id){
 			$where = array('id' => $id);
 			$this->m_pejabat->delete_data($where,'pejabat');
-			redirect('pejabat/index_peja');
+			redirect('pejabat/index');
 		}
 
-	  function edit($id){ //ini sukses
+	  public function edit($id){ //ini sukses
 			$where = array('id' => $id);
 			$data['pejabat'] = $this->m_pejabat->edit_data($where,'pejabat')->result();
 			$this->load->view('pejabat/v_edit',$data);
 		}
 
-	  function update($id){ //ini kenapa?
+	  public function update($id){ //ini kenapa?
 			//$id = $this->input->post('id');
 			$nama = $this->input->post('nama');
 			$jabatan = $this->input->post('jabatan');
@@ -80,16 +81,14 @@ class Pejabat extends CI_Controller {
 
 			$data = array(
 				'id' => $id,
-				'nama' => $region,
-				'jabatan' => $region,
+				'nama' => $nama,
+				'jabatan' => $jabatan,
 				'no_pegawai' => $nopeg,
 			);
 			$where = array(
 				'id' => $id
 			);
-			$this->m_pejabat->update_data($where,$data,'region');
-			redirect('pejabat/index_peja');
+			$this->m_pejabat->update_data($where,$data,'pejabat');
+			redirect('pejabat/index');
 		}
 	}
-
-}

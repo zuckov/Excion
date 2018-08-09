@@ -35,6 +35,26 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- Dropzone
+    ================================================== -->
+  	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/dropzone.css" />
+  	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/basic.css" />
+  	<script type="text/javascript" src="<?php echo base_url() ?>content/dz/dropzone.js"></script>
+
+    <style>
+    .modal-header, h4, .close {
+        /*background-color: #5cb85c;*/
+  			/*background: linear-gradient(to bottom right, #0033cc 0%, #3366ff 100%);*/
+  			background-color: #cc147f;
+        color:white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+    </style>
+
 </head>
 
 <body id="top">
@@ -125,8 +145,13 @@
                 <?php if($this->session->userdata('status') == 'login'){ ?>
                 <p>Selamat datang, <?php echo $this->session->userdata('nama'); ?>.</p><br>
                 <p style="position:absolute">
+<<<<<<< HEAD
                   <input name="subscribe" id="excion_default" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
+=======
+                  <input name="subscribe" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
+                  <input name="subscribe" data-toggle="modal" data-target="#modalupload" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
+>>>>>>> 3addddfdcfbe40c7b8fcefa82566ddfac81eb621
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                 </p>
                 <?php }else {?>
@@ -174,9 +199,7 @@
     ================================================== -->
 			<div class="modal fade" id="modalLogin" role="dialog">
 		    <div class="modal-dialog">
-
 		      <!-- Modal content-->
-
 						<!-- <form role="form"> -->
 						<!---->
 		      <div class="modal-content">
@@ -213,6 +236,36 @@
 		    </div>
 		  </div>
 				<!-- /modal login -->
+
+        <!-- modal upload-->
+		<div id="modalupload" class="modal fade" role="dialog">
+  		<div class="modal-dialog modal-md">
+    	<!-- Modal upload content-->
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+        		  <h4 class="modal-title">Upload File</h4>
+      		 </div>
+      		 <div class="modal-body">
+						<!-- -->
+						<div class="alert alert-danger" id="alertValid" role="alert" style="visibility: hidden;">File tidak diperbolehkan untuk di upload.</div>
+						<form method="post" action="<?php echo base_url(); ?>index.php/upload/uploads" enctype="multipart/form-data" class="dropzone" id="myAwesomeDropzone" style="border:2px dashed; min-height: 80px;">
+							<div class="dz-message">
+								<h3 style="padding:50px;">Klik, atau drop file disini.</h3>
+							</div>
+							<!-- <input type="text" id="uploaded_files"> -->
+							<!-- <input type="text" id="uploaded_files"> -->
+						</form>
+      		</div>
+					<!-- -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="submit_dropzone_form" >Upload</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+    		</div>
+  		</div>
+		</div>
+		<!-- /modal upload -->
 
 
 
@@ -300,6 +353,7 @@
     <script src="<?php echo base_url(); ?>/content/trans/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>/content/trans/js/main.js"></script>
 
+<<<<<<< HEAD
     <script>
     $(document).ready(function(){
       var url="<?php echo base_url() ?>index.php/csv/pronia_default/";
@@ -313,6 +367,69 @@
     });
     </script>
 
+=======
+    <!-- Script
+    ================================================== -->
+    <!-- Dropzone
+    ================================================== -->
+    <script>
+    //DROPZONE JS
+    // Disabling autoDiscover, otherwise Dropzone will try to attach twice.
+    //Dropzone.autoDiscover = false;
+    //*
+    Dropzone.options.myAwesomeDropzone = {
+    //url:"<?php //echo base_url('index.php/welcome/uploads'); ?>",
+    autoProcessQueue: false,
+    uploadMultiple: true,
+    parallelUploads:15,
+    acceptedFiles: ".csv",
+    dictInvalidFileType:"Tipe file tidak dizinkan",
+    addRemoveLinks : true,
+    //dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
+    dictUploadCanceled : "File berhasil di hapus.",
+    successmultiple:function(data,response){
+      //$("#uploaded_files").val(response);
+      alert(response);
+      //send response here
+      //var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
+      var url="<?php echo base_url() ?>index.php/main/start/";
+      window.location = url+response;
+    },
+    init: function() {
+      //Submitting the form on button click
+      var submitButton = document.querySelector("#submit_dropzone_form");
+        myDropzone = this; // closure
+        submitButton.addEventListener("click", function() {
+        myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+      });
+      this.on("addedfile", function(file){
+        //cek value tiap data yg dipush.
+        //var fileQueues = [];
+        /**/
+        if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv"
+          || file.name == "GARNG 12.csv" ) {
+          //alert('ok!');
+        }
+        else {
+          alert('file '+file.name+' tidak bisa untuk di upload.');
+          this.removeFile(file);
+        }
+      });
+      // ON QUEUE COMPLETE
+      //*
+      this.on("queuecomplete", function (progress, response) {
+          $('.meter').delay(999).slideUp(999);
+          //alert(response);
+          // REMOVE ALL FILES FROM FORM
+          this.removeAllFiles();
+      });
+      //*/
+    }
+    };
+    </script>
+
+
+>>>>>>> 3addddfdcfbe40c7b8fcefa82566ddfac81eb621
 </body>
 
 </html>

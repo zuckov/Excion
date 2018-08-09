@@ -16,12 +16,10 @@ daftar isi/index :
 */
 
 class Csv extends CI_Controller {
-	public function __construct()
-       {
-          parent::__construct();
-          $this->load->model('meter_utama');
-
-       }
+	public function __construct(){
+      parent::__construct();
+      $this->load->model('meter_utama');
+  }
 
 	public function start()
 	{
@@ -251,25 +249,8 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 			//1. harus pake C:/EXCION_GACA/ION DL/
 			//2. harus pake get string path dari ajax
 		$getPath = str_replace("-", "/", $date);
-		$realPath = base_url().'upload/'.$getPath; //bisa ga tanpa base_url?
-		//
-		/*
-	  $garng12 = $path."GARNG 12.csv";
-	  $jelok3 = $path."JELOK 3.csv";
-	  $jelok124 = $path."JELOK 124.csv";
-	  $kdombo = $path."KDOMBO.csv";
-	  $ktg1 = $path."KTG 1.csv";
-	  $ktg2 = $path."KTG 2.csv";
-	  $pbs1 = $path."PBS 1.csv";
-	  $pbs2 = $path."PBS 2.csv";
-	  $pbs3 = $path."PBS 3.csv";
-	  $wonogri = $path."WONOGRI.csv";
-	  $wadas2 = $path."WADAS 2.csv";
-	  $wadas1 = $path."WADAS 1.csv";
-	  $timo13 = $path."TIMO 13.csv";
-	  $timo2 = $path."TIMO 2.csv";
-		*/
-	  //PBS 1
+		$realPath = base_url().'upload/'.$getPath;
+	  //PBS
 	  $file = fopen($realPath, "r");
 	  $data = fgetcsv($file, 1000, ",");
 	  $pbsA/*pbsDate*/ = array_search("Date/Time", $data);
@@ -327,7 +308,30 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		 	 	 'kap_mvar' => $pbsKapMvar,
      );
 
-	 $this->load->view('tabel', $data);
+		 $insert = array(
+			 'date' => $pbsDate,
+			 'kwh_kirim' => $pbsKwhKir,
+			 'kwh_terima' => $pbsKwhTer,
+			 'kvarh_kirim' => $pbsKvarhKir,
+			 'kvarh_terima' => $pbsKvarhTer,
+			 'region' => 'PBS',
+			 'pengirim' => $this->session->userdata('user_id'),
+			 'asal_folder' => $date,
+		 );
+		 $where =array(
+			 'asal_folder' => $date,
+		 );
+		 $cek = $this->meter_utama->get_cek($where, "meter_utama")->num_rows();
+		 if ($cek > 0) {
+			 //tampilin pesan error
+			 //tampilin hasil nya
+		 	//redirect('csv/tampil_selected')
+		 }
+		 else {
+		 	// masukin data ygditampilin ke dalam db.
+			//tampilin hasilnya.
+		 }
+
 	}
 
 //get_pronia

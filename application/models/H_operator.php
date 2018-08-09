@@ -8,8 +8,8 @@ class H_operator extends CI_Model{
   function tampil_data(){
     $this->db->select('*');
 		$this->db->from('history_operator');
-		$this->db->join('user', 'history_operator.dari = user.id');
-    $this->db->join('region', 'user.id_region = region.id');
+		$this->db->join('user', 'history_operator.dari = user.id', 'left');
+    $this->db->join('region', 'user.id_region = region.id', 'left');
     return $this->db->get();
 		//return $this->db->get('history_operator');
 	}

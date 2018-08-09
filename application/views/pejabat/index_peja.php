@@ -1,20 +1,9 @@
 <!-- coba content disini-->
 <div class="right_col" role="main">
   <div class="">
-<div class="page-title">
+    <div class="page-title">
   <div class="title_left">
-    <h3>Users <small>Some examples to get you started</small></h3>
-  </div>
-
-  <div class="title_right">
-    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Go!</button>
-        </span>
-      </div>
-    </div>
+    <!-- <h3>Users <small>Some examples to get you started</small></h3> -->
   </div>
 </div>
 
@@ -23,48 +12,35 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
-      <h2>Default Example <small>Users</small></h2>
-      <ul class="nav navbar-right panel_toolbox">
-        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Settings 1</a>
-            </li>
-            <li><a href="#">Settings 2</a>
-            </li>
-          </ul>
-        </li>
-        <li><a class="close-link"><i class="fa fa-close"></i></a>
-        </li>
+      <h2>Tabel Data User <!-- <small>Users</small> --></h2>
+
+      <ul class="nav navbar-right panel_toolbox" style="margin-left : 30px">
+        <?php echo anchor(/*'region/update/'.$value->id*/'#','Tambah Data', array('class'=>'btn btn-success', 'data-toggle'=>'modal', 'data-target'=>'#modaltambah')); ?><br>
+
       </ul>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-      <p class="text-muted font-13 m-b-30">
-        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-      </p>
+      <br>
       <table id="datatable-responsive" class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>No</th>
             <th>Nama</th>
             <th>Jabatan</th>
-            <th>Kode-pegawai</th>
+            <th>No. Pegawai</th>
             <th>Opsi</th>
           </tr>
         </thead>
-
         <tbody>
-          <?php foreach ($pejabat as $key => $value) { ?>
+          <?php foreach ($pejabat as $key => $value):  ?>
           <tr>
             <td><?php echo $z=$key+1 ?></td>
             <td><?php echo $nama = $value->nama ?></td>
             <td><?php echo $jabatan = $value->jabatan ?></td>
             <td><?php echo $nopeg = $value->no_pegawai ?></td>
             <td>
-              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">ubah</button>
+              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Ubah</button>
               <button type="button" id="<?php echo $id ?>" class="btn btn-danger btn-xs" data-toggle="modal" data-target=<?php echo "#".$id ?>>Hapus</button>
             </td>
           </tr>
@@ -86,7 +62,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
                   <?php //echo anchor('region/hapus/'.$id/*'#'*/,'Hapus Data', array('id'=> $id, "class"=>"btn btn-danger", 'data-toggle'=>'modal', 'data-target'=>'#'.$id)); ?>
-                  <?php echo anchor('region/hapus/'.$value->id,'Hapus Data', array("class"=>"btn btn-danger")); ?>
+                  <?php echo anchor('pejabat/hapus/'.$value->id,'Hapus Data', array("class"=>"btn btn-danger")); ?>
                 </div>
               </div>
             </div>
@@ -102,15 +78,14 @@
                   <h4><span class="glyphicon glyphicon-pencil"></span> Ubah Data</h4>
                 </div>
                 <div class="modal-body" style="padding:40px 50px;">
-                  <form action="<?php echo base_url().'index.php/region/update/'.$id; ?>" method="post">
+                  <form action="<?php echo base_url().'index.php/pejabat/update/'.$id; ?>" method="post">
                     <div class="form-group">
-                      <label for="username" class=""><span class="glyphicon glyphicon-user"></span> Nama Pejabat</label>
-                      <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" placeholder="Nama Pejabat" ><br>
-                      <label for="username" class=""><span class="glyphicon glyphicon-book"></span> Jabatan</label>
-                      <input type="text" name="jabatan" value="<?php echo $jabatan ?>" class="form-control" placeholder="Jabatan" ><br>
-                      <label for="username" class=""><span class="glyphicon glyphicon-sound-5-1"></span> No. Pegawai</label>
-                      <input type="text" name="nopeg" value="<?php echo $nopeg ?>" class="form-control" placeholder="No. Pegawai" ><br>
-
+                      <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
+                      <input type="text" name="nama" value="<?php echo $nama ?>" class="form-control" placeholder="Ubah nama pegawai" ><br>
+                      <label for="username" class=""><span class="fa fa-envelope"></span> Jabatan</label>
+                      <input type="text" name="jabatan" value="<?php echo $jabatan ?>" class="form-control" placeholder="Ubah jabatan pegawai" ><br>
+                      <label for="username" class=""><span class="fa fa-archive"></span> No. Pegawai</label>
+                      <input type="text" name="nopeg" value="<?php echo $nopeg ?>" class="form-control" placeholder="Ubah nomor pegawai" ><br>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-save  "></span> Tambah Data</button>
                 </div>
@@ -123,7 +98,7 @@
           </div>
             <!-- /modal login -->
 
-          <?php } ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
@@ -133,23 +108,26 @@
 </div>
 </div>
 
+
+
 <!-- Modal Tambah Data -->
 <div class="modal fade" id="modaltambah" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-pencil"></span> Tambah Data Pejabat</h4>
+        <h4><span class="glyphicon glyphicon-pencil"></span> Tambah Data</h4>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
         <form action="<?php echo base_url('index.php/pejabat/tambah_aksi'); ?>" method="post">
           <div class="form-group">
-            <label for="username" class=""><span class="glyphicon glyphicon-user"></span> Nama Pejabat</label>
-            <input type="text" name="nama" class="form-control" placeholder="Nama Pejabat" ><br>
-            <label for="username" class=""><span class="glyphicon glyphicon-book"></span> Jabatan</label>
-            <input type="text" name="jabatan" class="form-control" placeholder="Jabatan" ><br>
-            <label for="username" class=""><span class="glyphicon glyphicon-sound-5-1"></span> No. Pegawai</label>
-            <input type="text" name="nopeg" class="form-control" placeholder="No. Pegawai" ><br>
+            <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
+            <input type="text" name="nama" class="form-control" placeholder="Masukan nama pegawai" ><br>
+            <label for="username" class=""><span class="fa fa-envelope"></span> Jabatan</label>
+            <input type="text" name="jabatan" class="form-control" placeholder="Masukan jabatan pegawai" ><br>
+            <label for="username" class=""><span class="fa fa-archive"></span> No. Pegawai</label>
+            <input type="text" name="nopeg"class="form-control" placeholder="Masukan no. pegawai" ><br>
+            <!-- <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br> -->
           </div>
           <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-save  "></span> Tambah Data</button>
       </div>
