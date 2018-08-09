@@ -58,15 +58,15 @@ class Meter_utama extends CI_Model {
      			}
      		}
      	  }
-     	 //fclose($filePbs);
+     	 fclose($filePbs);
      	 $data = array(
-     	   'date' => $pbsDate,
+     	     'date' => $pbsDate,
            'kwh_k' => $pbsKwhKir,
            'kwh_t' => $pbsKwhTer,
            'kvarh_k' => $pbsKvarhKir,
            'kvarh_t' => $pbsKvarhTer,
            'kap_mw' => $pbsKapMw,
-     	   'kap_mvar' => $pbsKapMvar,
+     	     'kap_mvar' => $pbsKapMvar,
       );
       return $data;
      }
@@ -204,8 +204,6 @@ class Meter_utama extends CI_Model {
            );
      		return $data;
        }
-<<<<<<< HEAD
-
 
 
        function tampil_data(){
@@ -275,9 +273,6 @@ class Meter_utama extends CI_Model {
        public function get_jelok4(){
 
        }
-
-=======
->>>>>>> 3addddfdcfbe40c7b8fcefa82566ddfac81eb621
 }
 
 ?>

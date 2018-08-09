@@ -145,13 +145,8 @@
                 <?php if($this->session->userdata('status') == 'login'){ ?>
                 <p>Selamat datang, <?php echo $this->session->userdata('nama'); ?>.</p><br>
                 <p style="position:absolute">
-<<<<<<< HEAD
                   <input name="subscribe" id="excion_default" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
-                  <input name="subscribe" data-toggle="modal" data-target="#" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
-=======
-                  <input name="subscribe" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#modalupload" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
->>>>>>> 3addddfdcfbe40c7b8fcefa82566ddfac81eb621
                   <input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                 </p>
                 <?php }else {?>
@@ -353,7 +348,6 @@
     <script src="<?php echo base_url(); ?>/content/trans/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>/content/trans/js/main.js"></script>
 
-<<<<<<< HEAD
     <script>
     $(document).ready(function(){
       var url="<?php echo base_url() ?>index.php/csv/pronia_default/";
@@ -367,7 +361,6 @@
     });
     </script>
 
-=======
     <!-- Script
     ================================================== -->
     <!-- Dropzone

@@ -97,18 +97,21 @@
                 </thead>
                 <tbody>
                   <?php
-                    //$num = count($$kwh_k);
-                    foreach ($pbs1 as $key => $value) {
+                    //$num = count($pbs1['kwh_k']);
+                    foreach ($pbs1 as $row) {
                     //for ($i=0; $i < $num; $i++) {
                     //$var = $i + 1;
                   ?>
                   <tr>
-                    <td><?php echo $z = $key+1 ?></td>
+                    <td><?php echo $z = $key+1; ?></td>
                     <td>2</td>
                     <td>19854071</td>
-                    <td><?php echo $value->$date[$key]; ?></td>
+                    <?php foreach ($row as $date) : ?>
+                      <td><?php echo $date->date; ?></td>
+                    <?php endforeach ?>
+                    <td><?php echo $pbs1['date'][$i]; ?></td>
                     <td><?php echo $value->$kwh_k; ?></td>
-                    <td><?php echo $value->$kwh_t;; ?></td>
+                    <td><?php echo $value->$kwh_t; ?></td>
                     <td><?php echo $value->$kvarh_k; ?></td>
                     <td><?php echo $value->$kvarh_t; ?></td>
                     <td><?php echo $value->$kap_mw; ?></td>

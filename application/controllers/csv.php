@@ -239,7 +239,10 @@ class Csv extends CI_Controller {
 		$data['ktg1'] = $this->meter_utama->pronia($ktg1);
 		$data['ktg2'] = $this->meter_utama->pronia($ktg2);
 
-		$this->load->view('hasil_default', $data);
+		//$this->load->view('hasil_default', $data);
+		$this->load->view('cobaBaKvarh', $data);
+		//print "<pre>";print_r($data['pbs1']); print "</pre>";
+
 	}
 
 public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
@@ -753,9 +756,10 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 			'mvarLag' => $mvarLag, // our endgame!
 		);
 
+
 		//*/
-		//$this->load->view('tabelBaKvarh', $data);
-		$this->load->view('cobaBaKvarh', $data);
+		$this->load->view('tabelBaKvarh', $data);
+		//$this->load->view('cobaBaKvarh', $data);
 	}
 
 
