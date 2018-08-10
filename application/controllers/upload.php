@@ -16,7 +16,6 @@ class Upload extends CI_Controller
 
   public function index(){
 		//$this->load->view('upload_view', array('error' => ' ' ));
-
     $this->load->view('templates/gen/header');
     $this->load->view('upload/index_upload_gen');
     $this->load->view('templates/gen/footer');
@@ -25,7 +24,7 @@ class Upload extends CI_Controller
 	public function aksi_upload(){
 		$config['upload_path']          = './upload/';
 		//$config['allowed_types']        = 'gif|jpg|png';
-    	$config['allowed_types']        = 'rar|zip';
+    $config['allowed_types']        = 'rar|zip';
 		$config['max_size']             = 250;
 		//$config['max_width']            = 1024;
 		//$config['max_height']           = 768;
@@ -197,7 +196,7 @@ class Upload extends CI_Controller
             'dari' => $this->session->userdata('user_id'),
           );
           $this->h_operator->input_data($data);
-          echo $currentDate;
+          echo $currentDate.'-'.$fileData['file_name'];
           //echo $dateReplace;
       }
       //validasi kalo file nya kosong disini....

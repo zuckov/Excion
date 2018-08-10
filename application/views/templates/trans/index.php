@@ -380,8 +380,8 @@
       successmultiple:function(data,response){
         alert(response);
         //send response here
-        //var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
-        var url="<?php echo base_url() ?>index.php/main/start/";
+        var url="<?php echo base_url() ?>index.php/uploadcsv/insert/";
+        //var url="<?php echo base_url() ?>index.php/main/start/";
         window.location = url+response;
       },
       init:function(){
