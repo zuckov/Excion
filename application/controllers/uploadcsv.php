@@ -35,7 +35,7 @@ class Uploadcsv extends CI_Controller {
 		if ($result > 0) {
       $data['datameter'] = $this->meter_utama->get_data()->result();
       $this->load->view('templates/gen/header');
-			$this->load->view('history/index_his',$data);
+			$this->load->view('upload/hasilUpload',$data);
 			$this->load->view('templates/gen/footer');
 		}
 		else {
@@ -117,9 +117,14 @@ class Uploadcsv extends CI_Controller {
             'date' => $show_date,
             'dari' => $this->session->userdata('user_id'),
           );
-          $this->h_operator->input_data($data);
-          $this->meter_utama->insert_data($data);
-          echo $currentDate;
+          if($this->h_operator->input_data($data)){
+            if($this->meter_utama->insert_data($data)){
+
+              echo $currentDate;
+            }
+          }
+
+
           //echo $dateReplace;
           //redirect('uploadcsv/insert/'.$data);
       }
