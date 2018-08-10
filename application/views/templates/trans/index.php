@@ -402,7 +402,7 @@
           }
           <?php } ?>
 
-          <?php else if ($this->session->userdata('lvl') == 2) { ?>
+          <?php if ($this->session->userdata('lvl') == 2) { ?>
 
           if (file.name == "PBS 2.csv" ) {
             //do nothing?
@@ -413,7 +413,7 @@
           }
           <?php } ?>
 
-          <?php else if ($this->session->userdata('lvl') == 3) { ?>
+          <?php if ($this->session->userdata('lvl') == 3) { ?>
 
           if (file.name == "PBS 3.csv" ) {
             //do nothing?

@@ -217,8 +217,8 @@ class Meter_utama extends CI_Model {
          return $this->db->get();
        }
 
-       function input_data($data,$table){
-         $this->db->insert($table,$data);
+       function insert_data($data){
+         $this->db->insert('meter_utama',$data);
        }
 
        function create_data($data,$table){
@@ -250,6 +250,10 @@ class Meter_utama extends CI_Model {
 
        }
 
+       function get_data($where,$table){
+     		return $this->db->get_where($table,$where);
+     	}
+
        public function get_pbs1(){
 		$pbsArray = array();
 		//$pbsArray = $this->model->
@@ -271,8 +275,8 @@ class Meter_utama extends CI_Model {
 
        }
        public function get_jelok4(){
-
-       }
 }
+
+
 
 ?>
