@@ -17,7 +17,7 @@
 <!-- NProgress -->
 <script src="<?php echo base_url(); ?>content/gen/vendors/nprogress/nprogress.js"></script>
 <!-- iCheck -->
-<script src="<?php echo base_url(); ?>content/gen/vendors/iCheck/icheck.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>content/gen/vendors/iCheck/icheck.min.js"></script> -->
 <!-- Datatables -->
 <script src="<?php echo base_url(); ?>content/gen/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>content/gen/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>

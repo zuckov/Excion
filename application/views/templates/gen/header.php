@@ -24,11 +24,21 @@
     <link href="<?php echo base_url(); ?>content/gen/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>content/gen/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
+
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>content/gen/build/css/custom.css" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>content/gen/vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- Dropzone
+    ================================================== -->
+  	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/dropzone.css" />
+  	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/basic.css" />
+  	<script type="text/javascript" src="<?php echo base_url() ?>content/dz/dropzone.js"></script>
+
+
+
   </head>
 
   <body class="nav-md" style="font-family: "metropolis-regular", sans-serif;">
@@ -38,7 +48,7 @@
           <div class="left_col scroll-view">
 
             <div class="navbar nav_title" style="border: 0; height:90px" >
-              <a href="index.html" class="site_title" style="border: 0; height:90px"><img class="center" src="<?php echo base_url(); ?>content/logoexcion2putih.png" style="width: auto; height:90px; margin: 30px; text-align: center; "><!-- <i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a> --></a>
+              <a href="<?php echo base_url(); ?>" class="site_title" style="border: 0; height:90px"><img class="center" src="<?php echo base_url(); ?>content/logoexcion2putih.png" style="width: auto; height:90px; margin: 30px; text-align: center; "><!-- <i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a> --></a>
             </div>
 
             <div class="clearfix"></div>
@@ -74,7 +84,7 @@
                   <li><a><i class="fa fa-edit"></i> Excion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Excion - default</a></li>
-                      <li><a href="#">Excion - Upload</a></li>
+                      <li><a href="<?php echo base_url('upload/index') ?>">Excion - Upload</a></li>
                       <li><a href="#">Excion - RT</a></li>
                     </ul>
                   </li>
@@ -151,7 +161,7 @@
                   </ul>
                 </li>
 
-                
+
               </ul>
             </nav>
           </div>

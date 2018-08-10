@@ -15,7 +15,7 @@
       <h2>Tabel Data Region <!-- <small>Users</small> --></h2>
 
       <ul class="nav navbar-right panel_toolbox" style="margin-left : 30px">
-        <?php echo anchor(/*'region/update/'.$value->id*/'#','Tambah Data', array('class'=>'btn btn-success', 'data-toggle'=>'modal', 'data-target'=>'#modaltambah')); ?><br>
+        <?php //echo anchor(/*'region/update/'.$value->id*/'#','Tambah Data', array('class'=>'btn btn-success', 'data-toggle'=>'modal', 'data-target'=>'#modaltambah')); ?><br>
 
       </ul>
       <div class="clearfix"></div>

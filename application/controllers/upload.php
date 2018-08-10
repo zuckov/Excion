@@ -18,7 +18,7 @@ class Upload extends CI_Controller
 		//$this->load->view('upload_view', array('error' => ' ' ));
 
     $this->load->view('templates/gen/header');
-    $this->load->view('templates/indexUpload');
+    $this->load->view('upload/index_upload_gen');
     $this->load->view('templates/gen/footer');
 	}
 

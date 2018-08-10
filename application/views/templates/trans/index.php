@@ -367,10 +367,80 @@
     <!-- Dropzone
     ================================================== -->
     <script>
+
+    Dropzone.options.myAwesomeDropzone = {
+      autoProcessQueue: false,
+      uploadMultiple: true,
+      parallelUploads:15,
+      acceptedFiles: ".csv",
+      dictInvalidFileType:"Tipe file tidak dizinkan",
+      addRemoveLinks : true,
+      //dictCancelUpload : "Apakah anda yakin ingin menghapus file dari halaman upload?",
+      dictUploadCanceled : "File berhasil di hapus.",
+      successmultiple:function(data,response){
+        alert(response);
+        //send response here
+        //var url="<?php echo base_url() ?>index.php/main/getPathUpload/";
+        var url="<?php echo base_url() ?>index.php/main/start/";
+        window.location = url+response;
+      },
+      init:function(){
+        var submitButton = document.querySelector("#submit_dropzone_form");
+          myDropzone = this; // closure
+          submitButton.addEventListener("click", function() {
+          myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+        });
+        this.on("addedfile", function(file){
+          <?php if ($this->session->userdata('lvl') == 1) { ?>
+
+          if (file.name == "PBS 1.csv" ) {
+            //do nothing?
+          }
+          else {
+            alert('file '+file.name+' tidak diperkenankan untuk di upload.');
+            this.removeFile(file);
+          }
+          <?php } ?>
+
+          <?php else if ($this->session->userdata('lvl') == 2) { ?>
+
+          if (file.name == "PBS 2.csv" ) {
+            //do nothing?
+          }
+          else {
+            alert('file '+file.name+' tidak diperkenankan untuk di upload.');
+            this.removeFile(file);
+          }
+          <?php } ?>
+
+          <?php else if ($this->session->userdata('lvl') == 3) { ?>
+
+          if (file.name == "PBS 3.csv" ) {
+            //do nothing?
+          }
+          else {
+            alert('file '+file.name+' tidak diperkenankan untuk di upload.');
+            this.removeFile(file);
+          }
+          <?php } ?>
+        });
+        this.on("queuecomplete", function (progress, response) {
+            $('.meter').delay(999).slideUp(999);
+            //alert(response);
+            // REMOVE ALL FILES FROM FORM
+            this.removeAllFiles();
+        });
+
+      }
+
+    };
+
+    </script>
+    <script>
     //DROPZONE JS
     // Disabling autoDiscover, otherwise Dropzone will try to attach twice.
     //Dropzone.autoDiscover = false;
-    //*
+    /*
     Dropzone.options.myAwesomeDropzone = {
     //url:"<?php //echo base_url('index.php/welcome/uploads'); ?>",
     autoProcessQueue: false,
@@ -399,9 +469,8 @@
       this.on("addedfile", function(file){
         //cek value tiap data yg dipush.
         //var fileQueues = [];
-        /**/
-        if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv"
-          || file.name == "GARNG 12.csv" ) {
+        /*
+        if (file.name == "PBS 1.csv" || file.name == "PBS 2.csv" || file.name == "PBS 3.csv")
           //alert('ok!');
         }
         else {
@@ -418,8 +487,8 @@
           this.removeAllFiles();
       });
       //*/
-    }
-    };
+//    }
+    //};
     </script>
 
 </body>
