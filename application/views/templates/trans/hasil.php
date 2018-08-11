@@ -97,55 +97,6 @@
     </header> <!-- end s-header -->
 
 
-    <!-- home
-    ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=top>
-
-        <div class="shadow-overlay"></div>
-
-        <div class="home-content">
-
-            <div class="row home-content__main">
-                <h1>
-                Project Excion <br>
-                </h1>
-
-                <p>
-                We create stunning digital experiences <br>
-                that will help your business stand out.
-                </p>
-            </div> <!-- end home-content__main -->
-
-        </div> <!-- end home-content -->
-
-        <ul class="home-sidelinks">
-            <li><a class="smoothscroll" href="#about">About<span>who we are</span></a></li>
-            <li><a class="smoothscroll" href="#services">Services<span>what we do</span></a></li>
-            <li><a  class="smoothscroll" href="#contact">Contact<span>get in touch</span></a></li>
-        </ul> <!-- end home-sidelinks -->
-
-        <ul class="home-social">
-            <li class="home-social-title">Follow Us</li>
-            <li><a href="#0">
-                <i class="fab fa-facebook"></i>
-                <span class="home-social-text">Facebook</span>
-            </a></li>
-            <li><a href="#0">
-                <i class="fab fa-twitter"></i>
-                <span class="home-social-text">Twitter</span>
-            </a></li>
-            <li><a href="#0">
-                <i class="fab fa-linkedin"></i>
-                <span class="home-social-text">LinkedIn</span>
-            </a></li>
-        </ul> <!-- end home-social -->
-
-        <a href="#about" class="home-scroll smoothscroll">
-            <span class="home-scroll__text">Scroll Down</span>
-            <span class="home-scroll__icon"></span>
-        </a> <!-- end home-scroll -->
-
-    </section> <!-- end s-home -->
 
     <!-- about
     ================================================== -->
@@ -153,16 +104,17 @@
 
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
-                <h3 class="subhead">Who We Are</h3>
-                <h1 class="display-1">We are a group of design driven individuals passionate about creating beautiful UI designs.</h1>
+              <a href="#" onclick="history.back(-1)" class="subhead">Kembali ke halaman utama</a>
+                <!-- <h3 class="subhead">Hasil</h3> -->
+                <!-- <input type="button" class="subhead" value="Kembali" onclick="history.back(-1)"> -->
+                <br><br><br><h1 class="display-1">Hasil olah data</h1>
             </div>
         </div> <!-- end section-header -->
 
         <div class="row" data-aos="fade-up">
             <div class="col-full">
                 <p class="lead">
-                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
-                </p>
+                  Berikut adalah hasil perhitungan dari proses olah data.</p>
             </div>
         </div> <!-- end about-desc -->
 
@@ -173,46 +125,12 @@
                 <div class="process__vline-left"></div>
                 <div class="process__vline-right"></div>
 
-                <div class="col-block process__col" data-item="1" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Define</h4>
+                <a href="<?php echo base_url('index.php/csv/pronia_default_2/PBS-1.csv'); ?>"><input name="subscribe" id="excion_default"  value="Pronia 1" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
+                <a href="<?php echo base_url('index.php/csv/pronia_default_2/PBS-2.csv'); ?>"><input name="subscribe" id="excion_default"  value="Pronia 2" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
+                <a href="<?php echo base_url('index.php/csv/pronia_default_2/PBS-3.csv'); ?>"><input name="subscribe" id="excion_default"  value="Pronia 3" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
+                <a href="<?php echo base_url('index.php/csv/baRegion_default'); ?>"><input name="subscribe" id="excion_default"  value="BA PBS" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
+                <a href="<?php echo base_url('index.php/csv/get_bakv_default'); ?>"><input name="subscribe" id="excion_default"  value="BA Kvar" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
 
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="2" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Design</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="3" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Build</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="4" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>Launch</h4>
-
-                        <p>
-                        Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae.
-                        Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab.
-                        </p>
-                    </div>
-                </div>
 
             </div> <!-- end process -->
 
@@ -224,24 +142,23 @@
 
 
 
+
+
     <!-- contact
     ================================================== -->
     <section id="contact" class="s-contact">
 
         <!----><div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead subhead--light">Copyright.</h3>
+            <div class="col-full" style="padding-left : 100px; padding-right : auto;">
+                <h3 class="subhead subhead--light">“We don't make mistakes, just happy little accidents.”</h3>
                 <h1 class="display-1 display-1--light"></h1>
                 <img src="<?php echo base_url(); ?>content/logoexcion2putih.png" alt="Homepage" style="width: 120px; height:auto">
             </div>
         </div>  <!-- end section-header -->
 
 
-
-
-
         <div class="row">
-            <div class="col-full cl-copyright">
+            <div class="col-full cl-copyright"style="padding-left : 100px; padding-right : auto;">
                 <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -310,6 +227,8 @@
     <script src="<?php echo base_url(); ?>/content/trans/js/jquery-3.2.1.min.js"></script>
     <script src="<?php echo base_url(); ?>/content/trans/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>/content/trans/js/main.js"></script>
+
+
 
 </body>
 

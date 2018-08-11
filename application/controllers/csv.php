@@ -323,7 +323,7 @@ class Csv extends CI_Controller {
 		//get string path dari ajax. tambah validasi disini! pakai kapan :
 			//1. harus pake C:/EXCION_GACA/ION DL/
 			//2. harus pake get string path dari ajax
-		$getPath = str_replace("_", " ", $file);
+		$getPath = str_replace("-", " ", $file);
 		$realPath = 'C:/EXCION_GACA/ION DL/'.$getPath;
 		//PBS
 		$file = fopen($realPath, "r");
@@ -383,7 +383,7 @@ class Csv extends CI_Controller {
 				 'kap_mvar' => $pbsKapMvar,
 		 );
 
-		 $this->load->view('tabel', $data);
+		 $this->load->view('tabel_json', $data);
 
 	}
 
@@ -572,7 +572,8 @@ fclose($file);
 				'pbs3kap_mvar' => $pbs3KapMvar,
 		 );
 
-		 $this->load->view('hasil_default', $data);
+		 //$this->load->view('hasil_default', $data);
+		 $this->load->view('templates/trans/hasil', $data);
 	}
 
 public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa lebih streamline lagi?
