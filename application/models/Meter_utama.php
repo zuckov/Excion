@@ -68,6 +68,7 @@ class Meter_utama extends CI_Model {
            'kap_mw' => $pbsKapMw,
      	     'kap_mvar' => $pbsKapMvar,
       );
+
       return $data;
      }
 

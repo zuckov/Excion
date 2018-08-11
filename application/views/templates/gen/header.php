@@ -31,18 +31,15 @@
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>content/gen/vendors/jquery/dist/jquery.min.js"></script>
 
+    <!-- Chart.js dari gentelella-->
+    <script src="<?php echo base_url() ?>content/gen/vendors/Chart.js/dist/Chart.min.js"></script>
+
     <!-- Dropzone
     ================================================== -->
   	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/dropzone.css" />
   	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/basic.css" />
   	<script type="text/javascript" src="<?php echo base_url() ?>content/dz/dropzone.js"></script>
 
-    <!-- Chart.js dari gentelella-->
-    <script src="<?php echo base_url() ?>content/gen/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- Custom Theme Scripts dari gentelella-->
-    <script src="content/gen/build/js/custom.js"></script>
-    <!-- -->
-    <script src="<?php echo base_url() ?>content/customTable.js"></script>
 
 
   </head>
@@ -91,7 +88,7 @@
                     <ul class="nav child_menu">
                       <li><a href="#">Excion - default</a></li>
                       <li><a href="<?php echo base_url('upload/index') ?>">Excion - Upload</a></li>
-                      <li><a href="#">Excion - RT</a></li>
+                      <!-- <li><a href="#">Excion - RT</a></li> -->
                     </ul>
                   </li>
                   <li><a><i class="fa fa-line-chart"></i> History <span class="fa fa-chevron-down"></span></a>
@@ -102,18 +99,21 @@
                     </ul>
                   </li>
                   <?php if($this->session->userdata('lvl') == '1'){ ?>
+                    <!--
                   <li><a><i class="fa fa-map-marker"></i> Region <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('index.php/region/index'); ?>">Kelola Data Region</a></li>
 
                     </ul>
                   </li>
+                -->
                   <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <!-- <li><a href="<?php //echo base_url('index.php/user/create'); ?>">Buat Data User</a></li> -->
                       <li><a href="<?php echo base_url('index.php/user/index'); ?>">Kelola Data User</a></li>
                     </ul>
                   </li>
+
                   <li><a><i class="fa fa-clone"></i>Pejabat <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('index.php/pejabat/index'); ?>">Kelola Data Pejabat</a></li>

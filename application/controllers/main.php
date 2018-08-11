@@ -302,22 +302,7 @@
   	  $path8 = "C:\EXCION_GACA\ION DL\PBS 1.csv";
 	  $path9 = "C:\EXCION_GACA\ION DL\PBS 2.csv";
 
-	  /*
-	  Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KTG 2.csv" 1
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KTG 1.csv" 2
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\GARNG 12.csv" 3
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\WADAS 2.csv" 4
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\WADAS 1.csv" 5
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\KDOMBO.csv" 6
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\TIMO 13.csv" 7
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\TIMO 2.csv" 8
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\JELOK 3.csv" 9
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\JELOK 124.csv" 10
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\PBS 3.csv" 11
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\PBS 2.csv" 12
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\PBS 1.csv" 13
-    Workbooks.Open Filename:="C:\EXCION_GACA\ION DL\WONOGRI.csv" 14
-	*/
+	 
 
       //file 1
   	  $handle = fopen($path2, "r");

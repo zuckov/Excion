@@ -147,7 +147,7 @@
                 <p style="position:absolute">
                   <input name="subscribe" id="excion_default" data-toggle="modal" data-target="#" value="Excion" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
                   <input name="subscribe" data-toggle="modal" data-target="#modalupload" value="Upload" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f">
-                  <a href="<?php echo base_url('index.php/send/') ?>"><input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
+                  <!-- <a href="<?php echo base_url('index.php/send/') ?>"><input name="subscribe" data-toggle="modal" data-target="#" value="Realtime - Soon" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a> -->
                 </p>
                 <?php }else {?>
                 <p>
@@ -164,7 +164,7 @@
             <li><a class="smoothscroll" href="#">Fitur Excion :</a></li>
             <li><a class="smoothscroll" href="#">Excion<span>Fungsi default excion</span></a></li>
             <li><a class="smoothscroll" href="#">Excion Upload<span>Fungsi excion dengan fitur upload</span></a></li>
-            <li><a  class="smoothscroll" href="#">Excion RT<span>Fungsi excion real-time - eksperimental</span></a></li>
+            <!--<li><a  class="smoothscroll" href="#">Excion RT<span>Fungsi excion real-time - eksperimental</span></a></li> -->
         </ul> <!-- end home-sidelinks -->
 <!-- home-social -->  <!--
         <ul class="home-social">

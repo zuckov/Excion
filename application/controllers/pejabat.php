@@ -69,7 +69,7 @@ class Pejabat extends CI_Controller {
 			$this->session->set_flashdata('pesan2','Data input berhasil');
 		redirect('pejabat/index');
 		}
-
+}
 	  public function hapus($id){
 			$where = array('id' => $id);
 			$this->m_pejabat->delete_data($where,'pejabat');

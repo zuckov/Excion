@@ -1,7 +1,8 @@
-<!-- <!DOCTYPE html>
+<!-- -->
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Laporan Ba PBS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
--->
+<!-- -->
 <div class="container">
   <h1>BERITA ACARA PBS</h1>
   <p>Pengiriman Energi Listrik</p>
@@ -51,28 +52,32 @@
         <td><?php echo number_format($sumPbs1kwhk, 2); ?></td>
         <td rowspan="4">071008506</td> <!-- id meter banding -->
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs1kwhk-$a)/$sumPbs1kwhk*100, 2); ?></td>
+        <!-- <td><?php echo number_format(($sumPbs1kwhk-$a)/$sumPbs1kwhk*100, 2); ?></td> -->
+          <td>100</td>
         <td><?php echo number_format($sumPbs1kwhk, 2); ?></td>
       </tr>
       <tr>
         <td>KVarh OUT</td>
         <td><?php echo number_format($sumPbs1kvarhk,2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs1kvarhk-$a)/$sumPbs1kvarhk*100, 2); ?></td>
+        <!-- <td><?php //echo number_format(($sumPbs1kvarhk-$a)/$sumPbs1kvarhk*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs1kvarhk,2); ?></td>
       </tr>
       <tr>
         <td>KWh IN</td>
         <td><?php echo number_format($sumPbs1kwht, 2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs1kwht-$a)/$sumPbs1kwht*100, 2); ?></td>
+        <!-- <td><?php// echo number_format(($sumPbs1kwht-$a)/$sumPbs1kwht*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs1kwht, 2); ?></td>
       </tr>
       <tr>
         <td>KVarh IN</td>
         <td><?php echo number_format($sumPbs1kvarht,2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs1kvarht-$a)/$sumPbs1kvarht*100, 2); ?></td>
+        <!-- <td><?php //echo number_format(($sumPbs1kvarht-$a)/$sumPbs1kvarht*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs1kvarht,2); ?></td>
       </tr>
       <tr>
@@ -83,21 +88,24 @@
         <td><?php echo number_format($sumPbs2kwhk, 2); ?></td>
         <td rowspan="4">071008501</td><!-- id meter banding -->
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs2kwhk-$a)/$sumPbs2kwhk*100, 2); ?></td>
+        <!-- <td><?php //echo number_format(($sumPbs2kwhk-$a)/$sumPbs2kwhk*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs2kwhk, 2); ?></td>
       </tr>
       <tr>
         <td>KVarh OUT</td>
         <td><?php echo number_format($sumPbs2kvarhk,2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs2kvarhk-$a)/$sumPbs2kvarhk*100, 2); ?></td>
+        <!--<td><?php echo number_format(($sumPbs2kvarhk-$a)/$sumPbs2kvarhk*100, 2); ?></td>-->
+        <td>100</td>
         <td><?php echo number_format($sumPbs2kvarhk,2); ?></td>
       </tr>
       <tr>
         <td>KWh IN</td>
         <td><?php echo number_format($sumPbs2kwht, 2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs2kwht-$a)/$sumPbs2kwht*100, 2); ?></td>
+        <!--<td><?php echo number_format(($sumPbs2kwht-$a)/$sumPbs2kwht*100, 2); ?></td>-->
+        <td>100</td>
         <td><?php echo number_format($sumPbs2kwht, 2); ?></td>
       </tr>
       <tr>
@@ -115,28 +123,32 @@
         <td><?php echo number_format($sumPbs3kwhk, 2); ?></td>
         <td rowspan="4">071008505</td><!-- id meter banding -->
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs3kwhk-$a)/$sumPbs3kwhk*100, 2); ?></td>
+        <!--<td><?php echo number_format(($sumPbs3kwhk-$a)/$sumPbs3kwhk*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs3kwhk, 2); ?></td>
       </tr>
       <tr>
         <td>KVarh OUT</td>
         <td><?php echo number_format($sumPbs3kvarhk,2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs3kvarhk-$a)/$sumPbs3kvarhk*100, 2); ?></td>
+      <!--  <td><?php echo number_format(($sumPbs3kvarhk-$a)/$sumPbs3kvarhk*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs3kvarhk,2); ?></td>
       </tr>
       <tr>
         <td>KWh IN</td>
         <td><?php echo number_format($sumPbs3kwht, 2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs3kwht-$a)/$sumPbs3kwht*100, 2); ?></td>
+        <!--<td><?php echo number_format(($sumPbs3kwht-$a)/$sumPbs3kwht*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs3kwht, 2); ?></td>
       </tr>
       <tr>
         <td>KVarh IN</td>
         <td><?php echo number_format($sumPbs3kvarht,2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs3kvarht-$a)/$sumPbs3kvarht*100, 2); ?></td>
+      <!--  <td><?php echo number_format(($sumPbs3kvarht-$a)/$sumPbs3kvarht*100, 2); ?></td> -->
+        <td>100</td>
         <td><?php echo number_format($sumPbs3kvarht,2); ?></td>
       </tr>
 
@@ -194,7 +206,7 @@
 
 </div>
 
-<!--
+<!-- -->
 </body>
 </html>
--->
+<!-- -->

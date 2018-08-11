@@ -654,7 +654,8 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		 $where =array(
 			 'asal_folder' => $date,
 		 );
-		 $this->load->view('tabel', $data);
+		 //$this->load->view('tabel', $data);
+		 $this->load->view('tabel_json', $data);
 
 		 /*
 		 $cek = $this->meter_utama->get_cek($where, "meter_utama")->num_rows();
@@ -677,6 +678,76 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		$pbsArray = $this->meter_utama->pronia($path);
 		$this->load->view('tabel_json', $pbsArray);
 	}
+
+	//ujicoba nanti hapus :
+	public function view_json(){
+		//$pbsArray = array();
+		//$pbsArray = $this->meter_utama->pronia($path);
+		$this->load->view('tabel_json');
+	}
+
+	//ujicoba nanti hapus :
+	public function get_pronia_json($path = "C:/EXCION_GACA/ION DL/PBS 1.csv"){
+		//PBS 1
+		$filePbs = fopen($path, "r");
+		$data = fgetcsv($filePbs, 1000, ",");
+		$pbsA/*pbsDate*/ = array_search("Date/Time", $data);
+		$pbsB/*pbsKwhDel*/ = array_search("kWh del int", $data);
+		$pbsC/*pbsKwhRec*/ = array_search("kVARh del int", $data);
+		$pbsD/*pbsKvarhDel*/ = array_search("kWh rec int", $data);
+		$pbsE/*pbsKvarhInt*/ = array_search("kVARh rec int", $data);
+		$pbsF/*pbsLpKvA*/ = array_search("LP-KV_A", $data);
+		$pbsG/*pbsLpKvB*/ = array_search("LP-KV_B", $data);
+		$pbsDate = $pbsKwhKir = $pbsKwhTer = $pbsKvarhKir = $pbsKvarhTer = $pbsKapMw = $pbsKapMvar = array();
+		$a = $b = $c = $d = $e = $f = $g=0;
+		while (($list= fgetcsv($filePbs, 1000, ",")) !=FALSE){ //setiap baris
+			foreach ($list as $index=>$val){ //tiap kolom
+			if($index==$pbsA){ //if index sama dengan kVARh del int
+					$pbsDate[$a]=$val; // buat nangkep nilai satu
+					$a++;
+			}
+			else if($index==$pbsB){
+				$pbsKwhKir[$b]=$val;
+					$b++;
+			}
+			else if($index==$pbsD){
+				$pbsKwhTer[$c]=$val;
+					$c++;
+			}
+			else if($index==$pbsC){
+				$pbsKvarhKir[$d]=$val;
+					$d++;
+			}
+			else if($index==$pbsE){
+				$pbsKvarhTer[$e]=$val;
+					$e++;
+			}
+			else if($index==$pbsF){
+				$pbsKapMw[$f]=$val;
+					$f++;
+			}
+			else {
+				$pbsKapMvar[$g]=$val;
+					$g++;
+			}
+		}
+		}
+	 fclose($filePbs);
+	 $data = array(
+			 'date' => $pbsDate,
+			 'kwh_k' => $pbsKwhKir,
+			 'kwh_t' => $pbsKwhTer,
+			 'kvarh_k' => $pbsKvarhKir,
+			 'kvarh_t' => $pbsKvarhTer,
+			 'kap_mw' => $pbsKapMw,
+			 'kap_mvar' => $pbsKapMvar,
+	);
+	//
+	//print "<pre>"; print_r($data); print "</pre>";
+	echo $jsonArray = json_encode($data);
+
+	}
+
 
 	public function get_hakv(){
 		$this->load->view('tabelHasilKvarh');
