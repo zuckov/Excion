@@ -62,8 +62,10 @@
 
 
       //$pbs1 = $this->meter_utama->pronia();
+      $this->load->view('templates/gen/header');
       $this->load->view('hasil', $data);
       //$this->load->view('hasil2');
+      $this->load->view('templates/gen/footer');
       //$this->load->view('templates/header');
       //$this->load->view('templates/agency/blogview');
       //$this->load->view('templates/footer');

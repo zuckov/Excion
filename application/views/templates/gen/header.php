@@ -37,6 +37,12 @@
   	<link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>content/dz/basic.css" />
   	<script type="text/javascript" src="<?php echo base_url() ?>content/dz/dropzone.js"></script>
 
+    <!-- Chart.js dari gentelella-->
+    <script src="<?php echo base_url() ?>content/gen/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- Custom Theme Scripts dari gentelella-->
+    <script src="content/gen/build/js/custom.js"></script>
+    <!-- -->
+    <script src="<?php echo base_url() ?>content/customTable.js"></script>
 
 
   </head>

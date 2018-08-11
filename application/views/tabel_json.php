@@ -35,7 +35,7 @@
 <!-- ini buat ajax langsung panggil di halaman depan -->
 <!-- <div class="container" id="patokanLebar" style="color:white"> -->
 <!-- ini buat ajax di halaman hasil -->
-<div class="container" style="height:900px; width:900px; margin-top:30px; margin-bottom:30px;"><!--border-style:solid; -->
+<div class="container" style="height:500px; width:1000px; margin-top:30px; margin-bottom:30px;"><!--border-style:solid; -->
   <canvas id="lineChart"></canvas>
 </div>
 
@@ -60,18 +60,19 @@
     <tbody>
       <?php
         $num = count($kwh_k);
-        $tgl = $kwhk = $kwht = $kvarh_k = $kvarh_t = array();
+        $tgl = $kwhk = $kwht = $kvark = $kvart = array();
         for ($i=0; $i < $num; $i++) {
         //$var = $i + 1;
+        //array_push($tgl, $date[$i];
+        array_push($kwhk, $kwh_k[$i]);
+        array_push($kwht, $kwh_t[$i]);
+        array_push($kvark, $kvarh_k[$i]);
+        array_push($kvart, $kvarh_t[$i]);
       ?>
       <tr>
         <td>2</td>
         <td>19854071</td>
-        <?php //array_push($tgl, $date[$i]) ?>
-        <?php //array_push($kwhk, $kwh_k[$i]) ?>
-        <?php //array_push($kwht, $kwh_t[$i]) ?>
-        <?php //array_push($kvark, $kvarh_k[$i]) ?>
-        <?php //array_push($kvart, $kvarh_t[$i]) ?>
+        <?php array_push($tgl, $date[$i]) ?>
         <td><?php echo $date[$i]; ?></td>
         <td><?php echo round($kwh_k[$i], 2); ?></td>
         <td><?php echo round($kwh_t[$i], 2); ?></td>
@@ -79,12 +80,13 @@
         <td><?php echo $kvarh_t[$i]; ?></td>
         <td><?php echo $kap_mw[$i]; ?></td>
         <td><?php echo $kap_mvar[$i]; ?></td>
-
       </tr>
     <?php } ?>
     </tbody>
   </table>
 </div>
+
+<?php //echo json_encode($tgl) ?>
 <!--
 </body>
 </html>
@@ -107,18 +109,50 @@
       //labels: ["January", "February", "March", "April", "May", "June", "July"],//[date],//["January", "February", "March", "April", "May", "June", "July"], //ini label bawah
       labels: <?php echo json_encode($tgl);?>,
       datasets: [{
-        label: "1st",
-        backgroundColor: "rgba(38, 185, 154, 0.31)",
-        borderColor: "rgba(38, 185, 154, 0.7)",
-        pointBorderColor: "rgba(38, 185, 154, 0.7)",
-        pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgba(220,220,220,1)",
+        label: "KWH kirim",
+        //backgroundColor: "rgba(38, 185, 154, 0.31)",
+        borderColor: "orange",
+        backgroundColor: "transparent",
+        //pointBorderColor: "rgba(38, 185, 154, 0.7)",
+        //pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+        //pointHoverBackgroundColor: "#fff",
+        //pointHoverBorderColor: "rgba(220,220,220,1)",
         pointBorderWidth: 1,
         //data: [31, 74, 6, 39, 20, 85, 7]
         data: <?php echo json_encode($kwhk);?>
+
+      }, {
+        label: "KWH terima",
+        borderColor: "red",
+        backgroundColor: "transparent",
+        pointBorderWidth: 1,
+        data: <?php echo json_encode($kwht);?>
+      }, {
+        label: "KVARH kirim",
+        borderColor: "blue",
+        backgroundColor: "transparent",
+        pointBorderWidth: 1,
+        data: <?php echo json_encode($kvark);?>
+      }, {
+        label: "KVARH terima",
+        borderColor: "green",
+        backgroundColor: "transparent",
+        data: <?php echo json_encode($kvart);?>
       }]
     },
+    options: {
+      scales: {
+
+    xAxes: [{
+      //type: 'time',
+          ticks: {
+              autoSkip: true,
+              maxTicksLimit: 10
+          }
+    }]
+
+    },
+    }
   });
 
 
