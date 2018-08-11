@@ -14,7 +14,6 @@
               <h2>Silahkan mulai upload data output pembangkit.</h2>
               <br>
               <br>
-              <p style="text-decoration: underline"><?php echo anchor('#','Tambah data pejabat dengan klik disini', array('data-toggle'=>'modal', 'data-target'=>'#modaltambah')); ?></p>
               <p style="text-decoration: underline"><a href="<?php base_url('index.php/main/cek_tabelgen2') ?>">Kembali ke Halaman utama dengan klik disini  </a></p>
               <div class="mid_center">
               </div>

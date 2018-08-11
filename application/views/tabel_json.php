@@ -41,7 +41,7 @@
 
 <div class="container" id="patokanLebar">
   <h2>Tabel Data Pronia</h2>
-  <p>The .table-bordered class adds borders to a table:</p>
+  <p></p><br>
   <table class="table table-bordered" id="table">
     <thead>
       <tr>

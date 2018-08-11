@@ -16,9 +16,10 @@
   <p>Pengiriman Energi Listrik</p>
   <p>Jawa Tengah dan DIY</p>
   <br>
+  <a href="#" class="btn btn-info btn-lg ">Cetak</a><br>
 
   <!-- tabel pbs start-->
-  <h3>PLTA SOD</h3>
+  <br><h3>PLTA SOD</h3>
   <table class="table table-bordered">
     <thead>
       <tr>

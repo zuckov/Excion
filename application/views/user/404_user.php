@@ -10,7 +10,7 @@
           <div class="col-middle">
             <div class="text-center text-center">
               <h1 class="error-number">404</h1>
-              <h2>Data pejabat kosong.</h2>
+              <h2>Data user kosong.</h2>
               <h2>Silahkan tambah data pengguna.</h2>
               <br>
               <br>
