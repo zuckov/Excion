@@ -206,8 +206,8 @@ class Meter_utama extends CI_Model {
        }
 
 
-       function tampil_data(){
-         return $this->db->get('meter_utama');
+       function tampil_data($data){
+         return $this->db->get_where('meter_utama', $data);
        }
 
        function tampil_data_join(){
@@ -233,6 +233,7 @@ class Meter_utama extends CI_Model {
          return $this->db->get_where($table,$where);
        }
 
+
 /*
        function update_data($where,$data,$table){
          $this->db->where($where);
@@ -250,8 +251,8 @@ class Meter_utama extends CI_Model {
 
        }
 
-       function get_data($where,$table){
-     		return $this->db->get_where($table,$where);
+       function get_data($where){
+     		return $this->db->get_where('meter_utama',$where);
      	}
 
        public function get_pbs1(){

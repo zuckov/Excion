@@ -675,7 +675,7 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 	public function get_pronia($path = "C:/EXCION_GACA/ION DL/PBS 1.csv"){
 		$pbsArray = array();
 		$pbsArray = $this->meter_utama->pronia($path);
-		$this->load->view('tabel', $pbsArray);
+		$this->load->view('tabel_json', $pbsArray);
 	}
 
 	public function get_hakv(){

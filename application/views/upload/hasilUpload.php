@@ -35,17 +35,17 @@
         //$num = count($kwh_k);
         //for ($i=0; $i < $num; $i++) {
         //$var = $i + 1;
-        foreach ($data as $key => $value) {
+        foreach ($datameter as $key => $value) {
       ?>
       <tr>
         <td><?php echo $z = $key + 1; ?></td>
         <td><?php echo $value['date']; ?></td>
-        <td><?php echo $value['kwh_kirim'];, 2); ?></td>
-        <td><?php echo $value['kwh_terima'];, 2); ?></td>
-        <td><?php echo $value['kvarh_kirim'];; ?></td>
-        <td><?php echo $value['kvarh_terima'];; ?></td>
-        <td><?php echo $value['asal_folder'];; ?></td>
-        <td><?php echo $value['tgl_upload'];; ?></td>
+        <td><?php echo $value['kwh_kirim']; ?></td>
+        <td><?php echo $value['kwh_terima']; ?></td>
+        <td><?php echo $value['kvarh_kirim']; ?></td>
+        <td><?php echo $value['kvarh_terima']; ?></td>
+        <td><?php echo $value['asal_folder']; ?></td>
+        <td><?php echo $value['tgl_upload']; ?></td>
       </tr>
     <?php } ?>
     </tbody>

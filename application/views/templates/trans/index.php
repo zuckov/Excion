@@ -380,8 +380,8 @@
       successmultiple:function(data,response){
         alert(response);
         //send response here
-        var url="<?php echo base_url() ?>index.php/uploadcsv/insert/";
-        //var url="<?php echo base_url() ?>index.php/main/start/";
+        //var url="<?php echo base_url() ?>index.php/uploadcsv/insert/";
+        var url="<?php echo base_url() ?>index.php/main/start/";
         window.location = url+response;
       },
       init:function(){
@@ -391,7 +391,7 @@
           myDropzone.processQueue(); // Tell Dropzone to process all queued files.
         });
         this.on("addedfile", function(file){
-          <?php if ($this->session->userdata('lvl') == 1) { ?>
+          <?php if ($this->session->userdata('reg') == 1) { ?>
 
           if (file.name == "PBS 1.csv" ) {
             //do nothing?
@@ -402,7 +402,7 @@
           }
           <?php } ?>
 
-          <?php if ($this->session->userdata('lvl') == 2) { ?>
+          <?php if ($this->session->userdata('reg') == 2) { ?>
 
           if (file.name == "PBS 2.csv" ) {
             //do nothing?
@@ -413,7 +413,7 @@
           }
           <?php } ?>
 
-          <?php if ($this->session->userdata('lvl') == 3) { ?>
+          <?php if ($this->session->userdata('reg') == 3) { ?>
 
           if (file.name == "PBS 3.csv" ) {
             //do nothing?

@@ -23,7 +23,11 @@ class Uploadcsv extends CI_Controller {
       parent::__construct();
       $this->load->helper('url');
       $this->load->model('meter_utama');
-  }
+      if($this->session->userdata('status') != "login"){
+  			redirect(base_url());
+  		}
+    }
+
 
   public function start($path){
 		//$this->load->view('upload/hasilUpload');
@@ -31,12 +35,12 @@ class Uploadcsv extends CI_Controller {
       'asal_folder' => $path,
     );
 
-    $result = $this->meter_utama->get_data($where, 'meter_utama')->num_rows();
+    $result = $this->meter_utama->tampil_data($where)->num_rows();
 		if ($result > 0) {
-      $data['datameter'] = $this->meter_utama->get_data()->result();
-      $this->load->view('templates/gen/header');
+      $data['datameter'] = $this->meter_utama->get_data($where)->result();
+      //$this->load->view('templates/gen/header');
 			$this->load->view('upload/hasilUpload',$data);
-			$this->load->view('templates/gen/footer');
+			//$this->load->view('templates/gen/footer');
 		}
 		else {
       $this->load->view('templates/gen/header');
@@ -46,12 +50,26 @@ class Uploadcsv extends CI_Controller {
 
 	}
 
-  public function insert($data){
-    $getPath = str_replace("-", "/", $date);
-    $realPath = base_url().'upload/'.$getPath;
+  public function insert($folder){
+    if ($this->session->userdata('user_id') == 1) {
+      $csv = "/PBS_1.csv";
+    }
+    elseif ($this->session->userdata('user_id') == 2) {
+      $csv = "/PBS_2.csv";
+    }
+    else {
+      $csv = "/PBS_3.csv";
+    }
+    //$getPath = str_replace("-", "/", $data);
+    //$realPath = base_url().'upload/'.$getPath;
+    $realPath = base_url().'upload/'.$folder.$csv;
     $file = fopen($realPath, "r");
+    $importdata = fgetcsv($file, 10000, ",");
     $baris = 0;
+    //*
     while (($importdata = fgetcsv($file, 10000, ",")) !== FALSE){
+
+      if($baris > 0){
       $data = array(
         //kwh del int = pbskwhkirim
         //kwh rec
@@ -60,19 +78,23 @@ class Uploadcsv extends CI_Controller {
         'kvarh_kirim' => $importdata[2],
         'kwh_terima' => $importdata[3],
         'kvarh_terima' => $importdata[4],
-        'pengirim' => $dari,
+        'pengirim' => $this->session->userdata('user_id'),
         'asal_folder' => $folder,
-        'tgl_upload' => $date,
-
-      );
-      if($baris > 0){  //jika dimulai dari baris kedua
-        $insert = $this->meter_utama->insert($data);
+        'tgl_upload' => $show_date = DateTime::createFromFormat('dmY_his', $folder)->format('d/m/Y_h:i:s'),
+        );
+        //print "<pre>"; echo "file ".$realPath." \n"; print_r($data); print "</pre>";
+        $this->meter_utama->insert_data($data);
       }
       $baris++;
     }
     fclose($file);
-    $this->session->set_flashdata('message', 'Import berhasil !');
-    redirect('uploadcsv/index/'.$data);
+    //$this->session->set_flashdata('message', 'Import berhasil !');
+    redirect('uploadcsv/start/'.$folder);
+    //print "<pre>"; echo "file ".$realPath." \n"; print_r($data); print "</pre>";
+    //print "<pre>"; echo "file ".$realPath." \n"; print_r($importdata); print "</pre>";
+
+    //$this->session->set_flashdata('message', 'Import berhasil !');
+    //redirect('uploadcsv/start/'.$data);
   }
 
   public function uploads(){

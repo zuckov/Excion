@@ -78,6 +78,7 @@ class Login extends CI_Controller{
 				$user = $value['username'];
 				$nama = $value['nama'];
 				$lvl = $value['level_user'];
+				$reg = $value['id_region'];
 			}
 			///*
 			$data_session = array(
@@ -85,6 +86,7 @@ class Login extends CI_Controller{
 				'username' => $user,
 				'nama' => $username,
 				'lvl' => $lvl,
+				'reg' => $reg,
 				'status' => "login",
 			);
 			//*/

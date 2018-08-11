@@ -196,7 +196,7 @@ class Upload extends CI_Controller
             'dari' => $this->session->userdata('user_id'),
           );
           $this->h_operator->input_data($data);
-          echo $currentDate.'-'.$fileData['file_name'];
+          echo $currentDate;
           //echo $dateReplace;
       }
       //validasi kalo file nya kosong disini....
