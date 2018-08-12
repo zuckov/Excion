@@ -40,11 +40,12 @@ Class Cetaklaporan extends CI_Controller{
         'id'=>$jabat2,
       );
       $query = $this->meter_utama->get_bakv($sendpath);
-  		$pejabat1 = $this->M_pejabat->edit_data($where1, "pejabat")->result();
-      $pejabat2 = $this->M_pejabat->edit_data($where2, "pejabat")->result();
+  		$pejabat1 = $this->M_pejabat->edit_data($where1, "pejabat")->result_array();
+      $pejabat2 = $this->M_pejabat->edit_data($where2, "pejabat")->result_array();
       //$query = $this->meter_utama->ba($path);
 
       $data = array(
+        'nosurat' => $nosurat,
         'pejabat1'=>$pejabat1,
         'pejabat2'=>$pejabat2,
         'query'=>$query,
@@ -52,10 +53,19 @@ Class Cetaklaporan extends CI_Controller{
 
   		$this->session->set_flashdata('pesan2','cetak dalam proses');
   		//redirect('user');
+      //print_r($pejabat1);
+      //print_r($pejabat2);
+
       $this->load->view('cetak/cetak_bakv', $data);
   		}
 
     }
+
+    public function cetak(){
+
+    }
+
+
 /*
     public function cetak_bakv($path){
       if($this->session->userdata('lvl') != 1){
