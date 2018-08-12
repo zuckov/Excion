@@ -50,7 +50,7 @@
     //tes template end
     //=======================================================
 
-    public function start($path){
+    public function start($path = "C:/EXCION_GACA/ION DL"){
       //insert ke database h_operator
       $date = DateTime::createFromFormat('dmY_his', $path)->format('d/m/Y_h:i:s');
       $data = array(
@@ -302,7 +302,7 @@
   	  $path8 = "C:\EXCION_GACA\ION DL\PBS 1.csv";
 	  $path9 = "C:\EXCION_GACA\ION DL\PBS 2.csv";
 
-	 
+
 
       //file 1
   	  $handle = fopen($path2, "r");

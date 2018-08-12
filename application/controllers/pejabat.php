@@ -54,7 +54,7 @@ class Pejabat extends CI_Controller {
 
 			if($this->form_validation->run()==FALSE){
 					$this->session->set_flashdata('pesan1','Data input masih ada yang kosong');
-					redirect('user');
+					redirect('pejabat');
 			}else{
 	    $nama = $this->input->post('nama');
 			$jabatan = $this->input->post('jabatan');

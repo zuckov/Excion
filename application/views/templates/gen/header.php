@@ -94,8 +94,8 @@
                   <li><a><i class="fa fa-line-chart"></i> History <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('index.php/history/index'); ?>">Kelola History Hitung</a></li>
-                      <li><a href="<?php //echo base_url('index.php/region/index'); ?>#">Lihat BA kWh</a></li>
-                      <li><a href="<?php //echo base_url('index.php/region/index'); ?>#">Lihat BA kVarh</a></li>
+                      <!-- <li><a href="<?php //echo base_url('index.php/region/index'); ?>#">Lihat BA kWh</a></li> -->
+                      <!-- <li><a href="<?php //echo base_url('index.php/region/index'); ?>#">Lihat BA kVarh</a></li> -->
                     </ul>
                   </li>
                   <?php if($this->session->userdata('lvl') == '1'){ ?>

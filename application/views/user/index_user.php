@@ -125,7 +125,7 @@
 
                       <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
                       <!-- validasi disini! -->
-                      <select class="form-control" name="lvl" value="<?php echo $lvl ?>" required>
+                      <select required class="form-control" name="lvl" value="<?php echo $lvl ?>" >
                         <option value="none" selected = "selected">-- Pilih Level User --</option>
                         <option value="1" <?php if($lvl == 1){echo "selected = 'selected'";}  ?>>Supervisor</option>
                         <option value="2" <?php if($lvl == 2){echo "selected = 'selected'";}  ?>>Operator</option>
@@ -133,7 +133,7 @@
                       <br>
 
                       <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
-                      <select class="form-control" name="region" value="<?php echo $regions ?>" required>
+                      <select required class="form-control" name="region" value="<?php echo $regions ?>" >
                         <option value="none">-- Pilih Region --</option>
                         <?php foreach ($region as $reg) { ?>
                           <option value="<?php echo $reg->id ?>" <?php if ($reg->id == $value->id_region){echo " selected = 'selected'";} ?>>
@@ -176,25 +176,24 @@
       <div class="modal-body" style="padding:40px 50px;">
         <form action="<?php echo base_url('index.php/user/tambah_aksi'); ?>" method="post">
           <div class="form-group">
-            <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
-            <input type="text" name="nama" class="form-control" placeholder="Masukan nama" ><br>
-            <label for="username" class=""><span class="fa fa-envelope"></span> Email</label>
-            <input type="text" name="email" class="form-control" placeholder="Masukan email" ><br>
+            <label for="nama" class=""><span class="fa fa-user"></span> Nama</label>
+            <input type="text" name="nama" class="form-control" placeholder="Masukan nama" required="required"><br>
+            <label for="email" class=""><span class="fa fa-envelope"></span> Email</label>
+            <input type="text" name="email" class="form-control" placeholder="Masukan email"required="required" ><br>
             <label for="username" class=""><span class="fa fa-archive"></span> Username</label>
-            <input type="text" name="username"class="form-control" placeholder="Masukan username" ><br>
+            <input type="text" name="username"class="form-control" placeholder="Masukan username" required="required"><br>
             <label for="pass" class=""><span class="fa fa-lock"></span> Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Masukan password" ><br>
+            <input type="password" name="password" class="form-control" placeholder="Masukan password" required="required"><br>
 
             <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
-            <select class="form-control" name="lvl">
+            <select class="form-control" name="lvl" required="required">
               <option value="none" selected = "selected">-- Pilih Level User --</option>
               <option value="1">Supervisor</option>
               <option value="2">Operator</option>
-            </select>
-            <br>
+            </select><br>
 
-            <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
-            <select class="form-control" name="region">
+            <label for="region" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
+            <select class="form-control" name="region" required="required">
               <option value="none" selected = "selected">-- Pilih Region --</option>
               <?php foreach ($region as $reg) { ?>
                 <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>

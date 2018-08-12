@@ -16,7 +16,7 @@
   <p>PENGIRIMAN ENERGI REAKTIF JAM (kVarh)</p>
   <p>P3B JAWA BALI, APB JAWA TENGAH DAN DIY</p>
   <br>
-  <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a>
+  <!-- <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a> -->
 <br><br>
   <h3>TOTAL ENERGI REAKTIF JAM (Kvarh) :</h3>
 

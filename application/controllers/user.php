@@ -24,7 +24,10 @@ class User extends CI_Controller {
  		$this->load->model('m_user');
 		$this->load->model('m_region');
 
- 		$this->load->helper('url');
+		$this->load->helper(array('form', 'url'));
+
+    $this->load->library('form_validation');
+
 
  	}
 	public function index()
@@ -32,16 +35,10 @@ class User extends CI_Controller {
 		if($this->session->userdata('lvl') != 1){
 			redirect(base_url());
 		}
-		//$data['region'] = $this->m_user->tampil_data()->result();
-    //$cek =$this->m_user->tampil_data()->num_rows();
-    //$data['user'] = $this->m_user->tampil_data();
-		//$data['region'] = $this->m_user->tampil_data()->result();
-		//$data
+
     $result =$this->m_user->tampil_data_join()->num_rows();
 		//*
 		if ($result > 0) {
-    //if ($data == 0) {
-      //$data['user'] = $this->m_user->tampil_data()->result();
       $data['user'] = $this->m_user->tampil_data_join()->result();
 			$data['region'] = $this->m_region->tampil_data()->result();
       $this->load->view('templates/gen/header');
@@ -52,8 +49,7 @@ class User extends CI_Controller {
       $this->load->view('templates/gen/header');
 			$this->load->view('user/404_user');
 			$this->load->view('templates/gen/footer');
-		}//*/
-		//$this->load->view('user/v_tampil',$data);
+		}
 	}
 
 
@@ -65,10 +61,11 @@ class User extends CI_Controller {
 		if($this->session->userdata('lvl') != 1){
 			redirect(base_url());
 		}
-		$this->form_validation->set_rules('username','username','required|trim');
-		$this->form_validation->set_rules('password','password','required|trim');
-		$this->form_validation->set_rules('nama','nama','required|trim');
-		$this->form_validation->set_rules('email','email','required|trim');
+		/*
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('password','password','required');
+		$this->form_validation->set_rules('nama','nama','required');
+		$this->form_validation->set_rules('email','email','required|valid_email');
 		$this->form_validation->set_rules('lvl','level_user','required|callback_select_validate');
 		$this->form_validation->set_rules('region','id_region','required|callback_select_validate');
 		//$this->form_validation->set_rules('city', 'city', 'required|callback_select_validate'); // Validating select option field.
@@ -76,7 +73,7 @@ class User extends CI_Controller {
 		if($this->form_validation->run()==FALSE){
 				$this->session->set_flashdata('pesan1','Data input masih ada yang kosong');
 				redirect('user');
-		}else{
+		}else{*/
 		$pass = $this->input->post('password');
 		$username = $this->input->post('username');
 		$password = md5($pass);
@@ -97,7 +94,7 @@ class User extends CI_Controller {
 		$this->session->set_flashdata('pesan2','Data input berhasil');
 		redirect('user');
 		}
-	}
+	//}
 
   function hapus($id){
 		if($this->session->userdata('lvl') != 1){

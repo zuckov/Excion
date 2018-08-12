@@ -81,20 +81,18 @@
 
                 <ul class="header-nav__list">
                     <?php if($this->session->userdata('status') == 'login'){ ?>
-          						<li><a class="smoothscroll" href="<?php echo base_url('index.php/history/index'); ?>">History</a></li>
+          						<li><a href="<?php echo base_url('index.php/history/index'); ?>">History</a></li>
           						<li><a href="<?php echo base_url('index.php/main/cek_tabelgen2'); ?>">Admin</a></li>
                       <li><a href="#">Profile</a></li>
                       <li><a href="<?php echo base_url('index.php/login/logout'/*'index.php/login/logout'*/); ?>">Logout</a></li>
           						<br>
                       <br>
-                      <li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
+                      <!-- <li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li> -->
           					<?php }else {?>
           						<li><a href="#" data-toggle="modal" data-target="#modalLogin" value="Login">Login</a></li>
           						<li><a class="smoothscroll" href="<?php echo base_url('index.php/main/about'); ?>">About</a></li>
           					<?php } ?>
                 </ul>
-
-                <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p>
 
                 <ul class="header-nav__social">
                     <li>
@@ -208,11 +206,11 @@
 
 		            <div class="form-group">
 		              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-									<input type="text" name="username" id="username" class="form-control" placeholder="Username" ><br>
+									<input type="text" name="username" id="username" class="form-control" placeholder="Username" required="required"><br>
 		            </div>
 		            <div class="form-group">
 		              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-									<input type="password" name="password" id="password" class="form-control" placeholder="Password" >
+									<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
 		            </div>
 								<!--
 								<div class="checkbox">
