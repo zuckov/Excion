@@ -11,6 +11,13 @@
 
 <div class="clearfix"></div>
 <div class="row">
+  <?php if ($this->session->flashdata('pesan1')) : ?>
+    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+      </button>
+      <strong>Perhatian, </strong><?php echo $this->session->flashdata('pesan1'); ?>
+    </div>
+  <?php endif; ?>
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel" style="min-height:600px">
       <div class="x_title">
@@ -57,8 +64,8 @@
               <a href="<?php echo base_url('index.php/csv/pronia/'.$folder.'-PBS_1.csv'); ?>" type="button" class="btn btn-success btn-lg">Pronia PBS 1</a>
               <a href='<?php echo base_url('index.php/csv/pronia/'.$folder.'-PBS_2.csv'); ?>' type="button" class="btn btn-success btn-lg">Pronia PBS 2</a>
               <a href='<?php echo base_url('index.php/csv/pronia/'.$folder.'-PBS_3.csv'); ?>' type="button" class="btn btn-success btn-lg">Pronia PBS 3</a>
-              <a href="<?php echo base_url('index.php/csv/baregion/'.$folder); ?>" type="button" class="btn btn-success btn-lg">BA PBS</a>
-              <a href="<?php echo base_url('index.php/csv/get_bakv/'.$folder); ?>" type="button" class="btn btn-success btn-lg">BA Kvar</a>
+              <a href="<?php echo base_url('index.php/csv/get_bapbs_model/'.$folder); ?>" type="button" class="btn btn-success btn-lg">BA PBS</a>
+              <a href="<?php echo base_url('index.php/csv/get_bakv_model/'.$folder); ?>" type="button" class="btn btn-success btn-lg">BA Kvar</a>
 
               <br>
 

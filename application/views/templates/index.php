@@ -183,50 +183,53 @@
 		</div>
 		<!-- /modal login -->
 
-		<!-- modal login 1-->
-			<div class="modal fade" id="modalLogin" role="dialog">
-		    <div class="modal-dialog">
-
-		      <!-- Modal content-->
-
-						<!-- <form role="form"> -->
-						<!---->
-		      <div class="modal-content">
-		        <div class="modal-header" style="padding:35px 50px;">
-		          <button type="button" class="close" data-dismiss="modal">&times;</button>
-		          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-		        </div>
-		        <div class="modal-body" style="padding:40px 50px;">
-							<form action="<?php echo base_url('index.php/login/login'); ?>" id='frm_vld' name='frm_vld' method="post">
-
-		            <div class="form-group">
-		              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-									<input type="text" name="username" id="username" class="form-control" placeholder="Username" ><br>
-		            </div>
-		            <div class="form-group">
-		              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-									<input type="password" name="password" id="password" class="form-control" placeholder="Password" >
-		            </div>
-								<!--
-								<div class="checkbox">
-		              <label><input type="checkbox" value="" checked>Remember me</label>
-		            </div>
-								-->
-		              <button type="submit" class="btn btn-default btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-
-		        </div>
-		        <div class="modal-footer">
-		          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-							</form>
-							<p>Not a member? <a href="#">Sign Up</a></p>
-		          <p>Forgot <a href="#">Password?</a></p>
-		        </div>
+		<!-- Modal Tambah Data -->
+		<div class="modal fade" id="modaltambah" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header" style="padding:35px 50px;">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4><span class="glyphicon glyphicon-pencil"></span> Tambah Data</h4>
 		      </div>
+		      <div class="modal-body" style="padding:40px 50px;">
+		        <form action="<?php echo base_url('index.php/user/tambah_aksi'); ?>" method="post">
+		          <div class="form-group">
+		            <label for="username" class=""><span class="fa fa-user"></span> Nama</label>
+		            <input type="text" name="nama" class="form-control" placeholder="Masukan nama" ><br>
+		            <label for="username" class=""><span class="fa fa-envelope"></span> Email</label>
+		            <input type="text" name="email" class="form-control" placeholder="Masukan email" ><br>
+		            <label for="username" class=""><span class="fa fa-archive"></span> Username</label>
+		            <input type="text" name="username"class="form-control" placeholder="Masukan username" ><br>
+		            <label for="pass" class=""><span class="fa fa-lock"></span> Password</label>
+		            <input type="password" name="password" class="form-control" placeholder="Masukan password" ><br>
 
+		            <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
+		            <select class="form-control" name="lvl">
+		              <option value="none" selected = "selected">-- Pilih Level User --</option>
+		              <option value="1">Supervisor</option>
+		              <option value="2">Operator</option>
+		            </select>
+		            <br>
 
+		            <label for="username" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
+		            <select class="form-control" name="region">
+		              <option value="none" selected = "selected">-- Pilih Region --</option>
+		              <?php foreach ($region as $reg) { ?>
+		                <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
+		              <?php } ?>
+		            </select><br>
+		            <!-- <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br> -->
+		          </div>
+		          <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-save  "></span> Tambah Data</button>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Batal</button>
+		        </form>
+		      </div>
 		    </div>
 		  </div>
-				<!-- /modal login -->
+		</div>
+		  <!-- /modal login -->
 
 				<!-- modal upload-->
 		<div id="modalupload" class="modal fade" role="dialog">

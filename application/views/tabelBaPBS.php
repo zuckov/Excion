@@ -16,7 +16,50 @@
   <p>Pengiriman Energi Listrik</p>
   <p>Jawa Tengah dan DIY</p>
   <br>
-  <a href="#" class="btn btn-info btn-lg ">Cetak</a><br>
+  <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a><br>
+
+  <!-- Modal Cetak Data -->
+  <div class="modal fade" id="cetak" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-print"></span> Cetak Laporan Berita Acara PBS</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bakv/'.$folder; ?>" method="post">
+            <div class="form-group">
+              <label for="username" class=""><span class="glyphicon glyphicon-book"></span> No. Dokumen</label>
+              <input type="text" name="nosurat" class="form-control" placeholder="Masukan no. dokumen" ><br>
+
+              <label for="lvl" class=""><span class="glyphicon glyphicon-user"></span> Pejabat 1</label>
+              <select class="form-control" name="pejabat1">
+                <option value="none" selected = "selected">-- Pilih Pejabat 1 --</option>
+                <?php foreach ($jabat as $value) { ?>
+                  <option value="<?php echo $value->id ?>"><?php echo $value->nama ?></option>
+                <?php } ?>
+              </select>
+              <br>
+
+              <label for="username" class=""><span class="glyphicon glyphicon-user"></span> Pejabat 2</label>
+              <select class="form-control" name="pejabat2">
+                <option value="none" selected = "selected">-- Pilih Pejabat 2 --</option>
+                <?php foreach ($jabat as $value) { ?>
+                  <option value="<?php echo $value->id ?>"><?php echo $value->nama ?></option>
+                <?php } ?>
+              </select><br>
+              <!-- <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br> -->
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-print  "></span> Cetak Laporan</button>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Batal</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- /modal Cetak Data -->
 
   <!-- tabel pbs start-->
   <br><h3>PLTA SOD</h3>
@@ -50,7 +93,7 @@
         <td rowspan="4">UNIT - 1</td>
         <td>KWh OUT</td>
         <td rowspan="4">0707A639-01</td> <!-- id meter utama -->
-        <td><?php echo number_format($sumPbs1kwhk, 2); ?></td>
+        <td><?php echo number_format($sumPbs1kwhk = $query['sumPbs1kwhk'], 2); ?></td>
         <td rowspan="4">071008506</td> <!-- id meter banding -->
         <td><?php echo $a=0 ?></td>
         <!-- <td><?php echo number_format(($sumPbs1kwhk-$a)/$sumPbs1kwhk*100, 2); ?></td> -->
@@ -59,7 +102,7 @@
       </tr>
       <tr>
         <td>KVarh OUT</td>
-        <td><?php echo number_format($sumPbs1kvarhk,2); ?></td>
+        <td><?php echo number_format($sumPbs1kvarhk = $query['sumPbs1kvarhk'],2); ?></td>
         <td><?php echo $a=0 ?></td>
         <!-- <td><?php //echo number_format(($sumPbs1kvarhk-$a)/$sumPbs1kvarhk*100, 2); ?></td> -->
         <td>100</td>
@@ -67,7 +110,7 @@
       </tr>
       <tr>
         <td>KWh IN</td>
-        <td><?php echo number_format($sumPbs1kwht, 2); ?></td>
+        <td><?php echo number_format($sumPbs1kwht = $query['sumPbs1kwht'], 2); ?></td>
         <td><?php echo $a=0 ?></td>
         <!-- <td><?php// echo number_format(($sumPbs1kwht-$a)/$sumPbs1kwht*100, 2); ?></td> -->
         <td>100</td>
@@ -75,7 +118,7 @@
       </tr>
       <tr>
         <td>KVarh IN</td>
-        <td><?php echo number_format($sumPbs1kvarht,2); ?></td>
+        <td><?php echo number_format($sumPbs1kvarht = $query['sumPbs1kvarht'],2); ?></td>
         <td><?php echo $a=0 ?></td>
         <!-- <td><?php //echo number_format(($sumPbs1kvarht-$a)/$sumPbs1kvarht*100, 2); ?></td> -->
         <td>100</td>
@@ -86,7 +129,7 @@
         <td rowspan="4">UNIT - 2</td>
         <td>KWh OUT</td>
         <td rowspan="4">0707A641-01</td><!-- id meter utama -->
-        <td><?php echo number_format($sumPbs2kwhk, 2); ?></td>
+        <td><?php echo number_format($sumPbs2kwhk = $query['sumPbs2kwhk'], 2); ?></td>
         <td rowspan="4">071008501</td><!-- id meter banding -->
         <td><?php echo $a=0 ?></td>
         <!-- <td><?php //echo number_format(($sumPbs2kwhk-$a)/$sumPbs2kwhk*100, 2); ?></td> -->
@@ -95,7 +138,7 @@
       </tr>
       <tr>
         <td>KVarh OUT</td>
-        <td><?php echo number_format($sumPbs2kvarhk,2); ?></td>
+        <td><?php echo number_format($sumPbs2kvarhk = $query['sumPbs2kvarhk'],2); ?></td>
         <td><?php echo $a=0 ?></td>
         <!--<td><?php echo number_format(($sumPbs2kvarhk-$a)/$sumPbs2kvarhk*100, 2); ?></td>-->
         <td>100</td>
@@ -103,7 +146,7 @@
       </tr>
       <tr>
         <td>KWh IN</td>
-        <td><?php echo number_format($sumPbs2kwht, 2); ?></td>
+        <td><?php echo number_format($sumPbs2kwht = $query['sumPbs2kwht'], 2); ?></td>
         <td><?php echo $a=0 ?></td>
         <!--<td><?php echo number_format(($sumPbs2kwht-$a)/$sumPbs2kwht*100, 2); ?></td>-->
         <td>100</td>
@@ -111,17 +154,17 @@
       </tr>
       <tr>
         <td>KVarh IN</td>
-        <td><?php echo number_format($sumPbs1kvarht,2); ?></td>
+        <td><?php echo number_format($sumPbs2kvarht = $query['sumPbs2kvarht'],2); ?></td>
         <td><?php echo $a=0 ?></td>
-        <td><?php echo number_format(($sumPbs1kvarht-$a)/$sumPbs1kvarht*100, 2); ?></td>
-        <td><?php echo number_format($sumPbs1kvarht,2); ?></td>
+        <td><?php echo number_format(($sumPbs2kvarht-$a)/$sumPbs2kvarht*100, 2); ?></td>
+        <td><?php echo number_format($sumPbs2kvarht,2); ?></td>
       </tr>
       <tr>
         <td rowspan="4">3</td>
         <td rowspan="4">UNIT - 3</td>
         <td>KWh OUT</td>
         <td rowspan="4">0707A642-01</td><!-- id meter utama -->
-        <td><?php echo number_format($sumPbs3kwhk, 2); ?></td>
+        <td><?php echo number_format($sumPbs3kwhk = $query['sumPbs3kwhk'], 2); ?></td>
         <td rowspan="4">071008505</td><!-- id meter banding -->
         <td><?php echo $a=0 ?></td>
         <!--<td><?php echo number_format(($sumPbs3kwhk-$a)/$sumPbs3kwhk*100, 2); ?></td> -->
@@ -130,7 +173,7 @@
       </tr>
       <tr>
         <td>KVarh OUT</td>
-        <td><?php echo number_format($sumPbs3kvarhk,2); ?></td>
+        <td><?php echo number_format($sumPbs3kvarhk = $query['sumPbs3kvarhk'],2); ?></td>
         <td><?php echo $a=0 ?></td>
       <!--  <td><?php echo number_format(($sumPbs3kvarhk-$a)/$sumPbs3kvarhk*100, 2); ?></td> -->
         <td>100</td>
@@ -138,7 +181,7 @@
       </tr>
       <tr>
         <td>KWh IN</td>
-        <td><?php echo number_format($sumPbs3kwht, 2); ?></td>
+        <td><?php echo number_format($sumPbs3kwht = $query['sumPbs3kwht'], 2); ?></td>
         <td><?php echo $a=0 ?></td>
         <!--<td><?php echo number_format(($sumPbs3kwht-$a)/$sumPbs3kwht*100, 2); ?></td> -->
         <td>100</td>
@@ -146,7 +189,7 @@
       </tr>
       <tr>
         <td>KVarh IN</td>
-        <td><?php echo number_format($sumPbs3kvarht,2); ?></td>
+        <td><?php echo number_format($sumPbs3kvarht = $query['sumPbs3kvarht'],2); ?></td>
         <td><?php echo $a=0 ?></td>
       <!--  <td><?php echo number_format(($sumPbs3kvarht-$a)/$sumPbs3kvarht*100, 2); ?></td> -->
         <td>100</td>

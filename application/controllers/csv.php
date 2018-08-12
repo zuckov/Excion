@@ -19,6 +19,8 @@ class Csv extends CI_Controller {
 	public function __construct(){
       parent::__construct();
       $this->load->model('meter_utama');
+			$this->load->model('m_pejabat');
+
   }
 
 	public function start()
@@ -679,6 +681,48 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		$pbsArray = $this->meter_utama->pronia($path);
 		$this->load->view('tabel_json', $pbsArray);
 	}
+
+	public function get_bakv_model($path = "C:/EXCION_GACA/ION DL"){
+		if ($path == "C:/EXCION_GACA/ION DL") {
+			$sendpath = $path;
+		}
+		else {
+			$getPath = str_replace("-", "/", $path);
+			$sendpath = base_url().'upload/'.$getPath;
+		}
+		$query = $this->meter_utama->get_bakv($sendpath);
+		$jabat = $this->m_pejabat->tampil_data()->result();
+		$data = array(
+			'query'=>$query,
+			'jabat'=>$jabat,
+			'folder'=>$path,
+		);
+
+		$this->load->view('tabelBaKvarh', $data);
+
+	}
+
+	public function get_bapbs_model($path = "C:/EXCION_GACA/ION DL"){
+		if ($path == "C:/EXCION_GACA/ION DL") {
+			$sendpath = $path;
+		}
+		else {
+			$getPath = str_replace("-", "/", $path);
+			$sendpath = base_url().'upload/'.$getPath;
+		}
+		$query = $this->meter_utama->get_ba($sendpath);
+		$jabat = $this->m_pejabat->tampil_data()->result();
+		$data = array(
+			'query'=>$query,
+			'jabat'=>$jabat,
+			'folder'=>$path,
+		);
+
+		$this->load->view('tabelBaPBS', $data);
+
+	}
+
+
 
 	//ujicoba nanti hapus :
 	public function view_json(){
