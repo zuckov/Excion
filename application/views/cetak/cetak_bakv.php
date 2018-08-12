@@ -1,5 +1,5 @@
 <?php
-$pdf = new FPDF('l','mm','A5');
+$pdf = new FPDF('l','mm','A4');
   //================================================================
   // membuat halaman baru
   $pdf->AddPage();
@@ -337,7 +337,7 @@ $pdf->Cell(38,5,'','TBLR',1,'C');
 
   $pdf->ln(2);
   $pdf->Cell(85,3,'Catatan ',0,0,'L');
-  $pdf->Cell(85,3,'Banjarnegara',0,1,'R');
+  $pdf->Cell(85,3,'Banjarnegara, _______________________________',0,1,'R');
   $pdf->Cell(85,3,'Berita Acara akan dikoreksi bila terjadi kesalahan Pembacaan. ',0,0,'L');
 $pdf->ln(9);
 $pdf->Cell(85,3,'Mengetahui ',0,0,'C');

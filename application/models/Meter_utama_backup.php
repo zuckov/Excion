@@ -194,7 +194,7 @@ class Meter_utama extends CI_Model {
                'sumPbs2kvarhk' => $sumPbs2kvarhk,
                'sumPbs3kvarhk' => $sumPbs3kvarhk,
      					//
-     					'sumPbs1kvarht' => $sumPbs1kvarht,
+     					  'sumPbs1kvarht' => $sumPbs1kvarht,
                'sumPbs2kvarht' => $sumPbs2kvarht,
                'sumPbs3kvarht' => $sumPbs3kvarht,
            );

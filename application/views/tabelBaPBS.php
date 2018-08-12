@@ -27,7 +27,7 @@
           <h4><span class="glyphicon glyphicon-print"></span> Cetak Laporan Berita Acara PBS</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bakv/'.$folder; ?>" method="post">
+          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bapbs/'.$folder; ?>" method="post">
             <div class="form-group">
               <label for="username" class=""><span class="glyphicon glyphicon-book"></span> No. Dokumen</label>
               <input type="text" name="nosurat" class="form-control" placeholder="Masukan no. dokumen" ><br>
