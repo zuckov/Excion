@@ -21,7 +21,7 @@ class H_operator extends CI_Model{
 
   function tampil_data_distinct(){
     $this->db->distinct();
-    $this->db->select('date, nama_region, nama, id, folder');
+    $this->db->select('date, region, nama, id, folder');
 		$this->db->from('history_operator');
 		$this->db->join('user', 'history_operator.dari = user.id', 'left');
     $this->db->join('region', 'user.id_region = region.id_reg', 'left');

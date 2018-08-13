@@ -40,6 +40,7 @@
             <th>No</th>
             <th>Tgl Olah Data Pembangkit</th>
             <th>User</th>
+            <th>Hak Akses</th>
             <th>Region</th>
             <th>Opsi</th>
           </tr>
@@ -51,7 +52,21 @@
             <td><?php echo $z=$key+1 ?></td>
             <td><?php echo $tgl = $value->date ?></td>
             <td><?php echo $nama = $value->nama ?></td>
-            <td><?php //echo $reg = $value->region ?></td>
+            <td>
+              <?php
+              $lvl = $value->level_user;
+              if ($lvl == 1) {
+                echo "Supervisor";
+              }
+              else if ($lvl == 2) {
+                echo "Operator";
+              }
+              else {
+                echo "---kosong---";
+              }
+              ?>
+            </td>
+            <td><?php echo $reg = $value->region ?></td>
             <td>
               <?php echo anchor('main/start/'.$value->folder,'Lihat hasil', array("class"=>"btn btn-info btn-xs")); ?>
               <!-- <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Lihat Data</button> -->

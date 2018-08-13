@@ -60,12 +60,18 @@
     //=======================================================
 
     public function start($path = "C:/EXCION_GACA/ION DL"){
+      $this->load->helper('directory');
+      $this->load->helper('file');
+
       //insert ke database h_operator
       $date = DateTime::createFromFormat('dmY_his', $path)->format('d/m/Y_h:i:s');
+      //$map = array();
+      $map = directory_map('./upload/'.$path.'/');
       $data = array(
         //'path' => $path,
         'folder' => $path,
         'date' => $date,
+        'map' => $map,
       );
       //$this->h_operator->input_data($data);
 
@@ -78,6 +84,7 @@
       //$this->load->view('templates/header');
       //$this->load->view('templates/agency/blogview');
       //$this->load->view('templates/footer');
+      //print_r($map);
 
     }
 
