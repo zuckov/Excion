@@ -34,7 +34,14 @@ class History extends CI_Controller {
 		$result =$this->h_operator->tampil_data()->num_rows();
 		if ($result > 0) {
       //$data['history'] = $this->h_operator->tampil_data()->result();
-			$data['history'] = $this->h_operator->tampil_data_distinct()->result();
+			// /if ($this->session->userdata('lvl') == 1) {
+				$data['history'] = $this->h_operator->tampil_data_distinct()->result();
+			// /}
+			// /else {
+
+			// /	$data['history'] = $this->h_operator->tampil_data_distinct_selected()->result();
+
+			// /}
       $this->load->view('templates/gen/header');
 			$this->load->view('history/index_his',$data);
 			$this->load->view('templates/gen/footer');

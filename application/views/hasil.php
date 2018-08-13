@@ -84,7 +84,7 @@
                   <a href="<?php echo base_url('index.php/csv/get_bakv_model/'.$folder); ?>" type="button" class="btn btn-success btn-md">BA Kvar</a>
                 <?php else : ?>
                   <?php foreach ($map as $file) : ?>
-                    <a href="<?php echo base_url('index.php/csv/pronia/'.$folder.$file); ?>" type="button" class="btn btn-success btn-lg">Pronia PBS ke-1</a>
+                    <a href="<?php echo base_url('index.php/csv/pronia/'.$folder.'-'.$file); ?>" type="button" class="btn btn-success btn-lg">Pronia PBS ke-1</a>
                   <?php endforeach ?>
                 <?php endif ?>
               </div>
