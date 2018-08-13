@@ -31,7 +31,7 @@ class M_user extends CI_Model{
 	function tampil_data_join(){
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->join('region', 'user.id_region = region.id', 'left');
+		$this->db->join('region', 'user.id_region = region.id_reg', 'left');
 		return $this->db->get();
 	}
 

@@ -145,8 +145,18 @@ class Upload extends CI_Controller
 	                  $uploadData[$i]['file_name'] = $fileData['file_name'];
                     //insert file di database?
 										//echo "sukses";
+                    $data = array(
+                      //'path' => $path,
+                      'folder' => $currentDate,
+                      'date' => $show_date,
+                      'dari' => $this->session->userdata('user_id'),
+                      'nama_file' => $uploadData[$i]['file_name'],
+                    );
+                    $this->h_operator->input_data($data);
+                    //echo $currentDate;
 	              }
 	          }
+            echo $currentDate;
             /*
             //validasi file disini.
             $status? -> 0 - 5
@@ -189,15 +199,21 @@ class Upload extends CI_Controller
           );
           echo $response;
           */
+          ///////////////////////////////////////////////////input data asli
+          /*
           $data = array(
             //'path' => $path,
             'folder' => $currentDate,
             'date' => $show_date,
             'dari' => $this->session->userdata('user_id'),
+            'nama_file' => $fileData['file_name'],
           );
           $this->h_operator->input_data($data);
           echo $currentDate;
           //echo $dateReplace;
+          */
+          ///////////////////////////////////////////////////input data asli
+
       }
       //validasi kalo file nya kosong disini....
       //else {

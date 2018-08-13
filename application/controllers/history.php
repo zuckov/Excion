@@ -33,7 +33,8 @@ class History extends CI_Controller {
 		//$id=$this->session->userdata('id');
 		$result =$this->h_operator->tampil_data()->num_rows();
 		if ($result > 0) {
-      $data['history'] = $this->h_operator->tampil_data()->result();
+      //$data['history'] = $this->h_operator->tampil_data()->result();
+			$data['history'] = $this->h_operator->tampil_data_distinct()->result();
       $this->load->view('templates/gen/header');
 			$this->load->view('history/index_his',$data);
 			$this->load->view('templates/gen/footer');
@@ -77,7 +78,7 @@ class History extends CI_Controller {
 	}
 
   function hapus($id){
-		$where = array('id' => $id);
+		$where = array('id_his' => $id);
 		$this->user->delete_user($where,'user');
 		redirect('crud/index');
 	}
@@ -106,7 +107,7 @@ class History extends CI_Controller {
       'region' => $region,
 		);
 		$where = array(
-			'id' => $id
+			'id_his' => $id
 		);
 
 		$this->user->update_data($where,$data,'user');

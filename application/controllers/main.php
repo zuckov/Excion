@@ -10,6 +10,8 @@
       parent::__construct();
       //$this->load->model('meter_utama');
       $this->load->model('h_operator');
+      $this->load->model('m_user');
+
       $this->load->helper('url_helper');
     }
 
@@ -38,8 +40,15 @@
       $this->load->view('templates/gen/tables.php');
     }
     public function cek_tabelgen2(){
+      $history = count($this->h_operator->tampil_data_count()->result_array());
+      $user = count($this->m_user->tampil_data()->result_array());
+
+      $data = array(
+        'history' => $history,
+        'user' => $user,
+      );
       $this->load->view('templates/gen/header');
-      $this->load->view('templates/gen/index_gen');
+      $this->load->view('templates/gen/index_gen', $data);
       //$this->load->view('templates/gen/tables_dynamic_big_backup');
       $this->load->view('templates/gen/footer');
     }

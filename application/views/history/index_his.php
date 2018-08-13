@@ -32,7 +32,7 @@
     </div>
     <div class="x_content">
       <p class="text-muted font-13 m-b-30">
-        
+
       </p>
       <table id="datatable-responsive" class="table table-striped table-bordered">
         <thead>
@@ -51,7 +51,7 @@
             <td><?php echo $z=$key+1 ?></td>
             <td><?php echo $tgl = $value->date ?></td>
             <td><?php echo $nama = $value->nama ?></td>
-            <td><?php echo $reg = $value->region ?></td>
+            <td><?php //echo $reg = $value->region ?></td>
             <td>
               <?php echo anchor('main/start/'.$value->folder,'Lihat hasil', array("class"=>"btn btn-info btn-xs")); ?>
               <!-- <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="<?php echo "#modalubah".$id=$value->id ?>">Lihat Data</button> -->

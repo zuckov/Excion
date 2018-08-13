@@ -5,11 +5,27 @@ class H_operator extends CI_Model{
     parent::__construct();
   }
 
+  function tampil_data_count(){
+		return $this->db->get('history_operator');
+	}
+
   function tampil_data(){
     $this->db->select('*');
 		$this->db->from('history_operator');
 		$this->db->join('user', 'history_operator.dari = user.id', 'left');
-    $this->db->join('region', 'user.id_region = region.id', 'left');
+    $this->db->join('region', 'user.id_region = region.id_reg', 'left');
+    //$this->db-order_by('history', 'DESC');
+    return $this->db->get();
+		//return $this->db->get('history_operator');
+	}
+
+  function tampil_data_distinct(){
+    $this->db->distinct();
+    $this->db->select('date, nama_region, nama, id, folder');
+		$this->db->from('history_operator');
+		$this->db->join('user', 'history_operator.dari = user.id', 'left');
+    $this->db->join('region', 'user.id_region = region.id_reg', 'left');
+    $this->db->order_by('date', 'desc');
     return $this->db->get();
 		//return $this->db->get('history_operator');
 	}
@@ -29,7 +45,7 @@ class H_operator extends CI_Model{
     $this->db->select('*');
 		$this->db->from('history_operator');
 		$this->db->join('user', 'history_operator.dari = user.id');
-    $this->db->join('region', 'user.id_region = region.id');
+    $this->db->join('region', 'user.id_region = region.id_reg');
     return $this->db->get();
   }
 

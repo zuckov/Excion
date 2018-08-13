@@ -66,13 +66,13 @@ class Region extends CI_Controller {
 	}
 
   function hapus($id){
-		$where = array('id' => $id);
+		$where = array('id_reg' => $id);
 		$this->m_region->delete_data($where,'region');
 		redirect('region/index');
 	}
 
   function edit($id){ //ini sukses
-		$where = array('id' => $id);
+		$where = array('id_reg' => $id);
 		$data['region'] = $this->m_region->edit_data($where,'region')->result();
 		$this->load->view('region/v_edit',$data);
 	}
@@ -82,11 +82,11 @@ class Region extends CI_Controller {
     $region = $this->input->post('region');
 
 		$data = array(
-			'id' => $id,
+			'id_reg' => $id,
 			'region' => $region,
 		);
 		$where = array(
-			'id' => $id
+			'id_reg' => $id
 		);
 
 		$this->m_region->update_data($where,$data,'region');

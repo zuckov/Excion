@@ -186,17 +186,17 @@
             <input type="password" name="password" class="form-control" placeholder="Masukan password" required="required"><br>
 
             <label for="lvl" class=""><span class="fa fa-users"></span> Level User</label>
-            <select class="form-control" name="lvl" required="required">
+            <select class="form-control" name="lvl" required>
               <option value="none" selected = "selected">-- Pilih Level User --</option>
               <option value="1">Supervisor</option>
               <option value="2">Operator</option>
             </select><br>
 
             <label for="region" class=""><span class="glyphicon glyphicon-map-marker"></span> Region</label>
-            <select class="form-control" name="region" required="required">
+            <select class="form-control" name="region" required>
               <option value="none" selected = "selected">-- Pilih Region --</option>
               <?php foreach ($region as $reg) { ?>
-                <option value="<?php echo $reg->id ?>"><?php echo $reg->region ?></option>
+                <option value="<?php echo $reg->id_reg ?>"><?php echo $reg->region ?></option>
               <?php } ?>
             </select><br>
             <!-- <input type="text" name="id" id="username" class="form-control" placeholder="Region" ><br> -->

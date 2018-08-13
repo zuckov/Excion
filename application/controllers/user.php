@@ -61,19 +61,19 @@ class User extends CI_Controller {
 		if($this->session->userdata('lvl') != 1){
 			redirect(base_url());
 		}
-		/*
+		//*
 		$this->form_validation->set_rules('username','username','required');
 		$this->form_validation->set_rules('password','password','required');
 		$this->form_validation->set_rules('nama','nama','required');
 		$this->form_validation->set_rules('email','email','required|valid_email');
-		$this->form_validation->set_rules('lvl','level_user','required|callback_select_validate');
+		$this->form_validation->set_rules('lvl','level_user','required');
 		$this->form_validation->set_rules('region','id_region','required|callback_select_validate');
 		//$this->form_validation->set_rules('city', 'city', 'required|callback_select_validate'); // Validating select option field.
 
 		if($this->form_validation->run()==FALSE){
 				$this->session->set_flashdata('pesan1','Data input masih ada yang kosong');
 				redirect('user');
-		}else{*/
+		}else{//*/
 		$pass = $this->input->post('password');
 		$username = $this->input->post('username');
 		$password = md5($pass);
@@ -94,14 +94,14 @@ class User extends CI_Controller {
 		$this->session->set_flashdata('pesan2','Data input berhasil');
 		redirect('user');
 		}
-	//}
+	}
 
   function hapus($id){
 		if($this->session->userdata('lvl') != 1){
 			redirect(base_url());
 		}
 		$where = array('id' => $id);
-		$this->m_user->delete_data($where,'user');
+		$this->m_user->delete_user($where,'user');
 		redirect('user/index');
 	}
 
@@ -169,5 +169,17 @@ class User extends CI_Controller {
 		$this->session->set_flashdata('pesan2','Data input berhasil');
 		redirect('user');
 
+	}
+
+	// Below function is called for validating select option field.
+	function select_validate($abcd){
+		// 'none' is the first option that is default "-------Choose City-------"
+	if($abcd=="none"){
+		$this->form_validation->set_message('select_validate', 'Please Select Your City.');
+		return false;
+	} else{
+// User picked something.
+		return true;
+	}
 	}
 }
