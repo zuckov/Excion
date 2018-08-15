@@ -37,10 +37,10 @@
 <!-- ini buat ajax di halaman hasil -->
 <div class="container" style="height:500px; width:1000px; margin-top:30px; margin-bottom:30px;"><!--border-style:solid; -->
   <canvas id="lineChart"></canvas>
-  <button id="0">Chart KWH Kirim</button>
-  <button id="1">Chart KWH Terima</button>
-  <button id="2">Chart Kvarh Kirim</button>
-  <button id="3">Chart KWH Terima</button>
+  <button id="0" class="btn btn-info">Chart KWH Kirim</button>
+  <button id="1"class="btn btn-success">Chart KWH Terima</button>
+  <button id="2"class="btn btn-danger">Chart Kvarh Kirim</button>
+  <button id="3"class="btn btn-warning">Chart KWH Terima</button>
 
 </div>
 
@@ -126,6 +126,10 @@ options: {
         yAxes: [{
             position: "left",
             "id": "y-axis-0",
+            ticks: {
+              min: 80,
+              max: 120,
+            }
         }, {
             position: "right",
             "id": "y-axis-1",

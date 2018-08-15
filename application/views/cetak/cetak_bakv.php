@@ -1,5 +1,5 @@
 <?php
-$pdf = new FPDF('l','mm','A4');
+$pdf = new FPDF('l','mm','A5');
   //================================================================
   // membuat halaman baru
   $pdf->AddPage();
