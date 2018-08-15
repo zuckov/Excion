@@ -17,6 +17,8 @@
   <p>P3B JAWA BALI, APB JAWA TENGAH DAN DIY</p>
   <br>
   <!-- -->
+  <!-- <a href="#" class="btn btn-info btn-lg" onclick="history.back(-1)"> <i class="glyphicon glyphicon-arrow-left"></i>  Kembali</a> -->
+  <input class="btn btn-info btn-lg" type="button" value="Kembali" onclick="history.back(-1)" />
   <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a>
 <!-- -->
 <br><br>

@@ -17,6 +17,7 @@
   <p>Jawa Tengah dan DIY</p>
   <br>
   <!-- -->
+  <input class="btn btn-info btn-lg" type="button" value="Kembali" onclick="history.back(-1)" /><span class="glyphicon glyphicon-name"></span>
   <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a><br>
 <!-- -->
 
