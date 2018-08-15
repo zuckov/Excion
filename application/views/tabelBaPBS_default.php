@@ -16,9 +16,8 @@
   <p>Pengiriman Energi Listrik</p>
   <p>Jawa Tengah dan DIY</p>
   <br>
-  <!-- -->
-  <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a><br>
-<!-- -->
+  <!--
+  <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a><br> -->
 
   <!-- Modal Cetak Data -->
   <div class="modal fade" id="cetak" role="dialog">
@@ -29,7 +28,7 @@
           <h4><span class="glyphicon glyphicon-print"></span> Cetak Laporan Berita Acara PBS</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bapbs/'.$folder; ?>" method="post">
+          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bapbs/'; ?>" method="post">
             <div class="form-group">
               <label for="username" class=""><span class="glyphicon glyphicon-book"></span> No. Dokumen</label>
               <input type="text" name="nosurat" class="form-control" placeholder="Masukan no. dokumen" ><br>

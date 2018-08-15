@@ -16,9 +16,7 @@
   <p>PENGIRIMAN ENERGI REAKTIF JAM (kVarh)</p>
   <p>P3B JAWA BALI, APB JAWA TENGAH DAN DIY</p>
   <br>
-  <!-- -->
-  <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a>
-<!-- -->
+  <!-- <a href="#" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cetak">Cetak</a> -->
 <br><br>
   <h3>TOTAL ENERGI REAKTIF JAM (Kvarh) :</h3>
 
@@ -31,7 +29,7 @@
           <h4><span class="glyphicon glyphicon-print"></span> Cetak Laporan Berita Acara KVARH</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bakv/'.$folder; ?>" method="post">
+          <form action="<?php echo base_url().'index.php/cetaklaporan/cetak_bakv/'; ?>" method="post">
             <div class="form-group">
               <label for="username" class=""><span class="glyphicon glyphicon-book"></span> No. Dokumen</label>
               <input type="text" name="nosurat" class="form-control" placeholder="Masukan no. dokumen" ><br>

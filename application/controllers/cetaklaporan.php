@@ -62,9 +62,7 @@ Class Cetaklaporan extends CI_Controller{
     }
 
     public function cetak_bapbs($path){
-      if($this->session->userdata('lvl') != 1){
-        redirect(base_url());
-      }
+      
       if ($path == "C:/EXCION_GACA/ION DL") {
         $sendpath = $path;
       }

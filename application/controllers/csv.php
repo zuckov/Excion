@@ -315,7 +315,7 @@ class Csv extends CI_Controller {
 					'sumPbs3kvarht' => $sumPbs3kvarht,
 			);
 		//$this->load->view('tabelBaKvarh');
-		$this->load->view('tabelBaPBS', $data);
+		$this->load->view('tabelBaPBS_default', $data);
 		//$this->load->view('tabelBaAjax', $data);
 	}
 
@@ -659,6 +659,7 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		 );
 		 //$this->load->view('tabel', $data);
 		 $this->load->view('tabel_json', $data);
+		 //$this->load->view('hasil_ganti_chart', $data);
 
 		 /*
 		 $cek = $this->meter_utama->get_cek($where, "meter_utama")->num_rows();
@@ -1258,7 +1259,7 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		);
 
 		//*/
-		$this->load->view('tabelBaKvarh', $data);
+		$this->load->view('tabelBaKvarh_default', $data);
 	}
 
 
