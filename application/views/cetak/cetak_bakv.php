@@ -20,7 +20,7 @@ $pdf = new FPDF('l','mm','A5');
   $pdf->Ln(4);
   $pdf->Cell(190,3,'PENGIRIMAN ENERGI REAKTIF JAM (kVarh)',0,1,'C');
   $pdf->Cell(190,3,'DARI PT INDONESIA POWER UBP MRICA KE PT PLN (Persero) P3B JAWA BALI, APB JAWA TENGAH DAN DIY',0,1,'C');
-  $pdf->Cell(175,7,'Periode : ________________________',0,1,'C');
+  $pdf->Cell(190,7,'Periode : ___________________________',0,1,'C');
   $pdf->Ln(1);
   $pdf->Cell(175,3,'TOTAL ENERGI REAKTIF JAM (Kvarh) :',0,1,'L');
   //======================================================================================== total : 190

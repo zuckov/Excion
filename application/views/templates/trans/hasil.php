@@ -131,7 +131,7 @@
               <!--  <a href="<?php echo base_url('index.php/csv/baRegion_default'); ?>"><input name="subscribe" id="excion_default"  value="BA PBS" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
                  <a href="<?php echo base_url('index.php/csv/get_bakv_default'); ?>"><input name="subscribe" id="excion_default"  value="BA Kvar" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
  -->
-                <a href="<?php echo base_url('index.php/csv/get_bapbs_model'); ?>"><input name="subscribe" id="excion_default"  value="BA Kvar" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
+                <a href="<?php echo base_url('index.php/csv/get_bapbs_model'); ?>"><input name="subscribe" id="excion_default"  value="BA PBS" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
 
                 <a href="<?php echo base_url('index.php/csv/get_bakv_model'); ?>"><input name="subscribe" id="excion_default"  value="BA Kvar" type="submit" style="color: #ffffff; background: #cc147f; border-color: #cc147f"></a>
 

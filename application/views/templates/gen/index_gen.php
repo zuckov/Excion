@@ -110,13 +110,13 @@
             <p>Pilih menu History pada side bar di halaman ini.</p>
           </div>
           <div class="tab-pane" id="messages">
-            <p class="lead">Kelola Data User</p>
+            <p class="lead">Kelola data user</p>
             <p>Bagi pengguna dengan hak akses supervisor, ia dapat mengelola data pengguna pada sistem ini.</p>
             <p>Supervisor dapat menambah user baru, mengubah data user, ataupun menghapus data user.</p>
             <p>Pilih "User" pada side bar di halaman ini.</p>
           </div>
           <div class="tab-pane" id="settings">
-            <p class="lead">Kelola Data Pejabat</p>
+            <p class="lead">Kelola data pejabat</p>
             <p>Bagi pengguna dengan hak akses supervisor, ia dapat mengelola data pejabat pada sistem ini.</p>
             <p>Data pejabat akan digunakan sebagai pejabat yang bertanggung jawab dalam cetak laporan berita acara. </p>
             <p>Pilih menu "Pejabat" pada side bar di halaman ini.</p>

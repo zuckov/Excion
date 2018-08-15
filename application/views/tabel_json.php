@@ -40,7 +40,7 @@
   <button id="0" class="btn btn-info">Chart KWH Kirim</button>
   <button id="1"class="btn btn-success">Chart KWH Terima</button>
   <button id="2"class="btn btn-danger">Chart Kvarh Kirim</button>
-  <button id="3"class="btn btn-warning">Chart KWH Terima</button>
+  <button id="3"class="btn btn-warning">Chart Kvarh Terima</button>
 
 </div>
 
@@ -114,8 +114,8 @@ data: {
     datasets: [{
         type: 'line',
         label: "KWH Kirim",
-        borderColor: "blue",
-        backgroundColor: "blue",
+        borderColor: "rgb(71, 153, 235)",
+        backgroundColor: "rgb(71, 153, 235)",
         yAxisID: "y-axis-0",
         fill: false,
         data: temp_dataset,
@@ -142,8 +142,8 @@ $("#0").click(function() {
   var data = lineChart_chart.config.data;
   data.datasets[0].data = temp_dataset;
   data.datasets[0].label = "KWH Kirim";
-  data.datasets[0].borderColor = "blue";
-  data.datasets[0].backgroundColor = "blue";
+  data.datasets[0].borderColor = "rgb(71, 153, 235)";
+  data.datasets[0].backgroundColor = "rgb(71, 153, 235)";
 
 //data.datasets[1].data = rain_dataset;
   data.labels = chart_labels;

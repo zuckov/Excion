@@ -10,10 +10,14 @@ class Meter_utama extends CI_Model {
        public function get_cek($where, $table){
          return $this->db->get_where($table,$where);
        }
+//===================================================================================================================
+//GET_BAKV
+//===================================================================================================================
 
-       public function get_bakv($path = "C:/EXCION_GACA/ION DL"){
-         if ($path == "C:/EXCION_GACA/ION DL") {
-           $realPath = $path;
+       public function get_bakv($path = null){
+         if ($path == null) {
+           //$getPath = str_replace("-", "/", $path);
+           $realPath = "C:/EXCION_GACA/ION DL";
            $pbs1 = $realPath."/PBS 1.csv";
            $pbs2 = $realPath."/PBS 2.csv";
            $pbs3 = $realPath."/PBS 3.csv";
@@ -21,8 +25,8 @@ class Meter_utama extends CI_Model {
          }
          else {
            $getPath = str_replace("-", "/", $path);
-           //$realPath = base_url().'upload/'.$getPath;
-           $realPath =$getPath;
+           $realPath = base_url().'upload/'.$getPath;
+           //$realPath =$getPath;
            $pbs1 = $realPath."/PBS_1.csv";
            $pbs2 = $realPath."/PBS_2.csv";
            $pbs3 = $realPath."/PBS_3.csv";
@@ -216,8 +220,12 @@ class Meter_utama extends CI_Model {
 
          		//*/
          		return $data;
-
        }
+
+       //===================================================================================================================
+       //PRONIA
+       //===================================================================================================================
+
 
        //public function pronia($path = "C:/EXCION_GACA/ION DL/" ){
        public function pronia($path){
@@ -280,16 +288,16 @@ class Meter_utama extends CI_Model {
       return $data;
      }
 
-       public function ne(){
-         //
-       }
 
-       public function get_ba($path = "C:/EXCION_GACA/ION DL"){
+     //===================================================================================================================
+     //GET_BA
+     //===================================================================================================================
+       public function get_ba($path = null){
          //coba fungsi simulasi BApbs
      		//not based on neraca energi, semua itungan asalanya dari file mentah PBS.
      		//array_sum
-        if ($path == "C:/EXCION_GACA/ION DL") {
-          $realPath = $path;
+        if ($path == null) {
+          $realPath = "C:/EXCION_GACA/ION DL";
           $pbs1 = $realPath."/PBS 1.csv";
           $pbs2 = $realPath."/PBS 2.csv";
           $pbs3 = $realPath."/PBS 3.csv";
@@ -297,8 +305,8 @@ class Meter_utama extends CI_Model {
         }
         else {
           $getPath = str_replace("-", "/", $path);
-          //$realPath = base_url().'upload/'.$getPath;
-          $realPath = $getPath;
+          $realPath = base_url().'upload/'.$getPath;
+          //$realPath = $getPath;
           $pbs1 = $realPath."/PBS_1.csv";
           $pbs2 = $realPath."/PBS_2.csv";
           $pbs3 = $realPath."/PBS_3.csv";
@@ -454,13 +462,6 @@ class Meter_utama extends CI_Model {
          return $this->db->get_where($table,$where);
        }
 
-
-/*
-       function update_data($where,$data,$table){
-         $this->db->where($where);
-         $this->db->update($table,$data);
-       }
-       */
 
        function delete_user($where, $table){
          $this->db->where($where);

@@ -683,13 +683,14 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 		$this->load->view('tabel_json', $pbsArray);
 	}
 
-	public function get_bakv_model($path = "C:/EXCION_GACA/ION DL"){
-		if ($path == "C:/EXCION_GACA/ION DL") {
+	public function get_bakv_model($path = null){
+		if ($path == null) {
 			$sendpath = $path;
 		}
 		else {
 			$getPath = str_replace("-", "/", $path);
-			$sendpath = base_url().'upload/'.$getPath;
+			$sendpath = $getPath;
+			//$sendpath = base_url().'upload/'.$getPath;
 		}
 		$query = $this->meter_utama->get_bakv($sendpath);
 		$jabat = $this->m_pejabat->tampil_data()->result();
@@ -703,13 +704,16 @@ public function pronia($date /* = "C:/EXCION_GACA/ION DL/PBS 1.csv"*/ ){ //bisa 
 
 	}
 
-	public function get_bapbs_model($path = "C:/EXCION_GACA/ION DL"){
-		if ($path == "C:/EXCION_GACA/ION DL") {
+	public function get_bapbs_model($path = null){
+		if ($path == null) {
 			$sendpath = $path;
+			//"C:/EXCION_GACA/ION DL"
 		}
 		else {
 			$getPath = str_replace("-", "/", $path);
-			$sendpath = base_url().'upload/'.$getPath;
+			$sendpath = $getPath;
+
+			//$sendpath = base_url().'upload/'.$getPath;
 		}
 		$query = $this->meter_utama->get_ba($sendpath);
 		$jabat = $this->m_pejabat->tampil_data()->result();
